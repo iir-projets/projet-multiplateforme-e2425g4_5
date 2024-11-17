@@ -1,4 +1,4 @@
-package ma.plantes.backend.entities;
+package ma.plantes.backend.entities.security;
 
 public class AuthenticationResponse {
 
