@@ -1,15 +1,13 @@
 package ma.plantes.backend.service.security;
 
 import lombok.RequiredArgsConstructor;
-import ma.plantes.backend.entities.AuthenticationResponse;
+import ma.plantes.backend.entities.security.AuthenticationResponse;
 import ma.plantes.backend.entities.User;
 import ma.plantes.backend.repositories.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
