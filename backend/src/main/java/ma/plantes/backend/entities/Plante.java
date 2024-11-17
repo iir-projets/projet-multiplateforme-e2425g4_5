@@ -23,12 +23,8 @@ public class Plante {
     @Column(nullable = true, name = "description_plante")
     private String description;
 
+
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "plante_propriete",
-            joinColumns = @JoinColumn(name = "plante_id"),
-            inverseJoinColumns = @JoinColumn(name = "propriete_id")
-    )
     private List<Propriete> propriete;
 
     @Column(nullable = false, name = "region_plante")
