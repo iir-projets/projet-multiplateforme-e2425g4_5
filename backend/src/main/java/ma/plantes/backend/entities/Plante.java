@@ -20,22 +20,21 @@ public class Plante {
     @Column(nullable = false, name = "nom_plante")
     private String nom;
 
-    @Column(nullable = true, name = "description_plante")
+    @Column(nullable = true)
     private String description;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Propriete> propriete;
 
-    @Column(nullable = false, name = "region_plante")
+    @Column(nullable = false)
     private String region;
 
-    @Column(nullable = true, name = "precaution_plante")
+    @Column(nullable = true)
     private String precaution;
 
-    @Column(nullable = true, name = "interaction_plante")
+    @Column(nullable = true)
     private String interaction;
 
-    @Column(nullable = false, name = "image_plante")
+    @Column(nullable = false)
     private String image;
 }
