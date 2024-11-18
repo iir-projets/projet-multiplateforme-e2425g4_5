@@ -17,13 +17,13 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "titre")
+    @Column(nullable = false)
     private String titre;
 
-    @Column(nullable = false, name = "contenu")
+    @Column(nullable = false)
     private String contenu;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "plante_id", nullable = false)
     private Plante plante;
 
