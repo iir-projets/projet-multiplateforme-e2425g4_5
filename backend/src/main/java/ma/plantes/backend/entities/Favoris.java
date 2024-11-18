@@ -18,7 +18,7 @@ public class Favoris {
     private FavorisId id;
 
     @ManyToOne
-    @MapsId("utilisateutId")
+    @MapsId("utilisateurId")
     @JoinColumn( name = "utilisateur_id")
     private User user;
 
