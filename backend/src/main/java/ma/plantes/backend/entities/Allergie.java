@@ -22,7 +22,7 @@ public class Allergie {
     @Column(nullable = false)
     private String nom;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy ="allergies")
     private List<User> user;
 
 
