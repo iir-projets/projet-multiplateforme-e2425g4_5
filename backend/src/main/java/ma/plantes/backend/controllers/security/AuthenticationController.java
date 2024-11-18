@@ -1,7 +1,7 @@
-package ma.plantes.backend.controllers;
+package ma.plantes.backend.controllers.security;
 
 import lombok.RequiredArgsConstructor;
-import ma.plantes.backend.entities.AuthenticationResponse;
+import ma.plantes.backend.entities.security.AuthenticationResponse;
 import ma.plantes.backend.entities.User;
 import ma.plantes.backend.service.security.AuthenticationService;
 import org.springframework.http.ResponseEntity;
