@@ -22,4 +22,10 @@ public class Propriete {
 
     @ManyToMany(mappedBy = "propriete", fetch = FetchType.EAGER)
     private List<Plante> plantes;
+
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Column(name = "valeur_plante")
+    private List<String> valeurs;
+
 }
