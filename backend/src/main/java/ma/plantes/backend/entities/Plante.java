@@ -5,12 +5,14 @@ import lombok.*;
 
 import java.util.List;
 
+
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Entity
+
 public class Plante {
 
     @Id
@@ -20,11 +22,30 @@ public class Plante {
     @Column(nullable = false, name = "nom_plante")
     private String nom;
 
+
     @Column(nullable = true, name = "description_plante")
     private String description;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
+
+            name = "plante_propriete", // nom de la table de jointure
+            joinColumns = @JoinColumn(name = "plante_id", referencedColumnName = "id"), // clé étrangère vers 'Plante'
+            inverseJoinColumns = @JoinColumn(name = "propriete_id", referencedColumnName = "id") // clé étrangère vers 'Propriete'
+    )
+    private List<Propriete> propriete;
+
+    @Column(nullable = false)
+    private String region;
+
+    @Column(nullable = true)
+    private String precaution;
+
+    @Column(nullable = true)
+    private String interaction;
+
+    @Column(nullable = false)
+=======
             name = "plante_propriete",
             joinColumns = @JoinColumn(name = "plante_id"),
             inverseJoinColumns = @JoinColumn(name = "propriete_id")
@@ -40,6 +61,6 @@ public class Plante {
     @Column(nullable = true, name = "interaction_plante")
     private String interaction;
 
-    @Column(nullable = false, name = "image_plante")
+
     private String image;
 }
