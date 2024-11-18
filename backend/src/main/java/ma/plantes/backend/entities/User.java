@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -43,6 +44,30 @@ public class User implements UserDetails {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "allergie",
+            joinColumns = @JoinColumn(name = "utilisateur_nid"),
+            inverseJoinColumns = @JoinColumn(name = "allergie_id")
+    )
+    private Set<Allergie> allergies;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "maladie",
+            joinColumns = @JoinColumn(name = "utilisateur_nid"),
+            inverseJoinColumns = @JoinColumn(name = "maladie_id")
+    )
+    private Set<Maladie> maladies;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "medicament",
+            joinColumns = @JoinColumn(name = "utilisateur_nid"),
+            inverseJoinColumns = @JoinColumn(name = "medicament_id")
+    )
+    private Set<Medicament> medicaments;
 
 
     @Override
