@@ -22,6 +22,7 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "utilisateur_id")
     private Long id;
 
     @Email
@@ -48,7 +49,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "allergie",
-            joinColumns = @JoinColumn(name = "utilisateur_nid"),
+            joinColumns = @JoinColumn(name = "utilisateur_id"),
             inverseJoinColumns = @JoinColumn(name = "allergie_id")
     )
     private Set<Allergie> allergies;
@@ -56,7 +57,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "maladie",
-            joinColumns = @JoinColumn(name = "utilisateur_nid"),
+            joinColumns = @JoinColumn(name = "utilisateur_id"),
             inverseJoinColumns = @JoinColumn(name = "maladie_id")
     )
     private Set<Maladie> maladies;
@@ -64,7 +65,7 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "medicament",
-            joinColumns = @JoinColumn(name = "utilisateur_nid"),
+            joinColumns = @JoinColumn(name = "utilisateur_id"),
             inverseJoinColumns = @JoinColumn(name = "medicament_id")
     )
     private Set<Medicament> medicaments;
