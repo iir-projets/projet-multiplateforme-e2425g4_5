@@ -30,4 +30,6 @@ public class Article {
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Commentaire> commentaires;
 
+    private boolean saved;
+
 }
