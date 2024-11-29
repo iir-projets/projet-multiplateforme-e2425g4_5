@@ -4,11 +4,10 @@ import ma.plantes.backend.entities.Propriete;
 import ma.plantes.backend.repositories.ProprieteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ProprieteService {
 
     private final ProprieteRepository proprieteRepository;
@@ -18,37 +17,20 @@ public class ProprieteService {
         this.proprieteRepository = proprieteRepository;
     }
 
-    public List<Propriete> getAllProprietes() {
-        return proprieteRepository.findAll();
-    }
-
-    public Optional<Propriete> getProprieteById(Long id) {
-        return proprieteRepository.findById(id);
-    }
-
-    public List<Propriete> getProprietesByNom(String nom) {
-        return proprieteRepository.findByNom(nom);
-    }
-
-    public List<Propriete> getProprietesByPlanteId(Long planteId) {
-        return proprieteRepository.findByPlantes_Id(planteId);
-    }
-
-    public Propriete createPropriete(Propriete propriete) {
+    // Ajouter une propriété
+    public Propriete ajouterPropriete(Propriete propriete) {
+        if (proprieteRepository.existsByNom(propriete.getNom())) {
+            return null;  // Si la propriété existe déjà, retourner null
+        }
         return proprieteRepository.save(propriete);
     }
 
-    public Propriete updatePropriete(Long id, Propriete propriete) {
-        if (proprieteRepository.existsById(id)) {
-            propriete.setId(id);
-            return proprieteRepository.save(propriete);
-        }
-        return null;
-    }
-
-    public void deletePropriete(Long id) {
+    // Supprimer une propriété par son ID
+    public boolean supprimerPropriete(Long id) {
         if (proprieteRepository.existsById(id)) {
             proprieteRepository.deleteById(id);
+            return true;  // Propriété supprimée avec succès
         }
+        return false;  // La propriété n'existe pas
     }
 }
