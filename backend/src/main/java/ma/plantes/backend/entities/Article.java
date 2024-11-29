@@ -23,11 +23,17 @@ public class Article {
     @Column(nullable = false)
     private String contenu;
 
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id", nullable = false)
+    private User user;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "plante_id", nullable = false)
     private Plante plante;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Commentaire> commentaires;
+
+
 
 }

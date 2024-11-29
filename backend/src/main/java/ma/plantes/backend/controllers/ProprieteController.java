@@ -7,10 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/proprietes")
+@RequestMapping("/api")
 public class ProprieteController {
 
     private final ProprieteService proprieteService;
@@ -20,42 +19,26 @@ public class ProprieteController {
         this.proprieteService = proprieteService;
     }
 
-    @GetMapping
-    public List<Propriete> getAllProprietes() {
-        return proprieteService.getAllProprietes();
+    // Ajouter une propriété
+    @PostMapping("/admin/proprietes")
+    public ResponseEntity<Propriete> ajouterPropriete(@RequestBody Propriete propriete) {
+        Propriete nouvellePropriete = proprieteService.ajouterPropriete(propriete);
+        return ResponseEntity.status(400).body(nouvellePropriete);  // Retourner 400 si la propriété existe déjà
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Propriete> getProprieteById(@PathVariable Long id) {
-        Optional<Propriete> propriete = proprieteService.getProprieteById(id);
-        return propriete.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    // Supprimer une propriété par son ID
+    @DeleteMapping("/admin/proprietes/{id}")
+    public ResponseEntity<String> supprimerPropriete(@PathVariable Long id) {
+        boolean estSupprime = proprieteService.supprimerPropriete(id);
+        if (estSupprime) {
+            return ResponseEntity.ok("Propriété supprimée avec succès.");
+        }
+        return ResponseEntity.status(404).body("Propriété non trouvée.");
     }
 
-    @GetMapping("/nom/{nom}")
-    public List<Propriete> getProprietesByNom(@PathVariable String nom) {
-        return proprieteService.getProprietesByNom(nom);
+    @GetMapping("/proprietes")
+    public ResponseEntity<List<Propriete>> allProrietes(){
+        return ResponseEntity.status(404).body(proprieteService.allPropriete());
     }
 
-    @GetMapping("/plante/{planteId}")
-    public List<Propriete> getProprietesByPlanteId(@PathVariable Long planteId) {
-        return proprieteService.getProprietesByPlanteId(planteId);
-    }
-
-    @PostMapping
-    public ResponseEntity<Propriete> createPropriete(@RequestBody Propriete propriete) {
-        Propriete createdPropriete = proprieteService.createPropriete(propriete);
-        return ResponseEntity.status(201).body(createdPropriete);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Propriete> updatePropriete(@PathVariable Long id, @RequestBody Propriete propriete) {
-        Propriete updatedPropriete = proprieteService.updatePropriete(id, propriete);
-        return updatedPropriete != null ? ResponseEntity.ok(updatedPropriete) : ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePropriete(@PathVariable Long id) {
-        proprieteService.deletePropriete(id);
-        return ResponseEntity.noContent().build();
-    }
 }

@@ -1,6 +1,5 @@
 package ma.plantes.backend.entities;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,26 +9,20 @@ import lombok.Setter;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
-public class Favoris {
+@Getter
+public class ClientMaladie {
 
-    @EmbeddedId //cle composite
-    private FavorisId id;
+    @EmbeddedId
+    private ClientMaladieId id;
 
     @ManyToOne
-    @MapsId("utilisateurId")
-    @JoinColumn( name = "id")
+    @MapsId("clientId")
+    @JoinColumn(name="id")
     private User user;
 
     @ManyToOne
-    @MapsId("planteId")
-    @JoinColumn( name = "id")
-    private Plante plante;
-
-
-
-
-
-
+    @MapsId("maladieId")
+    @JoinColumn(name="id")
+    private Maladie maladie;
 }
