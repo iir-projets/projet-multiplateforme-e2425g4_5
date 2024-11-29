@@ -1,6 +1,7 @@
 package ma.plantes.backend.entities;
 
 import jakarta.annotation.security.DenyAll;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,6 +17,8 @@ import java.io.Serializable;
 @Getter
 public class ClientMaladieId implements Serializable {
 
+    @Column(name = "client_id")
     private Long clientId;
+    @Column(name = "maladie_id")
     private Long maladieId;
 }
