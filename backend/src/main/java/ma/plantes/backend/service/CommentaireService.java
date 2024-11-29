@@ -4,11 +4,12 @@ import ma.plantes.backend.entities.Commentaire;
 import ma.plantes.backend.repositories.CommentaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@Transactional
 public class CommentaireService {
 
     private final CommentaireRepository commentaireRepository;
@@ -18,37 +19,27 @@ public class CommentaireService {
         this.commentaireRepository = commentaireRepository;
     }
 
-    public List<Commentaire> getAllCommentaires() {
-        return commentaireRepository.findAll();
-    }
-
-    public Optional<Commentaire> getCommentaireById(Long id) {
-        return commentaireRepository.findById(id);
-    }
-
-    public List<Commentaire> getCommentairesByArticleId(Long articleId) {
-        return commentaireRepository.findByArticleId(articleId);
-    }
-
-    public List<Commentaire> getCommentairesByUtilisateurId(Long utilisateurId) {
-        return commentaireRepository.findByUtilisateurId(utilisateurId);
-    }
-
-    public Commentaire createCommentaire(Commentaire commentaire) {
+    // Ajouter un commentaire
+    public Commentaire ajouterCommentaire(Commentaire commentaire) {
         return commentaireRepository.save(commentaire);
     }
 
-    public Commentaire updateCommentaire(Long id, Commentaire commentaire) {
-        if (commentaireRepository.existsById(id)) {
-            commentaire.setId(id);
-            return commentaireRepository.save(commentaire);
-        }
-        return null;
-    }
-
-    public void deleteCommentaire(Long id) {
+    // Supprimer un commentaire
+    public boolean supprimerCommentaire(Long id) {
         if (commentaireRepository.existsById(id)) {
             commentaireRepository.deleteById(id);
+            return true;
         }
+        return false; // Le commentaire n'existe pas
+    }
+
+    // Trouver tous les commentaires par article
+    public List<Commentaire> trouverCommentairesParArticle(Long articleId) {
+        return commentaireRepository.findByArticleId(articleId);
+    }
+
+    // Trouver tous les commentaires par utilisateur
+    public List<Commentaire> trouverCommentairesParUtilisateur(Long utilisateurId) {
+        return commentaireRepository.findByUtilisateurId(utilisateurId);
     }
 }

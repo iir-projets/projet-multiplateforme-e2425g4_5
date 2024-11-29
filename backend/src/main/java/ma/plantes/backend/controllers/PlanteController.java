@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/plantes")
+@RequestMapping("/api")
 public class PlanteController {
 
     private final PlanteService planteService;
@@ -21,42 +21,44 @@ public class PlanteController {
         this.planteService = planteService;
     }
 
-    @GetMapping
-    public List<Plante> getAllPlantes() {
-        return planteService.getAllPlantes();
+    // Ajouter une plante
+    @PostMapping("/admin/plantes")
+    public ResponseEntity<Plante> ajouterPlante(@RequestBody Plante plante) {
+        Plante newPlante = planteService.ajouterPlante(plante);
+        return new ResponseEntity<>(newPlante, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Plante> getPlanteById(@PathVariable Long id) {
-        Optional<Plante> plante = planteService.getPlanteById(id);
-        return plante.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    // Modifier une plante
+    @PutMapping("/admin/plantes/{id}")
+    public ResponseEntity<Plante> modifierPlante(@PathVariable Long id, @RequestBody Plante plante) {
+        Plante updatedPlante = planteService.modifierPlante(id, plante);
+        if (updatedPlante == null) {
+            return ResponseEntity.notFound().build(); // Plante non trouvée pour modification
+        }
+        return ResponseEntity.ok(updatedPlante); // Plante modifiée avec succès
     }
 
-    @GetMapping("/nom/{nom}")
-    public List<Plante> getPlantesByNom(@PathVariable String nom) {
-        return planteService.getPlantesByNom(nom);
+    // Supprimer une plante
+    @DeleteMapping("/admin/plantes//{id}")
+    public ResponseEntity<Void> supprimerPlante(@PathVariable Long id) {
+        boolean deleted = planteService.supprimerPlante(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build(); // Plante supprimée
+        }
+        return ResponseEntity.notFound().build(); // Plante non trouvée pour suppression
     }
 
-    @GetMapping("/region/{region}")
-    public List<Plante> getPlantesByRegion(@PathVariable String region) {
-        return planteService.getPlantesByRegion(region);
+    // Afficher toutes les plantes
+    @GetMapping("/plantes/")
+    public List<Plante> afficherToutesLesPlantes() {
+        return planteService.afficherToutesLesPlantes();
     }
 
-    @PostMapping
-    public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
-        Plante createdPlante = planteService.createPlante(plante);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdPlante);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Plante> updatePlante(@PathVariable Long id, @RequestBody Plante plante) {
-        Plante updatedPlante = planteService.updatePlante(id, plante);
-        return updatedPlante != null ? ResponseEntity.ok(updatedPlante) : ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePlante(@PathVariable Long id) {
-        planteService.deletePlante(id);
-        return ResponseEntity.noContent().build();
+    // Afficher une plante par ID
+    @GetMapping("/plantes/{id}")
+    public ResponseEntity<Plante> afficherPlanteParId(@PathVariable Long id) {
+        Optional<Plante> plante = planteService.afficherPlanteParId(id);
+        return plante.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build()); // Si la plante n'est pas trouvée, retourne 404
     }
 }

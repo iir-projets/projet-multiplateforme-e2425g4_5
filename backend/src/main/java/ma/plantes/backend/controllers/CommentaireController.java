@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/commentaires")
@@ -20,42 +19,29 @@ public class CommentaireController {
         this.commentaireService = commentaireService;
     }
 
-    @GetMapping
-    public List<Commentaire> getAllCommentaires() {
-        return commentaireService.getAllCommentaires();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Commentaire> getCommentaireById(@PathVariable Long id) {
-        Optional<Commentaire> commentaire = commentaireService.getCommentaireById(id);
-        return commentaire.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/article/{articleId}")
-    public List<Commentaire> getCommentairesByArticleId(@PathVariable Long articleId) {
-        return commentaireService.getCommentairesByArticleId(articleId);
-    }
-
-    @GetMapping("/utilisateur/{utilisateurId}")
-    public List<Commentaire> getCommentairesByUtilisateurId(@PathVariable Long utilisateurId) {
-        return commentaireService.getCommentairesByUtilisateurId(utilisateurId);
-    }
-
+    // Ajouter un commentaire
     @PostMapping
-    public ResponseEntity<Commentaire> createCommentaire(@RequestBody Commentaire commentaire) {
-        Commentaire createdCommentaire = commentaireService.createCommentaire(commentaire);
-        return ResponseEntity.status(201).body(createdCommentaire);
+    public ResponseEntity<Commentaire> ajouterCommentaire(@RequestBody Commentaire commentaire) {
+        Commentaire nouveauCommentaire = commentaireService.ajouterCommentaire(commentaire);
+        return ResponseEntity.ok(nouveauCommentaire);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Commentaire> updateCommentaire(@PathVariable Long id, @RequestBody Commentaire commentaire) {
-        Commentaire updatedCommentaire = commentaireService.updateCommentaire(id, commentaire);
-        return updatedCommentaire != null ? ResponseEntity.ok(updatedCommentaire) : ResponseEntity.notFound().build();
-    }
-
+    // Supprimer un commentaire par ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCommentaire(@PathVariable Long id) {
-        commentaireService.deleteCommentaire(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<String> supprimerCommentaire(@PathVariable Long id) {
+        boolean estSupprime = commentaireService.supprimerCommentaire(id);
+        if (estSupprime) {
+            return ResponseEntity.ok("Commentaire supprimé avec succès.");
+        }
+        return ResponseEntity.status(404).body("Commentaire non trouvé.");
     }
+
+    // Récupérer tous les commentaires d'un article spécifique
+    @GetMapping("/article/{articleId}")
+    public ResponseEntity<List<Commentaire>> getCommentairesParArticle(@PathVariable Long articleId) {
+        List<Commentaire> commentaires = commentaireService.trouverCommentairesParArticle(articleId);
+        return ResponseEntity.ok(commentaires);
+    }
+
+
 }

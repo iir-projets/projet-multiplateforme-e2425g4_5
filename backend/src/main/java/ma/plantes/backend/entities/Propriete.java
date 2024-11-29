@@ -2,7 +2,6 @@ package ma.plantes.backend.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Data
@@ -20,12 +19,9 @@ public class Propriete {
     @Column(nullable = false, name = "nom_propriete")
     private String nom;
 
-    @ManyToMany(mappedBy = "propriete", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "proprietes", fetch = FetchType.EAGER)
     private List<Plante> plantes;
 
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Column(name = "valeur_plante")
-    private List<String> valeurs;
 
 }

@@ -45,6 +45,7 @@ public class User implements UserDetails {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "allergie", cascade = CascadeType.ALL)
     private Set<Allergie> allergie;
 
@@ -53,6 +54,12 @@ public class User implements UserDetails {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicament", cascade = CascadeType.ALL)
     private Set<Medicament> medicament;
+
+    
+
+
+    @OneToMany(mappedBy="user")
+    Collection<Notification> notifications;
 
 
     @Override
