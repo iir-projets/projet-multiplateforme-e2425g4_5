@@ -22,7 +22,6 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "utilisateur_id")
     private Long id;
 
     @Email
@@ -46,29 +45,17 @@ public class User implements UserDetails {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "allergie",
-            joinColumns = @JoinColumn(name = "utilisateur_id"),
-            inverseJoinColumns = @JoinColumn(name = "allergie_id")
-    )
-    private Set<Allergie> allergies;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "maladie",
-            joinColumns = @JoinColumn(name = "utilisateur_id"),
-            inverseJoinColumns = @JoinColumn(name = "maladie_id")
-    )
-    private Set<Maladie> maladies;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "allergie", cascade = CascadeType.ALL)
+    private Set<Allergie> allergie;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "medicament",
-            joinColumns = @JoinColumn(name = "utilisateur_id"),
-            inverseJoinColumns = @JoinColumn(name = "medicament_id")
-    )
-    private Set<Medicament> medicaments;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "maladie", cascade = CascadeType.ALL)
+    private Set<Maladie> maladie;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicament", cascade = CascadeType.ALL)
+    private Set<Medicament> medicament;
+
+    
 
 
     @OneToMany(mappedBy="user")
