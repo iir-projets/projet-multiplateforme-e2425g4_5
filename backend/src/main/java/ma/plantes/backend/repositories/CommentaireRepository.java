@@ -7,8 +7,12 @@ import java.util.List;
 
 public interface CommentaireRepository extends JpaRepository<Commentaire, Long> {
 
-
+    // Trouver tous les commentaires associés à un article
     List<Commentaire> findByArticleId(Long articleId);
 
+    // Trouver tous les commentaires associés à un utilisateur
     List<Commentaire> findByUtilisateurId(Long utilisateurId);
+
+    // Supprimer un commentaire par son ID (fourni par JpaRepository)
+    void deleteById(Long id);
 }
