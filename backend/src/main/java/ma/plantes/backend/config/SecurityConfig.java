@@ -29,11 +29,11 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/login/**","/register/**")
+                        req->req.requestMatchers("/api/login/**","/api/register/**")
                                 .permitAll()
-                                .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                                .requestMatchers("/sante/**").hasAuthority("ADMIN")
-                                .requestMatchers("/sante/**").hasAuthority("SERVICE_SANTE")
+                                .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api/sante/**").hasAuthority("ADMIN")
+                                .requestMatchers("/api/sante/**").hasAuthority("SERVICE_SANTE")
                                 .anyRequest()
                                 .authenticated()
                 ).userDetailsService(userDetailsServiceImp)

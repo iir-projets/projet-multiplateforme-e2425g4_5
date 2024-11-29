@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/plantes")
+@RequestMapping("/api")
 public class PlanteController {
 
     private final PlanteService planteService;
@@ -22,14 +22,14 @@ public class PlanteController {
     }
 
     // Ajouter une plante
-    @PostMapping
+    @PostMapping("/admin/plantes")
     public ResponseEntity<Plante> ajouterPlante(@RequestBody Plante plante) {
         Plante newPlante = planteService.ajouterPlante(plante);
         return new ResponseEntity<>(newPlante, HttpStatus.CREATED);
     }
 
     // Modifier une plante
-    @PutMapping("/{id}")
+    @PutMapping("/admin/plantes/{id}")
     public ResponseEntity<Plante> modifierPlante(@PathVariable Long id, @RequestBody Plante plante) {
         Plante updatedPlante = planteService.modifierPlante(id, plante);
         if (updatedPlante == null) {
@@ -39,7 +39,7 @@ public class PlanteController {
     }
 
     // Supprimer une plante
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/plantes//{id}")
     public ResponseEntity<Void> supprimerPlante(@PathVariable Long id) {
         boolean deleted = planteService.supprimerPlante(id);
         if (deleted) {
@@ -49,13 +49,13 @@ public class PlanteController {
     }
 
     // Afficher toutes les plantes
-    @GetMapping
+    @GetMapping("/plantes/")
     public List<Plante> afficherToutesLesPlantes() {
         return planteService.afficherToutesLesPlantes();
     }
 
     // Afficher une plante par ID
-    @GetMapping("/{id}")
+    @GetMapping("/plantes/{id}")
     public ResponseEntity<Plante> afficherPlanteParId(@PathVariable Long id) {
         Optional<Plante> plante = planteService.afficherPlanteParId(id);
         return plante.map(ResponseEntity::ok)

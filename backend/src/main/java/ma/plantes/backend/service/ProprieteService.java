@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class ProprieteService {
@@ -32,5 +34,9 @@ public class ProprieteService {
             return true;  // Propriété supprimée avec succès
         }
         return false;  // La propriété n'existe pas
+    }
+
+    public List<Propriete> allPropriete(){
+        return proprieteRepository.findAll();
     }
 }
