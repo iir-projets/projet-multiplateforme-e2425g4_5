@@ -44,23 +44,5 @@ public class Plante {
     @Column(nullable = true)
     private String interaction;
 
-    @Column(nullable = false)
-=======
-            name = "plante_propriete",
-            joinColumns = @JoinColumn(name = "plante_id"),
-            inverseJoinColumns = @JoinColumn(name = "propriete_id")
-    )
-    private List<Propriete> propriete;
-
-    @Column(nullable = false, name = "region_plante")
-    private String region;
-
-    @Column(nullable = true, name = "precaution_plante")
-    private String precaution;
-
-    @Column(nullable = true, name = "interaction_plante")
-    private String interaction;
-
-
     private String image;
 }
