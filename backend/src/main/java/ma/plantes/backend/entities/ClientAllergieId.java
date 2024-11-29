@@ -1,5 +1,6 @@
 package ma.plantes.backend.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +16,8 @@ import java.io.Serializable;
 @Setter
 public class ClientAllergieId implements Serializable {
 
+    @Column(name = "client_id")
     private Long clientId;
-    private Long allergyId;
+    @Column(name = "allergie_id")
+    private Long allergieId;
 }

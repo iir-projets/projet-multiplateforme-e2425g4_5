@@ -1,22 +1,21 @@
 package ma.plantes.backend.entities;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+public class ArticleEnregistre {
 
-public class ClientAllergie {
-
-    @EmbeddedId
-    private ClientAllergieId id;
+    @EmbeddedId //cle composite
+    private ArticleId id;
 
     @ManyToOne
     @MapsId("clientId")
@@ -24,7 +23,13 @@ public class ClientAllergie {
     private User user;
 
     @ManyToOne
-    @MapsId("allergieId")
-    @JoinColumn( name = "allergie_id")
-    private Allergie allergie;
+    @MapsId("articleId")
+    @JoinColumn( name = "article_id")
+    private Article article;
+
+
+
+
+
+
 }

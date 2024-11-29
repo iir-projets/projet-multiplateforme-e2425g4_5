@@ -18,11 +18,11 @@ public class ClientMaladie {
 
     @ManyToOne
     @MapsId("clientId")
-    @JoinColumn(name="id")
+    @JoinColumn(name="client_id")
     private User user;
 
     @ManyToOne
     @MapsId("maladieId")
-    @JoinColumn(name="id")
+    @JoinColumn(name="maladie_id")
     private Maladie maladie;
 }
