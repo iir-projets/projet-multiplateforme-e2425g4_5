@@ -71,6 +71,10 @@ public class User implements UserDetails {
     private Set<Medicament> medicaments;
 
 
+    @OneToMany(mappedBy="user")
+    Collection<Notification> notifications;
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

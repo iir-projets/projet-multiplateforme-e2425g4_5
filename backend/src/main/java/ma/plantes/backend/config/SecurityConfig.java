@@ -32,6 +32,8 @@ public class SecurityConfig {
                         req->req.requestMatchers("/login/**","/register/**")
                                 .permitAll()
                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/sante/**").hasAuthority("ADMIN")
+                                .requestMatchers("/sante/**").hasAuthority("SERVICE_SANTE")
                                 .anyRequest()
                                 .authenticated()
                 ).userDetailsService(userDetailsServiceImp)
