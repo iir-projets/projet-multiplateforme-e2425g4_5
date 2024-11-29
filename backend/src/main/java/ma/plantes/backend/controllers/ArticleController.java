@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/articles")
+@RequestMapping("/api/")
 public class ArticleController {
 
     private final ArticleService articleService;
@@ -22,14 +22,14 @@ public class ArticleController {
     }
 
     // Ajouter un article
-    @PostMapping
+    @PostMapping("admin/articles")
     public ResponseEntity<Article> ajouterArticle(@RequestBody Article article) {
         Article newArticle = articleService.ajouterArticle(article);
         return new ResponseEntity<>(newArticle, HttpStatus.CREATED);
     }
 
     // Modifier un article
-    @PutMapping("/{id}")
+    @PutMapping("admin/articles/{id}")
     public ResponseEntity<Article> modifierArticle(@PathVariable Long id, @RequestBody Article article) {
         Article updatedArticle = articleService.modifierArticle(id, article);
         if (updatedArticle == null) {
@@ -39,7 +39,7 @@ public class ArticleController {
     }
 
     // Supprimer un article
-    @DeleteMapping("/{id}")
+    @DeleteMapping("admin/articles/{id}")
     public ResponseEntity<Void> supprimerArticle(@PathVariable Long id) {
         boolean deleted = articleService.supprimerArticle(id);
         if (deleted) {
@@ -49,13 +49,13 @@ public class ArticleController {
     }
 
     // Afficher tous les articles
-    @GetMapping
+    @GetMapping("/articles")
     public List<Article> afficherTousLesArticles() {
         return articleService.afficherTousLesArticles();
     }
 
     // Afficher un article par ID
-    @GetMapping("/{id}")
+    @GetMapping("/articles/{id}")
     public ResponseEntity<Article> afficherArticleParId(@PathVariable Long id) {
         Optional<Article> article = articleService.afficherArticleParId(id);
         return article.map(ResponseEntity::ok)

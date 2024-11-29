@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/proprietes")
+@RequestMapping("/api")
 public class ProprieteController {
 
     private final ProprieteService proprieteService;
@@ -18,17 +20,14 @@ public class ProprieteController {
     }
 
     // Ajouter une propriété
-    @PostMapping
+    @PostMapping("/admin/proprietes")
     public ResponseEntity<Propriete> ajouterPropriete(@RequestBody Propriete propriete) {
         Propriete nouvellePropriete = proprieteService.ajouterPropriete(propriete);
-        if (nouvellePropriete != null) {
-            return ResponseEntity.ok(nouvellePropriete);
-        }
-        return ResponseEntity.status(400).body(null);  // Retourner 400 si la propriété existe déjà
+        return ResponseEntity.status(400).body(nouvellePropriete);  // Retourner 400 si la propriété existe déjà
     }
 
     // Supprimer une propriété par son ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/proprietes/{id}")
     public ResponseEntity<String> supprimerPropriete(@PathVariable Long id) {
         boolean estSupprime = proprieteService.supprimerPropriete(id);
         if (estSupprime) {
@@ -36,4 +35,10 @@ public class ProprieteController {
         }
         return ResponseEntity.status(404).body("Propriété non trouvée.");
     }
+
+    @GetMapping("/proprietes")
+    public ResponseEntity<List<Propriete>> allProrietes(){
+        return ResponseEntity.status(404).body(proprieteService.allPropriete());
+    }
+
 }

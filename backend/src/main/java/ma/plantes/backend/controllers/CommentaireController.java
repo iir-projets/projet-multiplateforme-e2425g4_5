@@ -43,10 +43,5 @@ public class CommentaireController {
         return ResponseEntity.ok(commentaires);
     }
 
-    // Récupérer tous les commentaires d'un utilisateur spécifique
-    @GetMapping("/utilisateur/{utilisateurId}")
-    public ResponseEntity<List<Commentaire>> getCommentairesParUtilisateur(@PathVariable Long utilisateurId) {
-        List<Commentaire> commentaires = commentaireService.trouverCommentairesParUtilisateur(utilisateurId);
-        return ResponseEntity.ok(commentaires);
-    }
+
 }
