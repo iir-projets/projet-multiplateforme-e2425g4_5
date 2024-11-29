@@ -21,4 +21,7 @@ public class Propriete {
 
     @ManyToMany(mappedBy = "proprietes", fetch = FetchType.EAGER)
     private List<Plante> plantes;
+
+
+
 }
