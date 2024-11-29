@@ -23,7 +23,7 @@ public class Article {
 
     @Column(nullable = false)
     private String contenu;
-    
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "plante_id", nullable = false)
     private Plante plante;
