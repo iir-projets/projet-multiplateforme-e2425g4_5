@@ -20,10 +20,11 @@ public class ClientAllergie {
 
     @ManyToOne
     @MapsId("clientId")
-    @JoinColumn( name = "id")
+    @JoinColumn( name = "client_id")
     private User user;
 
     @ManyToOne
     @MapsId("allergieId")
+    @JoinColumn( name = "allergie_id")
     private Allergie allergie;
 }

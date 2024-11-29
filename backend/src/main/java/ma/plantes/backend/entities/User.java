@@ -46,14 +46,14 @@ public class User implements UserDetails {
     private String phoneNumber;
 
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "allergie", cascade = CascadeType.ALL)
-    private Set<Allergie> allergie;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<ClientAllergie> allergies;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "maladie", cascade = CascadeType.ALL)
-    private Set<Maladie> maladie;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<ClientMaladie> maladies;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicament", cascade = CascadeType.ALL)
-    private Set<Medicament> medicament;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<ClientMedicament> medicaments;
 
     
 
