@@ -23,8 +23,14 @@ public class Notification {
     @Column(nullable = false)
     private String message;
 
+    @Column(nullable = false)
+    private String url;
+
+    @Column(nullable = false)
+    private boolean vu;
+
     @ManyToOne
     private User user;
 
-    private boolean vu;
+
 }
