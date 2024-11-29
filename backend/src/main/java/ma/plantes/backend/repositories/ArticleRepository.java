@@ -10,8 +10,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     // Trouver un article par son titre (exact match)
     Optional<Article> findByTitre(String titre);
 
-    // Trouver tous les articles d'un utilisateur spécifique
-    List<Article> findByUserId(Long userId);
+
 
     // Trouver tous les articles associés à une plante spécifique
     List<Article> findByPlanteId(Long planteId);

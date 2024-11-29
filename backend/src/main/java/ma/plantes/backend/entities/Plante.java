@@ -23,14 +23,6 @@ public class Plante {
     @Column(nullable = true, name = "description_plante")
     private String description;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "plante_propriete",
-            joinColumns = @JoinColumn(name = "plante_id"),
-            inverseJoinColumns = @JoinColumn(name = "propriete_id")
-    )
-    private List<Propriete> proprietes;
-
     @Column(nullable = false)
     private String region;
 
@@ -41,4 +33,14 @@ public class Plante {
     private String interaction;
 
     private String image;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "plante_propriete",
+            joinColumns = @JoinColumn(name = "plante_id"),
+            inverseJoinColumns = @JoinColumn(name = "propriete_id")
+    )
+    private List<Propriete> proprietes;
+
+
 }

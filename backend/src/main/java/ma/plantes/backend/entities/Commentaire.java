@@ -24,7 +24,6 @@ public class Commentaire {
     private Article article;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id", nullable = false)
     private User utilisateur;
 
 
