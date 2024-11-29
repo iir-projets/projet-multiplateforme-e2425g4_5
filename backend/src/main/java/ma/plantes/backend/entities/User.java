@@ -45,29 +45,14 @@ public class User implements UserDetails {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "allergie",
-            joinColumns = @JoinColumn(name = "utilisateur_nid"),
-            inverseJoinColumns = @JoinColumn(name = "allergie_id")
-    )
-    private Set<Allergie> allergies;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "allergie", cascade = CascadeType.ALL)
+    private Set<Allergie> allergie;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "maladie",
-            joinColumns = @JoinColumn(name = "utilisateur_nid"),
-            inverseJoinColumns = @JoinColumn(name = "maladie_id")
-    )
-    private Set<Maladie> maladies;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "maladie", cascade = CascadeType.ALL)
+    private Set<Maladie> maladie;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "medicament",
-            joinColumns = @JoinColumn(name = "utilisateur_nid"),
-            inverseJoinColumns = @JoinColumn(name = "medicament_id")
-    )
-    private Set<Medicament> medicaments;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicament", cascade = CascadeType.ALL)
+    private Set<Medicament> medicament;
 
 
     @Override
