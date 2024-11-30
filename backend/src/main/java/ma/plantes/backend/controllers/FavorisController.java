@@ -13,10 +13,10 @@ public class FavorisController {
     @Autowired
     private FavorisService favorisService;
 
-    @PostMapping("favoris/ajouter")
-    public ResponseEntity<String> AjouterFavoris(@RequestBody Favoris favoris){
+    @PostMapping("favoris/ajouter/{clientId}/{planteId}")
+    public ResponseEntity<String> AjouterFavoris(@PathVariable Long clientId, @PathVariable Long planteId){
         try{
-            favorisService.ajouterFavoris(favoris);
+            favorisService.ajouterFavoris(clientId,planteId);
             return ResponseEntity.ok("Favori ajouté avec succès !");
         }catch (Exception e){
             return ResponseEntity.status(500).body("Erreur lors de l'ajout du favoris : "+ e.getMessage());

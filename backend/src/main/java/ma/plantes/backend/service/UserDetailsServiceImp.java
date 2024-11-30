@@ -142,4 +142,6 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
 
         return clientAllergieRepository.findClientAllergiesByUser(user);
     }
+
+    // Modifier client profil :
 }

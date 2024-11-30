@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class AllergieController {
@@ -16,7 +18,7 @@ public class AllergieController {
     @Autowired
     private AllergieRepository allergieRepository;
 
-    @PostMapping("sante/allergies/ajouter")
+    @PostMapping("sante/allergies/add")
     public ResponseEntity<String> AjouterAllergie(@RequestBody Allergie allergie){
         try{
             if(allergieService.existsByName(allergie.getNom())){
@@ -29,19 +31,25 @@ public class AllergieController {
         }
     }
 
-    /*@DeleteMapping("/delete")
-    public ResponseEntity<String> SupprimerAllergie(@RequestBody Long id){
+    @DeleteMapping("sante/allergies/delete/{id}")
+    public ResponseEntity<String> SupprimerAllergie(@RequestParam Long id){
         try{
-            if(allergieRepository.){
-                return ResponseEntity.status(400).body("Une allergie avec ce nom existe déjà !");
+            if(allergieService.exsistById(id)){
+                allergieService.supprimerAllergie(id);
+                return ResponseEntity.ok("Allergie supprimée avec succès !");
             }
-            allergieRepository.findById(id);
-            allergieService.supprimerAllergie(id);
-            return ResponseEntity.ok("Allergie ajoutée avec succès !");
+            else{
+                return ResponseEntity.status(400).body("Erreur : L'allergie avec l'ID \" + id + \" n'existe pas !");
+            }
         }catch(Exception e){
-            return ResponseEntity.status(500).body("Erreur lors de l'ajout de l'allergie : " + e.getMessage());
+            return ResponseEntity.status(500).body("Erreur lors de la suppression de l'allergie : " + e.getMessage());
         }
-    }*/
+    }
+
+    @GetMapping("/allergies/getall")
+    public List<Allergie> AfficherAllergie(){
+        return allergieService.getAllAllergie();
+    }
 
 
 }
