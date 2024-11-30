@@ -5,6 +5,8 @@ import ma.plantes.backend.repositories.MedicamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MedicamentService {
 
@@ -21,5 +23,23 @@ public class MedicamentService {
             return true;
         }
         return false;
+    }
+
+    public boolean existsByNom(String nom){
+        if( medicamentRepository.findByNom(nom)){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean existsById(Long id){
+        if( medicamentRepository.existsById(id)){
+            return true;
+        }
+        return false;
+    }
+
+    public List<Medicament> getAllMedicament(){
+        return medicamentRepository.findAll();
     }
 }

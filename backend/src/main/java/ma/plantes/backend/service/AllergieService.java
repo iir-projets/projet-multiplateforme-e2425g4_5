@@ -5,6 +5,8 @@ import ma.plantes.backend.repositories.AllergieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AllergieService {
 
@@ -22,4 +24,22 @@ public class AllergieService {
        }
        return false;
    }
+
+   public boolean existsByName(String nom){
+       if (allergieRepository.findByNom(nom)){
+           return true;
+       }
+       return false;
+   }
+
+    public boolean exsistById(Long id){
+       if(allergieRepository.existsById(id)){
+           return true;
+       }
+       return false;
+    }
+
+    public List<Allergie> getAllAllergie(){
+       return allergieRepository.findAll();
+    }
 }
