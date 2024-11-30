@@ -5,6 +5,8 @@ import ma.plantes.backend.repositories.MaladieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MaladieService {
 
@@ -21,5 +23,23 @@ public class MaladieService {
             return true;
         }
         return false;
+    }
+
+    public boolean existsByNom(String nom){
+        if (maladieRepository.existsByNom(nom)){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean existsById(Long id){
+        if(maladieRepository.existsById(id)){
+            return true;
+        }
+        return false;
+    }
+
+    public List<Maladie> getAllMaladie(){
+        return maladieRepository.findAll();
     }
 }
