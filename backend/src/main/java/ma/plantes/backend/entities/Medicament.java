@@ -21,6 +21,6 @@ public class Medicament {
     @Column(nullable = false)
     private String nom;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy ="medicament")
-    private List<ClientMedicament> users;
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy ="medicament")
+    //private List<ClientMedicament> users;
 }
