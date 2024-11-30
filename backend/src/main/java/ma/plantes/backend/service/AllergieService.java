@@ -22,4 +22,15 @@ public class AllergieService {
        }
        return false;
    }
+
+   public boolean existsByName(String nom){
+       if (allergieRepository.findByNom(nom)){
+           return true;
+       }
+       return false;
+   }
+
+    /*public boolean existsById(Long id){
+       if();
+    }*/
 }
