@@ -1,27 +1,64 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
-import ma.plantes.backend.entities.User;
+import ma.plantes.backend.entities.*;
 import ma.plantes.backend.service.UserDetailsServiceImp;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.tags.Param;
 
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("/api/admin/clients")
+@RequestMapping("/api")
 @RestController
 @RequiredArgsConstructor
 public class ClientController {
     private UserDetailsServiceImp userDetailsServiceImp;
 
-    @GetMapping
+
+    @GetMapping("/admin/clients/")
     public ResponseEntity<List<User>> allClients(){
-        return ResponseEntity.status(404).body(userDetailsServiceImp.allClients());
+        return ResponseEntity.ok(userDetailsServiceImp.allClients());
     }
-    @GetMapping("{id}")
+    @GetMapping("/admin/clients/{id}")
     public ResponseEntity<Optional<User>> getClientById(@PathVariable Long id){
-        return ResponseEntity.status(404).body(userDetailsServiceImp.getUserById(id));
+        return ResponseEntity.ok(userDetailsServiceImp.getUserById(id));
+    }
+
+    @PostMapping("/clients/{id}")
+    public  ResponseEntity<List<ClientMaladie>> addMaladie(@PathVariable Long id,
+                                                           @Param("maladie_id") Long maladie_id){
+        return ResponseEntity.ok(userDetailsServiceImp.addMaladie(id,maladie_id));
+    }
+
+    @DeleteMapping("/clients/{id}")
+    public  ResponseEntity<List<ClientMaladie>> deleteMaladie(@PathVariable Long id,
+                                                           @Param("maladie_id") Long maladie_id){
+        return ResponseEntity.ok(userDetailsServiceImp.deleteMaladie(id,maladie_id));
+    }
+    ///////////////////////////////////////////////////////////
+    @PostMapping("/clients/{id}")
+    public  ResponseEntity<List<ClientAllergie>> addAllergie(@PathVariable Long id,
+                                                            @Param("allergie_id") Long allergie_id){
+        return ResponseEntity.ok(userDetailsServiceImp.addAllergie(id,allergie_id));
+    }
+
+    @DeleteMapping("/clients/{id}")
+    public  ResponseEntity<List<ClientAllergie>> deleteAllergie(@PathVariable Long id,
+                                                             @Param("allergie_id") Long allergie_id){
+        return ResponseEntity.ok(userDetailsServiceImp.deleteAllergie(id,allergie_id));
+    }
+    ///////////////////////////////////////////////////////////
+    @PostMapping("/clients/{id}")
+    public  ResponseEntity<List<ClientMedicament>> addMedicament(@PathVariable Long id,
+                                                               @Param("medicament_id") Long medicament_id){
+        return ResponseEntity.ok(userDetailsServiceImp.addMedicament(id,medicament_id));
+    }
+
+    @DeleteMapping("/clients/{id}")
+    public  ResponseEntity<List<ClientMedicament>> deleteMedicament(@PathVariable Long id,
+                                                                 @Param("medicament_id") Long medicament_id){
+        return ResponseEntity.ok(userDetailsServiceImp.deleteMedicament(id,medicament_id));
     }
 }
