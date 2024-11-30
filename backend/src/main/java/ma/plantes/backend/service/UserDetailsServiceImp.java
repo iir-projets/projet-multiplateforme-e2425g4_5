@@ -44,11 +44,11 @@ public class UserDetailsServiceImp implements UserDetailsService {
         ClientMaladie clientMaladie = new ClientMaladie(clientMaladieId,user,maladie);
 
         user.getMaladies().add(clientMaladie);
-        maladie.getUsers().add(clientMaladie);
+        //maladie.getUsers().add(clientMaladie);
 
         clientMaladieRepository.save(clientMaladie);
         userRepository.save(user);
-        maladieRepository.save(maladie);
+        //maladieRepository.save(maladie);
 
         return clientMaladieRepository.findClientMaladiesByUser(user);
     }
@@ -62,11 +62,11 @@ public class UserDetailsServiceImp implements UserDetailsService {
         ClientMaladie clientMaladie = clientMaladieRepository.findClientMaladieByUserAndMaladie(user,maladie).orElseThrow();
 
         user.getMaladies().remove(clientMaladie);
-        maladie.getUsers().remove(clientMaladie);
+        //maladie.getUsers().remove(clientMaladie);
 
         clientMaladieRepository.delete(clientMaladie);
         userRepository.save(user);
-        maladieRepository.save(maladie);
+        //maladieRepository.save(maladie);
 
         return clientMaladieRepository.findClientMaladiesByUser(user);
     }
@@ -80,11 +80,11 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
     ClientMedicament clientMedicament = new ClientMedicament(clientMedicamentId,user,medicament);
 
     user.getMedicaments().add(clientMedicament);
-    medicament.getUsers().add(clientMedicament);
+    //medicament.getUsers().add(clientMedicament);
 
     clientMedicamentRepository.save(clientMedicament);
     userRepository.save(user);
-    medicamentRepository.save(medicament);
+    //medicamentRepository.save(medicament);
 
     return clientMedicamentRepository.findClientMedicamentsByUser(user);
 }
@@ -98,11 +98,11 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
         ClientMedicament clientMedicament = clientMedicamentRepository.findClientMedicamentByUserAndMedicament(user,medicament).orElseThrow();
 
         user.getMaladies().remove(clientMedicament);
-        medicament.getUsers().remove(clientMedicament);
+        //medicament.getUsers().remove(clientMedicament);
 
         clientMedicamentRepository.delete(clientMedicament);
         userRepository.save(user);
-        medicamentRepository.save(medicament);
+        //medicamentRepository.save(medicament);
 
         return clientMedicamentRepository.findClientMedicamentsByUser(user);
     }
@@ -116,11 +116,11 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
         ClientAllergie clientAllergie = new ClientAllergie(clientAllergieId,user,allergie);
 
         user.getAllergies().add(clientAllergie);
-        allergie.getUsers().add(clientAllergie);
+        //allergie.getUsers().add(clientAllergie);
 
         clientAllergieRepository.save(clientAllergie);
         userRepository.save(user);
-        allergieRepository.save(allergie);
+        //allergieRepository.save(allergie);
 
         return clientAllergieRepository.findClientAllergiesByUser(user);
     }
@@ -134,11 +134,11 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
         ClientAllergie clientAllergie = clientAllergieRepository.findClientAllergieByUserAndAllergie(user,allergie).orElseThrow();
 
         user.getMaladies().remove(clientAllergie);
-        allergie.getUsers().remove(clientAllergie);
+        //allergie.getUsers().remove(clientAllergie);
 
         clientAllergieRepository.delete(clientAllergie);
         userRepository.save(user);
-        allergieRepository.save(allergie);
+        //allergieRepository.save(allergie);
 
         return clientAllergieRepository.findClientAllergiesByUser(user);
     }

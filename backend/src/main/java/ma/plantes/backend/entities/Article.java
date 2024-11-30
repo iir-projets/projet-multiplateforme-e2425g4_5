@@ -22,11 +22,12 @@ public class Article {
     private String titre;
 
     @Column(nullable = false)
+    @Lob
     private String contenu;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "plante_id", nullable = false)
-    private Plante plante;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ArticleImage> images;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Commentaire> commentaires;
