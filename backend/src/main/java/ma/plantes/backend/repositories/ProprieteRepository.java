@@ -7,4 +7,5 @@ public interface ProprieteRepository extends JpaRepository<Propriete, Long> {
 
     // Vérifier si une propriété existe par son nom
     boolean existsByNom(String nom);
+    Propriete findByNom(String nom);
 }

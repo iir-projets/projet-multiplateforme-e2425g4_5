@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Allergie;
 import ma.plantes.backend.repositories.AllergieRepository;
 import ma.plantes.backend.service.AllergieService;
@@ -10,10 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class AllergieController {
 
 
-    private AllergieService allergieService;
+    private final AllergieService allergieService;
 
 
     @PostMapping("/sante/allergies/add")
@@ -27,10 +29,11 @@ public class AllergieController {
         }catch(Exception e){
             return ResponseEntity.status(500).body("Erreur lors de l'ajout de l'allergie : " + e.getMessage());
         }
+
     }
 
     @DeleteMapping("/sante/allergies/delete/{id}")
-    public ResponseEntity<String> SupprimerAllergie(@RequestParam Long id){
+    public ResponseEntity<String> SupprimerAllergie(@PathVariable Long id){
         try{
             if(allergieService.exsistById(id)){
                 allergieService.supprimerAllergie(id);

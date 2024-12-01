@@ -17,7 +17,7 @@ public class MedicamentController {
     private final MedicamentService medicamentService;
 
 
-    @PostMapping("/sante/medicamants/add")
+    @PostMapping("/sante/medicaments/add")
     public ResponseEntity<String> AjouterMedicament(@RequestBody Medicament medicament){
         try{
             if( medicamentService.existsByNom(medicament.getNom())){
@@ -34,7 +34,7 @@ public class MedicamentController {
     }
 
     @DeleteMapping("/sante/medicaments/delete/{id}")
-    public ResponseEntity<String> SupprimerMedicament(@RequestParam Long id){
+    public ResponseEntity<String> SupprimerMedicament(@PathVariable Long id){
         try{
             if( medicamentService.existsById(id)){
                 medicamentService.supprimerMedicament(id);
