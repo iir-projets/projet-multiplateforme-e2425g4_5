@@ -1,12 +1,16 @@
 package ma.plantes.backend.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.UserDto;
 import ma.plantes.backend.entities.*;
 import ma.plantes.backend.repositories.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +26,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
     private final ClientAllergieRepository clientAllergieRepository;
     private final AllergieRepository allergieRepository;
     private final MedicamentRepository medicamentRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -35,6 +40,24 @@ public class UserDetailsServiceImp implements UserDetailsService {
         return userRepository.findById(id);
     }
 
+    public User editProfile(UserDto userDto, Long id){
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        if (userDto.getUsername() != null){
+            if (userRepository.findByUsername(userDto.getUsername()).isPresent())
+                throw new ResponseStatusException(HttpStatus.FOUND, "Email aleready exist");
+            user.setUsername(userDto.getUsername());
+        }
+
+        if (userDto.getFirstName() != null) user.setFirstName(userDto.getFirstName());
+        if (userDto.getLastName() != null) user.setLastName(userDto.getLastName());
+        if (userDto.getPhoneNumber() != null) user.setPhoneNumber(userDto.getPhoneNumber());
+        if (userDto.getPassword() != null)user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+
+        return userRepository.save(user);
+
+    }
     public List<ClientMaladie> addMaladie(Long userId, Long maladieId){
 
         Maladie maladie = maladieRepository.findById(maladieId).orElseThrow();
