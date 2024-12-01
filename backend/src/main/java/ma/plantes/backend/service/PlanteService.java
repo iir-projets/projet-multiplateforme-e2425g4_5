@@ -1,7 +1,12 @@
 package ma.plantes.backend.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Plante;
+import ma.plantes.backend.entities.PlantePropriete;
+import ma.plantes.backend.entities.PlanteProprieteId;
+import ma.plantes.backend.repositories.PlanteProprieteRepository;
 import ma.plantes.backend.repositories.PlanteRepository;
+import ma.plantes.backend.repositories.ProprieteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,17 +16,19 @@ import java.util.Optional;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class PlanteService {
 
     private final PlanteRepository planteRepository;
+    private final PlanteProprieteRepository planteProprieteRepository;
+    private final ProprieteRepository proprieteRepository;
 
-    @Autowired
-    public PlanteService(PlanteRepository planteRepository) {
-        this.planteRepository = planteRepository;
-    }
+
 
     // Ajouter une nouvelle plante
     public Plante ajouterPlante(Plante plante) {
+
+
         return planteRepository.save(plante);
     }
 

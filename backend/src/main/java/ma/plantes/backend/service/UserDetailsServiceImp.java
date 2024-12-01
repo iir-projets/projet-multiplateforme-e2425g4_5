@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -29,7 +28,6 @@ public class UserDetailsServiceImp implements UserDetailsService {
     private final AllergieRepository allergieRepository;
     private final MedicamentRepository medicamentRepository;
 
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -47,16 +45,10 @@ public class UserDetailsServiceImp implements UserDetailsService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
-        if (userDto.getUsername() != null){
-            if (userRepository.findByUsername(userDto.getUsername()).isPresent())
-                throw new ResponseStatusException(HttpStatus.FOUND, "Email aleready exist");
-            user.setUsername(userDto.getUsername());
-        }
 
         if (userDto.getFirstName() != null) user.setFirstName(userDto.getFirstName());
         if (userDto.getLastName() != null) user.setLastName(userDto.getLastName());
         if (userDto.getPhoneNumber() != null) user.setPhoneNumber(userDto.getPhoneNumber());
-        if (userDto.getPassword() != null)user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         return userRepository.save(user);
 

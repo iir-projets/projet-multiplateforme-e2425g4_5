@@ -28,7 +28,7 @@ public class AllergieService {
    }
 
    public boolean existsByName(String nom){
-       if (allergieRepository.findByNom(nom)){
+       if (allergieRepository.existsByNom(nom)){
            return true;
        }
        return false;

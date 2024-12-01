@@ -22,6 +22,7 @@ public class ArticleService {
 
     // Ajouter un nouvel article
     public Article ajouterArticle(Article article) {
+        article.getImages().forEach((articleImage -> articleImage.setArticle(article)));
         return articleRepository.save(article);
     }
 

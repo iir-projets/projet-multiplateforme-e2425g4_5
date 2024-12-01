@@ -28,7 +28,7 @@ public class MedicamentService {
     }
 
     public boolean existsByNom(String nom){
-        if( medicamentRepository.findByNom(nom)){
+        if( medicamentRepository.existsByNom(nom)){
             return true;
         }
         return false;

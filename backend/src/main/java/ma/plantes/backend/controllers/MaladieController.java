@@ -31,7 +31,7 @@ public class MaladieController {
     }
 
     @DeleteMapping("/sante/maladies/delete/{id}")
-    public ResponseEntity<String> SupprimerMaladie(@RequestParam Long id){
+    public ResponseEntity<String> SupprimerMaladie(@PathVariable Long id){
         try{
             if( maladieService.existsById(id)){
                 maladieService.supprimerMaladie(id);

@@ -26,7 +26,7 @@ public class Article {
     private String contenu;
 
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ArticleImage> images;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)

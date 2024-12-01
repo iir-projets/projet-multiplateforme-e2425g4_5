@@ -5,6 +5,7 @@ import ma.plantes.backend.dto.UserDto;
 import ma.plantes.backend.entities.*;
 import ma.plantes.backend.repositories.UserRepository;
 import ma.plantes.backend.service.UserDetailsServiceImp;
+import ma.plantes.backend.service.security.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ public class ClientController {
 
 
     private final UserDetailsServiceImp userDetailsServiceImp;
+    private final AuthenticationService authenticationService;
 
 
 
@@ -36,6 +38,10 @@ public class ClientController {
 
     @PatchMapping("/clients/{id}")
     public ResponseEntity<User> editProfile(@PathVariable Long id, @RequestBody UserDto userDto){
+        if (userDto.getPassword() != null){
+            userDetailsServiceImp.editProfile(userDto,id);
+            return ResponseEntity.ok(authenticationService.changePassword(id,userDto.getPassword()));
+        }
         return ResponseEntity.ok(userDetailsServiceImp.editProfile(userDto,id));
 
     }

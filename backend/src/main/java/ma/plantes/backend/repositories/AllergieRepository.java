@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AllergieRepository extends JpaRepository<Allergie,Long> {
-    boolean findByNom(String nom);
+    boolean existsByNom(String nom);
 }
