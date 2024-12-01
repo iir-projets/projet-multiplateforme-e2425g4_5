@@ -1,7 +1,9 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.UserDto;
 import ma.plantes.backend.entities.*;
+import ma.plantes.backend.repositories.UserRepository;
 import ma.plantes.backend.service.UserDetailsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -20,6 +22,7 @@ public class ClientController {
     private UserDetailsServiceImp userDetailsServiceImp;
 
 
+
     @GetMapping("/admin/clients/")
     public ResponseEntity<List<User>> allClients(){
         return ResponseEntity.ok(userDetailsServiceImp.allClients());
@@ -27,6 +30,12 @@ public class ClientController {
     @GetMapping("/admin/clients/{id}")
     public ResponseEntity<Optional<User>> getClientById(@PathVariable Long id){
         return ResponseEntity.ok(userDetailsServiceImp.getUserById(id));
+    }
+
+    @PatchMapping("/clients/{id}")
+    public ResponseEntity<User> editProfile(@PathVariable Long id, @RequestBody UserDto userDto){
+        return ResponseEntity.ok(userDetailsServiceImp.editProfile(userDto,id));
+
     }
 
     @PostMapping("/clients/{id}")
