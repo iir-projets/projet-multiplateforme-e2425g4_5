@@ -1,5 +1,6 @@
 package ma.plantes.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,12 +22,14 @@ public class PlantePropriete {
     @ManyToOne
     @MapsId("planteId")
     @JoinColumn(name = "plante_id")
+    @JsonIgnoreProperties("proprietes")
     private Plante plante;
 
 
     @ManyToOne
     @MapsId("proprieteId")
     @JoinColumn(name = "propriete_id")
+
     private Propriete propriete;
 
     // other fields and methods

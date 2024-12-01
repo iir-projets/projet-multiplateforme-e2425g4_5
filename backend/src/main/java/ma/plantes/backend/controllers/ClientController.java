@@ -70,13 +70,13 @@ public class ClientController {
         return ResponseEntity.ok(userDetailsServiceImp.deleteAllergie(id,allergie_id));
     }
     ///////////////////////////////////////////////////////////
-    @PostMapping("/clients/{id}/medecine")
+    @PostMapping("/clients/{id}/medicament")
     public  ResponseEntity<List<ClientMedicament>> addMedicament(@PathVariable Long id,
                                                                @Param("medicament_id") Long medicament_id){
         return ResponseEntity.ok(userDetailsServiceImp.addMedicament(id,medicament_id));
     }
 
-    @DeleteMapping("/clients/{id}/medecine")
+    @DeleteMapping("/clients/{id}/medicament")
     public  ResponseEntity<List<ClientMedicament>> deleteMedicament(@PathVariable Long id,
                                                                  @Param("medicament_id") Long medicament_id){
         return ResponseEntity.ok(userDetailsServiceImp.deleteMedicament(id,medicament_id));
