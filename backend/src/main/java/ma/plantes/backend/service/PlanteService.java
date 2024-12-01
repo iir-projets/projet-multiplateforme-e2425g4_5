@@ -1,9 +1,11 @@
 package ma.plantes.backend.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.PlanteDto;
 import ma.plantes.backend.entities.Plante;
 import ma.plantes.backend.entities.PlantePropriete;
 import ma.plantes.backend.entities.PlanteProprieteId;
+import ma.plantes.backend.entities.Propriete;
 import ma.plantes.backend.repositories.PlanteProprieteRepository;
 import ma.plantes.backend.repositories.PlanteRepository;
 import ma.plantes.backend.repositories.ProprieteRepository;
@@ -26,10 +28,22 @@ public class PlanteService {
 
 
     // Ajouter une nouvelle plante
-    public Plante ajouterPlante(Plante plante) {
+    public Plante ajouterPlante(PlanteDto plante) {
 
+        Plante newPlante = new Plante();
+        newPlante.setRegion(plante.getRegion());
+        newPlante.setNom(plante.getNom());
+        if (plante.getImage() != null) newPlante.setImage(plante.getImage());
+        if (plante.getPrecaution() != null) newPlante.setPrecaution(plante.getPrecaution());
+        if (plante.getInteraction() != null) newPlante.setInteraction(plante.getInteraction());
+        if (plante.getDescription() != null) newPlante.setDescription(plante.getDescription());
 
-        return planteRepository.save(plante);
+        plante.getProprietes().forEach(proprieteDto -> {
+            Propriete propriete = proprieteRepository.findByNom(proprieteDto.getNom());
+            newPlante.getProprietes().add(propriete);
+        });
+
+        return planteRepository.save(newPlante);
     }
 
     // Modifier une plante existante
