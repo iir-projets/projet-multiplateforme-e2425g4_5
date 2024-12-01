@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SectionComponent } from '../section/section.component';
-import { HeaderComponent } from '../header/header.component';
+import { SectionComponent } from '../../section/section.component';
+import { HeaderComponent } from '../../header/header.component';
 
 
 @Component({
