@@ -1,6 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { AppComponent } from '../src/app/app.component';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './app/service_sante/services/login/auth-interceptor.service';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+// Initialiser l'application avec les intercepteurs et les clients HTTP
+bootstrapApplication(AppComponent, {
+  providers: [
+    // Fournit le client HTTP et configure l'intercepteur
+    provideHttpClient(withInterceptors([authInterceptor])),
+  ],
+});
