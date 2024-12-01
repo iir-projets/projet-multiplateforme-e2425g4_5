@@ -29,11 +29,9 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/api/login/**","/api/register/**")
+                        req->req.requestMatchers("/login/**","/register/**","/error")
                                 .permitAll()
-                                .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
-                                .requestMatchers("/api/sante/**").hasAuthority("ADMIN")
-                                .requestMatchers("/api/sante/**").hasAuthority("SERVICE_SANTE")
+                                .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
                                 .anyRequest()
                                 .authenticated()
                 ).userDetailsService(userDetailsServiceImp)

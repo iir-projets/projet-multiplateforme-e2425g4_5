@@ -1,5 +1,6 @@
 package ma.plantes.backend.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.entities.FavorisId;
 import ma.plantes.backend.entities.Plante;
@@ -11,16 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class FavorisService {
 
-    @Autowired
-    private FavorisRepository favorisRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final FavorisRepository favorisRepository;
 
-    @Autowired
-    private PlanteRepository planteRepository;
+    private final UserRepository userRepository;
+
+    private final PlanteRepository planteRepository;
 
     public void ajouterFavoris(Long clientId,Long planteId){
 

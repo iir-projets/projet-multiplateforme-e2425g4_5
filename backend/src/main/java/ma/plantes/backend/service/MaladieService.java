@@ -1,5 +1,6 @@
 package ma.plantes.backend.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Maladie;
 import ma.plantes.backend.repositories.MaladieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MaladieService {
 
-    @Autowired
-    private MaladieRepository maladieRepository;
+
+    private final MaladieRepository maladieRepository;
 
     public void ajouterMaladie(Maladie maladie){
         maladieRepository.save(maladie);
