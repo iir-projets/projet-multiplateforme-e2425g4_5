@@ -1,5 +1,6 @@
 package ma.plantes.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,9 +10,11 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "article_images")
 public class ArticleImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "images_id")
     private Long id;
 
     private String imageUrl;
@@ -20,5 +23,6 @@ public class ArticleImage {
 
     @ManyToOne
     @JoinColumn(name = "article_id")
+    @JsonIgnoreProperties("images")
     private Article article;
 }

@@ -1,8 +1,11 @@
 package ma.plantes.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -35,8 +38,17 @@ public class Plante {
 
     private String image;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "plante", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<PlantePropriete> proprietes;
+
+
+    @JsonIgnoreProperties("plante")
+
+    @ManyToMany
+    @JoinTable(
+            name = "plante_propriete",
+            joinColumns = @JoinColumn(name = "plante_id"),
+            inverseJoinColumns = @JoinColumn(name = "propriete_id")
+    )
+    private List<Propriete> proprietes = new ArrayList<>();
 
 
 }

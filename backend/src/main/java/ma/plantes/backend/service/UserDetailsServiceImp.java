@@ -115,7 +115,7 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
 
         ClientMedicament clientMedicament = clientMedicamentRepository.findClientMedicamentByUserAndMedicament(user,medicament).orElseThrow();
 
-        user.getMaladies().remove(clientMedicament);
+        user.getMedicaments().remove(clientMedicament);
         //medicament.getUsers().remove(clientMedicament);
 
         clientMedicamentRepository.delete(clientMedicament);
@@ -151,7 +151,7 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
 
         ClientAllergie clientAllergie = clientAllergieRepository.findClientAllergieByUserAndAllergie(user,allergie).orElseThrow();
 
-        user.getMaladies().remove(clientAllergie);
+        user.getAllergies().remove(clientAllergie);
         //allergie.getUsers().remove(clientAllergie);
 
         clientAllergieRepository.delete(clientAllergie);
