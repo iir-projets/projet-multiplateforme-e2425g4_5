@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { DashboardComponent } from './service_sante/dashboard/dashboard.component';
+import { NavbarComponent } from './client/navbar/navbar.component'; // Adjust path
+import { FooterComponent } from './client/footer/footer.component'; // Adjust path
+import { ProfileComponent } from './client/profil/profil.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DashboardComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [NavbarComponent, FooterComponent,ProfileComponent], // Import all components
+  template: `
+    <div>
+      <app-navbar></app-navbar>
+   <app-profile></app-profile>
+      <app-footer></app-footer>
+    </div>
+  `
 })
 export class AppComponent {
-  title = 'web';
-}
+title = 'web';}
