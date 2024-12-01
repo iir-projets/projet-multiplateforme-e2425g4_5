@@ -10,15 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 public class AllergieController {
 
-    @Autowired
-    private AllergieService allergieService;
-    @Autowired
-    private AllergieRepository allergieRepository;
 
-    @PostMapping("sante/allergies/add")
+    private AllergieService allergieService;
+
+
+    @PostMapping("/sante/allergies/add")
     public ResponseEntity<String> AjouterAllergie(@RequestBody Allergie allergie){
         try{
             if(allergieService.existsByName(allergie.getNom())){
@@ -31,7 +29,7 @@ public class AllergieController {
         }
     }
 
-    @DeleteMapping("sante/allergies/delete/{id}")
+    @DeleteMapping("/sante/allergies/delete/{id}")
     public ResponseEntity<String> SupprimerAllergie(@RequestParam Long id){
         try{
             if(allergieService.exsistById(id)){

@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserDetailsServiceImp implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -26,7 +28,8 @@ public class UserDetailsServiceImp implements UserDetailsService {
     private final ClientAllergieRepository clientAllergieRepository;
     private final AllergieRepository allergieRepository;
     private final MedicamentRepository medicamentRepository;
-    private final PasswordEncoder passwordEncoder;
+
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,7 +37,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
     }
 
     public List<User> allClients(){
-        return userRepository.findUsersByRole(Role.CLIENT);
+        return userRepository.findUsersByRole(Role.ROLE_CLIENT);
     }
     public Optional<User> getUserById(Long id){
         return userRepository.findById(id);

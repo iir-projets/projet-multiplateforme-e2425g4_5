@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequiredArgsConstructor
 public class FavorisController {
 
-    @Autowired
-    private FavorisService favorisService;
 
-    @PostMapping("favoris/ajouter/{clientId}/{planteId}")
+    private final FavorisService favorisService;
+
+    @PostMapping("/favoris/ajouter/{clientId}/{planteId}")
     public ResponseEntity<String> AjouterFavoris(@PathVariable Long clientId, @PathVariable Long planteId){
         try{
             favorisService.ajouterFavoris(clientId,planteId);
@@ -23,7 +24,7 @@ public class FavorisController {
         }
     }
 
-    @DeleteMapping("/supprimer")
+    @DeleteMapping("/favoris/supprimer")
     public ResponseEntity<String> RetirerFavoris(@RequestParam Long clientId, @RequestParam Long planteId){
         boolean supprime = favorisService.supprimerFavoris(clientId,planteId);
         if(supprime){
