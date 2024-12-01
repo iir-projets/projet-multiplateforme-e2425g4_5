@@ -19,8 +19,7 @@ public class Propriete {
     @Column(nullable = false, name = "nom_propriete")
     private String nom;
 
-    @ManyToMany(mappedBy = "proprietes", fetch = FetchType.EAGER)
-    private List<Plante> plantes;
+
 
 
 

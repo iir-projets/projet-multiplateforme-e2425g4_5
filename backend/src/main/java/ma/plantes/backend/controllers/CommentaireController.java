@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Commentaire;
 import ma.plantes.backend.service.CommentaireService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/commentaires")
+@RequestMapping("/commentaires")
+@RequiredArgsConstructor
 public class CommentaireController {
 
     private final CommentaireService commentaireService;
 
-    @Autowired
-    public CommentaireController(CommentaireService commentaireService) {
-        this.commentaireService = commentaireService;
-    }
 
     // Ajouter un commentaire
     @PostMapping

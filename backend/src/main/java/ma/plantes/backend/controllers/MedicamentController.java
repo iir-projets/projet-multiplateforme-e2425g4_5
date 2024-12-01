@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Medicament;
 import ma.plantes.backend.service.MedicamentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequiredArgsConstructor
 public class MedicamentController {
 
-    @Autowired
-    private MedicamentService medicamentService;
+
+    private final MedicamentService medicamentService;
 
 
-    @PostMapping("sante/medicamants/add")
+    @PostMapping("/sante/medicaments/add")
     public ResponseEntity<String> AjouterMedicament(@RequestBody Medicament medicament){
         try{
             if( medicamentService.existsByNom(medicament.getNom())){
@@ -32,8 +33,8 @@ public class MedicamentController {
         }
     }
 
-    @DeleteMapping("sante/medicaments/delete/{id}")
-    public ResponseEntity<String> SupprimerMedicament(@RequestParam Long id){
+    @DeleteMapping("/sante/medicaments/delete/{id}")
+    public ResponseEntity<String> SupprimerMedicament(@PathVariable Long id){
         try{
             if( medicamentService.existsById(id)){
                 medicamentService.supprimerMedicament(id);
@@ -47,7 +48,7 @@ public class MedicamentController {
         }
     }
 
-    @GetMapping("medicaments/getall")
+    @GetMapping("/medicaments/getall")
     public List<Medicament> AfficherMedicament(){
         return medicamentService.getAllMedicament();
     }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { NavbarComponent } from './client/navbar/navbar.component'; // Adjust path
 import { FooterComponent } from './client/footer/footer.component'; // Adjust path
 import { ProfileComponent } from './client/profil/profil.component';

@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserDetailsServiceImp implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -26,7 +27,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
     private final ClientAllergieRepository clientAllergieRepository;
     private final AllergieRepository allergieRepository;
     private final MedicamentRepository medicamentRepository;
-    private final PasswordEncoder passwordEncoder;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,7 +35,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
     }
 
     public List<User> allClients(){
-        return userRepository.findUsersByRole(Role.CLIENT);
+        return userRepository.findUsersByRole(Role.ROLE_CLIENT);
     }
     public Optional<User> getUserById(Long id){
         return userRepository.findById(id);
@@ -44,16 +45,10 @@ public class UserDetailsServiceImp implements UserDetailsService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
-        if (userDto.getUsername() != null){
-            if (userRepository.findByUsername(userDto.getUsername()).isPresent())
-                throw new ResponseStatusException(HttpStatus.FOUND, "Email aleready exist");
-            user.setUsername(userDto.getUsername());
-        }
 
         if (userDto.getFirstName() != null) user.setFirstName(userDto.getFirstName());
         if (userDto.getLastName() != null) user.setLastName(userDto.getLastName());
         if (userDto.getPhoneNumber() != null) user.setPhoneNumber(userDto.getPhoneNumber());
-        if (userDto.getPassword() != null)user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         return userRepository.save(user);
 
@@ -120,7 +115,7 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
 
         ClientMedicament clientMedicament = clientMedicamentRepository.findClientMedicamentByUserAndMedicament(user,medicament).orElseThrow();
 
-        user.getMaladies().remove(clientMedicament);
+        user.getMedicaments().remove(clientMedicament);
         //medicament.getUsers().remove(clientMedicament);
 
         clientMedicamentRepository.delete(clientMedicament);
@@ -156,7 +151,7 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
 
         ClientAllergie clientAllergie = clientAllergieRepository.findClientAllergieByUserAndAllergie(user,allergie).orElseThrow();
 
-        user.getMaladies().remove(clientAllergie);
+        user.getAllergies().remove(clientAllergie);
         //allergie.getUsers().remove(clientAllergie);
 
         clientAllergieRepository.delete(clientAllergie);

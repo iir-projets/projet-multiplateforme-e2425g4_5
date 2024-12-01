@@ -1,5 +1,7 @@
 package ma.plantes.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,10 +21,12 @@ public class ClientMaladie {
     @ManyToOne
     @MapsId("clientId")
     @JoinColumn(name="client_id")
+    @JsonIgnoreProperties("maladies")
     private User user;
 
     @ManyToOne
     @MapsId("maladieId")
     @JoinColumn(name="maladie_id")
+    @JsonIgnoreProperties("user")
     private Maladie maladie;
 }
