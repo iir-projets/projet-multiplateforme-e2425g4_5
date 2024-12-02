@@ -2,10 +2,13 @@ package ma.plantes.backend.repositories;
 
 import ma.plantes.backend.entities.Plante;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface PlanteRepository extends JpaRepository<Plante, Long> {
 
     // Rechercher une plante par son nom
@@ -15,6 +18,4 @@ public interface PlanteRepository extends JpaRepository<Plante, Long> {
     List<Plante> findByRegion(String region);
 
 
-    // Rechercher toutes les plantes ayant une propriété spécifique (utilisant la relation ManyToMany)
-    List<Plante> findByProprietes_Id(Long proprieteId);
 }

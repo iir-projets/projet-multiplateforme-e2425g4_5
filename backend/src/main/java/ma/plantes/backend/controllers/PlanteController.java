@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import ma.plantes.backend.dto.PlanteDto;
 import ma.plantes.backend.entities.Plante;
 import ma.plantes.backend.service.PlanteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
 public class PlanteController {
 
     private final PlanteService planteService;
@@ -23,9 +23,10 @@ public class PlanteController {
 
     // Ajouter une plante
     @PostMapping("/admin/plantes")
-    public ResponseEntity<Plante> ajouterPlante(@RequestBody Plante plante) {
-        Plante newPlante = planteService.ajouterPlante(plante);
-        return new ResponseEntity<>(newPlante, HttpStatus.CREATED);
+    public ResponseEntity<Plante> ajouterPlante(@RequestBody PlanteDto planteDTO) {
+        System.out.println("PlanteDTO received: " + planteDTO.toString());
+        Plante newPlante = planteService.ajouterPlante(planteDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newPlante);
     }
 
     // Modifier une plante
@@ -39,7 +40,7 @@ public class PlanteController {
     }
 
     // Supprimer une plante
-    @DeleteMapping("/admin/plantes//{id}")
+    @DeleteMapping("/admin/plantes/{id}")
     public ResponseEntity<Void> supprimerPlante(@PathVariable Long id) {
         boolean deleted = planteService.supprimerPlante(id);
         if (deleted) {

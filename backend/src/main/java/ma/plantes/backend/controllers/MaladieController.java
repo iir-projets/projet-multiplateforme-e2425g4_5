@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Maladie;
 import ma.plantes.backend.service.MaladieService;
 import ma.plantes.backend.service.MedicamentService;
@@ -10,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequiredArgsConstructor
 public class MaladieController {
 
-    @Autowired
-    private MaladieService maladieService;
 
-    @PostMapping("sante/maladies/add")
+    private final MaladieService maladieService;
+
+    @PostMapping("/sante/maladies/add")
     public ResponseEntity<String> AjouterMaladie(@RequestBody Maladie maladie){
         try{
             if( maladieService.existsByNom(maladie.getNom())){
@@ -29,8 +30,8 @@ public class MaladieController {
         }
     }
 
-    @DeleteMapping("sante/maladies/delete/{id}")
-    public ResponseEntity<String> SupprimerMaladie(@RequestParam Long id){
+    @DeleteMapping("/sante/maladies/delete/{id}")
+    public ResponseEntity<String> SupprimerMaladie(@PathVariable Long id){
         try{
             if( maladieService.existsById(id)){
                 maladieService.supprimerMaladie(id);
