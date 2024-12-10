@@ -2,9 +2,7 @@ package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Allergie;
-import ma.plantes.backend.repositories.AllergieRepository;
 import ma.plantes.backend.service.AllergieService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

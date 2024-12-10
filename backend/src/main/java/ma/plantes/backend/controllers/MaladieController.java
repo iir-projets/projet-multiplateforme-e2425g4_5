@@ -3,8 +3,6 @@ package ma.plantes.backend.controllers;
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Maladie;
 import ma.plantes.backend.service.MaladieService;
-import ma.plantes.backend.service.MedicamentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

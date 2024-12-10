@@ -1,9 +1,7 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
-import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
