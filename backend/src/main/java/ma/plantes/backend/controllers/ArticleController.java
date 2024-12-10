@@ -3,7 +3,6 @@ package ma.plantes.backend.controllers;
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Article;
 import ma.plantes.backend.service.ArticleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
