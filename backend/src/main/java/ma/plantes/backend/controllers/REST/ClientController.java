@@ -1,4 +1,4 @@
-package ma.plantes.backend.controllers;
+package ma.plantes.backend.controllers.REST;
 
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.dto.UserDto;
