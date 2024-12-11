@@ -1,0 +1,110 @@
+/* Conteneur Principal */
+.profile-container {
+    display: grid; /* Use CSS Grid */
+    grid-template-areas: 
+        "profile-details medical-details"; /* Align cards side-by-side */
+    grid-template-columns: 1fr 1fr; /* Equal column widths for cards */
+    gap: 60px; /* Space between cards */
+    padding: 100px;
+    background: #C1CFA1;
+    box-shadow: inset 0 -5px 20px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Scroll for smaller screens */
+   
+}
+
+/* Style Global des Cards */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 50px;
+    margin-top: -2%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: center;
+    max-width: 600px; /* Ensures uniform max-width */
+    width: 100%; /* Ensures responsive sizing */
+    height: auto; /* Allow natural height expansion if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Titres des Cards */
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #d2e7c8;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* Listes dans les Cards */
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Push items evenly within the card */
+}
+
+.card ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.card ul li:last-child {
+    border-bottom: none;
+}
+
+.card ul li span {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Boutons dans les Cards */
+.card button {
+    padding: 8px 12px;
+    background: #E7CCCC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+    background: #C1CFA1;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-details {
+    grid-area: profile-details;
+    animation: fadeIn 0.6s ease;
+}
+
+.medical-details {
+    grid-area: medical-details;
+    animation: fadeIn 0.8s ease;
+}
