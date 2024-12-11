@@ -1,0 +1,26 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Assurez-vous que le container prend toute la hauteur */
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex-direction: row; /* Les sections côte à côte */
+    gap: 10px;
+    padding: 5px;
+    overflow: auto;
+ 
+  }
+  
+  .dashboard-section {
+    flex: 1;
+    background-color: #ede8dc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 8%;
+    position: sticky;
+    top: 10px;
+    z-index: 999;
+  }
+  

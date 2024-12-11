@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input{
+    height: 2rem;
+    width: 18rem;
+}
+
+.btn {
+    padding: 1%;
+    width: 80px;
+    margin-left: -50%; 
+    background-color: #778f56;
+    padding: 0.3rem;
+    color: #000000; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+  }
