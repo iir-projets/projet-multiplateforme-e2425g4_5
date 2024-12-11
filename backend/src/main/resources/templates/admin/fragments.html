@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fragments</title>
+</head>
+<body>
+    <!-- Header Fragment -->
+    <div th:fragment="header" style="width: 100%;background-color: darkseagreen">
+        <header style="display: flex;justify-content: space-between; background-color: darkseagreen">
+            <img src="../../images/logo_plante.png" alt="logo" style="width: 5%">
+            <button>
+                logout
+            </button>
+        </header>
+    </div>
+
+    <!-- Footer Fragment -->
+    <div th:fragment="footer">
+        <footer>
+            <p>&copy; 2024 My Application</p>
+        </footer>
+    </div>
+</body>
+</html>
