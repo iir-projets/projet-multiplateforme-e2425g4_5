@@ -1,4 +1,4 @@
-package ma.plantes.backend.controllers;
+package ma.plantes.backend.controllers.REST;
 
 import ma.plantes.backend.dto.PlanteDto;
 import ma.plantes.backend.entities.Plante;
