@@ -1,5 +1,5 @@
 .dashboard-layout {
-  display: flex;
+  display: block;
 }
 
 .sidebar {
