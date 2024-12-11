@@ -1,4 +1,4 @@
-package ma.plantes.backend.controllers.REST;
+package ma.plantes.backend.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
