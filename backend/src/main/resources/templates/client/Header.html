@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogue des Plantes Médicinales</title>
+
     <style>
-        /* CSS intégré */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: rgba(162, 201, 162, 0.96);
-            padding: 50px 50px;
+            background-color: rgb(193, 207, 161);
+            padding: 20px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -26,7 +26,7 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 90px;
             margin-right: 10px;
         }
 
@@ -46,11 +46,34 @@
             text-decoration: none;
             color: white;
             font-size: 16px;
-            transition: color 0.3s;
+            transition: color 0.3s, background-color 0.3s;
+            padding: 8px 16px; /* Ajouter du padding pour l'effet de survol */
+            border-radius: 5px; /* Facultatif : pour un effet de coins arrondis */
         }
 
         .nav-links a:hover {
-            color: #151411;
+            background-color: #151411; /* Fond noir au survol */
+            color: white; /* Reste blanc */
+        }
+
+        /* Liens Profil et Déconnexion (si besoin de mise en forme spécifique) */
+        .nav-links-profil {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links-profil a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s, background-color 0.3s;
+            padding: 8px 16px; /* Ajouter du padding pour l'effet de survol */
+            border-radius: 5px; /* Facultatif : pour un effet de coins arrondis */
+        }
+
+        .nav-links-profil a:hover {
+            background-color: #151411; /* Fond noir au survol */
+            color: white; /* Reste blanc */
         }
     </style>
 </head>
@@ -59,19 +82,24 @@
     <!-- Logo -->
     <div class="logo">
         <a th:href="@{/}">
-            <img th:src="@{../../images/img.png}">
+            <img src="../../images/logo_plante.png" alt="logo">
         </a>
-
     </div>
 
-    <!-- Navigation Links -->
+    <!-- Navigation Links principaux -->
     <ul class="nav-links">
         <li><a th:href="@{/}">Accueil</a></li>
         <li><a th:href="@{/plantes}">Plantes</a></li>
         <li><a th:href="@{/articles}">Articles</a></li>
         <li><a th:href="@{/favoris}">Favoris</a></li>
-        <li><a th:href="@{/profil}">Profil</a></li>
+        <li><a th:href="@{/profil}">Profil</a></li> <!-- Profil ajouté ici -->
     </ul>
+
+    <!-- Liens Déconnexion séparé -->
+    <ul class="nav-links-profil">
+        <li><a th:href="@{/deconnexion}">Déconnexion</a></li>
+    </ul>
+
 </header>
 </body>
 </html>
