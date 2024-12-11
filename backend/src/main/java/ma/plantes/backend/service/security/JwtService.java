@@ -2,6 +2,7 @@ package ma.plantes.backend.service.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import ma.plantes.backend.entities.User;
@@ -51,14 +52,14 @@ public class JwtService {
     }
 
     public String generateToken(User user){
-        String token = Jwts
+        return  Jwts
                 .builder()
-                .subject(user.getUsername())
-                .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 24*60*60*1000))
-                .signWith(getSignInKey())
+                .setSubject(user.getUsername())
+                .claim("authorities",user.getAuthorities())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + 24*60*60*1000))
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
-        return token;
     }
 
     private SecretKey getSignInKey(){

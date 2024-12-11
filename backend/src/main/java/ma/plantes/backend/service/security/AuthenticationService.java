@@ -1,6 +1,7 @@
 package ma.plantes.backend.service.security;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.UserDto;
 import ma.plantes.backend.entities.security.AuthenticationResponse;
 import ma.plantes.backend.entities.User;
 import ma.plantes.backend.repositories.UserRepository;
@@ -45,5 +46,14 @@ public class AuthenticationService {
         String token = jwtService.generateToken(user);
 
         return new AuthenticationResponse(token);
+    }
+
+    public User changePassword(Long id,String pwd){
+
+
+        User user = userRepository.findById(id).orElseThrow();
+        user.setPassword(passwordEncoder.encode(pwd));
+
+        return userRepository.save(user);
     }
 }

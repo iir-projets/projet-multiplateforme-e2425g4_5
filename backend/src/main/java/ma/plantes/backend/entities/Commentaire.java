@@ -1,5 +1,6 @@
 package ma.plantes.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,10 +22,11 @@ public class Commentaire {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "article_id", nullable = false)
+    @JsonIgnoreProperties("commentaire")
     private Article article;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "utilisateur_id", nullable = false)
+    @JsonIgnoreProperties("articles")
     private User utilisateur;
 
 

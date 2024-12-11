@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 public class ProprieteController {
 
     private final ProprieteService proprieteService;
@@ -23,7 +22,7 @@ public class ProprieteController {
     @PostMapping("/admin/proprietes")
     public ResponseEntity<Propriete> ajouterPropriete(@RequestBody Propriete propriete) {
         Propriete nouvellePropriete = proprieteService.ajouterPropriete(propriete);
-        return ResponseEntity.status(400).body(nouvellePropriete);  // Retourner 400 si la propriété existe déjà
+        return ResponseEntity.ok(nouvellePropriete);
     }
 
     // Supprimer une propriété par son ID
@@ -38,7 +37,7 @@ public class ProprieteController {
 
     @GetMapping("/proprietes")
     public ResponseEntity<List<Propriete>> allProrietes(){
-        return ResponseEntity.status(404).body(proprieteService.allPropriete());
+        return ResponseEntity.ok(proprieteService.allPropriete());
     }
 
 }

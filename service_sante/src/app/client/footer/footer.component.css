@@ -1,0 +1,138 @@
+.footer {
+    background-color: #C1CFA1; /* Fond vert clair */
+    color: #EDE8DC;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    width: 100vw; /* Utilise toute la largeur de la fenêtre */
+    position: fixed; /* Fixe le footer en bas de la fenêtre */
+    bottom: 0; /* Positionne le footer au bas */
+    left: 0; /* Collé au bord gauche */
+    z-index: 1000; /* Toujours au-dessus */
+    overflow: hidden; /* Masque les animations sortantes */
+    animation: slideUp 1s ease-in-out; /* Animation d'apparition */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23C1CFA1" fill-opacity="1" d="M0,224L80,208C160,192,320,160,480,160C640,160,800,192,960,186.7C1120,181,1280,139,1360,117.3L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>');
+    background-size: cover; /* Ajuste l'image pour couvrir l'intégralité */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+/* Animation d'apparition */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Contenu du footer */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacement entre sections */
+}
+
+/* Liste de navigation */
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange links horizontally */
+    justify-content: center; /* Center the links */
+    align-items: center; /* Align items vertically in the center */
+    gap: 20px; /* Space between the links */
+    animation: fadeIn 1.5s ease; /* Fade-in animation */
+}
+
+.footer-nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease; /* Hover animations */
+}
+
+.footer-nav ul li a:hover {
+    color: #ce8a8a; /* Dark green on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    text-decoration: underline;
+}
+
+
+/* Section des réseaux sociaux */
+.social-section {
+    position: absolute;
+    top: 10px;
+    right: 80px;
+    text-align: right;
+    animation: fadeInRight 1.5s ease;
+}
+
+.social-section p {
+    margin: 0 0 15px; /* Espace entre le texte et les icônes */
+    font-size: 20px;
+    color: #0c0a0a;
+    animation: fadeInRight 1.8s ease;
+}
+
+/* Icônes des réseaux sociaux */
+.social-icons {
+    display: flex;
+    justify-content: flex-end; /* Alignement à droite */
+    gap: 15px; /* Espacement entre les icônes */
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #EDE8DC; /* Fond clair pour les icônes */
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+    transition: transform 0.4s ease, background-color 0.4s ease; /* Effets de mouvement */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons a:hover {
+    transform: rotate(360deg) scale(1.2); /* Rotation et agrandissement */
+    background-color: #E7CCCC; /* Couleur légèrement rosée au survol */
+}
+
+/* Texte des droits réservés */
+.footer-copy p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: #0c0a0a;
+    animation: fadeIn 2s ease;
+}
+
+/* Animations supplémentaires */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
