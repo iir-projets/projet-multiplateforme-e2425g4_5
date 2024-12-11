@@ -1,4 +1,4 @@
-package ma.plantes.backend.controllers.REST;
+package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Article;
