@@ -1,0 +1,301 @@
+
+
+/* Bannière */
+.banner {
+    text-align: center;
+    background: linear-gradient(135deg, #EDE8DC, #EDE8DC);
+    color: #0c0b0b;
+    padding: 60px 20px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.banner h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out;
+}
+
+.banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.banner .cta-button {
+    background-color: #ffffff;
+    color: #A5B68D;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.banner .cta-button:hover {
+    background-color: #A5B68D;
+    color: #ffffff;
+}
+
+
+/* Conteneur principal */
+.home-container {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Section Plantes */
+.plants-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.plants-section h2 {
+    font-size: 2rem;
+    color: #A5B68D;
+    margin-bottom: 20px;
+}
+
+/* Grille de cartes */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-row {
+    display: flex; /* Utilisation de Flexbox */
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si nécessaire */
+    gap: 20px; /* Espace entre les cartes */
+    justify-content: center; /* Centre les cartes horizontalement */
+    align-items: center; /* Centre les cartes verticalement */
+    margin-right: 12px; /* Décale légèrement les cartes vers la droite */
+    width: 100%; /* Utilisation de toute la largeur disponible */
+}
+
+
+/* Style des cartes */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    width: 200px; /* Largeur fixe pour cartes plus petites */
+    height: 250px; /* Hauteur fixe */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenu des cartes */
+.card-content {
+    padding: 10px;
+    background-color: #EDE8DC;
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #333;
+   
+}
+
+.card-content button {
+    background: #A5B68D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.card-content button:hover {
+    background: #A5B68D;
+}
+
+/* Image des cartes */
+.card-image {
+    height: 60%; /* Limiter la hauteur de l'image */
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Bouton Voir Plus */
+.see-more-button {
+    background: #A5B68D;
+    color: #fff;
+    border: none;
+    padding: 30px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s ease;
+}
+
+.see-more-button:hover {
+    background: #A5B68D;
+}
+
+/* Adaptation pour mobile */
+@media (max-width: 768px) {
+    .cards-row {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur petit écran */
+    }
+
+    .card {
+        width: 150px; /* Cartes plus petites */
+        height: 200px;
+    }
+}
+
+
+/* Section des témoignages */
+.testimonials-section {
+    margin: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-section h2 {
+    font-size: 1.4em; /* Augmenter légèrement pour plus de visibilité sans excès */
+    color: #A5B68D; /* Une couleur douce mais élégante */
+    margin-bottom: 50px; /* Plus d'espace pour aérer le design */
+    font-weight: 800; /* Texte en gras pour plus de poids */
+    text-align: center; /* Centrer le texte */
+    font-family: 'Montserrat', sans-serif; /* Police moderne et élégante */
+    position: relative; /* Nécessaire pour l'effet sous-titre */
+    text-transform: uppercase; /* Mettre en majuscules pour plus de netteté */
+    letter-spacing: 4px; /* Plus d'espacement entre les lettres pour l'effet de grandeur */
+    padding-bottom: 15px; /* Plus d'espace en bas pour créer un effet de profondeur */
+    background: linear-gradient(45deg, rgba(162, 179, 141, 0.6), rgba(255, 255, 255, 0)); /* Dégradé subtil pour l'arrière-plan */
+    display: inline-block; /* Pour que le dégradé n'affecte pas toute la largeur */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce pour ajouter de la profondeur */
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide */
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    gap: 20px;
+    animation: slide-alternate 12s linear infinite;
+}
+
+.testimonial {
+    flex: 0 0 300px; /* Largeur fixe des témoignages */
+    background-color: #e7dddd;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: scale(1.1);
+}
+
+.testimonial p {
+    font-size: 1.2em; /* Légèrement plus grand pour plus de lisibilité */
+    color: #555; /* Couleur de texte plus douce et moderne */
+    margin-bottom: 20px; /* Plus d'espace en bas */
+    font-style: italic; /* Conserver l'italique pour un effet distinctif */
+    line-height: 1.7; /* Améliore la lisibilité */
+    font-family: 'Georgia', serif; /* Une police élégante pour le texte */
+    position: relative; /* Nécessaire pour la bordure en dessous */
+    padding-left: 20px; /* Ajoute de l'espace à gauche */
+    border-left: 5px solid #C1CFA1; /* Bordure élégante et colorée à gauche */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+    background-color: #f9f9f9; /* Fond léger pour faire ressortir le texte */
+    border-radius: 8px; /* Coins arrondis pour un effet doux */
+    transition: all 0.3s ease; /* Effet de transition fluide */
+}
+
+.testimonial h4 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #A5B68D;
+}
+
+/* Animation bidirectionnelle fluide */
+@keyframes slide-alternate {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-20%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Style pour le bouton "Voir plus" */
+.see-more-button {
+    background: linear-gradient(135deg, #A5B68D, #A5B68D); /* Dégradé élégant */
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px; /* Coins arrondis de 20px */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 30px; /* Espace entre les cartes et le bouton */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrer le bouton */
+}
+
+.see-more-button:hover {
+    background: linear-gradient(#EDE8DC, #EDE8DC); /* Changer la couleur lors du survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+.see-more-button:focus {
+    outline: none;
+}
+
+/* Réponse adaptative */
+@media (max-width: 768px) {
+    .see-more-button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}
+
