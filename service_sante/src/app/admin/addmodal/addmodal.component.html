@@ -1,7 +1,53 @@
-<h2 mat-dialog-title>Modal Title</h2>
-
-  <p>Here is the modal content!</p>
 
 
-  <button mat-button (click)="close()">Close</button>
+<h3 style="color: #6b8e23; margin-left: 1rem; margin-top: 1rem;">Add a Herb</h3>
 
+  <form>
+    <!-- Name -->
+    <div class="form">
+      <mat-label>Name :</mat-label>
+      <input matInput placeholder="Enter the name" [(ngModel)]="herb.nom" name="nom">
+    </div>
+
+    <!-- Description -->
+    <div class="form">
+      <mat-label>Description :</mat-label>
+      <textarea matInput placeholder="Enter the description" [(ngModel)]="herb.description" name="description"></textarea>
+    </div>
+
+    <!-- Precautions -->
+    <div class="form">
+      <mat-label>Precautions :</mat-label>
+      <input matInput placeholder="Enter the precautions" [(ngModel)]="herb.precaution" name="precaution">
+    </div>
+
+    <!-- Interactions -->
+    <div class="form">
+      <mat-label>Interactions :</mat-label>
+      <input matInput placeholder="Enter the interactions" [(ngModel)]="herb.interaction" name="interaction">
+    </div>
+
+    <!-- Region -->
+    <div class="form">
+      <mat-label>Region :</mat-label>
+      <input matInput placeholder="Enter the region" [(ngModel)]="herb.region" name="region">
+    </div>
+
+    <!-- Property -->
+    <div class="form">
+      <mat-label>Properties :</mat-label>
+      <input matInput placeholder="Enter the properties" [(ngModel)]="herb.propriete" name="propriete">
+    </div>
+
+    <!-- Image -->
+    <div class="form">
+      <mat-label>Image :</mat-label>
+      <input matInput placeholder="Enter the image URL" [(ngModel)]="herb.image" name="image">
+    </div>
+  </form>
+
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()">CANCEL</button>
+  <button mat-raised-button color="primary" (click)="submit()">Add</button>
+</mat-dialog-actions>
