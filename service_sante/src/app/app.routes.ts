@@ -5,11 +5,17 @@ import { DashboardComponent } from './service_sante/dashboard/dashboard.componen
 import { AllergiesComponent } from './service_sante/allergies/allergies.component';
 import { MaladiesComponent } from './service_sante/maladies/maladies.component';
 import { MedicamentsComponent } from './service_sante/medicaments/medicaments.component';
+
 import { DashboardadminComponent } from './admin/dashboardadmin/dashboardadmin.component';
 import { StatsComponent } from './admin/stats/stats.component';
 import { HerbsComponent } from './admin/herbs/herbs.component';
 import { ArticlesComponent } from './admin/articles/articles.component';
 import { ClientsComponent } from './admin/clients/clients.component';
+
+
+import {ProfileComponent} from './client/profil/profil.component';
+import { AccueilComponent } from './client/accueil/accueil.component';
+import { PlantesComponent } from './client/plantes/plantes.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +29,7 @@ export const routes: Routes = [
     {   path: 'register', 
         component: RegisterComponent 
     },
+
     {
         path: 'dashboard',
         component: DashboardadminComponent,
@@ -37,6 +44,23 @@ export const routes: Routes = [
             
         ]
     },
+
+
+    {  path: 'profil',
+       component: ProfileComponent,
+    },
+
+    {
+        path: 'accueil',
+        component: AccueilComponent,
+    },
+
+   {
+            path: 'plantes',
+            component: PlantesComponent,
+   }
+    ,
+
     {   path: 'dashboard_sante', 
         component: DashboardComponent, 
         children:[
