@@ -1,0 +1,404 @@
+/* Bannière */
+.banner {
+    text-align: center;
+    background: linear-gradient(135deg, #EDE8DC, #EDE8DC);
+    color: #0c0b0b;
+    padding: 60px 20px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.banner h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out;
+}
+
+.banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.banner .cta-button {
+    background-color: #ffffff;
+    color: #A5B68D;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.banner .cta-button:hover {
+    background-color: #A5B68D;
+    color: #ffffff;
+}
+
+
+/* Conteneur principal */
+.home-container {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.plants-citation-section {
+    text-align: center;
+    margin: 40px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.plants-citation-section h2 {
+    font-size: 2.5rem; /* Slightly larger font size for emphasis */
+    color: #A5B68D; /* Keeps the soothing green shade */
+    margin-bottom: 20px; /* Proper spacing */
+    font-weight: bold; /* Makes the heading stand out */
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2); /* Adds subtle shadow for depth */
+    text-transform: uppercase; /* Capitalizes all letters for formality */
+    letter-spacing: 2px; /* Spacing for an airy look */
+    position: relative; /* Enables pseudo-elements */
+    padding-bottom: 10px; /* Adds some breathing room */
+}
+
+.plants-citation-section h2::after {
+    content: ''; /* Empty content for the pseudo-element */
+    display: block; /* Make the pseudo-element behave like a block */
+    width: 50%; /* Controls the length of the underline */
+    height: 2px; /* Line thickness */
+    background-color: #EDE8DC; /* Line color */
+    margin: 10px auto 0; /* Centers the line below the title */
+}
+
+
+/* Style for "See More" button */
+.see-more-button {
+    background: linear-gradient(135deg, #A5B68D, #8C9E76); /* Elegant gradient background */
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 40px; /* Adds space between cards and the button */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
+}
+
+.see-more-button:hover {
+    background: linear-gradient(#8C9E76, #A5B68D); /* Change gradient direction on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.see-more-button:focus {
+    outline: none; /* Remove the outline on focus */
+}
+
+@media (max-width: 768px) {
+    .see-more-button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}
+
+
+
+
+.plants-citation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.plants-citation-row {
+    display: flex;
+    flex-wrap: nowrap; /* Assure que la carte et la citation restent côte à côte */
+    gap: 40px;
+    justify-content: center; /* Centrer les éléments dans chaque ligne */
+    align-items: flex-start; /* Aligner le haut des cartes et citations */
+    width: 100%;
+    max-width: 1200px; /* Limite la largeur maximale */
+    margin: 0 auto; /* Centrer le contenu */
+}
+
+.citation {
+    max-width: 400px;
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrer le texte horizontalement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer le contenu verticalement */
+    height: 250px; /* Vous pouvez ajuster la hauteur selon vos besoins */
+}
+
+.citation p {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center; /* Assure que le texte est centré horizontalement */
+}
+
+.citation h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #A5B68D;
+    text-align: center; /* Centrer le nom de l'auteur */
+}
+
+
+/* Ajout d'un espace entre la section des plantes et le titre de section */
+.plants-citation-section h2 {
+    margin-bottom: 60px; /* Ajoute un espace sous le titre */
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    width: 300px; /* Taille fixe pour toutes les cartes */
+    min-width: 250px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    height: 180px;
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    background-color: #EDE8DC;
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+
+.citation {
+    max-width: 400px;
+    flex: 1; /* Permet à la citation de prendre plus de place si nécessaire */
+    background: #f9f9f9;
+    padding: 3px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.citation p {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.citation h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #A5B68D;
+    text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .plants-citation-row {
+        flex-wrap: wrap; /* Permet de passer à une disposition verticale sur petits écrans */
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card,
+    .citation {
+        width: 100%;
+        max-width: 400px; /* S'adapte à une largeur plus petite */
+    }
+}
+
+@media (max-width: 768px) {
+    .plants-citation-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .citation {
+        width: 100%;
+    }
+}
+
+  
+/* Adaptation pour mobile */
+@media (max-width: 768px) {
+    .cards-row {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur petit écran */
+    }
+
+    .card {
+        width: 150px; /* Cartes plus petites */
+        height: 200px;
+    }
+}
+
+
+/* Section des témoignages */
+.testimonials-section {
+    margin: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials-section h2 {
+    font-size: 1.4em; /* Augmenter légèrement pour plus de visibilité sans excès */
+    color: #A5B68D; /* Une couleur douce mais élégante */
+    margin-bottom: 50px; /* Plus d'espace pour aérer le design */
+    font-weight: 800; /* Texte en gras pour plus de poids */
+    text-align: center; /* Centrer le texte */
+    font-family: 'Montserrat', sans-serif; /* Police moderne et élégante */
+    position: relative; /* Nécessaire pour l'effet sous-titre */
+    text-transform: uppercase; /* Mettre en majuscules pour plus de netteté */
+    letter-spacing: 4px; /* Plus d'espacement entre les lettres pour l'effet de grandeur */
+    padding-bottom: 15px; /* Plus d'espace en bas pour créer un effet de profondeur */
+    background: linear-gradient(45deg, rgba(162, 179, 141, 0.6), rgba(255, 255, 255, 0)); /* Dégradé subtil pour l'arrière-plan */
+    display: inline-block; /* Pour que le dégradé n'affecte pas toute la largeur */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce pour ajouter de la profondeur */
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide */
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    gap: 20px;
+    animation: slide-alternate 12s linear infinite;
+}
+
+.testimonial {
+    flex: 0 0 300px; /* Largeur fixe des témoignages */
+    background-color: #e7dddd;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: scale(1.1);
+}
+
+.testimonial p {
+    font-size: 1.2em; /* Légèrement plus grand pour plus de lisibilité */
+    color: #555; /* Couleur de texte plus douce et moderne */
+    margin-bottom: 20px; /* Plus d'espace en bas */
+    font-style: italic; /* Conserver l'italique pour un effet distinctif */
+    line-height: 1.7; /* Améliore la lisibilité */
+    font-family: 'Georgia', serif; /* Une police élégante pour le texte */
+    position: relative; /* Nécessaire pour la bordure en dessous */
+    padding-left: 20px; /* Ajoute de l'espace à gauche */
+    border-left: 5px solid #C1CFA1; /* Bordure élégante et colorée à gauche */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+    background-color: #f9f9f9; /* Fond léger pour faire ressortir le texte */
+    border-radius: 8px; /* Coins arrondis pour un effet doux */
+    transition: all 0.3s ease; /* Effet de transition fluide */
+}
+
+.testimonial h4 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #A5B68D;
+}
+
+/* Animation bidirectionnelle fluide */
+@keyframes slide-alternate {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-20%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Style pour le bouton "Voir plus" */
+.see-more-button {
+    background: linear-gradient(135deg, #A5B68D, #A5B68D); /* Dégradé élégant */
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px; /* Coins arrondis de 20px */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 30px; /* Espace entre les cartes et le bouton */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrer le bouton */
+}
+
+.see-more-button:hover {
+    background: linear-gradient(#EDE8DC, #EDE8DC); /* Changer la couleur lors du survol */
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+.see-more-button:focus {
+    outline: none;
+}
+
+/* Réponse adaptative */
+@media (max-width: 768px) {
+    .see-more-button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}

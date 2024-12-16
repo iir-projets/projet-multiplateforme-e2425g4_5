@@ -1,0 +1,120 @@
+/* Style pour le conteneur des notifications */
+.notifications-container {
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #FFEDED;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style du titre */
+.title {
+    font-size: 36px;
+    color: #C1CFA1;  /* Couleur vert frais pour une touche moderne */
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;  /* Police moderne et claire */
+    font-weight: 700;  /* Poids de police audacieux */
+    letter-spacing: 2px;  /* Espacement des lettres pour une touche d'élégance */
+    text-transform: uppercase;  /* Texte en majuscule pour plus d'impact */
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background-color: #C1CFA1;  /* Même couleur que le texte */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;  /* Position sous le titre */
+}
+
+.title:hover {
+    color: #ffffff;  /* Change la couleur du texte au survol */
+    background-color: #C1CFA1;  /* Change le fond du titre au survol */
+    padding: 8px 20px;  /* Ajoute un peu de padding pour l'effet de survol */
+    border-radius: 30px;  /* Arrondit les bords */
+    cursor: pointer;  /* Ajoute un curseur pointer pour l'interaction */
+}
+
+/* Style pour chaque notification */
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet de survol pour les notifications */
+.notification:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Style de notification lue */
+.notification.read {
+    background-color: #e8f5e9;  /* Vert pâle pour notifications lues */
+    border-left: 5px solid #C1CFA1;  /* Ajout d'une bordure verte à gauche pour les notifications lues */
+}
+
+/* Icône de notification avec animation */
+.notification-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.notification-icon img:hover {
+    transform: scale(1.1);
+}
+
+/* Contenu de la notification */
+.notification-content {
+    flex: 1;
+}
+
+.notification-content h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.notification-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+/* Statut de lecture (lue ou non lue) */
+.notification-status {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.read-status {
+    color: #C1CFA1; /* Vert pour notifications lues */
+}
+
+.unread-status {
+    color: #f44336; /* Rouge pour notifications non lues */
+}
+
+/* Ajout d'un léger effet d'ombre pour les notifications lues */
+.notification.read:hover {
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+}
+
+.section1 {
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.carousel-vertical {
+    position: relative;
+    height: 530px; /* Adjust the height as needed */
+    overflow: hidden;
+    margin: 0 auto;
+    border: none; /* Supprime la bordure */
+}
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+    animation: continuousScroll 30s linear infinite;
+    will-change: transform; /* Optimize performance */
+}
+
+.carousel-item {
+    height: 300px; /* Match the container height */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    /* Ajoute une ombre subtile */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    border-radius: 8px; /* Facultatif : coins arrondis */
+}
+
+/* Continuous scrolling animation */
+@keyframes continuousScroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-1500px); /* Total height of all images */
+    }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .carousel-vertical {
+        height: 200px; /* Reduce height for smaller screens */
+    }
+    .carousel-item {
+        height: 200px;
+    }
+    @keyframes continuousScroll {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-1000px); /* Adjust for smaller screens */
+        }
+    }
+}

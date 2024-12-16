@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+    <!-- Profile Details Card -->
+    <div class="card profile-details">
+        <h2>Profile Details</h2>
+        <ul>
+            <li *ngFor="let field of profileFields">
+                <span>{{ field.label }}</span>
+                <ng-container *ngIf="!field.isEditing">
+                    <span>{{ field.value }}</span>
+                    <button class="action-btn" (click)="editField(field)">Edit</button>
+                </ng-container>
+                <ng-container *ngIf="field.isEditing">
+                    <input *ngIf="field.label !== 'Password'" [(ngModel)]="field.value" [type]="field.label === 'Email' ? 'email' : 'text'">
+                    <input *ngIf="field.label === 'Password'" [(ngModel)]="field.value" type="password">
+                    <button class="action-btn" (click)="updateField(field)">Save</button>
+                </ng-container>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Medical Details Card -->
+    <div class="card medical-details">
+        <h2>Medical Details</h2>
+        <ul>
+            <li *ngFor="let field of medicalFields">
+                <span>{{ field.label }}</span>
+                <ng-container *ngIf="!field.isEditing">
+                    <span>{{ field.value.join(', ') }}</span>
+                    <button class="action-btn" (click)="editField(field)">Edit</button>
+                </ng-container>
+                <ng-container *ngIf="field.isEditing">
+                    <div class="options-list">
+                        <label *ngFor="let option of field.options">
+                            <input type="checkbox" 
+                                   [checked]="field.value.includes(option)"
+                                   (change)="toggleOption(field, option)">
+                            {{ option }}
+                        </label>
+                    </div>
+                    <button class="action-btn" (click)="updateField(field)">Save</button>
+                </ng-container>
+            </li>
+        </ul>
+    </div>
+</div>
