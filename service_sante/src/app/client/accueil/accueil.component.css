@@ -1,5 +1,3 @@
-
-
 /* Bannière */
 .banner {
     text-align: center;
@@ -48,39 +46,124 @@
     color: #333;
 }
 
-/* Section Plantes */
-.plants-section {
+.plants-citation-section {
     text-align: center;
     margin: 40px 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-.plants-section h2 {
-    font-size: 2rem;
-    color: #A5B68D;
-    margin-bottom: 20px;
+.plants-citation-section h2 {
+    font-size: 2.5rem; /* Slightly larger font size for emphasis */
+    color: #A5B68D; /* Keeps the soothing green shade */
+    margin-bottom: 20px; /* Proper spacing */
+    font-weight: bold; /* Makes the heading stand out */
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2); /* Adds subtle shadow for depth */
+    text-transform: uppercase; /* Capitalizes all letters for formality */
+    letter-spacing: 2px; /* Spacing for an airy look */
+    position: relative; /* Enables pseudo-elements */
+    padding-bottom: 10px; /* Adds some breathing room */
 }
 
-/* Grille de cartes */
-.cards-container {
+.plants-citation-section h2::after {
+    content: ''; /* Empty content for the pseudo-element */
+    display: block; /* Make the pseudo-element behave like a block */
+    width: 50%; /* Controls the length of the underline */
+    height: 2px; /* Line thickness */
+    background-color: #EDE8DC; /* Line color */
+    margin: 10px auto 0; /* Centers the line below the title */
+}
+
+
+/* Style for "See More" button */
+.see-more-button {
+    background: linear-gradient(135deg, #A5B68D, #8C9E76); /* Elegant gradient background */
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 40px; /* Adds space between cards and the button */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
+}
+
+.see-more-button:hover {
+    background: linear-gradient(#8C9E76, #A5B68D); /* Change gradient direction on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.see-more-button:focus {
+    outline: none; /* Remove the outline on focus */
+}
+
+@media (max-width: 768px) {
+    .see-more-button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}
+
+
+
+
+.plants-citation-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     justify-content: center;
     align-items: center;
 }
 
-.cards-row {
-    display: flex; /* Utilisation de Flexbox */
-    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si nécessaire */
-    gap: 20px; /* Espace entre les cartes */
-    justify-content: center; /* Centre les cartes horizontalement */
-    align-items: center; /* Centre les cartes verticalement */
-    margin-right: 12px; /* Décale légèrement les cartes vers la droite */
-    width: 100%; /* Utilisation de toute la largeur disponible */
+.plants-citation-row {
+    display: flex;
+    flex-wrap: nowrap; /* Assure que la carte et la citation restent côte à côte */
+    gap: 40px;
+    justify-content: center; /* Centrer les éléments dans chaque ligne */
+    align-items: flex-start; /* Aligner le haut des cartes et citations */
+    width: 100%;
+    max-width: 1200px; /* Limite la largeur maximale */
+    margin: 0 auto; /* Centrer le contenu */
+}
+
+.citation {
+    max-width: 400px;
+    flex: 1;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrer le texte horizontalement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer le contenu verticalement */
+    height: 250px; /* Vous pouvez ajuster la hauteur selon vos besoins */
+}
+
+.citation p {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center; /* Assure que le texte est centré horizontalement */
+}
+
+.citation h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #A5B68D;
+    text-align: center; /* Centrer le nom de l'auteur */
 }
 
 
-/* Style des cartes */
+/* Ajout d'un espace entre la section des plantes et le titre de section */
+.plants-citation-section h2 {
+    margin-bottom: 60px; /* Ajoute un espace sous le titre */
+}
+
 .card {
     background: #fff;
     border-radius: 10px;
@@ -89,8 +172,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     cursor: pointer;
-    width: 200px; /* Largeur fixe pour cartes plus petites */
-    height: 250px; /* Hauteur fixe */
+    width: 300px; /* Taille fixe pour toutes les cartes */
+    min-width: 250px;
 }
 
 .card:hover {
@@ -98,37 +181,8 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Contenu des cartes */
-.card-content {
-    padding: 10px;
-    background-color: #EDE8DC;
-}
-
-.card-content h3 {
-    font-size: 1rem;
-    margin: 10px 0;
-    color: #333;
-   
-}
-
-.card-content button {
-    background: #A5B68D;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-}
-
-.card-content button:hover {
-    background: #A5B68D;
-}
-
-/* Image des cartes */
 .card-image {
-    height: 60%; /* Limiter la hauteur de l'image */
+    height: 180px;
     background-color: #f0f0f0;
 }
 
@@ -136,26 +190,76 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-bottom: 1px solid #ddd;
 }
 
-/* Bouton Voir Plus */
-.see-more-button {
-    background: #A5B68D;
-    color: #fff;
-    border: none;
-    padding: 30px 20px;
-    border-radius: 20px;
+.card-content {
+    padding: 15px;
+    background-color: #EDE8DC;
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+
+.citation {
+    max-width: 400px;
+    flex: 1; /* Permet à la citation de prendre plus de place si nécessaire */
+    background: #f9f9f9;
+    padding: 3px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.citation p {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.citation h4 {
     font-size: 1rem;
-    cursor: pointer;
-    margin-top: 30px;
-    transition: background 0.3s ease;
+    font-weight: bold;
+    color: #A5B68D;
+    text-align: right;
 }
 
-.see-more-button:hover {
-    background: #A5B68D;
+/* Responsive */
+@media (max-width: 1024px) {
+    .plants-citation-row {
+        flex-wrap: wrap; /* Permet de passer à une disposition verticale sur petits écrans */
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card,
+    .citation {
+        width: 100%;
+        max-width: 400px; /* S'adapte à une largeur plus petite */
+    }
 }
 
+@media (max-width: 768px) {
+    .plants-citation-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .citation {
+        width: 100%;
+    }
+}
+
+  
 /* Adaptation pour mobile */
 @media (max-width: 768px) {
     .cards-row {
@@ -298,4 +402,3 @@
         padding: 10px 25px;
     }
 }
-

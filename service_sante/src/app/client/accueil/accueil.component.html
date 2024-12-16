@@ -5,42 +5,52 @@
     <div class="banner">
         <h1>🌿 Discover the Power of Medicinal Plants</h1>
         <p>Explore an exclusive collection designed to enhance your well-being every day.</p>
-        <button class="cta-button">Start Your Journey</button>
+        <button class="cta-button"routerLink="/articles">Start Your Journey</button>
     </div>
 
-    <!-- Section des Plantes -->
-    <section class="plants-section">
+    <section class="plants-citation-section">
         <h2>Our Medicinal Plants</h2>
-        <div class="cards-container">
-            <div class="cards-row">
-                <!-- Première ligne (5 cartes) -->
-                <div class="card" *ngFor="let plant of plantes.slice(0, 4)">
-                    <div class="card-image">
-                        <img [src]="plant.image" alt="{{ plant.nom }}" />
-                    </div>
-                    <div class="card-content">
-                        <h3>{{ plant.nom }}</h3>
-                        <button class="details-button" (click)="viewDetails(plant)">View Details</button>
-                    </div>
-                </div>
+        <div class="plants-citation-container">
+      
+          <!-- Ligne 1 : Carte à gauche et Citation à droite -->
+          <div class="plants-citation-row">
+            <div class="card">
+              <div class="card-image">
+                <img src="assets/images/plante5.jpg" alt="Aloe Vera" />
+              </div>
+              <div class="card-content">
+                <h3>Aloe Vera</h3>
+              </div>
             </div>
-            <div class="cards-row">
-                <!-- Deuxième ligne (5 cartes) -->
-                <div class="card" *ngFor="let plant of plantes.slice(4, 8)">
-                    <div class="card-image">
-                        <img [src]="plant.image" alt="{{ plant.nom }}" />
-                    </div>
-                    <div class="card-content">
-                        <h3>{{ plant.nom }}</h3>
-                        <button class="details-button" (click)="viewDetails(plant)">View Details</button>
-                    </div>
-                </div>
+            <div class="citation">
+              <p>🌱 "Medicinal plants are a natural and effective way to improve well-being."</p>
+              <h4>- Sophie R.</h4>
             </div>
+          </div>
+      
+          <!-- Ligne 2 : Citation à gauche et Carte à droite -->
+          <div class="plants-citation-row">
+            <div class="citation">
+              <p>🌱 "Incredible benefits! The natural remedies have changed my daily life."</p>
+              <h4>- John D.</h4>
+            </div>
+            <div class="card">
+              <div class="card-image">
+                <img src="assets/images/plante2.jpg" alt="Lavender" />
+            </div>
+            <div class="card-content">
+              <h3>Lavender</h3>
+            </div>
+          </div>
         </div>
-        <button class="see-more-button">See more ...</button>
-    </section>
-</div>
+      </div>
+    
+    <!-- Bouton "See More" -->
+<button class="see-more-button" routerLink="/plantes">See More ...</button>
 
+    </section>
+    
+    <!--section des avis-->
     <div class="testimonials-section">
         <h2>What Our Users Are Saying</h2>
         <div class="testimonials-container">

@@ -9,3 +9,12 @@ import { Component } from '@angular/core';
 export class RegisterComponent {
 
 }
+
+@Component({
+  selector: 'app-favoris',
+  imports: [],
+  templateUrl: './favoris.component.html',
+  styleUrl: './favoris.component.css'
+})
+export class FavorisComponent {
+}

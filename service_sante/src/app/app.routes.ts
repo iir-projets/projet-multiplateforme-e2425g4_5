@@ -8,6 +8,8 @@ import { MedicamentsComponent } from './service_sante/medicaments/medicaments.co
 import {ProfileComponent} from './client/profil/profil.component';
 import { AccueilComponent } from './client/accueil/accueil.component';
 import { PlantesComponent } from './client/plantes/plantes.component';
+import { DetailsPlantesComponent } from './client/details-plantes/details-plantes.component';
+import { NotificationsComponent } from './client/notifications/notifications.component';
 export const routes: Routes = [
     {
         path:'',
@@ -33,8 +35,21 @@ export const routes: Routes = [
    {
             path: 'plantes',
             component: PlantesComponent,
-   }
+   },
+ 
+
+    {
+        path: 'details-plantes',
+        component: DetailsPlantesComponent,
+ 
+    },
+
+    {
+    path: 'notifications',
+    component: NotificationsComponent
+    }
     ,
+
     {   path: 'dashboard_sante', 
         component: DashboardComponent, 
         children:[
