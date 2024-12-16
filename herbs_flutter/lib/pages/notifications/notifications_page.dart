@@ -75,7 +75,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                     height: 55,
                   ),
                 ),
-                // Search Bar and Save Button
+                // 
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Row(

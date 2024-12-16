@@ -48,7 +48,7 @@ class _HerbCardState extends State<HerbCard> {
                   child: Image.asset(
                     widget.imageUrl,
                     width: double.infinity, // Make the image take full width
-                    height: 220,
+                    height: 210,
                     fit: BoxFit.cover,
                   ),
                 ),

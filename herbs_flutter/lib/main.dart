@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/authentication/login.dart';
+import 'package:herbs_flutter/authentication/register.dart';
 import 'package:herbs_flutter/pages/articles/articles_page.dart';
 import 'package:herbs_flutter/pages/herbs/favoris_page.dart';
 import 'package:herbs_flutter/pages/home_page.dart';
@@ -31,6 +32,8 @@ class HerbGuideApp extends StatelessWidget {
         '/favorites': (context) => const FavorisPage(),
         '/profile': (context) => const ProfilePage(),
         '/notifications': (context) => const NotificationsPage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }
@@ -64,9 +67,7 @@ class SplashScreen extends StatelessWidget {
               // Start Exploring Button
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed('/login');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFCFE1D3),
