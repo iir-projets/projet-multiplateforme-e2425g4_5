@@ -1,29 +1,70 @@
 <app-navbar></app-navbar>
 
 <!-- Conteneur de la barre de recherche -->
-<div class="search-bar-container">
-  <!-- Champ de recherche -->
-  <input type="text" class="search-input" placeholder="Search plants...">
+<div class="search-container">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search plants..."
+  />
   <button class="search-button">
-    <img src="assets/icons/search_icon.png" alt="Search Icon" class="search-icon">
-
+    <img
+      src="assets/icons/search_icon.png"
+      alt="Search Icon"
+      class="search-icon"
+    />
   </button>
 </div>
 
-<div class="plants-list">
+<!-- Section des Plantes -->
+<section class="plants-list">
   <h2>Discover Our Plants</h2>
-  <div class="card" *ngFor="let plant of plantes.slice(0, 1)">
-    <button class="favorite-icon">
-        <img src="assets/icons/favorie.png" alt="Favorite">
-    </button>
-    <div class="card-image">
-      <img [src]="plant.image" [alt]="plant.nom">
+  <div class="cards-container">
+    <div class="cards-row">
+      <!-- Première ligne (4 cartes) -->
+      <div class="card" *ngFor="let plant of plantes.slice(0, 4)">
+        <!-- Icône de favori -->
+        <div class="favorite-icon" (click)="toggleFavorite(plant)">
+          <img
+            [src]="plant.isFavorite ? 'assets/icons/unfavori.png' : 'assets/icons/favori.png'"
+            alt="Favorite"
+            class="favorite-icon-img"
+          />
+        </div>
+        <div class="card-image">
+          <img [src]="plant.image" alt="{{ plant.nom }}" />
+        </div>
+        <div class="card-content">
+          <h3>{{ plant.nom }}</h3>
+          <button class="details-button" (click)="viewDetails(plant)">
+            View Details
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="card-content">
-      <h3>{{ plant.nom }}</h3>
-      <p>A wonderful plant with amazing properties!</p>
+    <div class="cards-row">
+      <!-- Deuxième ligne (4 cartes) -->
+      <div class="card" *ngFor="let plant of plantes.slice(4, 8)">
+        <!-- Icône de favori -->
+        <div class="favorite-icon" (click)="toggleFavorite(plant)">
+          <img
+            [src]="plant.isFavorite ? 'assets/icons/unfavori.png' : 'assets/icons/favori.png'"
+            alt="Favorite"
+            class="favorite-icon-img"
+          />
+        </div>
+        <div class="card-image">
+          <img [src]="plant.image" alt="{{ plant.nom }}" />
+        </div>
+        <div class="card-content">
+          <h3>{{ plant.nom }}</h3>
+          <button class="details-button" (click)="viewDetails(plant)">
+            View Details
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <app-footer></app-footer>
