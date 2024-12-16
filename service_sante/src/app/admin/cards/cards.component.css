@@ -1,0 +1,54 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap; /* Pour rendre les cards responsives */
+    gap: 1rem; /* Espacement entre les cards */
+    justify-content: center; /* Centrer les cards */
+}
+
+.card {
+    display: flex; /* Aligner les éléments en ligne */
+    gap: 0.5rem; /* Espacement entre les icônes et le contenu */
+    width: 9.5rem; /* Largeur de la card */
+    height: 6rem; /* Hauteur de la card */
+    background-color: #e7cccc; /* Couleur par défaut */
+    color: #333; /* Couleur du texte */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card:nth-child(2n) {
+    background-color: #ede8dc; /* Alternance des couleurs */
+}
+
+.card:nth-child(3n) {
+    background-color: #c7d4ad; /* Alternance des couleurs */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Effet d'élévation au survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre renforcée */
+}
+
+.card i {
+    font-size: 1rem;
+    color: #555; /* Couleur de l'icône */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column; /* Pour que le titre et le nombre soient empilés */
+    gap: 0.5rem; /* Espacement entre titre et nombre */
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.card-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Couleur du nombre */
+}

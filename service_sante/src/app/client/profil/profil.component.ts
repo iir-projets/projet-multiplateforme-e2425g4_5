@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
+import { HeaderComponent } from "../../service_sante/header/header.component";
+
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarComponent],
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css'],
 })
