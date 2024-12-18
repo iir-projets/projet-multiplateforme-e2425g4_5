@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="notifications-container">
+    <h2 class="title">Notifications</h2>
+    <div *ngFor="let notification of notifications" class="notification" 
+         [class.read]="notification.isRead" (click)="markAsRead(notification)">
+      <div class="notification-icon">
+        <img *ngIf="notification.type === 'new'" src="assets/images/plante6.jpg" alt="New Article" />
+        <img *ngIf="notification.type === 'recommendation'" src="assets/images/plante8.jpg" alt="Recommendation" />
+      </div>
+      <div class="notification-content">
+        <h3>{{ notification.title }}</h3>
+        <p>{{ notification.description }}</p>
+        <div class="notification-status">
+          <span *ngIf="notification.isRead" class="read-status">✅ Lue</span>
+          <span *ngIf="!notification.isRead" class="unread-status">❗ Pas encore lue</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

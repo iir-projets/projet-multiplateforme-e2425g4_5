@@ -19,6 +19,11 @@ import { PlantesComponent } from './client/plantes/plantes.component';
 import { RoleGuard } from '../guards/auth.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
+
+
+import { DetailsPlantesComponent } from './client/details-plantes/details-plantes.component';
+import { NotificationsComponent } from './client/notifications/notifications.component';
+
 export const routes: Routes = [
     {
         path:'',
@@ -64,7 +69,19 @@ export const routes: Routes = [
    {
             path: 'plantes',
             component: PlantesComponent,
-   }
+   },
+ 
+
+    {
+        path: 'details-plantes',
+        component: DetailsPlantesComponent,
+ 
+    },
+
+    {
+    path: 'notifications',
+    component: NotificationsComponent
+    }
     ,
 
     {   path: 'dashboard_sante', 

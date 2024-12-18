@@ -1,234 +1,240 @@
-
 /* Conteneur de la barre de recherche */
-.search-container {
-    display: flex; /* Disposition en ligne */
-    justify-content: center;
-    align-items: center;
-    margin: 30px auto;
-    padding: 12px 25px;
-    background-color: #ffffff;  /* Fond blanc pour contraster */
-    border-radius: 60px;  /* Bord arrondi doux */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);  /* Ombre légère */
-    max-width: 900px;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;  /* Transition fluide */
-    border: 1px solid #e0e0e0;  /* Bordure subtile */
-}
+
 
 /* Style de l'input de recherche */
 .search-input {
-    flex: 1; /* L'input prend toute la largeur disponible */
-    padding: 24px 20px;
-    font-size: 20px;
-    margin-left: 850px;
-    margin-top: 19px;
-    border-radius: 30px 0 0 30px; /* Bord arrondi à gauche uniquement */
-    border: 1px solid #E0E0E0; /* Bordure douce */
-    background-color: #f8f8f8;  /* Fond clair */
-    color: #333;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+  flex: 1; /* L'input prend toute la largeur disponible */
+  padding: 24px 20px;
+  font-size: 20px;
+  margin-left: 850px;
+  margin-top: 19px;
+  border-radius: 30px 0 0 30px; /* Bord arrondi à gauche uniquement */
+  border: 1px solid #E0E0E0; /* Bordure douce */
+  background-color: #f8f8f8;  /* Fond clair */
+  color: #333;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .search-input:focus {
-    outline: none;
-    border-color: #A5B68D;  /* Bordure bleu-vert vif au focus */
-    background-color: #ffffff; /* Fond blanc lors du focus */
-    border-width: 5px;
+  outline: none;
+  border-color: #A5B68D;  /* Bordure bleu-vert vif au focus */
+  background-color: #ffffff; /* Fond blanc lors du focus */
+  border-width: 5px;
 }
 
 /* Style du bouton de recherche */
 .search-button {
-    flex: 1;
-    padding: 1px 20px;
-    background: linear-gradient(135deg, antiquewhite, #A5B68D);  /* Dégradé doux */
-    color: white;
-    border: 1px;
-    border-radius: 0 30px 30px 0; /* Bord arrondi à droite uniquement */
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.2);  /* Ombre subtile */
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 15px;
-    height: 77px;
- 
+  flex: 1;
+  padding: 1px 20px;
+  background: linear-gradient(135deg, antiquewhite, #A5B68D);  /* Dégradé doux */
+  color: white;
+  border: 1px;
+  border-radius: 0 30px 30px 0; /* Bord arrondi à droite uniquement */
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.2);  /* Ombre subtile */
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 15px;
+  height: 77px;
+
 }
 
 .search-button:hover {
-    background: linear-gradient(135deg, #A5B68D, #A5B68D);  /* Dégradé inversé au survol */
-    box-shadow: 0 10px 30px #A5B68D;  /* Ombre renforcée */
-    transform: translateY(-2px);  /* Élancement du bouton */
+  background: linear-gradient(135deg, #A5B68D, #A5B68D);  /* Dégradé inversé au survol */
+  box-shadow: 0 10px 30px #A5B68D;  /* Ombre renforcée */
+  transform: translateY(-2px);  /* Élancement du bouton */
 }
 
 .search-button:active {
-    transform: translateY(1px);  /* Enfoncement au clic */
+  transform: translateY(1px);  /* Enfoncement au clic */
 }
 
 
-  /* Style du bouton */
+/* Style du bouton */
 .search-icon-button {
-    padding: 10px;
-    background: linear-gradient(135deg, antiquewhite, #A5B68D); /* Dégradé moderne */
-    border: none;
-    border-radius: 50%; /* Bouton circulaire */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.2); /* Ombre subtile */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 50px; /* Taille du bouton */
-    height: 10px;
+  padding: 10px;
+  background: linear-gradient(135deg, antiquewhite, #A5B68D); /* Dégradé moderne */
+  border: none;
+  border-radius: 50%; /* Bouton circulaire */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 188, 212, 0.2); /* Ombre subtile */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 50px; /* Taille du bouton */
+  height: 10px;
 }
 
 /* Effet interactif */
 .search-icon-button:hover {
-    background: linear-gradient(135deg, #A5B68D, #A5B68D); /* Couleur renforcée */
-    box-shadow: 0 10px 20px #A5B68D; /* Ombre plus forte */
-    transform: translateY(-3px); /* Léger soulèvement */
+  background: linear-gradient(135deg, #A5B68D, #A5B68D); /* Couleur renforcée */
+  box-shadow: 0 10px 20px #A5B68D; /* Ombre plus forte */
+  transform: translateY(-3px); /* Léger soulèvement */
 }
 
 .search-icon-button:active {
-    transform: translateY(5px); /* Effet d'enfoncement */
+  transform: translateY(5px); /* Effet d'enfoncement */
 }
 
 /* Style de l'image (icône) */
 .search-icon {
-    width: 17px; /* Taille de l'icône (ajustez selon vos besoins) */
-    height: 17px;
-    object-fit: contain; /* Assure un bon ajustement sans déformation */
+  width: 17px; /* Taille de l'icône (ajustez selon vos besoins) */
+  height: 17px;
+  object-fit: contain; /* Assure un bon ajustement sans déformation */
 }
 
 
-/* Bouton Favoris */
-.favorite-icon {
-  position:absolute;
-    top: 10px; /* Position en haut */
-    right: 15px; /* Position à droite */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 30px; /* Taille du bouton */
-    height: 30px;
-    z-index: 10; /* Assurez que le bouton est au-dessus de tout */
-    transition: transform 0.3s ease;
-}
 
-.favorite-icon img {
-    width: 100%; /* Image responsive */
-    height: 100%;
-    object-fit: contain; /* Conserve les proportions de l'image */
-}
-
-.favorite-icon:hover {
-    transform: scale(1.2); /* Agrandissement au survol */
-}
-
-  
- 
-
+/* Section Plantes */
 .plants-list {
-    display: flex;
-    flex-direction: column; /* Les cartes seront empilées verticalement */
-    align-items: left;
-    padding: 40px;
-    gap: 20px; /* Espacement entre les cartes */
-    text-align: center;
-    background-color: antiquewhite;
-    background-size: cover; 
-    border-radius: 2%;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Les cartes seront empilées verticalement */
+  align-items: left;
+  padding: 40px;
+  gap: 20px; /* Espacement entre les cartes */
+  text-align: center;
+  background-color: antiquewhite;
+  background-size: cover; 
+  border-radius: 2%;
+  margin-top: 20px;
+}
+
+.plants-list h2 {
+  font-family: 'Poppins', sans-serif;  /* Police moderne */
+  font-size: 36px;  /* Taille de texte pour impact visuel */
+  font-weight: 700;  /* Texte en gras */
+  color: #0f1112;  /* Couleur foncée pour un contraste élégant */
+  text-align: center;  /* Centrer le texte */
+  text-transform: uppercase;  /* Texte en majuscule */
+  letter-spacing: 2px;  /* Espacement des lettres */
+  line-height: 1.4;  /* Espacement entre les lignes */
+  margin-top: 5px;  /* Espacement en haut */
+  padding: 20px 0;  /* Espacement interne haut et bas */
+  border-bottom: 3px solid #060808;  /* Bordure pour souligner */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Ombrage pour profondeur */
+  background: linear-gradient(135deg, #3e164b, #E7CCCC);  /* Dégradé doux */
+  color: transparent;  /* Texte transparent pour laisser passer le fond */
+  -webkit-background-clip: text;  /* Applique le dégradé au texte */
+  background-clip: text;  /* Compatible avec plus de navigateurs */
+  /* Suppression des transitions ou transformations */
+ 
+}
+
+
+
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icône de favori */
+.favorite-icon {
+  position: absolute;
+  top: 10px;  /* Positionnée en haut */
+  right: 10px;  /* Positionnée à droite */
+  background-color: rgba(255, 255, 255, 0.8);  /* Fond semi-transparent */
+  border-radius: 50%;  /* Cercle autour de l'icône */
+  padding: 8px;  /* Taille du cercle */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Ombre subtile */
+}
+
+/* Changer l'apparence au survol */
+.favorite-icon:hover {
+  transform: scale(1.1);  /* Agrandir légèrement au survol */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);  /* Ombre plus forte */
+}
+
+/* Image de l'icône */
+.favorite-icon-img {
+  width: 20px;  /* Taille de l'icône */
+  height: 20px;
+  object-fit: contain;  /* Ajuster sans déformation */
+}
+
+/* Assurez-vous que la carte est bien positionnée */
+.card {
+  position: relative;  /* Nécessaire pour positionner l'icône à l'intérieur de la carte */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  width: 200px;
+  height: 250px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  height: 60%;
+  background-color: #f0f0f0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-content {
+  padding: 10px;
+  background-color: #EDE8DC;
+}
+
+.card-content h3 {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.details-button {
+  background: #A5B68D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.details-button:hover {
+  background: #A5B68D;
+}
+
+
+
+/* Réponse adaptative */
+@media (max-width: 768px) {
+  .cards-row {
+    flex-direction: column;
   }
 
-  .plants-list h2 {
-    font-family: 'Poppins', sans-serif;  /* Choisissez une police moderne */
-    font-size: 36px;  /* Taille de texte plus grande pour un impact visuel */
-    font-weight: 700;  /* Gras pour un effet prononcé */
-    color: #2c3e50;  /* Couleur foncée pour un contraste élégant */
-    text-align: center;  /* Centré pour un aspect harmonieux */
-    text-transform: uppercase;  /* Mettre tout le texte en majuscule pour l'impact */
-    letter-spacing: 2px;  /* Espacement des lettres pour plus de clarté */
-    line-height: 1.4;  /* Espacement entre les lignes pour une lecture plus confortable */
-    background: linear-gradient(135deg, #C1CFA1, #E7CCCC);  /* Dégradé doux pour un fond dynamique */
-    color: transparent;  /* Le texte devient transparent pour laisser passer le fond */
-    padding: 20px 0;  /* Espacement en haut et en bas */
-    border-bottom: 3px solid #060808;  /* Bordure subtile pour souligner le titre */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Ombrage léger pour donner de la profondeur */
-    transition: all 0.3s ease;  /* Transition pour ajouter un effet dynamique au survol */
-    margin-top: 5px;
-  }
-  
-  /* Effet de survol pour rendre le titre interactif */
-  .plants-list h2:hover {
-    transform: translateY(-5px);  /* Légère élévation lors du survol */
-    color: #fff;  /* Changer la couleur du texte sur le survol */
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  /* Ombrage du texte lors du survol */
-  }
-  
-  
   .card {
-    display: flex; /* Format horizontal */
-    flex-direction: row;
-    align-items: center;
-    background: linear-gradient(135deg, #f3f4f6, #ffffff); /* Gradient doux */
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    height: 180px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: left;
+    width: 150px;
+    height: 200px;
   }
-  
-  .card:hover {
-    transform: translateY(-8px); /* Effet de levée au survol */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .card-image {
-    flex: 1; /* La section image occupe 1 part */
-    height: 100%;
-  }
-  
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajuste l'image pour qu'elle occupe tout l'espace */
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-  }
-  
-  .card-content {
-    flex: 2; /* La section contenu occupe 2 parts */
-    padding: 20px;
-    text-align: left; /* Texte aligné à gauche */
-  }
-  
-  .card-content h3 {
-    font-size: 22px;
-    color: #333;
-    margin: 0 0 10px;
-  }
-  
-  .card-content p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 15px;
-  }
-  
-  .card-content button {
-    background-color: #00796b;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .card-content button:hover {
-    background-color: #004d40;
-  }
-  
+}
