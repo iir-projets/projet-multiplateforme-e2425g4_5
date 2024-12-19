@@ -19,6 +19,8 @@ import { ArticleComponent } from './client/articles/articles.component';
 import {ProfileComponent} from './client/profil/profil.component';
 import { AccueilComponent } from './client/accueil/accueil.component';
 import { PlantesComponent } from './client/plantes/plantes.component';
+import { RoleGuard } from '../guards/auth.guard';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 
 
@@ -44,6 +46,8 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardadminComponent,
+        canActivate: [RoleGuard],
+        data: { role: 'ROLE_ADMIN' },
         children:[
             { path: 'statistiques', component: StatsComponent },
             { path: 'herbs', component: HerbsComponent },
@@ -64,6 +68,8 @@ export const routes: Routes = [
     {
         path: 'accueil',
         component: AccueilComponent,
+        canActivate: [RoleGuard],
+        data: { role: 'ROLE_CLIENT' },
     },
 
   {
@@ -110,7 +116,9 @@ export const routes: Routes = [
     ,
 
     {   path: 'dashboard_sante', 
-        component: DashboardComponent, 
+        component: DashboardComponent,
+        canActivate: [RoleGuard],
+        data: { role: 'ROLE_SERVICE_SANTE' }, 
         children:[
             { path: 'allergies', component: AllergiesComponent },
             { path: 'diseases', component: MaladiesComponent },
@@ -118,7 +126,10 @@ export const routes: Routes = [
         ]
     },
     
-    
+    {
+        path: 'unauthorized',
+        component: UnauthorizedComponent, // Redirect to UnauthorizedComponent
+    },
 
 
 ];
