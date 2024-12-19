@@ -1,0 +1,113 @@
+/* Container principal */
+.favorites-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer le contenu verticalement */
+    padding: 50px;
+    background-color: #fdf9f3;
+    min-height: 100vh; /* Remplir toute la hauteur de la fenêtre */
+    font-family: "Poppins", sans-serif;
+    color: #120f0f;
+    margin-top: 0%;
+}
+
+/* Titre principal */
+.favorites-container h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ff92a5;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 2px #ffbec8;
+    margin-top: -15%;
+    margin-left: 30%;
+}
+
+/* Liste des plantes avec un grid fixe */
+.plants-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes */
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 1%;
+    grid-template-rows: repeat(auto-fill, 320px); /* Hauteur fixe pour chaque carte */
+    justify-items: center; /* Centrer les cartes horizontalement dans chaque colonne */
+    grid-auto-rows: 320px; /* Fixer la hauteur des lignes de façon explicite */
+}
+
+/* Carte de plante */
+.plant-card {
+    background: #fffaf0;
+    border: 2px solid #ffe4c4;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 320px; /* Hauteur fixe pour chaque carte */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Pour que le cœur soit placé par rapport à la carte */
+    width: 100%; /* Laisser les cartes occuper toute la largeur de la colonne */
+    max-width: 360px; /* Limiter la largeur à une taille fixe */
+}
+
+/* Hover sur carte */
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 192, 160, 0.5);
+}
+
+/* Image de la plante */
+.plant-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ffe4c4;
+}
+
+/* Informations sur la plante */
+.plant-info {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+/* Titre de la plante */
+.plant-info h3 {
+    font-size: 22px;
+    color: #A5B68D;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Description de la plante */
+.plant-info p {
+    font-size: 14px;
+    color: #14191a;
+    margin-bottom: 15px;
+}
+
+/* Icône de cœur en haut de la carte */
+.favorite-icon {
+    font-size: 30px;
+    color: #ff92a5;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Message lorsque la liste est vide */
+.empty-message {
+    text-align: center;
+    font-size: 18px;
+    color: #A5B68D;
+    margin-top: 50px;
+    font-weight: bold;
+    position: absolute; /* Positionner au centre de la page */
+    top: 50%; /* 50% de la hauteur de la page */
+    left: 50%; /* 50% de la largeur de la page */
+    transform: translate(-50%, -50%); /* Centrer précisément */
+}

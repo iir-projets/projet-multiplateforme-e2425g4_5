@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleComponent } from './articles.component';
+import { SavedArticlesComponent } from './saved-articles.component';
 
-describe('ArticlesComponent', () => {
-  let component: ArticleComponent;
-  let fixture: ComponentFixture<ArticleComponent>;
+describe('SavedArticlesComponent', () => {
+  let component: SavedArticlesComponent;
+  let fixture: ComponentFixture<SavedArticlesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ArticleComponent]
+      imports: [SavedArticlesComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ArticleComponent);
+    fixture = TestBed.createComponent(SavedArticlesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
