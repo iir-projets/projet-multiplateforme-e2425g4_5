@@ -3,11 +3,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [NavbarComponent, RouterModule, CommonModule, FormsModule],
+  imports: [NavbarComponent, RouterModule, CommonModule, FormsModule, FooterComponent],
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })

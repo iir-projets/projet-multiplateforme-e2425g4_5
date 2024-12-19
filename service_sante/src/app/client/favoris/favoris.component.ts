@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { FooterComponent } from "../footer/footer.component";
 
 interface Plant {
   id: number;
@@ -14,7 +15,7 @@ interface Plant {
 @Component({
   selector: 'app-favoris',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './favoris.component.html',
   styleUrls: ['./favoris.component.css'],
   animations: [

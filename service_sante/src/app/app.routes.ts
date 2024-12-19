@@ -12,6 +12,9 @@ import { HerbsComponent } from './admin/herbs/herbs.component';
 import { ArticlesComponent } from './admin/articles/articles.component';
 import { ClientsComponent } from './admin/clients/clients.component';
 
+import { ArticleComponent } from './client/articles/articles.component';
+
+
 
 import {ProfileComponent} from './client/profil/profil.component';
 import { AccueilComponent } from './client/accueil/accueil.component';
@@ -21,6 +24,9 @@ import { PlantesComponent } from './client/plantes/plantes.component';
 
 import { DetailsPlantesComponent } from './client/details-plantes/details-plantes.component';
 import { NotificationsComponent } from './client/notifications/notifications.component';
+import { FavorisComponent } from './client/favoris/favoris.component';
+import { ArticleDetailsComponent } from './client/details-articles/details-articles.component';
+import { SavedArticlesComponent } from './client/saved-articles/saved-articles.component';
 
 export const routes: Routes = [
     {
@@ -60,17 +66,42 @@ export const routes: Routes = [
         component: AccueilComponent,
     },
 
+  {
+    path:'articles',
+    component:ArticleComponent
+  }
+    ,
+
    {
             path: 'plantes',
             component: PlantesComponent,
    },
  
+{
+    path: 'favoris',
+    component: FavorisComponent
+}
+   ,
+
+
+{
+    path:'saved_articles',
+    component:SavedArticlesComponent
+}
+   ,
 
     {
-        path: 'details-plantes',
+        path: 'details_plantes',
         component: DetailsPlantesComponent,
  
     },
+
+
+   {
+    path: 'details_articles',
+    component:ArticleDetailsComponent
+   }
+    ,
 
     {
     path: 'notifications',
