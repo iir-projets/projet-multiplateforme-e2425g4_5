@@ -2,7 +2,7 @@ package ma.plantes.backend.entities;
 
 
 public enum Role {
-    ADMIN,
-    SERVICE_SANTE,
-    CLIENT;
+    ROLE_ADMIN,
+    ROLE_SERVICE_SANTE,
+    ROLE_CLIENT
 }

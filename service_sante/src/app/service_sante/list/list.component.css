@@ -1,0 +1,48 @@
+/* Style global pour les cartes */
+.card-container {
+  flex-direction: column; 
+  margin-top: 2rem;
+}
+
+.card {
+  width: 46rem; /* La largeur s'adapte à la taille du conteneur */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Effet de survol */
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.card-action {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-btn{
+  display: inline-block;
+  color: red; 
+  font-size: 24px;
+  border: none; 
+  background: none; 
+  padding: 0; 
+  cursor: pointer; 
+}
+
+
+

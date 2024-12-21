@@ -1,0 +1,29 @@
+.flex-form {
+    display: flex;
+    justify-content: flex-start; /* Aligner les éléments à gauche (modifier si besoin) */
+    gap: 10px; /* Espacement entre les éléments */
+    align-items: center; /* Aligner verticalement les éléments */
+  }
+  
+  .input-field {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1; /* Permet de s'étendre si nécessaire */
+  }
+  
+  .btn-submit {
+    padding: 10px 20px;
+    background-color: #6b8e23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-submit:hover {
+    background-color: #5a7c1e;
+  }
+  

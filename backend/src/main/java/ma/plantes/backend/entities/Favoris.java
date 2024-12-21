@@ -18,13 +18,13 @@ public class Favoris {
     private FavorisId id;
 
     @ManyToOne
-    @MapsId("utilisateurId")
-    @JoinColumn( name = "id")
+    @MapsId("clientId")
+    @JoinColumn( name = "client_id")
     private User user;
 
     @ManyToOne
     @MapsId("planteId")
-    @JoinColumn( name = "id")
+    @JoinColumn( name = "plante_id")
     private Plante plante;
 
 

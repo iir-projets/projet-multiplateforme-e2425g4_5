@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+
+<div class="home-container">
+    <!-- Section Bannière -->
+    <div class="banner">
+        <h1>🌿 Discover the Power of Medicinal Plants</h1>
+        <p>Explore an exclusive collection designed to enhance your well-being every day.</p>
+        <button class="cta-button">Start Your Journey</button>
+    </div>
+
+    <!-- Section des Plantes -->
+    <section class="plants-section">
+        <h2>Our Medicinal Plants</h2>
+        <div class="cards-container">
+            <div class="cards-row">
+                <!-- Première ligne (5 cartes) -->
+                <div class="card" *ngFor="let plant of plantes.slice(0, 4)">
+                    <div class="card-image">
+                        <img [src]="plant.image" alt="{{ plant.nom }}" />
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ plant.nom }}</h3>
+                        <button class="details-button" (click)="viewDetails(plant)">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cards-row">
+                <!-- Deuxième ligne (5 cartes) -->
+                <div class="card" *ngFor="let plant of plantes.slice(4, 8)">
+                    <div class="card-image">
+                        <img [src]="plant.image" alt="{{ plant.nom }}" />
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ plant.nom }}</h3>
+                        <button class="details-button" (click)="viewDetails(plant)">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="see-more-button">See more ...</button>
+    </section>
+</div>
+
+    <div class="testimonials-section">
+        <h2>What Our Users Are Saying</h2>
+        <div class="testimonials-container">
+            <div class="testimonials-wrapper">
+                <div class="testimonial">
+                    <p>🌱 "Medicinal plants have transformed my life. Thank you for this fantastic site!"</p>
+                    <h4>- Marie L.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>🌱 "An incredible resource for discovering the benefits of plants."</p>
+                    <h4>- Paul T.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>🌱 "Clear and useful information. I highly recommend it!"</p>
+                    <h4>- Clara B.</h4>
+                </div>
+                <div class="testimonial">
+                    <p>🌱 "I'm impressed by the quality and depth of the information."</p>
+                    <h4>- Marc D.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+<app-footer></app-footer>

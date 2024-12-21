@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -21,18 +22,18 @@ public class Article {
     private String titre;
 
     @Column(nullable = false)
+    @Lob
     private String contenu;
 
-    @ManyToOne
-    @JoinColumn(name = "utilisateur_id", nullable = false)
-    private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "plante_id", nullable = false)
-    private Plante plante;
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<ArticleImage> images;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Commentaire> commentaires;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<ArticleEnregistre> users;
 
 
 
