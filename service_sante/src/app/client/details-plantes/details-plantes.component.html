@@ -9,16 +9,16 @@
     </div>
 
     <!-- Image de la plante -->
-    <img src="assets/images/plante2.jpg" alt="Chamomile flowers" class="plant-image">
+    <img [src]="plant?.image" alt="{{ plant?.nom }}" class="plant-image">
   </div>
 
   <!-- Informations sur la plante -->
   <div class="plant-info">
-    <h2 class="plant-name">{{ plant.name }}</h2>
-    <p class="plant-region">Region: <span>{{ plant.region }}</span></p>
+    <h2 class="plant-name">{{ plant?.nom }}</h2>
+    <p class="plant-region">Region: <span>{{ plant?.region }}</span></p>
     <h3>Properties:</h3>
-    <ul class="property-list">
-      <li *ngFor="let property of plant.properties">{{ property }}</li>
+    <ul id="properties-list" class="property-list">
+      <li *ngFor="let property of plant?.proprietes">{{ property.nom }}</li>
     </ul>
   </div>
 
@@ -31,7 +31,7 @@
         </svg>
         Precautions:
       </h3>
-      <p>{{ plant.precautions }}</p>
+      <p>{{ plant?.precaution }}</p>
     </div>
     <div class="detail-section">
       <h3 class="section-title">
@@ -40,7 +40,7 @@
         </svg>
         Drug interactions:
       </h3>
-      <p>{{ plant.drugInteractions }}</p>
+      <p>{{ plant?.interaction }}</p>
     </div>
     <div class="detail-section">
       <h3 class="section-title">
@@ -49,9 +49,8 @@
         </svg>
         Description:
       </h3>
-      <p>{{ plant.description }}</p>
+      <p>{{ plant?.description }}</p>
     </div>
   </div>
 </div>
 <app-footer></app-footer>
-

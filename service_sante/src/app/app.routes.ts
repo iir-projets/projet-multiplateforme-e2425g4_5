@@ -31,6 +31,10 @@ import { ArticleDetailsComponent } from './client/details-articles/details-artic
 import { SavedArticlesComponent } from './client/saved-articles/saved-articles.component';
 
 export const routes: Routes = [
+
+    { path: '', component: PlantesComponent },
+    { path: 'details_plantes/:id', component: DetailsPlantesComponent },
+
     {
         path:'',
         redirectTo: 'login',
