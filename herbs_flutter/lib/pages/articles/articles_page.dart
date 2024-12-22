@@ -5,6 +5,7 @@ import 'package:herbs_flutter/pages/articles/article_card.dart';
 import 'package:herbs_flutter/pages/articles/article_details.dart';
 import 'package:herbs_flutter/pages/articles/article_saved.dart';
 import 'package:herbs_flutter/pages/base_layout.dart';
+import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
 
 class ArticlesPage extends StatefulWidget {
   const ArticlesPage({super.key});
@@ -170,152 +171,179 @@ class _ArticlesPageState extends State<ArticlesPage> {
   Widget build(BuildContext context) {
     return BaseLayout(
       currentIndex: 1,
-      child: Column(
+      child: Stack(
         children: [
-          // Banner and Search Section
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/pic_accueil.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Logo
-                Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Image.asset(
-                    'assets/logo_plante.png',
-                    height: 55,
+          Column(
+            children: [
+              // Banner and Search Section
+              Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/pic_accueil.jpg'),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                // Search Bar and Save Button
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          child: TextField(
-                            controller: _searchController,
-                            onChanged: _filterArticles,
-                            decoration: InputDecoration(
-                              hintText: 'Search articles',
-                              prefixIcon: const Icon(Icons.search),
-                              border: OutlineInputBorder(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Logo
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                      child: Image.asset(
+                        'assets/logo_plante.png',
+                        height: 55,
+                      ),
+                    ),
+                    // Search Bar and Save Button
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(25),
-                                borderSide: BorderSide.none,
                               ),
-                              filled: true,
-                              fillColor: Colors.white,
+                              child: TextField(
+                                controller: _searchController,
+                                onChanged: _filterArticles,
+                                decoration: InputDecoration(
+                                  hintText: 'Search articles',
+                                  prefixIcon: const Icon(Icons.search),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(25),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          const SizedBox(width: 8),
+                          IconButton(
+                            icon: const Icon(Icons.bookmark),
+                            color: Color(0xFF90A955),
+                            iconSize: 40,
+                            onPressed: () {
+                              final savedArticles = _ArticlesPageState.articles
+                                  .where((article) => article['saved'] == true)
+                                  .toList();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SavedArticlesPage(
+                                    savedArticles: savedArticles,
+                                    onSaveToggle: (articleId) {
+                                    setState(() {
+                                      // Toggle saved status
+                                      final articleIndex = articles.indexWhere((article) => article['id'] == articleId);
+                                      if (articleIndex != -1) {
+                                        articles[articleIndex]['saved'] = !articles[articleIndex]['saved'];
+                                        // Also update the filteredArticles if necessary
+                                        final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articleId);
+                                        if (filteredIndex != -1) {
+                                          filteredArticles[filteredIndex]['saved'] = articles[articleIndex]['saved'];
+                                        }
+                                      }
+                                    });
+                                  },
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 8),
-                      IconButton(
-                        icon: const Icon(Icons.bookmark),
-                        color: Color(0xFF90A955),
-                        iconSize: 40,
-                        onPressed: () {
-                          final savedArticles = _ArticlesPageState.articles
-                              .where((article) => article['saved'] == true)
-                              .toList();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SavedArticlesPage(
-                                savedArticles: savedArticles,
-                                onSaveToggle: (articleId) {
+                    ),
+                  ],
+                ),
+              ),
+              // Articles List
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: filteredArticles.length,
+                  itemBuilder: (context, index) {
+                    final article = filteredArticles[index];
+                    return ArticleCard(
+                      title: article['title'],
+                      description: article['content'][0]['text'],
+                      imageUrl: article['imageUrl'],
+                      saved: article['saved'],
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArticleDetailPage(
+                              title: article['title'],
+                              imageUrl: article['imageUrl'],
+                              content: article['content'],
+                              comments: article['comments'],
+                              saved: article['saved'],
+                              onSaveToggle: () {
                                 setState(() {
                                   // Toggle saved status
-                                  final articleIndex = articles.indexWhere((article) => article['id'] == articleId);
-                                  if (articleIndex != -1) {
-                                    articles[articleIndex]['saved'] = !articles[articleIndex]['saved'];
+                                  if (index != -1) {
+                                    articles[index]['saved'] = !articles[index]['saved'];
                                     // Also update the filteredArticles if necessary
-                                    final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articleId);
+                                    final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articles[index]['id']);
                                     if (filteredIndex != -1) {
-                                      filteredArticles[filteredIndex]['saved'] = articles[articleIndex]['saved'];
+                                      filteredArticles[filteredIndex]['saved'] = articles[index]['saved'];
                                     }
                                   }
                                 });
                               },
-                              ),
                             ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          // Articles List
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: filteredArticles.length,
-              itemBuilder: (context, index) {
-                final article = filteredArticles[index];
-                return ArticleCard(
-                  title: article['title'],
-                  description: article['content'][0]['text'],
-                  imageUrl: article['imageUrl'],
-                  saved: article['saved'],
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ArticleDetailPage(
-                          title: article['title'],
-                          imageUrl: article['imageUrl'],
-                          content: article['content'],
-                          comments: article['comments'],
-                          saved: article['saved'],
-                          onSaveToggle: () {
-                            setState(() {
-                              // Toggle saved status
-                              if (index != -1) {
-                                articles[index]['saved'] = !articles[index]['saved'];
-                                // Also update the filteredArticles if necessary
-                                final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articles[index]['id']);
-                                if (filteredIndex != -1) {
-                                  filteredArticles[filteredIndex]['saved'] = articles[index]['saved'];
-                                }
-                              }
-                            });
-                          },
-                        ),
-                      ),
+                          ),
+                        );
+                      },
+                      onSaveToggle: () {
+                        setState(() {
+                          // Toggle saved status
+                          if (index != -1) {
+                            articles[index]['saved'] = !articles[index]['saved'];
+                            // Also update the filteredArticles if necessary
+                            final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articles[index]['id']);
+                            if (filteredIndex != -1) {
+                              filteredArticles[filteredIndex]['saved'] = articles[index]['saved'];
+                            }
+                          }
+
+                        });
+                      },
                     );
                   },
-                  onSaveToggle: () {
-                    setState(() {
-                      // Toggle saved status
-                      if (index != -1) {
-                        articles[index]['saved'] = !articles[index]['saved'];
-                        // Also update the filteredArticles if necessary
-                        final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articles[index]['id']);
-                        if (filteredIndex != -1) {
-                          filteredArticles[filteredIndex]['saved'] = articles[index]['saved'];
-                        }
-                      }
-
-                    });
-                  },
-                );
+                ),
+              ),
+            ],
+          ),
+          Positioned(
+            right: 16,
+            bottom: 20,
+            child: FloatingActionButton(
+              onPressed: () {
+                _showChatbot(context);
               },
+              backgroundColor: const Color.fromARGB(133, 255, 255, 255),
+              child: const Icon(
+                Icons.smart_toy,
+                color: Color(0xFF90A955), // Green button with white icon for better contrast
+                size: 37.0,          // Increased icon size
+              ),
             ),
           ),
-        ],
-      ),
+        ]
+      )
+    );
+  }
+  void _showChatbot(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const ChatbotOverlay(),
     );
   }
 }

@@ -1,14 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:herbs_flutter/authentication/login.dart';
+import 'package:herbs_flutter/authentication/aut_firebase.dart';
 import 'package:herbs_flutter/authentication/register.dart';
+import 'package:herbs_flutter/firebase_options.dart';
 import 'package:herbs_flutter/pages/articles/articles_page.dart';
 import 'package:herbs_flutter/pages/herbs/favoris_page.dart';
 import 'package:herbs_flutter/pages/home_page.dart';
 import 'package:herbs_flutter/pages/notifications/notifications_page.dart';
 import 'package:herbs_flutter/pages/profile_page.dart';
 import 'package:herbs_flutter/pages/herbs/herbs_page.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart' as firebase_ui;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  firebase_ui.FirebaseUIAuth.configureProviders([
+    firebase_ui.EmailAuthProvider(),
+  ]);
   runApp(const HerbGuideApp());
 }
 
@@ -32,7 +40,7 @@ class HerbGuideApp extends StatelessWidget {
         '/favorites': (context) => const FavorisPage(),
         '/profile': (context) => const ProfilePage(),
         '/notifications': (context) => const NotificationsPage(),
-        '/login': (context) => const LoginPage(),
+        '/login': (context) => const AutFirebase(),
         '/register': (context) => const RegisterPage(),
       },
     );
