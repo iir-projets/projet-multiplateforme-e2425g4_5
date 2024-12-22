@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FooterComponent } from "../footer/footer.component";
+import { ActivatedRoute } from '@angular/router';
+import { Plante, PlantesService, Propriete } from '../../../services/pages/plantes.service';
 
 @Component({
   selector: 'app-plant-details',
@@ -10,28 +12,35 @@ import { FooterComponent } from "../footer/footer.component";
   templateUrl: './details-plantes.component.html',
   styleUrls: ['./details-plantes.component.css']
 })
-export class DetailsPlantesComponent {
-  plant = {
-    name: "Chamomile",
-    region: "Europe and Western Asia",
-    properties: [
-      "Anti-inflammatory",
-      "Calming",
-      "Aids sleep"
-    ],
-    precautions: "Avoid if allergic to daisies. Not recommended during pregnancy.",
-    drugInteractions: "May interact with blood thinners and sedatives.",
-    description: "Chamomile is a daisy-like plant known for its calming and soothing properties. It's commonly used in teas and has a pleasant, apple-like fragrance."
-  };
+export class DetailsPlantesComponent implements OnInit {
+
+   plant: Plante | null = null;
+   property: Propriete | null = null;
+
+  constructor(private route: ActivatedRoute, private plantesService: PlantesService) {}
+
+  ngOnInit(): void {
+    const plantId = this.route.snapshot.paramMap.get('id');
+    if (plantId) {
+      this.plantesService.getPlanteDetails(plantId).subscribe(data => {
+        this.plant = data;
+      });
+    } else {
+      // Handle the case where plantId is null
+      console.error('Plant ID is null');
+    }
+  }
 
   isFavorite: boolean = false;
   toggleFavorite() {
     this.isFavorite = !this.isFavorite;
     if (this.isFavorite) {
-      console.log(`${this.plant.name} a été ajouté aux favoris.`);
+      console.log(`${this.plant?.nom} a été ajouté aux favoris.`);
     } else {
-      console.log(`${this.plant.name} a été retiré des favoris.`);
+      console.log(`${this.plant?.nom} a été retiré des favoris.`);
     }
   }
+
+  
   
 }
