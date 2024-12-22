@@ -180,8 +180,12 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 _showChatbot(context);
               },
-              backgroundColor: const Color(0xFF90A955),
-              child: const Icon(Icons.smart_toy),
+              backgroundColor: const Color.fromARGB(133, 255, 255, 255),
+              child: const Icon(
+                Icons.smart_toy,
+                color: Color(0xFF90A955), // Green button with white icon for better contrast
+                size: 37.0,          // Increased icon size
+              ),
             ),
           ),
         ],

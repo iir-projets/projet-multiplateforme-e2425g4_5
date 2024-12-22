@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/pages/base_layout.dart';
+import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
 import 'package:herbs_flutter/pages/herbs/herb_card.dart';
 import 'package:herbs_flutter/pages/herbs/herb_detail.dart';
 
@@ -169,126 +170,153 @@ class _HerbsPageState extends State<HerbsPage> {
   Widget build(BuildContext context) {
     return BaseLayout(
       currentIndex: 2,
-      child: Column(
-        children: [
+      child: Stack(
+      children: [
+        Column(
+          children: [
           // Banner and Search Section
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/pic_accueil.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Logo
-                Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Image.asset(
-                    'assets/logo_plante.png',
-                    height: 55,
-                  ),
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/pic_accueil.jpg'),
+                  fit: BoxFit.cover,
                 ),
-                // Search Bar and Save Button
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          child: TextField(
-                            controller: _searchController,
-                            onChanged: _filterHerbs,
-                            decoration: InputDecoration(
-                              hintText: 'Search herbs',
-                              prefixIcon: const Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25),
-                                borderSide: BorderSide.none,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Logo
+                  Padding(
+                    padding: const EdgeInsets.all(7.0),
+                    child: Image.asset(
+                      'assets/logo_plante.png',
+                      height: 55,
+                    ),
+                  ),
+                  // Search Bar and Save Button
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: TextField(
+                              controller: _searchController,
+                              onChanged: _filterHerbs,
+                              decoration: InputDecoration(
+                                hintText: 'Search herbs',
+                                prefixIcon: const Icon(Icons.search),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                  borderSide: BorderSide.none,
+                                ),
+                                filled: true,
+                                fillColor: Colors.white,
                               ),
-                              filled: true,
-                              fillColor: Colors.white,
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                    ],
+                        const SizedBox(width: 8),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
             ),
           ),
           // herbs List
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.all(16),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Number of columns
-                childAspectRatio: 0.75, // Adjust the aspect ratio for card height
-                crossAxisSpacing: 16, // Space between columns
-                mainAxisSpacing: 16, // Space between rows
-              ),
-              itemCount: filteredHerbs.length,
-              itemBuilder: (context, index) {
-                final herb = filteredHerbs[index];
-                return HerbCard(
-                  title: herb['title'],
-                  description: herb['content'][0]['text'],
-                  imageUrl: herb['imageUrl'],
-                  saved: herb['saved'],
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HerbDetailPage(
-                          title: herb['title'],
-                          imageUrl: herb['imageUrl'],
-                          content: herb['content'],
-                          comments: herb['comments'],
-                          saved: herb['saved'],
-                          onSaveToggle: () {
-                            setState(() {
-                              // Toggle saved status
-                              if (index != -1) {
-                                herbs[index]['saved'] = !herbs[index]['saved'];
-                                // Also update the filteredherbs if necessary
-                                final filteredIndex = filteredHerbs.indexWhere((herb) => herb['id'] == herbs[index]['id']);
-                                if (filteredIndex != -1) {
-                                  filteredHerbs[filteredIndex]['saved'] = herbs[index]['saved'];
+            Expanded(
+              child: GridView.builder(
+                padding: const EdgeInsets.all(16),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // Number of columns
+                  childAspectRatio: 0.75, // Adjust the aspect ratio for card height
+                  crossAxisSpacing: 16, // Space between columns
+                  mainAxisSpacing: 16, // Space between rows
+                ),
+                itemCount: filteredHerbs.length,
+                itemBuilder: (context, index) {
+                  final herb = filteredHerbs[index];
+                  return HerbCard(
+                    title: herb['title'],
+                    description: herb['content'][0]['text'],
+                    imageUrl: herb['imageUrl'],
+                    saved: herb['saved'],
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HerbDetailPage(
+                            title: herb['title'],
+                            imageUrl: herb['imageUrl'],
+                            content: herb['content'],
+                            comments: herb['comments'],
+                            saved: herb['saved'],
+                            onSaveToggle: () {
+                              setState(() {
+                                // Toggle saved status
+                                if (index != -1) {
+                                  herbs[index]['saved'] = !herbs[index]['saved'];
+                                  // Also update the filteredherbs if necessary
+                                  final filteredIndex = filteredHerbs.indexWhere((herb) => herb['id'] == herbs[index]['id']);
+                                  if (filteredIndex != -1) {
+                                    filteredHerbs[filteredIndex]['saved'] = herbs[index]['saved'];
+                                  }
                                 }
-                              }
-                            });
-                          },
+                              });
+                            },
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  onSaveToggle: () {
-                    setState(() {
-                      // Toggle saved status
-                      if (index != -1) {
-                        herbs[index]['saved'] = !herbs[index]['saved'];
-                        // Also update the filteredherbs if necessary
-                        final filteredIndex = filteredHerbs.indexWhere((herb) => herb['id'] == herbs[index]['id']);
-                        if (filteredIndex != -1) {
-                          filteredHerbs[filteredIndex]['saved'] = herbs[index]['saved'];
+                      );
+                    },
+                    onSaveToggle: () {
+                      setState(() {
+                        // Toggle saved status
+                        if (index != -1) {
+                          herbs[index]['saved'] = !herbs[index]['saved'];
+                          // Also update the filteredherbs if necessary
+                          final filteredIndex = filteredHerbs.indexWhere((herb) => herb['id'] == herbs[index]['id']);
+                          if (filteredIndex != -1) {
+                            filteredHerbs[filteredIndex]['saved'] = herbs[index]['saved'];
+                          }
                         }
-                      }
 
-                    });
-                  },
-                );
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+        ],
+        ),
+        Positioned(
+            right: 16,
+            bottom: 20,
+            child: FloatingActionButton(
+              onPressed: () {
+                _showChatbot(context);
               },
+              backgroundColor: const Color.fromARGB(133, 255, 255, 255),
+              child: const Icon(
+                Icons.smart_toy,
+                color: Color(0xFF90A955), // Green button with white icon for better contrast
+                size: 37.0,          // Increased icon size
+              ),
             ),
           ),
-        ],
-      ),
+      ]
+      )
+    );
+  }
+  void _showChatbot(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const ChatbotOverlay(),
     );
   }
 }
