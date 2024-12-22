@@ -33,5 +33,7 @@ export class DetailsPlantesComponent {
       console.log(`${this.plant.name} a été retiré des favoris.`);
     }
   }
+
+  
   
 }
