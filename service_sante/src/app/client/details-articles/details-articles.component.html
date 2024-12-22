@@ -1,1 +1,39 @@
-<p>details-articles works!</p>
+  
+  <app-navbar></app-navbar>
+  <div class="cute-article-container">
+    <!-- Article Content -->
+    <article class="cute-article-content">
+      <div class="cute-article-header">
+        <img [src]="article.image" [alt]="article.title" class="cute-article-image">
+        <h1 class="cute-article-title">{{ article.title }}</h1>
+      </div>
+      <div class="cute-article-sections">
+        <section *ngFor="let section of article.sections" class="cute-article-section">
+          <h2>{{ section.title }}</h2>
+          <p>{{ section.content }}</p>
+        </section>
+      </div>
+    </article>
+  
+    <!-- Comments Section -->
+    <aside class="cute-comments-section">
+      <h2>Lovely Comments</h2>
+      <div class="cute-comments-list">
+        <div *ngFor="let comment of comments" class="cute-comment">
+          <div class="cute-comment-header">
+            <div class="cute-user-avatar">{{ comment.user.charAt(0).toUpperCase() }}</div>
+            <div class="cute-comment-meta">
+              <span class="cute-username">{{ comment.user }}</span>
+              <span class="cute-comment-date">{{ comment.date }}</span>
+            </div>
+          </div>
+          <p class="cute-comment-text">{{ comment.text }}</p>
+        </div>
+      </div>
+      <div class="cute-add-comment">
+        <textarea [(ngModel)]="newComment" placeholder="Share your thoughts..." class="cute-comment-input"></textarea>
+        <button (click)="addComment()" class="cute-submit-comment">Bloom Your Comment 🌸</button>
+      </div>
+    </aside>
+  </div>
+  <app-footer></app-footer>

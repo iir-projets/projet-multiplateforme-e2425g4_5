@@ -1,10 +1,28 @@
-<p>favoris works!</p>
-<div class="favoris-container">
-    <h2>Mes Plantes Favorites</h2>
-    <ul>
-      <li>Plante 1</li>
-      <li>Plante 2</li>
-      <li>Plante 3</li>
-    </ul>
+<app-navbar></app-navbar>
+
+<div class="favorites-container">
+  <h1>🌸 My Favorite Plants</h1>
+  <div class="plants-list">
+    <div
+      *ngFor="let plant of favoritePlants; let i = index; trackBy: trackById"
+      @cardAnimation
+      class="plant-card"
+    >
+      <!-- Icône de favori/unfavori -->
+      <div class="favorite-icon" (click)="toggleFavorite(plant)">
+        {{ plant.isFavorite ? '❤️' : '🤍' }}
+      </div>
+      <img [src]="plant.image" [alt]="plant.name" />
+      <div class="plant-info">
+        <h3>{{ plant.name }}</h3>
+        <p>{{ plant.description }}</p>
+      </div>
+    </div>
+
+    <!-- Affichage si la liste est vide -->
+    <div *ngIf="favoritePlants.length === 0" class="empty-message">
+      <p>No favorite plants yet! 🌱</p>
+    </div>
   </div>
-  
+</div>
+<app-footer></app-footer>
