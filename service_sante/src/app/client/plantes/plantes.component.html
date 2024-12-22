@@ -1,3 +1,4 @@
+<!-- src/app/client/plantes/plantes.component.html -->
 <app-navbar></app-navbar>
 
 <!-- Conteneur de la barre de recherche -->
@@ -44,30 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="cards-row">
-      <!-- Deuxième ligne (4 cartes) -->
-      <div class="card" *ngFor="let plant of filteredPlantes.slice(4, 8)">
-        <!-- Icône de favori -->
-        <div class="favorite-icon" (click)="toggleFavorite(plant)">
-          <img
-            [src]="plant.isFavorite ? 'assets/icons/unfavori.png' : 'assets/icons/favori.png'"
-            alt="Favorite"
-            class="favorite-icon-img"
-          />
-        </div>
-        <div class="card-image">
-          <img [src]="plant.image" alt="{{ plant.nom }}" />
-        </div>
-        <div class="card-content">
-          <h3>{{ plant.nom }}</h3>
-          <button class="details-button" (click)="viewDetails(plant)">
-            View Details
-          </button>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <app-footer></app-footer>
-

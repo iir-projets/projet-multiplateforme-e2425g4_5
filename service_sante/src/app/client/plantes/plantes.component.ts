@@ -1,10 +1,11 @@
+// src/app/client/plantes/plantes.component.ts
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { PlantesService } from '../../../services/pages/plantes.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-plantes',
@@ -18,7 +19,7 @@ export class PlantesComponent implements OnInit {
   filteredPlantes: any[] = [];
   searchTerm: string = '';
 
-  constructor(private plantesService: PlantesService) {}
+  constructor(private plantesService: PlantesService, private router: Router) {}
 
   ngOnInit(): void {
     this.plantesService.getPlantes().subscribe(data => {
@@ -31,8 +32,8 @@ export class PlantesComponent implements OnInit {
     plant.isFavorite = !plant.isFavorite;
   }
 
-  viewDetails(plant: { nom: string; image: string }): void {
-    console.log('View details for:', plant.nom);
+  viewDetails(plant: { id: string }): void {
+    this.router.navigate(['/details_plantes', plant.id]);
   }
 
   searchPlants(): void {
@@ -41,4 +42,3 @@ export class PlantesComponent implements OnInit {
     );
   }
 }
-
