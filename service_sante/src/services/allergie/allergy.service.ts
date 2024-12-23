@@ -7,6 +7,9 @@ export interface Allergy {
   id?: number;
   nom: string;
 }
+export interface AllergyDTO {
+  nom: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +32,12 @@ export class AllergyService {
 
   /**
    * Add an allergy
-   * @param {Allergy} allergy
+   * @param {AllergyDTO} allergy
    * @returns String
    * @memberof AllergyService
    * @method add
    */
-  add(allergy: Allergy): Observable<String> {
+  add(allergy: AllergyDTO): Observable<String> {
     return this.http.post<String>(`${this.baseUrl}/sante/allergies/add`, allergy,this.getHttpOptions());
   }
 

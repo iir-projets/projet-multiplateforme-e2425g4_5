@@ -1,5 +1,5 @@
-<form class="flex-form">
-    <input type="text"  class="input-field" />
-    <button type="submit" class="btn-submit">Add</button>
+<form class="flex-form" (ngSubmit)="add(inputField.value)">
+    <input type="text" id="nom" class="input-field" #inputField/>
+    <button type="submit" class="btn-submit" >Add</button>
 </form>
   
