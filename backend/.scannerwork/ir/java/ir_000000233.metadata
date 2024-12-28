@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ClientController#deleteMedicament(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
+false
+be10f1dbaf7e7743042c409f077c9bd7
+==
+!unknownMethod! !unknownMethod!
+deleteMedicament ma.plantes.backend.service.UserDetailsServiceImp#deleteMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;

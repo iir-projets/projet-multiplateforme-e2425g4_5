@@ -1,0 +1,15 @@
+
+Xma.plantes.backend.entities.security.AuthenticationResponse#getToken()Ljava/lang/String;Æ
+£C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/entities/security/AuthenticationResponse.java ("1*…
+1 (ì
+ê
+ (
+%0java.lang.String"__id*f
+
+__unknown_file (J*H=
+;ma.plantes.backend.entities.security.AuthenticationResponse"
+token"$
+ (
+
+%0java.lang.StringB?=
+;ma.plantes.backend.entities.security.AuthenticationResponseH

@@ -1,0 +1,7 @@
+ma.plantes.backend.controllers.ArticleController#afficherArticleParId(Ljava/lang/Long;)LResponseEntity;
+false
+16a2bb41c66fdf02af861e93e4827c03
+java.util.Optional#map(Ljava/util/function/Function;)Ljava/util/Optional;
+==
+!unknownMethod! !unknownMethod!
+afficherArticleParId ma.plantes.backend.service.ArticleService#afficherArticleParId(Ljava/lang/Long;)Ljava/util/Optional;

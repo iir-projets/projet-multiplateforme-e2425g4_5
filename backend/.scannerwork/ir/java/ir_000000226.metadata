@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ClientController#getClientById(Ljava/lang/Long;)LResponseEntity;
+false
+a2535e1c626c39901dc0c4a69305d3b7
+==
+!unknownMethod! !unknownMethod!
+getUserById ma.plantes.backend.service.UserDetailsServiceImp#getUserById(Ljava/lang/Long;)Ljava/util/Optional;

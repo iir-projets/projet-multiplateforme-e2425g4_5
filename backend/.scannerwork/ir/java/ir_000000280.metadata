@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.NotificationController#readNotification(Ljava/lang/Long;)LResponseEntity;
+false
+9ff42f99a73599ab01e92418a69791b2
+==
+!unknownMethod! !unknownMethod!
+readNotification ma.plantes.backend.service.NotificationService#readNotification(Ljava/lang/Long;)Lma/plantes/backend/entities/Notification;

@@ -1,0 +1,38 @@
+
+Œma.plantes.backend.service.ProprieteService#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)Lma/plantes/backend/entities/Propriete;ž
+“C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/ProprieteService.java (%"3*!
+2 ("
+ (
+""*Ö
+3 (´
+±
+ (9
+%03ma.plantes.backend.repositories.ProprieteRepository"__id*d
+
+__unknown_file (H*F-
++ma.plantes.backend.service.ProprieteService"
+proprieteRepository‡„
+ (?
+%1"Tma.plantes.backend.repositories.ProprieteRepository#existsByNom(Ljava/lang/String;)Z*W
+
+__unknown_file (;
+9
+%03ma.plantes.backend.repositories.ProprieteRepository*"
+
+__unknown_file (
+""2existsByNom(Ljava/lang/String;)*
+2
+1*Ø
+1 ("´
+±
+ ("9
+%23ma.plantes.backend.repositories.ProprieteRepository"__id*d
+
+__unknown_file (H*F-
++ma.plantes.backend.service.ProprieteService"
+proprieteRepository"
+ (3
+"":>
+& (92
+	propriete%ma.plantes.backend.entities.ProprieteB/-
++ma.plantes.backend.service.ProprieteServiceH

@@ -1,0 +1,6 @@
+ma.plantes.backend.service.ProprieteService#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)Lma/plantes/backend/entities/Propriete;
+false
+e826288aec7101ffa78104e0651bc76f
+==
+!unknownMethod! !unknownMethod!
+existsByNom ma.plantes.backend.repositories.ProprieteRepository#existsByNom(Ljava/lang/String;)Z

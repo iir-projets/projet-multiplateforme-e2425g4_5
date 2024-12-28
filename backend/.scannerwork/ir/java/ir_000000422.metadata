@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ArticleController#supprimerArticle(Ljava/lang/Long;)LResponseEntity;
+false
+37f0f36c3b74649a7c8edb76a0e97d9f
+==
+!unknownMethod! !unknownMethod!
+supprimerArticle ma.plantes.backend.service.ArticleService#supprimerArticle(Ljava/lang/Long;)Z
