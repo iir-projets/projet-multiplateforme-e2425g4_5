@@ -1,0 +1,21 @@
+
+Xma.plantes.backend.controllers.MedicamentController#AfficherMedicament()Ljava/util/List;¦
+›C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/MedicamentController.java3 3(."1*Ä
+14 4( ³
+°
+4 4( 2
+%0,ma.plantes.backend.service.MedicamentService"__id*j
+
+__unknown_file (N*L5
+3ma.plantes.backend.controllers.MedicamentController"
+medicamentServiceÚ×
+4 4(3
+%1java.util.List"Oma.plantes.backend.service.MedicamentService#getAllMedicament()Ljava/util/List;*P
+
+__unknown_file (4
+2
+%0,ma.plantes.backend.service.MedicamentService2getAllMedicament()""
+4 4(4
+
+%1java.util.ListB75
+3ma.plantes.backend.controllers.MedicamentControllerH

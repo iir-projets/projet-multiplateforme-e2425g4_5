@@ -1,0 +1,27 @@
+
+mma.plantes.backend.service.CommentaireService#trouverCommentairesParArticle(Ljava/lang/Long;)Ljava/util/List; 
+•C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/CommentaireService.java5 5(:"1*¶
+16 6($º
+·
+6 6($;
+%05ma.plantes.backend.repositories.CommentaireRepository"__id*h
+
+__unknown_file (L*J/
+-ma.plantes.backend.service.CommentaireService"
+commentaireRepositoryÅÂ
+6 6(?
+%1java.util.List"gma.plantes.backend.repositories.CommentaireRepository#findByArticleId(Ljava/lang/Long;)Ljava/util/List;*Y
+
+__unknown_file (=
+;
+%05ma.plantes.backend.repositories.CommentaireRepository*9
+
+__unknown_file (
+
+	articleIdjava.lang.Long2!findByArticleId(Ljava/lang/Long;)""
+6 6(@
+
+%1java.util.List:'
+5; 5(I
+	articleIdjava.lang.LongB1/
+-ma.plantes.backend.service.CommentaireServiceH

@@ -1,0 +1,5 @@
+ma.plantes.backend.controllers.MaladieController#AfficherMaladie()Ljava/util/List;
+false
+e7416f531a4590b6430716bc24b751d4
+==
+getAllMaladie ma.plantes.backend.service.MaladieService#getAllMaladie()Ljava/util/List;

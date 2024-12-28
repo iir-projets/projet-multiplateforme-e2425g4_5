@@ -1,0 +1,5 @@
+ma.plantes.backend.entities.User#getAuthorities()Ljava/util/Collection;
+false
+fc54e19af6f6faebebdf2ac655c3f59c
+java.lang.Enum#name()Ljava/lang/String;
+java.util.List#of(Ljava/lang/Object;)Ljava/util/List;

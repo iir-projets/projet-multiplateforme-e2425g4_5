@@ -1,0 +1,40 @@
+
+hma.plantes.backend.service.NotificationService#getNotificationByUserId(Ljava/lang/Long;)Ljava/util/List;¡
+–C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/NotificationService.java (5"1*
+1 ("­
+ª
+ ("4
+%0.ma.plantes.backend.repositories.UserRepository"__id*b
+
+__unknown_file (F*D0
+.ma.plantes.backend.service.NotificationService"
+userRepository`
+^
+ (>(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""½
+º
+ (%<
+%16ma.plantes.backend.repositories.NotificationRepository"__id*j
+
+__unknown_file (N*L0
+.ma.plantes.backend.service.NotificationService"
+notificationRepository‰†
+ (C
+%2java.util.List"‚ma.plantes.backend.repositories.NotificationRepository#findNotificationsByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;*Z
+
+__unknown_file (>
+<
+%16ma.plantes.backend.repositories.NotificationRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User2;findNotificationsByUser(Lma/plantes/backend/entities/User;)""
+ (D
+
+%2java.util.List: 
+6 (=
+idjava.lang.LongB20
+.ma.plantes.backend.service.NotificationServiceH

@@ -1,0 +1,57 @@
+
+]ma.plantes.backend.service.FavorisService#supprimerFavoris(Ljava/lang/Long;Ljava/lang/Long;)Zœ
+‘C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/FavorisService.java- -(#"3*·
+20 0(®
+«
+0 0(7
+%21ma.plantes.backend.repositories.FavorisRepository"__id*`
+
+__unknown_file (D*B+
+)ma.plantes.backend.service.FavorisService"
+favorisRepositoryâß
+0 0(3
+%3boolean"fma.plantes.backend.repositories.FavorisRepository#deleteById(Lma/plantes/backend/entities/FavorisId;)Z*U
+
+__unknown_file (9
+7
+%21ma.plantes.backend.repositories.FavorisRepository*P
+
+__unknown_file (4
+2
+	favorisId%ma.plantes.backend.entities.FavorisId23deleteById(Lma/plantes/backend/entities/FavorisId;)"
+1 1(
+""*—
+3., .(4j
+h
+. .(?2
+	favorisId%ma.plantes.backend.entities.FavorisId"__id*"
+
+__unknown_file (
+""®
+«
+/ /(7
+%01ma.plantes.backend.repositories.FavorisRepository"__id*`
+
+__unknown_file (D*B+
+)ma.plantes.backend.service.FavorisService"
+favorisRepositoryâß
+/ /(2
+%1boolean"fma.plantes.backend.repositories.FavorisRepository#existsById(Lma/plantes/backend/entities/FavorisId;)Z*U
+
+__unknown_file (9
+7
+%01ma.plantes.backend.repositories.FavorisRepository*P
+
+__unknown_file (4
+2
+	favorisId%ma.plantes.backend.entities.FavorisId23existsById(Lma/plantes/backend/entities/FavorisId;)*
+2
+1*!
+13 3("
+3 3(
+"":&
+-$ -(2
+clientIdjava.lang.Long:&
+-2 -(?
+planteIdjava.lang.LongB-+
+)ma.plantes.backend.service.FavorisServiceHX

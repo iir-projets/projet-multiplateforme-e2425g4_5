@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.FavorisController#RetirerFavoris(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
+false
+7328de163bc6bf41328d85d4c7ffe6c7
+==
+!unknownMethod! !unknownMethod!
+supprimerFavoris ma.plantes.backend.service.FavorisService#supprimerFavoris(Ljava/lang/Long;Ljava/lang/Long;)Z

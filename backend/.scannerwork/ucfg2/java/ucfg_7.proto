@@ -1,0 +1,81 @@
+
+mma.plantes.backend.service.UserDetailsServiceImp#addMaladie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;£
+òC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.java8 8()"1*õ
+1: :(+µ
+≤
+: :(+7
+%01ma.plantes.backend.repositories.MaladieRepository"__id*g
+
+__unknown_file (K*I2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+maladieRepositoryf
+d
+: :(N.
+maladie#ma.plantes.backend.entities.Maladie"__id*"
+
+__unknown_file (
+""Ø
+¨
+; ;("4
+%1.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository`
+^
+; ;(B(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""v
+t
+= =(P>
+clientMaladieId+ma.plantes.backend.entities.ClientMaladieId"__id*"
+
+__unknown_file (
+""r
+p
+> >(V:
+clientMaladie)ma.plantes.backend.entities.ClientMaladie"__id*"
+
+__unknown_file (
+""¡
+æ
+C C(=
+%27ma.plantes.backend.repositories.ClientMaladieRepository"__id*m
+
+__unknown_file (Q*O2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMaladieRepositoryØ
+¨
+D D(4
+%3.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository¡
+æ
+G G(&=
+%47ma.plantes.backend.repositories.ClientMaladieRepository"__id*m
+
+__unknown_file (Q*O2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMaladieRepositoryçä
+G G(E
+%5java.util.List"Ñma.plantes.backend.repositories.ClientMaladieRepository#findClientMaladiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;*[
+
+__unknown_file (?
+=
+%47ma.plantes.backend.repositories.ClientMaladieRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User2<findClientMaladiesByUser(Lma/plantes/backend/entities/User;)""
+G G(F
+
+%5java.util.List:$
+8* 8(6
+userIdjava.lang.Long:'
+87 8(E
+	maladieIdjava.lang.LongB42
+0ma.plantes.backend.service.UserDetailsServiceImpH

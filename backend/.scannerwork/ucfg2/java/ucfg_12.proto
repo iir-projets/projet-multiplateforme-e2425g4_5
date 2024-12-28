@@ -1,0 +1,118 @@
+
+qma.plantes.backend.service.UserDetailsServiceImp#deleteAllergie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;•
+òC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.javaí  í(."1*Ã
+1
+î î(.π
+∂
+
+î î(.8
+%02ma.plantes.backend.repositories.AllergieRepository"__id*h
+
+__unknown_file (L*J2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+allergieRepositoryj
+h
+
+î î(R0
+allergie$ma.plantes.backend.entities.Allergie"__id*"
+
+__unknown_file (
+""±
+Æ
+
+ï ï("4
+%1.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepositoryb
+`
+
+ï ï(B(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""≈
+¬
+
+ò( ò(@>
+%28ma.plantes.backend.repositories.ClientAllergieRepository"__id*n
+
+__unknown_file (R*P2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientAllergieRepositoryÀ»
+
+ò( ò(s
+%3java.util.Optional"∫ma.plantes.backend.repositories.ClientAllergieRepository#findClientAllergieByUserAndAllergie(Lma/plantes/backend/entities/User;Lma/plantes/backend/entities/Allergie;)Ljava/util/Optional;*\
+
+__unknown_file (@
+>
+%28ma.plantes.backend.repositories.ClientAllergieRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User*N
+
+__unknown_file (2
+0
+allergie$ma.plantes.backend.entities.Allergie2mfindClientAllergieByUserAndAllergie(Lma/plantes/backend/entities/User;Lma/plantes/backend/entities/Allergie;)Ω∫
+ò( ò(Å0
+%4*ma.plantes.backend.entities.ClientAllergie"2java.util.Optional#orElseThrow()Ljava/lang/Object;*6
+
+__unknown_file (
+
+%3java.util.Optional2orElseThrow()§
+°
+ò ò(Ç<
+clientAllergie*ma.plantes.backend.entities.ClientAllergie"__id*N
+
+__unknown_file (2
+0
+%4*ma.plantes.backend.entities.ClientAllergie≈
+¬
+
+ù ù( >
+%58ma.plantes.backend.repositories.ClientAllergieRepository"__id*n
+
+__unknown_file (R*P2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientAllergieRepository±
+Æ
+
+û û(4
+%6.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository≈
+¬
+
+° °('>
+%78ma.plantes.backend.repositories.ClientAllergieRepository"__id*n
+
+__unknown_file (R*P2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientAllergieRepositoryìê
+
+° °(G
+%8java.util.List"Üma.plantes.backend.repositories.ClientAllergieRepository#findClientAllergiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;*\
+
+__unknown_file (@
+>
+%78ma.plantes.backend.repositories.ClientAllergieRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User2=findClientAllergiesByUser(Lma/plantes/backend/entities/User;)"$
+
+° °(H
+
+%8java.util.List:&
+
+í/ í(;
+userIdjava.lang.Long:*
+
+í< í(K
+
+allergieIdjava.lang.LongB42
+0ma.plantes.backend.service.UserDetailsServiceImpH

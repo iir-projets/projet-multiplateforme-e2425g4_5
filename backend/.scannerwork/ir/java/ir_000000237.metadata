@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ProprieteController#supprimerPropriete(Ljava/lang/Long;)LResponseEntity;
+false
+5dd22006a0a43a21f2490411d142f97b
+==
+!unknownMethod! !unknownMethod!
+supprimerPropriete ma.plantes.backend.service.ProprieteService#supprimerPropriete(Ljava/lang/Long;)Z

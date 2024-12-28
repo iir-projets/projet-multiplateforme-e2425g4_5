@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.NotificationController#getNotificationsByUserId(Ljava/lang/Long;)LResponseEntity;
+false
+0e2c9f663ce3b049c5c98f4466caae42
+==
+!unknownMethod! !unknownMethod!
+getNotificationByUserId ma.plantes.backend.service.NotificationService#getNotificationByUserId(Ljava/lang/Long;)Ljava/util/List;

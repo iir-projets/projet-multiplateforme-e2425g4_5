@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ClientController#addAllergie(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
+false
+3dd08b73799edfa70d3b7ee1d9c77d31
+==
+!unknownMethod! !unknownMethod!
+addAllergie ma.plantes.backend.service.UserDetailsServiceImp#addAllergie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;

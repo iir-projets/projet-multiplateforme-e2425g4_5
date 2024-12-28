@@ -1,0 +1,7 @@
+ma.plantes.backend.service.FavorisService#supprimerFavoris(Ljava/lang/Long;Ljava/lang/Long;)Z
+false
+fcd66ad6e6a7a9c4d6287fde399ea145
+ma.plantes.backend.entities.FavorisId#instance-init#
+==
+deleteById ma.plantes.backend.repositories.FavorisRepository#deleteById(Lma/plantes/backend/entities/FavorisId;)Z
+existsById ma.plantes.backend.repositories.FavorisRepository#existsById(Lma/plantes/backend/entities/FavorisId;)Z

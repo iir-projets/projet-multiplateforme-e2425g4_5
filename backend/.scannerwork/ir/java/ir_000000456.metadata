@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.security.AuthenticationController#login(Lma/plantes/backend/entities/User;)LResponseEntity;
+false
+7da0e40b193e1e90e5db79d59f75feaa
+==
+!unknownMethod! !unknownMethod!
+authenticate ma.plantes.backend.service.security.AuthenticationService#authenticate(Lma/plantes/backend/entities/User;)Lma/plantes/backend/entities/security/AuthenticationResponse;

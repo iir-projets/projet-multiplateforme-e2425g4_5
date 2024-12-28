@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ProprieteController#allProrietes()LResponseEntity;
+false
+2a83f16a4563a93214d00ecdf94675c5
+==
+!unknownMethod! !unknownMethod!
+allPropriete ma.plantes.backend.service.ProprieteService#allPropriete()Ljava/util/List;

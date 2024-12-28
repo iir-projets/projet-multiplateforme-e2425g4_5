@@ -1,0 +1,82 @@
+
+pma.plantes.backend.service.UserDetailsServiceImp#addMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;£
+˜C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.java\ \(+"1*Ë
+1^ ^(0»
+¸
+^ ^(0:
+%04ma.plantes.backend.repositories.MedicamentRepository"__id*j
+
+__unknown_file (N*L2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+medicamentRepositoryl
+j
+^ ^(V4
+
+medicament&ma.plantes.backend.entities.Medicament"__id*"
+
+__unknown_file (
+""¯
+¬
+_ _(4
+%1.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository`
+^
+_ _(>(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""|
+z
+a a(XD
+clientMedicamentId.ma.plantes.backend.entities.ClientMedicamentId"__id*"
+
+__unknown_file (
+""x
+v
+b b(a@
+clientMedicament,ma.plantes.backend.entities.ClientMedicament"__id*"
+
+__unknown_file (
+""Ç
+Ä
+g g(@
+%2:ma.plantes.backend.repositories.ClientMedicamentRepository"__id*p
+
+__unknown_file (T*R2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMedicamentRepository¯
+¬
+h h(4
+%3.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepositoryÇ
+Ä
+k k(%@
+%4:ma.plantes.backend.repositories.ClientMedicamentRepository"__id*p
+
+__unknown_file (T*R2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMedicamentRepository™–
+k k(G
+%5java.util.List"Šma.plantes.backend.repositories.ClientMedicamentRepository#findClientMedicamentsByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;*^
+
+__unknown_file (B
+@
+%4:ma.plantes.backend.repositories.ClientMedicamentRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User2?findClientMedicamentsByUser(Lma/plantes/backend/entities/User;)""
+k k(H
+
+%5java.util.List:$
+\, \(8
+userIdjava.lang.Long:*
+\9 \(J
+medicamentIdjava.lang.LongB42
+0ma.plantes.backend.service.UserDetailsServiceImpH
