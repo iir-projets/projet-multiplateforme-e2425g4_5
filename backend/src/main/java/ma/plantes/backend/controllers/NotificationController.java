@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Notification;
 import ma.plantes.backend.service.NotificationService;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,4 +24,7 @@ public class NotificationController {
     public ResponseEntity<Notification> readNotification(@PathVariable Long id){
         return ResponseEntity.ok(notificationService.readNotification(id));
     }
+
+
+
 }
