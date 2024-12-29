@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ArticleService, Article } from '../../../services/article/article.service';
+import { ArticleService, Article, Commentaire } from '../../../services/article/article.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   templateUrl: './details-articles.component.html',
   styleUrls: ['./details-articles.component.css'],
-  imports: [NavbarComponent,  CommonModule, FormsModule, RouterModule],
+  imports: [NavbarComponent, CommonModule, FormsModule, RouterModule],
 })
 export class ArticleDetailsComponent implements OnInit {
   article: Article | null = null;
@@ -38,18 +38,53 @@ export class ArticleDetailsComponent implements OnInit {
     }
   }
 
-  addComment() {
-    if (this.newComment.trim()) {
-      const comment = {
-        id: (this.article?.commentaires?.length ?? 0) + 1,
-        utilisateur: { id: 1, username: 'FlowerPower' }, // Remplacez par l'utilisateur actuel
-        contenu: this.newComment,
-        date: new Date().toISOString().split('T')[0]
-      };
-      this.article?.commentaires.push(comment);
-      this.newComment = '';
+  ajouterCommentaire() {
+    if (this.newComment.trim() && this.article) {
+      const userId = 12; // Remplacez par l'ID utilisateur actuel (dynamique si possible)
+      this.articleService.ajouterCommentaire(this.article.id, userId, this.newComment).subscribe(
+        (newComment: Commentaire) => {
+          if (this.article) {
+            this.article.commentaires.push(newComment);
+            this.newComment = '';
+          }
+        },
+        error => {
+          this.errorMessage = 'Erreur lors de l\'ajout du commentaire';
+          console.error('Erreur :', error);
+        }
+      );
     }
   }
 
+  supprimerCommentaire(commentId: number) {
+    if (this.article) {
+      // Suppression optimiste du commentaire de l'interface utilisateur
+      this.article.commentaires = this.article.commentaires.filter(c => c.id !== commentId);
+
+      this.articleService.supprimerCommentaire(commentId).subscribe(
+        () => {
+          // La suppression a réussi, pas besoin de faire quoi que ce soit d'autre
+          console.log('Commentaire supprimé avec succès');
+        },
+        error => {
+          // En cas d'erreur, on remet le commentaire dans la liste
+          console.error('Erreur lors de la suppression du commentaire:', error);
+          this.errorMessage = 'Erreur lors de la suppression du commentaire. Veuillez réessayer.';
+          
+          // Récupérer à nouveau les détails de l'article pour s'assurer que nous avons les données les plus récentes
+          if (this.article) {
+            this.articleService.getArticleById(this.article.id).subscribe(
+              (updatedArticle) => {
+                this.article = updatedArticle;
+              },
+              (fetchError) => {
+                console.error('Erreur lors de la récupération des détails de l\'article:', fetchError);
+              }
+            );
+          }
+        }
+      );
+    }
+  }
 }
 

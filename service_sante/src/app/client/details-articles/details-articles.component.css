@@ -98,13 +98,7 @@
   box-shadow: 0 5px 20px rgba(255, 182, 193, 0.2);
 }
 
-.cute-comment-header {
-  font-size: 1rem;
-  color: #ce91a3;
-  margin-bottom: 10px;
-  font-family: 'Lato', sans-serif;
-  font-weight: bold;
-}
+
 
 .cute-comment-text {
   font-size: 1.1rem;
@@ -175,3 +169,51 @@
   }
 }
 
+.cute-comment-header {
+  display: flex;
+  justify-content: space-between; /* Place les éléments aux extrémités */
+  align-items: center; /* Aligne verticalement */
+  font-size: 1rem;
+  color: #ce91a3;
+  margin-bottom: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+.comment-header-left {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-comment-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #ff5c8d;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-comment-btn:hover {
+  color: #ff1744;
+  transform: scale(1.1);
+}
+
+.delete-comment-btn i {
+  font-size: 1.2rem; /* Taille de l'icône Font Awesome */
+}
+
+.delete-icon {
+  width: 20px;
+  height: 20px;
+  fill: #ff5c8d; /* Couleur initiale pour le SVG */
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.delete-comment-btn:hover .delete-icon {
+  fill: #ff1744; /* Couleur au survol pour le SVG */
+  transform: scale(1.2); /* Agrandissement au survol */
+}

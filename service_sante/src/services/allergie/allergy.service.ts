@@ -41,9 +41,14 @@ export class AllergyService {
    * @memberof AllergyService
    * @method add
    */
-  add(allergy: Allergy): Observable<String> {
-    return this.http.post<String>(`${this.baseUrl}/sante/allergies/add`, allergy,this.getHttpOptions());
+
+  add(allergy: AllergyDTO): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/sante/allergies/add`, allergy, {
+      ...this.getHttpOptions(),
+      responseType: 'text' as 'json', // Indicate that the response is plain text
+    });
   }
+  
 
   /**
    * Delete an allergy
@@ -52,8 +57,11 @@ export class AllergyService {
    * @memberof AllergyService
    * @method delete
    */
-  delete(id: number): Observable<String> {
-    return this.http.delete<String>(`${this.baseUrl}/sante/allergies/delete/${id}`,this.getHttpOptions());
+  delete(id: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/sante/allergies/delete/${id}`, {
+      ...this.getHttpOptions(),
+      responseType: 'text' as 'json', // Indicate that the response is plain text
+    });
   }
 
 

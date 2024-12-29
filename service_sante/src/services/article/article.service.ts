@@ -31,18 +31,31 @@ export class ArticleService {
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(`${this.apiUrl}/articles`, this.getHttpOptions());
+
   }
 
   getTotal(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/admin/articles/total`,this.getHttpOptions());
+
   }
 
   getArticleById(id: number): Observable<Article> {
-    return this.http.get<Article>(`${this.apiUrl}/${id}`, this.getHttpOptions());
+    return this.http.get<Article>(`${this.apiUrl}/articles/${id}`, this.getHttpOptions());
   }
 
+  ajouterCommentaire(articleId: number, userId: number, contenu: string): Observable<Commentaire> {
+    const body = {
+      contenu,
+      articleId,
+      userId
+    };
+    return this.http.post<Commentaire>(`${this.apiUrl}/commentaires`, body, this.getHttpOptions());
+  }
 
-
+  supprimerCommentaire(commentId: number): Observable<string> {
+    return this.http.delete<string>(`${this.apiUrl}/commentaires/${commentId}`, this.getHttpOptions());
+  }
+  
   private getHttpOptions() {
     return {
       headers: {
@@ -52,3 +65,4 @@ export class ArticleService {
     };
   }
 }
+

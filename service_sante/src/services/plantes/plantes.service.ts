@@ -16,6 +16,7 @@ export interface Plante{
   proprietes: Propriete[];
   interaction: string;
   precaution: string;
+  isFavorite: boolean;
 
 }
 @Injectable({
@@ -31,8 +32,8 @@ export class PlantesService {
   }
  
 
-  getPlanteDetails(id: string): Observable<Plante> {
-    return this.http.get<Plante>(`${this.apiUrl}${id}`,this.getHttpOptions());
+  getPlanteDetails(id: number): Observable<Plante> {
+    return this.http.get<Plante>(`${this.apiUrl}/plantes/${id}`,this.getHttpOptions());
   }
 
   /**
@@ -50,14 +51,13 @@ export class PlantesService {
     return this.http.get<number>(`${this.apiUrl}/admin/plantes/total`,this.getHttpOptions());
   }
 
-  addHerb(): Observable<Plante[]> {
-    return this.http.post<Plante[]>(`${this.apiUrl}/admin/plantes`,this.getHttpOptions());
+  addHerb(plante : Plante): Observable<Plante> {
+    return this.http.post<Plante>(`${this.apiUrl}/admin/plantes`,plante,this.getHttpOptions());
   }
 
-  deleteHerb(): Observable<Plante[]> {
-    return this.http.delete<Plante[]>(`${this.apiUrl}/admin/plantes`,this.getHttpOptions());
+  deleteHerb(id: number): Observable<void> {  // Changez ici pour passer un ID
+      return this.http.delete<void>(`${this.apiUrl}/admin/plantes/${id}`,this.getHttpOptions());
   }
-
 
   /**
    * Get http options, including headers

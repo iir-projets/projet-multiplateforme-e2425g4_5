@@ -38,8 +38,11 @@ export class MedicineService {
    * @memberof MedicineService
    * @method add
    */
-  add(medicine: Medicine): Observable<String> {
-    return this.http.post<String>(`${this.baseUrl}/sante/medicaments/add`, medicine,this.getHttpOptions());
+  add(medicine: Medicine): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/sante/medicaments/add`, medicine, {
+      ...this.getHttpOptions(),
+      responseType: 'text' as 'json', // Indicate that the response is plain text
+    });
   }
   
   /**
@@ -49,8 +52,11 @@ export class MedicineService {
    * @memberof MedicineService
    * @method delete
    */
-  delete(id: number): Observable<String> {
-    return this.http.delete<String>(`${this.baseUrl}/sante/medicaments/delete/${id}`,this.getHttpOptions());
+  delete(id: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/sante/medicaments/delete/${id}`, {
+      ...this.getHttpOptions(),
+      responseType: 'text' as 'json', // Indicate that the response is plain text
+    });
   }
   
   /**

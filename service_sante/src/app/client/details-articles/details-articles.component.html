@@ -19,26 +19,29 @@
         <h2 class="cute-comments-title">Commentaires</h2>
         <div *ngIf="article.commentaires && article.commentaires.length > 0; else noComments">
           <div *ngFor="let comment of article.commentaires" class="cute-comment">
-            <p class="cute-comment-header"><strong>{{ comment.utilisateur.username }}</strong> - {{ comment.date | date:'short' }}</p>
+            <p class="cute-comment-header">
+              <strong>{{ comment.utilisateur.username }}</strong> - {{ comment.date | date:'short' }}
+              <button (click)="supprimerCommentaire(comment.id)" class="delete-comment-btn">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </p>
             <p class="cute-comment-text">{{ comment.contenu }}</p>
           </div>
         </div>
         <ng-template #noComments>
           <p class="cute-no-comments">Aucun commentaire pour cet article.</p>
         </ng-template>
- <!-- Champ pour ajouter un commentaire -->
- <div class="add-comment">
-  <textarea [(ngModel)]="newComment" placeholder="Ajouter un commentaire"></textarea>
-  <button (click)="addComment()">Ajouter un commentaire</button>
-</div>
-</section>
-</div>
+        <!-- Champ pour ajouter un commentaire -->
+        <div class="add-comment">
+          <textarea [(ngModel)]="newComment" placeholder="Ajouter un commentaire"></textarea>
+          <button (click)="ajouterCommentaire()">Ajouter un commentaire</button>
+        </div>
+      </section>
+    </div>
   </ng-template>
 
-  <ng-template #error>
+  <ng-container *ngIf="errorMessage">
     <p class="cute-error">{{ errorMessage }}</p>
-  </ng-template>
+  </ng-container>
 </div>
-
-
 

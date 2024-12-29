@@ -30,6 +30,7 @@ export class LoginComponent {
         if (role === 'ROLE_ADMIN') {
           this.router.navigate(['/dashboard']);
         } else if (role === 'ROLE_SERVICE_SANTE') {
+          console.log('ROLE_SERVICE_SANTE: ', role,'token:',token);
           this.router.navigate(['/dashboard_sante']);
         } else if (role === 'ROLE_CLIENT') {
           this.router.navigate(['/accueil']);

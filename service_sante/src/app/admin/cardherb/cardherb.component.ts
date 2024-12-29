@@ -1,7 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { DetailsherbComponent } from '../detailsherb/detailsherb.component';
 import { MatDialog } from '@angular/material/dialog'; 
-import { Router, RouterModule } from '@angular/router';
 import { Plante, PlantesService } from '../../../services/plantes/plantes.service';
 import { CommonModule } from '@angular/common';
 
@@ -14,31 +13,22 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cardherb.component.html',
   styleUrl: './cardherb.component.css'
 })
-export class CardherbComponent implements OnInit {
-  allHerbs: Plante[] = [];
+export class CardherbComponent {
+  herbs: Plante[] = [];
   isLoading = true;
 
-  constructor(
-    private dialog: MatDialog,
-    private plantesService: PlantesService,
-    private router: Router
-  ) {}
-
-  details(): void {
-    const dialogRef = this.dialog.open(DetailsherbComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('Details herb:', result);
-      }
-    });
-  }
+  constructor(private planteService: PlantesService,private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.plantesService.getAll().subscribe(
+    this.loadPlantes();
+  }
+
+  // Chargement des ambulances
+  loadPlantes(): void {
+    this.planteService.getAll().subscribe(
       data => {
-        console.log('Plantes reçues:', data); // Vérifier la structure des données
-        this.allHerbs = data;
+        console.log('Ambulances reçues:', data); // Vérifier la structure des données
+        this.herbs = data;
         this.isLoading = false;
       },
       error => {
@@ -47,4 +37,24 @@ export class CardherbComponent implements OnInit {
       }
     );
   }
+
+  // Suppression d'une ambulance
+  deletePlantes(id: number): void {
+    this.planteService.deleteHerb(id).subscribe({
+      next: () => {
+        console.log('Plante supprimée avec succès');
+        this.loadPlantes(); // Rechargez la liste
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression :', err);
+      },
+    });
+  }
+  
+  /*details(id : number): void {
+    this.dialog.open(DetailsherbComponent, {
+      data: { id },
+      width: '500px',
+    });
+  }*/
 }

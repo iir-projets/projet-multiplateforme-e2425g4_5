@@ -22,7 +22,7 @@ export class DetailsPlantesComponent implements OnInit {
   ngOnInit(): void {
     const plantId = this.route.snapshot.paramMap.get('id');
     if (plantId) {
-      this.plantesService.getPlanteDetails(plantId).subscribe(data => {
+      this.plantesService.getPlanteDetails(parseInt(plantId)).subscribe(data => {
         this.plant = data;
       });
     } else {

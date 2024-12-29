@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+
 export interface Client {
   id?: number;
   username: string;
@@ -13,11 +14,19 @@ export interface Client {
   
 }
 
+interface User {
+  id: number;
+  email: string;
+  mobile: string;
+  address: string;
+  password: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
+
 
   private baseUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
@@ -41,6 +50,13 @@ export class ClientService {
    * Get http options, including headers
    * @returns HTTP options with headers
    */
+
+  // Récupérer un utilisateur par son ID
+  getClientById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/admin/clients/${id}`,this.getHttpOptions());
+  }
+
+
   private getHttpOptions() {
     return {
       headers: {

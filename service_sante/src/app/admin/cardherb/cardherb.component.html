@@ -1,21 +1,27 @@
 <div class="scrollable-container">
     <!-- En-têtes -->
     <div class="table-headers">
-      <div style="margin-left: -4rem !important">Name</div>
-      <div style="margin-right: 6.7rem !important">Origin</div>
-      <div style="margin-right: 16rem !important">Caracteristiques</div>
+      <div style="margin-left: -2.5rem !important">Name</div>
+      <div style="margin-left: -5rem !important">Origin</div>
+      <div style="margin-left: 5.7rem !important">Caracteristiques</div>
+      <div style="margin-right: 5rem !important">Actions</div>
     </div>
     
     <!-- Conteneur scrollable -->
     <div class="cards-container">
-      <div class="card"  *ngFor="let plant of allHerbs">
+      <div class="card"  *ngFor="let plant of herbs">
         <div class="name">{{plant.nom}}</div>
         <div class="origin">{{plant.region}}</div>
-        <div>
+        
+        <div class="caract">
           <span   *ngFor="let prop of plant.proprietes">{{prop.nom}}, </span>  
 
         </div>
-        <button class="more" mat-button (click)="details()"><i class="fa-solid fa-chevron-right"></i></button>
+        <button  class="delete" (click)="deletePlantes(plant.id!)"><i class="fa-solid fa-trash" style="margin-right : 10rem; "></i></button>
+
+        <button class="more" mat-button ><i class="fa-solid fa-chevron-right"></i></button>
+
+        
       </div>
       
     </div>
