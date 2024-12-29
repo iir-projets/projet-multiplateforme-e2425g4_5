@@ -56,4 +56,17 @@ export class AuthService {
     localStorage.removeItem(this.ROLE_KEY);
     this.router.navigate(['/login']);
   }
+
+
+  getUserIdFromToken(): string | null {
+    const token = localStorage.getItem(this.TOKEN_KEY);
+    if (token) {
+      const decoded = this.decodeToken(token);
+      return decoded?.id || null;  // Assurez-vous que l'ID est dans le token
+    }
+    return null;
+  }
+  
+
+
 }

@@ -16,6 +16,7 @@ export interface Plante{
   proprietes: Propriete[];
   interaction: string;
   precaution: string;
+  isFavorite: boolean;
 
 }
 @Injectable({
