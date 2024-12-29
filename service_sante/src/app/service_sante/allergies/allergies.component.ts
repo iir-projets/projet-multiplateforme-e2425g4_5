@@ -29,7 +29,7 @@ export class AllergiesComponent implements OnInit {
     });
   }
   onAdd(value: string): void{
-    alert(`Received allergy name from form:${value}`);
+    
     const newAllergy: AllergyDTO = {
       nom: value
     };
@@ -37,6 +37,7 @@ export class AllergiesComponent implements OnInit {
       next: (response) => {
           // Add to the list only after a successful response
           if( response === 'Allergie ajoutée avec succès !'){
+            alert('Allergy added successfully');
             this.allergiesService.getAll().subscribe(data => {
             this.allAllergies = data;
             });
