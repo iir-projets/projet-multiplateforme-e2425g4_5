@@ -22,7 +22,7 @@ export interface Plante{
   providedIn: 'root'
 })
 export class PlantesService {
-  private apiUrl = 'http://localhost:8080/plantes/'; // Replace with your backend API URL
+  private apiUrl = 'http://localhost:8089'; 
 
   constructor(private http: HttpClient) {}
 
@@ -35,6 +35,16 @@ export class PlantesService {
     return this.http.get<Plante>(`${this.apiUrl}${id}`,this.getHttpOptions());
   }
 
+  /**
+   * Get all herbs
+   * @returns Plante[]
+   * @memberof Plante
+   * @method getAll
+   */
+
+  getAll(): Observable<Plante[]> {
+    return this.http.get<Plante[]>(`${this.apiUrl}/plantes/`,this.getHttpOptions());
+  }
 
   /**
    * Get http options, including headers

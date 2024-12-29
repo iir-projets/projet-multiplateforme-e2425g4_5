@@ -19,7 +19,7 @@ export class HerbsComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Herbe ajoutée :', result);
+        console.log('Herb added successfully :', result);
       }
     });
   }

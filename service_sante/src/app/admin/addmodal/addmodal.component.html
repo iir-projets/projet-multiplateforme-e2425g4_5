@@ -1,6 +1,5 @@
-
-
-<h3 style="color: #6b8e23; margin-left: 1rem; margin-top: 1rem;">Add a Herb</h3>
+<div class="addmodal">
+  <h3 style="color: #6b8e23; margin-left: 1rem; margin-top: 1rem;">Add a Herb</h3>
 
   <form>
     <!-- Name -->
@@ -45,9 +44,9 @@
       <input matInput placeholder="Enter the image URL" [(ngModel)]="herb.image" name="image">
     </div>
   </form>
+</div>
 
-
-<mat-dialog-actions>
-  <button mat-button (click)="close()">CANCEL</button>
-  <button mat-raised-button color="primary" (click)="submit()">Add</button>
-</mat-dialog-actions>
+ <mat-dialog-actions>
+    <button mat-button (click)="close()">CANCEL</button>
+    <button mat-raised-button color="primary" (click)="submit()">Add</button>
+  </mat-dialog-actions>

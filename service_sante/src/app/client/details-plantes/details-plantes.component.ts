@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FooterComponent } from "../footer/footer.component";
 import { ActivatedRoute } from '@angular/router';
-import { Plante, PlantesService, Propriete } from '../../../services/pages/plantes.service';
+import { Plante, PlantesService, Propriete } from '../../../services/plantes/plantes.service';
 
 @Component({
   selector: 'app-plant-details',

@@ -1,7 +1,7 @@
 // src/app/client/plantes/plantes.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { PlantesService } from '../../../services/pages/plantes.service';
+import { PlantesService } from '../../../services/plantes/plantes.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
