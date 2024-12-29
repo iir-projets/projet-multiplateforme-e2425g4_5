@@ -32,8 +32,11 @@ export class DeseaseService {
    * @memberof DiseaseService
    * @method add
    */
-  add(disease: Desease): Observable<String> {
-    return this.http.post<String>(`${this.baseUrl}/sante/maladies/add`, disease,this.getHttpOptions());
+  add(disease: Desease): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/sante/maladies/add`, disease, {
+      ...this.getHttpOptions(),
+      responseType: 'text' as 'json', // Indicate that the response is plain text
+    });
     }
 
   /**
@@ -43,8 +46,11 @@ export class DeseaseService {
    * @memberof DiseaseService
    * @method delete
    */
-  delete(id: number): Observable<String> {
-    return this.http.delete<String>(`${this.baseUrl}/sante/maladies/delete/${id}`,this.getHttpOptions());
+  delete(id: number): Observable<Object> {
+    return this.http.delete(`${this.baseUrl}/sante/maladies/delete/${id}`, {
+      ...this.getHttpOptions(),
+      responseType: 'text' as 'json', // Indicate that the response is plain text
+    });
   }
   
   /**
