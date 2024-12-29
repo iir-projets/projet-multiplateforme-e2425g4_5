@@ -1,0 +1,7 @@
+ma.plantes.backend.service.ArticleService#supprimerArticle(Ljava/lang/Long;)Z
+false
+23afd889139d6ea10353b4d9f00c2c0a
+java.util.Optional#get()Ljava/lang/Object;
+java.util.Optional#isPresent()Z
+==
+!unknownMethod! !unknownMethod!

@@ -1,5 +1,6 @@
 package ma.plantes.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,10 +30,13 @@ public class Article {
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
     private List<ArticleImage> images;
 
+
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("article")
     private List<Commentaire> commentaires;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "article", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("articles")
     private Set<ArticleEnregistre> users;
 
 

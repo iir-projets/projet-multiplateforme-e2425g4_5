@@ -35,6 +35,9 @@ export const routes: Routes = [
     { path: '', component: PlantesComponent },
     { path: 'details_plantes/:id', component: DetailsPlantesComponent },
 
+    { path: '', component: ArticleComponent }, // Route for the article listing page
+  { path: 'details_articles/:id', component: ArticleDetailsComponent },
+
     {
         path:'',
         redirectTo: 'login',

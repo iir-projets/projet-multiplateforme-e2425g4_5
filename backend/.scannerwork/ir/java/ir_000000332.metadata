@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.CommentaireController#getCommentairesParArticle(Ljava/lang/Long;)LResponseEntity;
+false
+bd67c42fe565706800023ca3b899aa96
+==
+!unknownMethod! !unknownMethod!
+trouverCommentairesParArticle ma.plantes.backend.service.CommentaireService#trouverCommentairesParArticle(Ljava/lang/Long;)Ljava/util/List;

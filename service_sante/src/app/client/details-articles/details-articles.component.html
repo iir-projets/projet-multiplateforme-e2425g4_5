@@ -1,39 +1,44 @@
-  
-  <app-navbar></app-navbar>
-  <div class="cute-article-container">
-    <!-- Article Content -->
-    <article class="cute-article-content">
-      <div class="cute-article-header">
-        <img [src]="article.image" [alt]="article.title" class="cute-article-image">
-        <h1 class="cute-article-title">{{ article.title }}</h1>
-      </div>
-      <div class="cute-article-sections">
-        <section *ngFor="let section of article.sections" class="cute-article-section">
-          <h2>{{ section.title }}</h2>
-          <p>{{ section.content }}</p>
-        </section>
-      </div>
-    </article>
-  
-    <!-- Comments Section -->
-    <aside class="cute-comments-section">
-      <h2>Lovely Comments</h2>
-      <div class="cute-comments-list">
-        <div *ngFor="let comment of comments" class="cute-comment">
-          <div class="cute-comment-header">
-            <div class="cute-user-avatar">{{ comment.user.charAt(0).toUpperCase() }}</div>
-            <div class="cute-comment-meta">
-              <span class="cute-username">{{ comment.user }}</span>
-              <span class="cute-comment-date">{{ comment.date }}</span>
-            </div>
-          </div>
-          <p class="cute-comment-text">{{ comment.text }}</p>
+<app-navbar></app-navbar>
+
+<div class="cute-article-container">
+  <ng-container *ngIf="loading; else loaded">
+    <p class="cute-loading">Loading article details...</p>
+  </ng-container>
+
+  <ng-template #loaded>
+    <div *ngIf="article" class="cute-article-layout">
+      <article class="cute-article-content">
+        <div class="cute-article-header">
+          <img [src]="article.images[0].imageUrl" [alt]="article.titre" class="cute-article-image">
+          <h1 class="cute-article-title">{{ article.titre }}</h1>
         </div>
-      </div>
-      <div class="cute-add-comment">
-        <textarea [(ngModel)]="newComment" placeholder="Share your thoughts..." class="cute-comment-input"></textarea>
-        <button (click)="addComment()" class="cute-submit-comment">Bloom Your Comment 🌸</button>
-      </div>
-    </aside>
-  </div>
-  <app-footer></app-footer>
+        <p class="cute-article-text">{{ article.contenu }}</p>
+      </article>
+
+      <section class="cute-comments-section">
+        <h2 class="cute-comments-title">Commentaires</h2>
+        <div *ngIf="article.commentaires && article.commentaires.length > 0; else noComments">
+          <div *ngFor="let comment of article.commentaires" class="cute-comment">
+            <p class="cute-comment-header"><strong>{{ comment.utilisateur.username }}</strong> - {{ comment.date | date:'short' }}</p>
+            <p class="cute-comment-text">{{ comment.contenu }}</p>
+          </div>
+        </div>
+        <ng-template #noComments>
+          <p class="cute-no-comments">Aucun commentaire pour cet article.</p>
+        </ng-template>
+ <!-- Champ pour ajouter un commentaire -->
+ <div class="add-comment">
+  <textarea [(ngModel)]="newComment" placeholder="Ajouter un commentaire"></textarea>
+  <button (click)="addComment()">Ajouter un commentaire</button>
+</div>
+</section>
+</div>
+  </ng-template>
+
+  <ng-template #error>
+    <p class="cute-error">{{ errorMessage }}</p>
+  </ng-template>
+</div>
+
+
+

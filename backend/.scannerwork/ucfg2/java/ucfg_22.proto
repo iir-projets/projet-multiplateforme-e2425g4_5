@@ -1,0 +1,21 @@
+
+Zma.plantes.backend.controllers.PlanteController#afficherToutesLesPlantes()Ljava/util/List;¢
+—C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/PlanteController.java6 6(0"1*À
+17 7(§
+¤
+7 7(.
+%0(ma.plantes.backend.service.PlanteService"__id*b
+
+__unknown_file (F*D1
+/ma.plantes.backend.controllers.PlanteController"
+planteServiceâß
+7 7(7
+%1java.util.List"Sma.plantes.backend.service.PlanteService#afficherToutesLesPlantes()Ljava/util/List;*L
+
+__unknown_file (0
+.
+%0(ma.plantes.backend.service.PlanteService2afficherToutesLesPlantes()""
+7 7(8
+
+%1java.util.ListB31
+/ma.plantes.backend.controllers.PlanteControllerH

@@ -22,7 +22,7 @@ public class Commentaire {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "article_id", nullable = false)
-    @JsonIgnoreProperties("commentaire")
+    @JsonIgnoreProperties("commentaires")
     private Article article;
 
     @ManyToOne(fetch = FetchType.EAGER)

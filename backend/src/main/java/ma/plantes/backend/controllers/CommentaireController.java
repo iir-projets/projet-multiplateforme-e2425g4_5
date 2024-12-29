@@ -1,6 +1,7 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.CommentaireDTO;
 import ma.plantes.backend.entities.Commentaire;
 import ma.plantes.backend.service.CommentaireService;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class CommentaireController {
 
     // Ajouter un commentaire
     @PostMapping
-    public ResponseEntity<Commentaire> ajouterCommentaire(@RequestBody Commentaire commentaire) {
+    public ResponseEntity<Commentaire> ajouterCommentaire(@RequestBody CommentaireDTO commentaire) {
         Commentaire nouveauCommentaire = commentaireService.ajouterCommentaire(commentaire);
         return ResponseEntity.ok(nouveauCommentaire);
     }

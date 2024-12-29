@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.CommentaireController#supprimerCommentaire(Ljava/lang/Long;)LResponseEntity;
+false
+717f0016eec941fc45cc0a90da2c5780
+==
+!unknownMethod! !unknownMethod!
+supprimerCommentaire ma.plantes.backend.service.CommentaireService#supprimerCommentaire(Ljava/lang/Long;)Z

@@ -1,0 +1,32 @@
+
+Lma.plantes.backend.service.AllergieService#existsByName(Ljava/lang/String;)Zù
+íC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/AllergieService.java ("3*!
+2   ("
+   (
+""*Ì
+3 (±
+Æ
+ (8
+%02ma.plantes.backend.repositories.AllergieRepository"__id*b
+
+__unknown_file (F*D,
+*ma.plantes.backend.service.AllergieService"
+allergieRepository°û
+ (.
+%1boolean"Sma.plantes.backend.repositories.AllergieRepository#existsByNom(Ljava/lang/String;)Z*V
+
+__unknown_file (:
+8
+%02ma.plantes.backend.repositories.AllergieRepository*5
+
+__unknown_file (
+
+nomjava.lang.String2existsByNom(Ljava/lang/String;)*
+2
+1*!
+1" "("
+" "(
+"":#
+ ()
+nomjava.lang.StringB.,
+*ma.plantes.backend.service.AllergieServiceHX

@@ -1,8 +1,8 @@
 
 <div class="container">
     <section class="section1" style="width: 70%;">
-        <app-form></app-form>
-        <app-list></app-list>
+        <app-form (addEvent)="onAdd($event)"></app-form>
+        <app-list  [paramList]="allMedicaments" (deleteEvent)="onDelete($event)"></app-list>
     </section>
         
     <section style="width: 30%;">

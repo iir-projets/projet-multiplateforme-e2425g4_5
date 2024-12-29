@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.CommentaireController#ajouterCommentaire(Lma/plantes/backend/dto/CommentaireDTO;)LResponseEntity;
+false
+2a2342de36fc80f3e6d52ef76481fffa
+==
+!unknownMethod! !unknownMethod!
+ajouterCommentaire ma.plantes.backend.service.CommentaireService#ajouterCommentaire(Lma/plantes/backend/dto/CommentaireDTO;)Lma/plantes/backend/entities/Commentaire;

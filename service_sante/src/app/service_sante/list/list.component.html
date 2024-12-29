@@ -1,9 +1,9 @@
 <div class="card-container">
   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Elt 1</h5>
+    <div class="card-body" *ngFor="let elt of paramList">
+      <h5 class="card-title">{{elt.nom}}</h5>
       <div class="card-action">
-        <button class="delete-btn">
+        <button class="delete-btn" (click)="delete(elt.id)">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>

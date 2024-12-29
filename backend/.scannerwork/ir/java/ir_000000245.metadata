@@ -1,0 +1,8 @@
+ma.plantes.backend.service.UserDetailsServiceImp#addMaladie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
+false
+f58e9502dd46c44e89fe22f37e4b9e85
+ma.plantes.backend.entities.ClientMaladie#instance-init#
+ma.plantes.backend.entities.ClientMaladieId#instance-init#
+==
+!unknownMethod! !unknownMethod!
+findClientMaladiesByUser ma.plantes.backend.repositories.ClientMaladieRepository#findClientMaladiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;

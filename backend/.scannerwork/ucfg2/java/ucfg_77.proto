@@ -1,0 +1,14 @@
+
+Kma.plantes.backend.service.AllergieService#getAllAllergie()Ljava/util/List;ù
+íC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/AllergieService.java, ,(("1*’
+1- -( ±
+Æ
+- -( 8
+%02ma.plantes.backend.repositories.AllergieRepository"__id*b
+
+__unknown_file (F*D,
+*ma.plantes.backend.service.AllergieService"
+allergieRepository"
+- -(+
+""B.,
+*ma.plantes.backend.service.AllergieServiceH
