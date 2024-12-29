@@ -1,0 +1,5 @@
+ma.plantes.backend.controllers.MedicamentController#AfficherMedicament()Ljava/util/List;
+false
+8ff3fb7bd42af85bdeabc5788af91a8f
+==
+getAllMedicament ma.plantes.backend.service.MedicamentService#getAllMedicament()Ljava/util/List;

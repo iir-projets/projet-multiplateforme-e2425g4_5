@@ -1,0 +1,5 @@
+ma.plantes.backend.service.CommentaireService#trouverCommentairesParUtilisateur(Ljava/lang/Long;)Ljava/util/List;
+false
+c81a9cc4e6eaa857741737635901f0e7
+==
+findByUtilisateurId ma.plantes.backend.repositories.CommentaireRepository#findByUtilisateurId(Ljava/lang/Long;)Ljava/util/List;

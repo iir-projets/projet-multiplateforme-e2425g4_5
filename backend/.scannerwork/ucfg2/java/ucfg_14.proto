@@ -1,0 +1,21 @@
+
+Tma.plantes.backend.controllers.AllergieController#AfficherAllergie()Ljava/util/List;¤
+™C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/AllergieController.java1 1(*"1*¶
+12 2(­
+ª
+2 2(0
+%0*ma.plantes.backend.service.AllergieService"__id*f
+
+__unknown_file (J*H3
+1ma.plantes.backend.controllers.AllergieController"
+allergieServiceÒÏ
+2 2(/
+%1java.util.List"Kma.plantes.backend.service.AllergieService#getAllAllergie()Ljava/util/List;*N
+
+__unknown_file (2
+0
+%0*ma.plantes.backend.service.AllergieService2getAllAllergie()""
+2 2(0
+
+%1java.util.ListB53
+1ma.plantes.backend.controllers.AllergieControllerH

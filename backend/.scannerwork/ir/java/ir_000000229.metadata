@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ClientController#deleteMaladie(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
+false
+c4b1382c4e42e410fa5f6b8ac204a046
+==
+!unknownMethod! !unknownMethod!
+deleteMaladie ma.plantes.backend.service.UserDetailsServiceImp#deleteMaladie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;

@@ -1,0 +1,10 @@
+ma.plantes.backend.service.security.AuthenticationService#register(Lma/plantes/backend/entities/User;)Lma/plantes/backend/entities/security/AuthenticationResponse;
+false
+02f8081438937ee379d60e6bd963f201
+ma.plantes.backend.entities.User#<init>()V
+ma.plantes.backend.entities.User#instance-init#
+ma.plantes.backend.entities.security.AuthenticationResponse#<init>(Ljava/lang/String;)V
+ma.plantes.backend.entities.security.AuthenticationResponse#instance-init#
+==
+!unknownMethod! !unknownMethod!
+generateToken ma.plantes.backend.service.security.JwtService#generateToken(Lma/plantes/backend/entities/User;)Ljava/lang/String;

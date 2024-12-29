@@ -1,0 +1,58 @@
+
+íma.plantes.backend.service.CommentaireService#ajouterCommentaire(Lma/plantes/backend/dto/CommentaireDTO;)Lma/plantes/backend/entities/Commentaire;†
+ïC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/CommentaireService.java   ()"1*ô	
+1" "()db
+" "('-
+%0'ma.plantes.backend.entities.Commentaire"'ma.plantes.backend.entities.Commentaireì
+ê
+" "()
+%1"1ma.plantes.backend.entities.Commentaire#<init>()V*K
+
+__unknown_file (/
+-
+%0'ma.plantes.backend.entities.Commentaireé
+ã
+" "(*,
+c'ma.plantes.backend.entities.Commentaire"__id*K
+
+__unknown_file (/
+-
+%0'ma.plantes.backend.entities.Commentaire≤
+Ø
+$ $(+7
+%21ma.plantes.backend.repositories.ArticleRepository"__id*d
+
+__unknown_file (H*F/
+-ma.plantes.backend.service.CommentaireService"
+articleRepositoryf
+d
+$ $(^.
+article#ma.plantes.backend.entities.Article"__id*"
+
+__unknown_file (
+""¨
+©
+& &("4
+%3.ma.plantes.backend.repositories.UserRepository"__id*a
+
+__unknown_file (E*C/
+-ma.plantes.backend.service.CommentaireService"
+userRepository`
+^
+& &(R(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""∫
+∑
+( (($;
+%45ma.plantes.backend.repositories.CommentaireRepository"__id*h
+
+__unknown_file (L*J/
+-ma.plantes.backend.service.CommentaireService"
+commentaireRepository"
+( ((-
+"":@
+ *  (D4
+commentaire%ma.plantes.backend.dto.CommentaireDTOB1/
+-ma.plantes.backend.service.CommentaireServiceH

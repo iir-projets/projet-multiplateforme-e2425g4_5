@@ -1,0 +1,6 @@
+ma.plantes.backend.service.UserDetailsServiceImp#loadUserByUsername(Ljava/lang/String;)LUserDetails;
+false
+5ea70829ba963c0dc779c184af3cb03f
+java.util.Optional#orElseThrow(Ljava/util/function/Supplier;)Ljava/lang/Object;
+==
+findByUsername ma.plantes.backend.repositories.UserRepository#findByUsername(Ljava/lang/String;)Ljava/util/Optional;

@@ -1,0 +1,16 @@
+
+bma.plantes.backend.service.PlanteService#afficherPlanteParId(Ljava/lang/Long;)Ljava/util/Optional;õ
+êC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/PlanteService.javaL L(/"1*œ
+1M M(´
+®
+M M(6
+%00ma.plantes.backend.repositories.PlanteRepository"__id*^
+
+__unknown_file (B*@*
+(ma.plantes.backend.service.PlanteService"
+planteRepository"
+M M(-
+"": 
+L0 L(7
+idjava.lang.LongB,*
+(ma.plantes.backend.service.PlanteServiceH

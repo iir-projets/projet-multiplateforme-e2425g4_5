@@ -1,0 +1,8 @@
+ma.plantes.backend.service.FavorisService#ajouterFavoris(Ljava/lang/Long;Ljava/lang/Long;)V
+false
+aeca0e0c282e916f847c59e605f1a925
+ma.plantes.backend.entities.Favoris#<init>()V
+ma.plantes.backend.entities.Favoris#instance-init#
+ma.plantes.backend.entities.FavorisId#instance-init#
+==
+!unknownMethod! !unknownMethod!

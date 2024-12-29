@@ -25,15 +25,8 @@
   <div class="cards-container">
     <div class="cards-row">
       <!-- Première ligne (4 cartes) -->
-      <div class="card" *ngFor="let plant of filteredPlantes.slice(0, 4)">
-        <!-- Icône de favori -->
-        <div class="favorite-icon" (click)="toggleFavorite(plant)">
-          <img
-            [src]="plant.isFavorite ? 'assets/icons/unfavori.png' : 'assets/icons/favori.png'"
-            alt="Favorite"
-            class="favorite-icon-img"
-          />
-        </div>
+      <div class="card" *ngFor="let plant of filteredPlantes.slice(0, 5)">
+       
         <div class="card-image">
           <img [src]="plant.image" alt="{{ plant.nom }}" />
         </div>

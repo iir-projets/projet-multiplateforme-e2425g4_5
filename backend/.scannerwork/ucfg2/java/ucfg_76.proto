@@ -1,0 +1,24 @@
+
+Hma.plantes.backend.service.AllergieService#exsistById(Ljava/lang/Long;)Zù
+íC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/AllergieService.java% %("3*!
+2' '("
+' '(
+""*…
+3&
+ &(±
+Æ
+&
+ &(8
+%02ma.plantes.backend.repositories.AllergieRepository"__id*b
+
+__unknown_file (F*D,
+*ma.plantes.backend.service.AllergieService"
+allergieRepository*
+2
+1*!
+1) )("
+) )(
+"": 
+% %(%
+idjava.lang.LongB.,
+*ma.plantes.backend.service.AllergieServiceHX

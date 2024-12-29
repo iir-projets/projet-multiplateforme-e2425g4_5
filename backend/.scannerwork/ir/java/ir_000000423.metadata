@@ -1,0 +1,5 @@
+ma.plantes.backend.controllers.ArticleController#afficherTousLesArticles()Ljava/util/List;
+false
+46e48b99dd341f7c74088677d517d7ba
+==
+afficherTousLesArticles ma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;

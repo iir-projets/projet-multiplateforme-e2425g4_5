@@ -1,0 +1,21 @@
+
+Zma.plantes.backend.controllers.ArticleController#afficherTousLesArticles()Ljava/util/List;£
+˜C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/ArticleController.java3 3(0"1*Ã
+14 4(ª
+§
+4 4(/
+%0)ma.plantes.backend.service.ArticleService"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.controllers.ArticleController"
+articleServiceâß
+4 4(7
+%1java.util.List"Sma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;*M
+
+__unknown_file (1
+/
+%0)ma.plantes.backend.service.ArticleService2afficherTousLesArticles()""
+4 4(8
+
+%1java.util.ListB42
+0ma.plantes.backend.controllers.ArticleControllerH

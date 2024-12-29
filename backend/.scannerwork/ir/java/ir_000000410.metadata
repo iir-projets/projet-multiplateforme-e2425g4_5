@@ -1,0 +1,7 @@
+ma.plantes.backend.service.PlanteService#ajouterPlante(Lma/plantes/backend/dto/PlanteDto;)Lma/plantes/backend/entities/Plante;
+false
+5c9cb324997ccdbdb6d43ef2381fef6e
+ma.plantes.backend.entities.Plante#<init>()V
+ma.plantes.backend.entities.Plante#instance-init#
+==
+!unknownMethod! !unknownMethod!

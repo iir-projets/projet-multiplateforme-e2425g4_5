@@ -1,0 +1,43 @@
+
+ïma.plantes.backend.service.ArticleService#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;ú
+ëC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/ArticleService.java% %(""3*“
+2) )(Æ
+´
+* *($7
+%21ma.plantes.backend.repositories.ArticleRepository"__id*`
+
+__unknown_file (D*B+
+)ma.plantes.backend.service.ArticleService"
+articleRepository"
+* *(3
+""*∑
+3', '(=Æ
+´
+', '(=7
+%01ma.plantes.backend.repositories.ArticleRepository"__id*`
+
+__unknown_file (D*B+
+)ma.plantes.backend.service.ArticleService"
+articleRepository]
+[
+' '(K%
+existingArticlejava.util.Optional"__id*"
+
+__unknown_file (
+""èå
+( (('
+%1boolean"java.util.Optional#isPresent()Z*C
+
+__unknown_file ('
+%
+existingArticlejava.util.Optional2isPresent()*
+2
+1*!
+1, ,("
+, ,(
+"": 
+%# %(+
+idjava.lang.Long::
+%, %(;.
+article#ma.plantes.backend.entities.ArticleB-+
+)ma.plantes.backend.service.ArticleServiceH

@@ -1,0 +1,5 @@
+ma.plantes.backend.service.UserDetailsServiceImp#allClients()Ljava/util/List;
+false
+a25dbf5acd1879e1ed60baac4cbb3522
+==
+findUsersByRole ma.plantes.backend.repositories.UserRepository#findUsersByRole(Lma/plantes/backend/entities/Role;)Ljava/util/List;

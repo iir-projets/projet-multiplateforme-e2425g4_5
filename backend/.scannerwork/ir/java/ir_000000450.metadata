@@ -1,0 +1,5 @@
+ma.plantes.backend.service.AllergieService#existsByName(Ljava/lang/String;)Z
+false
+ea5473ec6dde4c18b7dc29d90729731b
+==
+existsByNom ma.plantes.backend.repositories.AllergieRepository#existsByNom(Ljava/lang/String;)Z

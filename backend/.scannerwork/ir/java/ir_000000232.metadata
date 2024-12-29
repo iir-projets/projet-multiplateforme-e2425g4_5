@@ -1,0 +1,6 @@
+ma.plantes.backend.controllers.ClientController#addMedicament(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
+false
+495de7d8ffe580c87aec17026dc77870
+==
+!unknownMethod! !unknownMethod!
+addMedicament ma.plantes.backend.service.UserDetailsServiceImp#addMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;

@@ -1,0 +1,6 @@
+ma.plantes.backend.service.CommentaireService#supprimerCommentaire(Ljava/lang/Long;)Z
+false
+bb9080081085d43d6fd7a94561720d0c
+==
+!unknownMethod! !unknownMethod!
+deleteById ma.plantes.backend.repositories.CommentaireRepository#deleteById(Ljava/lang/Long;)V
