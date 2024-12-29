@@ -3,10 +3,7 @@
 <div class="plant-details-container">
   <!-- Conteneur de l'image avec l'icône cœur -->
   <div class="plant-image-container">
-    <!-- Icône de cœur pour ajouter aux favoris -->
-    <div class="heart-icon" (click)="toggleFavorite()">
-      <i [class]="isFavorite ? 'fas fa-heart' : 'far fa-heart'"></i>
-    </div>
+  
 
     <!-- Image de la plante -->
     <img [src]="plant?.image" alt="{{ plant?.nom }}" class="plant-image">

@@ -15,7 +15,7 @@ interface Plant {
 @Component({
   selector: 'app-favoris',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent,FooterComponent],
   templateUrl: './favoris.component.html',
   styleUrls: ['./favoris.component.css'],
   animations: [
@@ -34,25 +34,13 @@ export class FavorisComponent {
   favoritePlants: Plant[] = [
     {
       id: 1,
-      name: "Monstera Deliciosa",
+      name: "Aloe Vera",
       description: "Plante tropicale aux grandes feuilles perforées.",
       image: "assets/images/plante8.jpg",
       isFavorite: true,
     },
-    {
-      id: 2,
-      name: "Ficus Elastica",
-      description: "Plante robuste au feuillage brillant.",
-      image: "assets/images/plante6.jpg",
-      isFavorite: true,
-    },
-    {
-      id: 3,
-      name: "Pilea Peperomioides",
-      description: "Aussi appelée plante à monnaie chinoise.",
-      image: "assets/images/plante5.jpg",
-      isFavorite: true,
-    },
+  
+   
   ];
 
   toggleFavorite(plant: Plant) {

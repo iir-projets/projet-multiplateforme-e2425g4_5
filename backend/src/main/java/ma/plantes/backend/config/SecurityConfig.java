@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(
-                        req->req.requestMatchers("/login/**","/register/**","/error","/plantes/**","/articles/**","/allergies/getall","/sante/allergies/add","/admin/clients")
+                        req->req.requestMatchers("/login/**","/register/**", "/admin/plantes","/plantes/{clientId}","/error","/plantes/**","/articles/**","/medicaments/getall","/favoris/plantes/{clientId}","/sante/medicaments/add","/favoris/ajouter/{clientId}/{planteId}","/notifications/**","/sante/medicaments/delete/{id}","/sante/maladies/add","/allergies/getall","/sante/allergies/add","/sante/allergies/delete/{id}","/sante/maladies/delete/{id}","/maladies/getall","/admin/clients","/commentaires")
                                 .permitAll()
                                 .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
                                 .requestMatchers("/sante/**").hasAnyAuthority("ROLE_SERVICE_SANTE","ROLE_ADMIN")
