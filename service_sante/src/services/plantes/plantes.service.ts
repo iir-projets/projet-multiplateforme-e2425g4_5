@@ -22,7 +22,7 @@ export interface Plante{
   providedIn: 'root'
 })
 export class PlantesService {
-  private apiUrl = 'http://localhost:8089'; 
+  private apiUrl = 'http://localhost:8080'; 
 
   constructor(private http: HttpClient) {}
 
@@ -45,6 +45,19 @@ export class PlantesService {
   getAll(): Observable<Plante[]> {
     return this.http.get<Plante[]>(`${this.apiUrl}/plantes/`,this.getHttpOptions());
   }
+
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/admin/plantes/total`,this.getHttpOptions());
+  }
+
+  addHerb(): Observable<Plante[]> {
+    return this.http.post<Plante[]>(`${this.apiUrl}/admin/plantes`,this.getHttpOptions());
+  }
+
+  deleteHerb(): Observable<Plante[]> {
+    return this.http.delete<Plante[]>(`${this.apiUrl}/admin/plantes`,this.getHttpOptions());
+  }
+
 
   /**
    * Get http options, including headers

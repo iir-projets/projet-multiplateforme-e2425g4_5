@@ -25,12 +25,16 @@ export interface Article {
   providedIn: 'root',
 })
 export class ArticleService {
-  private apiUrl = 'http://localhost:8080/articles'; // Replace with your API URL
+  private apiUrl = 'http://localhost:8080'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
 
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(`${this.apiUrl}`, this.getHttpOptions());
+    return this.http.get<Article[]>(`${this.apiUrl}/articles`, this.getHttpOptions());
+  }
+
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/admin/articles/total`,this.getHttpOptions());
   }
 
   getArticleById(id: number): Observable<Article> {

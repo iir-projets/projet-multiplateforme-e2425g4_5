@@ -25,6 +25,10 @@ export class DeseaseService {
     return this.http.get<Desease[]>(`${this.baseUrl}/maladies/getall`,this.getHttpOptions());
   }
 
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/admin/maladies/total`,this.getHttpOptions());
+  }
+
   /**
    * Add a disease
    * @param {Disease} disease

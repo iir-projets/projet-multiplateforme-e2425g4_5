@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { PlantesService } from '../../../services/plantes/plantes.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './detailsherb.component.css'
 })
 export class DetailsherbComponent {
-constructor(public dialogRef: MatDialogRef<DetailsherbComponent>) {}
+constructor(public dialogRef: MatDialogRef<DetailsherbComponent>, herbsService : PlantesService) {}
 
   // Méthode pour fermer le modal
   close(): void {
