@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -66,6 +67,12 @@ public class PlanteController {
     @GetMapping("/admin/plantes/total")
     public ResponseEntity<Long> getTotalCount() {
         return ResponseEntity.ok(planteService.getTotalCount());
+    }
+
+
+    @GetMapping("admin/plantes/totals-by-region")
+    public Map<String, Long> getPlantesCountByRegion() {
+        return planteService.getPlantesCountByRegion();
     }
 
 

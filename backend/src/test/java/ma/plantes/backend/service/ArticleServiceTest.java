@@ -1,7 +1,6 @@
 package ma.plantes.backend.service;
 
 import ma.plantes.backend.entities.Article;
-import ma.plantes.backend.repositories.ArticleImageRepository;
 import ma.plantes.backend.repositories.ArticleRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,8 +18,7 @@ class ArticleServiceTest {
     @Mock
     private ArticleRepository articleRepository;
 
-    @Mock
-    private ArticleImageRepository articleImageRepository;
+
 
     @InjectMocks
     private ArticleService articleService;
