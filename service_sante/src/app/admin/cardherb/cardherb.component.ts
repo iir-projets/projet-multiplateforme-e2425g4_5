@@ -51,10 +51,10 @@ export class CardherbComponent {
     });
   }
   
-  /*details(id : number): void {
+  details(id : number): void {
     this.dialog.open(DetailsherbComponent, {
       data: { id },
       width: '500px',
     });
-  }*/
+  }
 }

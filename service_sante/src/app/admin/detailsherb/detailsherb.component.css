@@ -17,7 +17,7 @@ body {
   font-weight: 700; /* Gras pour mettre en valeur */
   color: #2c3e50; /* Couleur professionnelle */
   margin-bottom: 20px;
-  margin-top: 1rem;
+  margin-top: 2rem;
   text-align: center;
   text-transform: uppercase; /* Texte en majuscules */
   letter-spacing: 1.2px; /* Espacement pour un style plus raffiné */
@@ -56,7 +56,7 @@ body {
 
 /* Image (ajustement de la taille) */
 .plant-image {
-  max-width: 100%; /* Empêche l'image de déborder */
+  max-width: 50%; /* Empêche l'image de déborder */
   height: auto; /* Maintient les proportions de l'image */
   border-radius: 12px; /* Bordure arrondie */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
@@ -81,6 +81,8 @@ body {
 
 /* Style des boutons */
 button[mat-button] {
+  margin-top: -2rem;
+  margin-right: -2rem;
   font-size: 16px; /* Texte plus lisible */
   padding: 10px 20px; /* Boutons plus grands */
   color: #ffffff; /* Texte blanc */
@@ -92,6 +94,7 @@ button[mat-button] {
 }
 
 button[mat-button]:hover {
+  
   background-color: #45a049; /* Couleur légèrement plus sombre au survol */
   transform: translateY(-2px); /* Effet de levée */
 }

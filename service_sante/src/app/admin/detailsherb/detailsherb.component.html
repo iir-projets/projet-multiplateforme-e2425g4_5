@@ -1,30 +1,22 @@
 <div *ngIf="plante">
-  <h2 mat-dialog-title class="modal-title" style="color: #6b8e23; margin-left: 1rem;">
-    {{ plante.nom }}
-  </h2>
-
+  <h2 mat-dialog-title >{{ plante.nom }}</h2>
   <div class="modal-content">
-    <!-- Image -->
     <div class="image-container">
       <img [src]="plante.image" alt="{{ plante.nom }}" class="plant-image" />
     </div>
-
-    <!-- Détails de la plante -->
     <div class="plant-details">
-      <p><strong>Nom :</strong> {{ plante.nom }}</p>
-      <p><strong>Région :</strong> {{ plante.region }}</p>
-      <p><strong>Précautions :</strong> {{ plante.precaution }}</p>
+      <p><strong>Origin :</strong> {{ plante.region }}</p>
+      <p><strong>Precautions :</strong> {{ plante.precaution }}</p>
       <p><strong>Interactions :</strong> {{ plante.interaction }}</p>
-      <p><strong>Propriétés :</strong>
+      <p><strong>Properties :</strong>
         <span *ngFor="let prop of plante.proprietes">
-          {{ prop.nom }}<span *ngIf="!$last">, </span>
+          {{ prop.nom }},
         </span>
       </p>
       <p><strong>Description :</strong> {{ plante.description }}</p>
     </div>
   </div>
-
   <div class="modal-actions">
-    <button mat-button (click)="close()">Fermer</button>
+    <button mat-button (click)="close()">Close</button>
   </div>
 </div>

@@ -1,0 +1,9 @@
+<div class="container">
+    <section class="section1" style="width: 100%;">
+        <app-form (addEvent)="onAdd($event)"></app-form>
+        <app-list [paramList]="allMaladies" (deleteEvent)="onDelete($event)"></app-list>
+    </section>
+        
+    
+</div>
+
