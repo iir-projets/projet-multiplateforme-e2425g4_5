@@ -1,3 +1,5 @@
-ma.plantes.backend.repositories.ProprieteRepository#instance-init#
+ma.plantes.backend.service.security.JwtService#extractExpiration(Ljava/lang/String;)Ljava/util/Date;
 false
-aed240ba3f02d1ab562066a134417a4e
+a494f170c275b530bde6b09e13210454
+==
+extractClaim ma.plantes.backend.service.security.JwtService#extractClaim(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/Object;

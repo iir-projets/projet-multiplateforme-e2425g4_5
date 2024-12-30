@@ -1,3 +1,15 @@
-ma.plantes.backend.entities.ArticleEnregistre#<init>()V
+ma.plantes.backend.service.CommentaireServiceTest#testAjouterCommentaire()V
 false
-0ca8d28f40fd6b5304e84cf48431fede
+8ddc030edb3bb6bd9fdf0073574b67c3
+java.util.Optional#of(Ljava/lang/Object;)Ljava/util/Optional;
+ma.plantes.backend.dto.CommentaireDTO#<init>()V
+ma.plantes.backend.dto.CommentaireDTO#instance-init#
+ma.plantes.backend.entities.Article#<init>()V
+ma.plantes.backend.entities.Article#instance-init#
+ma.plantes.backend.entities.Commentaire#<init>()V
+ma.plantes.backend.entities.Commentaire#instance-init#
+ma.plantes.backend.entities.User#<init>()V
+ma.plantes.backend.entities.User#instance-init#
+==
+!unknownMethod! !unknownMethod!
+ajouterCommentaire ma.plantes.backend.service.CommentaireService#ajouterCommentaire(Lma/plantes/backend/dto/CommentaireDTO;)Lma/plantes/backend/entities/Commentaire;

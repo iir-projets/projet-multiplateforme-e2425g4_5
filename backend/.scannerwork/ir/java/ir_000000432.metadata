@@ -1,3 +1,8 @@
-ma.plantes.backend.repositories.PlanteProprieteRepository#<init>()V
+ma.plantes.backend.service.security.JwtService#isTokenExpired(Ljava/lang/String;)Z
 false
-9dd89587b3f98ad8d91f61d80b9c9aca
+344dfd133058262bd87df974809287a0
+java.util.Date#<init>()V
+java.util.Date#instance-init#
+ma.plantes.backend.service.security.JwtService#extractExpiration(Ljava/lang/String;)Ljava/util/Date;
+==
+before java.util.Date#before(Ljava/util/Date;)Z

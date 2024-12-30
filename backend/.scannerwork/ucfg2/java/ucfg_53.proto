@@ -1,22 +1,57 @@
 
-dma.plantes.backend.service.security.JwtService#extractExpiration(Ljava/lang/String;)Ljava/util/Date;¡
-–C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/security/JwtService.java$ $(""1*£
-1% %(ÿü
-% %(9
-%0"~ma.plantes.backend.service.security.JwtService#extractClaim(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/Object;*N
+]ma.plantes.backend.service.FavorisService#supprimerFavoris(Ljava/lang/Long;Ljava/lang/Long;)Z¿
+´D:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/FavorisService.java/ /(#"3*·
+22 2(®
+«
+2 2(7
+%21ma.plantes.backend.repositories.FavorisRepository"__id*`
 
-__unknown_file (20
-.ma.plantes.backend.service.security.JwtService*7
+__unknown_file (D*B+
+)ma.plantes.backend.service.FavorisService"
+favorisRepositoryâß
+2 2(3
+%3boolean"fma.plantes.backend.repositories.FavorisRepository#deleteById(Lma/plantes/backend/entities/FavorisId;)Z*U
 
-__unknown_file (
-
-tokenjava.lang.String*"
+__unknown_file (9
+7
+%21ma.plantes.backend.repositories.FavorisRepository*P
+
+__unknown_file (4
+2
+	favorisId%ma.plantes.backend.entities.FavorisId23deleteById(Lma/plantes/backend/entities/FavorisId;)"
+3 3(
+""*—
+30, 0(4j
+h
+0 0(?2
+	favorisId%ma.plantes.backend.entities.FavorisId"__id*"
 
 __unknown_file (
-""2=extractClaim(Ljava/lang/String;Ljava/util/function/Function;)"
-% %(:
-
-%0:%
-$# $(/
-tokenjava.lang.StringB20
-.ma.plantes.backend.service.security.JwtService
+""®
+«
+1 1(7
+%01ma.plantes.backend.repositories.FavorisRepository"__id*`
+
+__unknown_file (D*B+
+)ma.plantes.backend.service.FavorisService"
+favorisRepositoryâß
+1 1(2
+%1boolean"fma.plantes.backend.repositories.FavorisRepository#existsById(Lma/plantes/backend/entities/FavorisId;)Z*U
+
+__unknown_file (9
+7
+%01ma.plantes.backend.repositories.FavorisRepository*P
+
+__unknown_file (4
+2
+	favorisId%ma.plantes.backend.entities.FavorisId23existsById(Lma/plantes/backend/entities/FavorisId;)*
+2
+1*!
+15 5("
+5 5(
+"":&
+/$ /(2
+clientIdjava.lang.Long:&
+/2 /(?
+planteIdjava.lang.LongB-+
+)ma.plantes.backend.service.FavorisServiceHX

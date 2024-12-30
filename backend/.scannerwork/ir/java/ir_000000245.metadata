@@ -1,8 +1,9 @@
-ma.plantes.backend.service.UserDetailsServiceImp#addMaladie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
+ma.plantes.backend.controllers.AllergieControllerTest#testAfficherAllergie()V
 false
-f58e9502dd46c44e89fe22f37e4b9e85
-ma.plantes.backend.entities.ClientMaladie#instance-init#
-ma.plantes.backend.entities.ClientMaladieId#instance-init#
+460c53f2afa10ba41e46d67456f68a8a
+java.util.Collections#emptyList()Ljava/util/List;
 ==
 !unknownMethod! !unknownMethod!
-findClientMaladiesByUser ma.plantes.backend.repositories.ClientMaladieRepository#findClientMaladiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;
+AfficherAllergie ma.plantes.backend.controllers.AllergieController#AfficherAllergie()Ljava/util/List;
+getAllAllergie ma.plantes.backend.service.AllergieService#getAllAllergie()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

@@ -1,3 +1,6 @@
-ma.plantes.backend.repositories.ProprieteRepository#<init>()V
+ma.plantes.backend.service.security.JwtService#extractClaim(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/Object;
 false
-e2fe1ac8f7ac16136b9a0e081dedcb5c
+73a77975824a7aabf3ce1a93df6ced39
+ma.plantes.backend.service.security.JwtService#extractAllClaims(Ljava/lang/String;)LClaims;
+==
+!unknownMethod! !unknownMethod!

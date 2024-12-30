@@ -1,3 +1,5 @@
-ma.plantes.backend.entities.User#instance-init#
+ma.plantes.backend.config.SecurityConfig#authenticationManager(LAuthenticationConfiguration;)LAuthenticationManager;
 false
-17c01731373aebddc4695c2f7add8eaf
+574ef8b9bbfce9f90ad35a6acbb210e5
+==
+!unknownMethod! !unknownMethod!

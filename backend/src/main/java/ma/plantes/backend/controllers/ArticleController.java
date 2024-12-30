@@ -48,8 +48,8 @@ public class ArticleController {
 
     // Afficher tous les articles
     @GetMapping("/articles")
-    public List<Article> afficherTousLesArticles() {
-        return articleService.afficherTousLesArticles();
+    public ResponseEntity<List<Article>> afficherTousLesArticles() {
+        return ResponseEntity.ok(articleService.afficherTousLesArticles());
     }
 
     // Afficher un article par ID

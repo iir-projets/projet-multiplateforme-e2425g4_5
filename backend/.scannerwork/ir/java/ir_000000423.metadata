@@ -1,5 +1,5 @@
-ma.plantes.backend.controllers.ArticleController#afficherTousLesArticles()Ljava/util/List;
+ma.plantes.backend.service.CommentaireService#trouverCommentairesParUtilisateur(Ljava/lang/Long;)Ljava/util/List;
 false
-46e48b99dd341f7c74088677d517d7ba
+4d9d708afbeb630a1bc81c7e5c9c8782
 ==
-afficherTousLesArticles ma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;
+findByUtilisateurId ma.plantes.backend.repositories.CommentaireRepository#findByUtilisateurId(Ljava/lang/Long;)Ljava/util/List;

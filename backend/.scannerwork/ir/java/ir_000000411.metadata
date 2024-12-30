@@ -1,6 +1,5 @@
-ma.plantes.backend.service.PlanteService#modifierPlante(Ljava/lang/Long;Lma/plantes/backend/entities/Plante;)Lma/plantes/backend/entities/Plante;
+ma.plantes.backend.entities.User#getAuthorities()Ljava/util/Collection;
 false
-0774a85839a90ba553b0c5d8cd43a3a3
-java.util.Optional#isPresent()Z
-==
-!unknownMethod! !unknownMethod!
+fdb802a90b6bdfa78e8e500dd01b2833
+java.lang.Enum#name()Ljava/lang/String;
+java.util.List#of(Ljava/lang/Object;)Ljava/util/List;

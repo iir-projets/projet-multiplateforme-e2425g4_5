@@ -1,8 +1,6 @@
-ma.plantes.backend.service.UserDetailsServiceImp#addAllergie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
+ma.plantes.backend.controllers.ProprieteController#supprimerPropriete(Ljava/lang/Long;)LResponseEntity;
 false
-e70adcab6033c35a284371b509e89f06
-ma.plantes.backend.entities.ClientAllergie#instance-init#
-ma.plantes.backend.entities.ClientAllergieId#instance-init#
+e9368b66a9f7bed6b599325a92ef3bcc
 ==
 !unknownMethod! !unknownMethod!
-findClientAllergiesByUser ma.plantes.backend.repositories.ClientAllergieRepository#findClientAllergiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;
+supprimerPropriete ma.plantes.backend.service.ProprieteService#supprimerPropriete(Ljava/lang/Long;)Z

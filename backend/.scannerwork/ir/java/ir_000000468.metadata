@@ -1,5 +1,3 @@
-ma.plantes.backend.service.NotificationService#readNotification(Ljava/lang/Long;)Lma/plantes/backend/entities/Notification;
+ma.plantes.backend.service.security.AuthenticationService#<init>()V
 false
-096c0d67bdf53c6995b783bbfd065b13
-==
-!unknownMethod! !unknownMethod!
+ca92d5a651325d2d6c91e5605a1c83be

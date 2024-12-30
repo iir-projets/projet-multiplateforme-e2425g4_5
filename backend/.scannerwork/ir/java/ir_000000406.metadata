@@ -1,3 +1,7 @@
-ma.plantes.backend.filter.JwtAuthenticationFilter#<init>()V
+ma.plantes.backend.service.ArticleService#supprimerArticle(Ljava/lang/Long;)Z
 false
-4cf0c11d12f93eb504dd4539433d53c3
+0ad1309cf91d5f7cf536fa6dbfcb0825
+java.util.Optional#get()Ljava/lang/Object;
+java.util.Optional#isPresent()Z
+==
+!unknownMethod! !unknownMethod!

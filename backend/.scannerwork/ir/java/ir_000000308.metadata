@@ -1,5 +1,7 @@
-ma.plantes.backend.config.SecurityConfig#corsConfigurationSource()LUrlBasedCorsConfigurationSource;
+ma.plantes.backend.controllers.MaladieControllerTest#testSupprimerMaladie()V
 false
-8812318d570346aa88a8d61afed4f000
+0d47d4c54a882513c4e2203de53bc868
 ==
 !unknownMethod! !unknownMethod!
+SupprimerMaladie ma.plantes.backend.controllers.MaladieController#SupprimerMaladie(Ljava/lang/Long;)LResponseEntity;
+existsById ma.plantes.backend.service.MaladieService#existsById(Ljava/lang/Long;)Z

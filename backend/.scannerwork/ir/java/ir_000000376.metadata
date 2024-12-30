@@ -1,5 +1,9 @@
-ma.plantes.backend.service.MedicamentService#supprimerMedicament(Ljava/lang/Long;)Z
+ma.plantes.backend.controllers.ArticleControllerTest#testAfficherTousLesArticles()V
 false
-a7eb575f797f7731450caeacf3010706
+d23e52c9485f693577ed7f0d6b8887a6
+java.util.Collections#emptyList()Ljava/util/List;
 ==
 !unknownMethod! !unknownMethod!
+afficherTousLesArticles ma.plantes.backend.controllers.ArticleController#afficherTousLesArticles()Ljava/util/List;
+afficherTousLesArticles ma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

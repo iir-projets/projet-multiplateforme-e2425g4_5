@@ -1,3 +1,8 @@
-ma.plantes.backend.controllers.security.AuthenticationController#<init>()V
+ma.plantes.backend.service.FavorisServiceTest#testGetAllFavoris()V
 false
-5030cd1f7287e447b85a7f7a2273a1ba
+aad6962ea477d351b7cbc218a831fafd
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+getAllFavoris ma.plantes.backend.service.FavorisService#getAllFavoris()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

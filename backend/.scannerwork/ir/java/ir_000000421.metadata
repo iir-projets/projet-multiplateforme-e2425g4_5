@@ -1,6 +1,6 @@
-ma.plantes.backend.controllers.ArticleController#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)LResponseEntity;
+ma.plantes.backend.service.CommentaireService#supprimerCommentaire(Ljava/lang/Long;)Z
 false
-bcfa2d22a8103568b5e840e974c23d65
+d16f22c57751b72b61488216c13c49c5
 ==
 !unknownMethod! !unknownMethod!
-modifierArticle ma.plantes.backend.service.ArticleService#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;
+deleteById ma.plantes.backend.repositories.CommentaireRepository#deleteById(Ljava/lang/Long;)V

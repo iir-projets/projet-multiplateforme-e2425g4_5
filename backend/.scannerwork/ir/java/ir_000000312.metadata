@@ -1,3 +1,8 @@
-ma.plantes.backend.entities.ClientMaladieId#<init>()V
+ma.plantes.backend.controllers.PlanteController#ajouterPlante(Lma/plantes/backend/dto/PlanteDto;)LResponseEntity;
 false
-c74a70e2104dc7bf5995127a8d3f7213
+10ae2f5845fa0220bf020e69c8eb4dc6
+==
+!unknownMethod! !unknownMethod!
+ajouterPlante ma.plantes.backend.service.PlanteService#ajouterPlante(Lma/plantes/backend/dto/PlanteDto;)Lma/plantes/backend/entities/Plante;
+println java.io.PrintStream#println(Ljava/lang/String;)V
+toString ma.plantes.backend.dto.PlanteDto#toString()Ljava/lang/String;

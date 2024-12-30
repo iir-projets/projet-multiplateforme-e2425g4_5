@@ -1,3 +1,9 @@
-ma.plantes.backend.entities.ClientAllergie#<init>()V
+ma.plantes.backend.controllers.FavorisControllerTest#testAfficherTousLesFavoris()V
 false
-d6600eba17d288aeaf0d9fcb52a9ae30
+5b764206a162af9457e753d82eaa3085
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+afficherTousLesFavoris ma.plantes.backend.controllers.FavorisController#afficherTousLesFavoris()Ljava/util/List;
+getAllFavoris ma.plantes.backend.service.FavorisService#getAllFavoris()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

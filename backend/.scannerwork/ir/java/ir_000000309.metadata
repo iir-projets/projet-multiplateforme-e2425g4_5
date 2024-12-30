@@ -1,3 +1,9 @@
-ma.plantes.backend.entities.ArticleImage#instance-init#
+ma.plantes.backend.controllers.MaladieControllerTest#testAfficherMaladie()V
 false
-75184309e9f3c7099f8860b2031a0419
+039639d093be32cfdc90b1d88ce14c73
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+AfficherMaladie ma.plantes.backend.controllers.MaladieController#AfficherMaladie()Ljava/util/List;
+getAllMaladie ma.plantes.backend.service.MaladieService#getAllMaladie()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

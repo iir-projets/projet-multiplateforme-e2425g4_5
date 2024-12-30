@@ -1,7 +1,3 @@
-ma.plantes.backend.service.FavorisService#supprimerFavoris(Ljava/lang/Long;Ljava/lang/Long;)Z
+ma.plantes.backend.controllers.NotificationController#<init>()V
 false
-fcd66ad6e6a7a9c4d6287fde399ea145
-ma.plantes.backend.entities.FavorisId#instance-init#
-==
-deleteById ma.plantes.backend.repositories.FavorisRepository#deleteById(Lma/plantes/backend/entities/FavorisId;)Z
-existsById ma.plantes.backend.repositories.FavorisRepository#existsById(Lma/plantes/backend/entities/FavorisId;)Z
+12719b4f640caa13e279e22a564d1d19
