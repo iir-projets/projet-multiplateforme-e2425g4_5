@@ -59,4 +59,9 @@ public class ArticleController {
         return article.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build()); // Si l'article n'est pas trouvé, retourne 404
     }
+
+    @GetMapping("/admin/articles/total")
+    public ResponseEntity<Long> getTotalCount() {
+        return ResponseEntity.ok(articleService.getTotalCount());
+    }
 }

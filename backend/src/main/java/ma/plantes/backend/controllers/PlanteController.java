@@ -62,4 +62,11 @@ public class PlanteController {
         return plante.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build()); // Si la plante n'est pas trouvée, retourne 404
     }
+
+    @GetMapping("/admin/plantes/total")
+    public ResponseEntity<Long> getTotalCount() {
+        return ResponseEntity.ok(planteService.getTotalCount());
+    }
+
+
 }

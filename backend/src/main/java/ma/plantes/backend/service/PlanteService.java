@@ -76,4 +76,10 @@ public class PlanteService {
     public Optional<Plante> afficherPlanteParId(Long id) {
         return planteRepository.findById(id);
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return planteRepository.count();
+    }
+
 }

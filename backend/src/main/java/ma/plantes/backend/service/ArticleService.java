@@ -65,4 +65,10 @@ public class ArticleService {
     public Optional<Article> afficherArticleParId(Long id) {
         return articleRepository.findById(id);
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return articleRepository.count();
+    }
+
 }
