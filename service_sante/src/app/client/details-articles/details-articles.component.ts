@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-details-articles',
@@ -19,7 +20,7 @@ export class ArticleDetailsComponent implements OnInit {
   loading = true;
   errorMessage: string | null = null;
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) {}
+  constructor(private route: ActivatedRoute, private articleService: ArticleService, private auth:AuthService) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -40,8 +41,12 @@ export class ArticleDetailsComponent implements OnInit {
 
   ajouterCommentaire() {
     if (this.newComment.trim() && this.article) {
-      const userId = 12; // Remplacez par l'ID utilisateur actuel (dynamique si possible)
-      this.articleService.ajouterCommentaire(this.article.id, userId, this.newComment).subscribe(
+
+      const userId = this.auth.getUser();
+      if (userId)
+        {
+          const id = parseInt(userId);
+          this.articleService.ajouterCommentaire(this.article.id, id, this.newComment).subscribe(
         (newComment: Commentaire) => {
           if (this.article) {
             this.article.commentaires.push(newComment);
@@ -53,6 +58,8 @@ export class ArticleDetailsComponent implements OnInit {
           console.error('Erreur :', error);
         }
       );
+        } // Remplacez par l'ID utilisateur actuel (dynamique si possible)
+      
     }
   }
 

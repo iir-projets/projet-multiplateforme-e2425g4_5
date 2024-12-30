@@ -28,6 +28,7 @@ public class Article {
 
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
+    @JsonIgnoreProperties("article")
     private List<ArticleImage> images;
 
 
@@ -36,7 +37,7 @@ public class Article {
     private List<Commentaire> commentaires;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "article", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("articles")
+    @JsonIgnoreProperties({ "articles", "notifications" ,"maladies","medicaments","allergies"})
     private Set<ArticleEnregistre> users;
 
 
