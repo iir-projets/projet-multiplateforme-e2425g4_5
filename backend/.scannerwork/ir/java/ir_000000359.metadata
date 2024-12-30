@@ -1,5 +1,5 @@
-ma.plantes.backend.service.CommentaireService#trouverCommentairesParArticle(Ljava/lang/Long;)Ljava/util/List;
+ma.plantes.backend.service.ArticleServiceTest#setUp()V
 false
-bbbdb6bd24b5b8fb9c743dab14f3444c
+a2e8091f3d2787d138606e3abe77ff49
 ==
-findByArticleId ma.plantes.backend.repositories.CommentaireRepository#findByArticleId(Ljava/lang/Long;)Ljava/util/List;
+!unknownMethod! !unknownMethod!

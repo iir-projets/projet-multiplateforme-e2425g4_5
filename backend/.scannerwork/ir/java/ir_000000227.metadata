@@ -1,6 +1,6 @@
 ma.plantes.backend.controllers.ClientController#editProfile(Ljava/lang/Long;Lma/plantes/backend/dto/UserDto;)LResponseEntity;
 false
-b883069a049a20cd00488d7a702a9cd7
+c135a584351c09bc29d80e23cd3b511e
 ==
 !unknownMethod! !unknownMethod!
 changePassword ma.plantes.backend.service.security.AuthenticationService#changePassword(Ljava/lang/Long;Ljava/lang/String;)Lma/plantes/backend/entities/User;

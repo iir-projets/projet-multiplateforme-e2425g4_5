@@ -1,3 +1,8 @@
-ma.plantes.backend.service.UserDetailsServiceImp#instance-init#
+ma.plantes.backend.service.MedicamentServiceTest#testGetAllMedicament()V
 false
-28026dcb1f1bdbc7b53aede342b182c5
+2d513767ca9f9d94ec0d0eb240d9a5d3
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+getAllMedicament ma.plantes.backend.service.MedicamentService#getAllMedicament()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

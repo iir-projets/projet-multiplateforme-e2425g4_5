@@ -1,3 +1,6 @@
-ma.plantes.backend.entities.ArticleId#<init>()V
+ma.plantes.backend.service.MaladieServiceTest#testSupprimerMaladie()V
 false
-c9de306553008d9ab8fac8cba4331078
+9f39f8b91429f3132df064fc1bba5794
+==
+!unknownMethod! !unknownMethod!
+supprimerMaladie ma.plantes.backend.service.MaladieService#supprimerMaladie(Ljava/lang/Long;)Z

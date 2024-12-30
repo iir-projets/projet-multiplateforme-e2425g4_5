@@ -1,6 +1,5 @@
-ma.plantes.backend.controllers.ProprieteController#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)LResponseEntity;
+ma.plantes.backend.service.MedicamentServiceTest#setUp()V
 false
-b5e126e3f51bbe55c3fc38059a1eef56
+0e9a3db04e40080a94b5428a1358719a
 ==
 !unknownMethod! !unknownMethod!
-ajouterPropriete ma.plantes.backend.service.ProprieteService#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)Lma/plantes/backend/entities/Propriete;

@@ -1,3 +1,5 @@
-ma.plantes.backend.repositories.PlanteRepository#<init>()V
+ma.plantes.backend.service.ArticleService#ajouterArticle(Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;
 false
-cf281755c665cf6c70278a14a46085a1
+56094df4410568c6f401e8de55ba2657
+==
+!unknownMethod! !unknownMethod!

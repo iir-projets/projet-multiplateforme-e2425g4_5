@@ -1,10 +1,5 @@
-ma.plantes.backend.filter.JwtAuthenticationFilter#doFilterInternal(LHttpServletRequest;LHttpServletResponse;LFilterChain;)V
+ma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;
 false
-d3c51bd21c9742848ab329e579fc6656
-java.lang.String#startsWith(Ljava/lang/String;)Z
-java.lang.String#substring(I)Ljava/lang/String;
+600f71b3c0451c3b69e58fb67d8501b9
 ==
 !unknownMethod! !unknownMethod!
-extractUsername ma.plantes.backend.service.security.JwtService#extractUsername(Ljava/lang/String;)Ljava/lang/String;
-isValid ma.plantes.backend.service.security.JwtService#isValid(Ljava/lang/String;LUserDetails;)Z
-loadUserByUsername ma.plantes.backend.service.UserDetailsServiceImp#loadUserByUsername(Ljava/lang/String;)LUserDetails;

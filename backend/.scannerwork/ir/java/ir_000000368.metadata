@@ -1,6 +1,5 @@
-ma.plantes.backend.service.security.JwtService#extractAllClaims(Ljava/lang/String;)LClaims;
+ma.plantes.backend.controllers.MedicamentController#AfficherMedicament()Ljava/util/List;
 false
-9d1531d0aa4d19043208b464127d73c3
-ma.plantes.backend.service.security.JwtService#getSignInKey()Ljavax/crypto/SecretKey;
+5e11bf8453897904fd7764ce2cdc02fb
 ==
-!unknownMethod! !unknownMethod!
+getAllMedicament ma.plantes.backend.service.MedicamentService#getAllMedicament()Ljava/util/List;

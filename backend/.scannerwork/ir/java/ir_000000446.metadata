@@ -1,3 +1,5 @@
-ma.plantes.backend.service.AllergieService#instance-init#
+ma.plantes.backend.service.MedicamentService#getAllMedicament()Ljava/util/List;
 false
-472aa58d25b0518d617a79a0934f6c01
+e65ae536bc6d48b214b73d33661d4e07
+==
+!unknownMethod! !unknownMethod!

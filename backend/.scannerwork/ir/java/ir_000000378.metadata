@@ -1,5 +1,3 @@
-ma.plantes.backend.service.MedicamentService#existsById(Ljava/lang/Long;)Z
+ma.plantes.backend.entities.ArticleEnregistre#instance-init#
 false
-d4cd708fb1e26843a62638777e283830
-==
-!unknownMethod! !unknownMethod!
+472c1d274023282653103f2164565336

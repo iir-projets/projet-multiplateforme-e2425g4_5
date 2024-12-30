@@ -1,3 +1,5 @@
-ma.plantes.backend.repositories.FavorisRepository#instance-init#
+ma.plantes.backend.controllers.AllergieController#AfficherAllergie()Ljava/util/List;
 false
-b0e39c49b5f8263c8fcbba3484aa1406
+50ae16a24aab5266c3202747aa5bccfe
+==
+getAllAllergie ma.plantes.backend.service.AllergieService#getAllAllergie()Ljava/util/List;

@@ -1,3 +1,6 @@
-ma.plantes.backend.service.ProprieteService#instance-init#
+ma.plantes.backend.service.CommentaireServiceTest#testSupprimerCommentaire()V
 false
-ac94661bbba98ef4bd09d7245cf2c7dd
+92bbfcf178e9592fa7d3bd259baeafbb
+==
+!unknownMethod! !unknownMethod!
+supprimerCommentaire ma.plantes.backend.service.CommentaireService#supprimerCommentaire(Ljava/lang/Long;)Z

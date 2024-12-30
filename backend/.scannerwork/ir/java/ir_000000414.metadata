@@ -1,5 +1,3 @@
-ma.plantes.backend.service.PlanteService#afficherPlanteParId(Ljava/lang/Long;)Ljava/util/Optional;
+ma.plantes.backend.entities.User#isCredentialsNonExpired()Z
 false
-5ffd8772cf43f413628de078159735f3
-==
-!unknownMethod! !unknownMethod!
+2239ea877b4f8c9d800528cc56d19c85

@@ -1,101 +1,14 @@
 
-rma.plantes.backend.service.security.JwtService#generateToken(Lma/plantes/backend/entities/User;)Ljava/lang/String;¡
-–C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/security/JwtService.java6 6("1*°
-17 7(¶³
-:% :(:
-%0"Gma.plantes.backend.entities.User#getAuthorities()Ljava/util/Collection;*F
+Ima.plantes.backend.service.FavorisService#getAllFavoris()Ljava/util/List;¿
+´D:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/FavorisService.java8 8(&"1*Ò
+19 9( ®
+«
+9 9( 7
+%01ma.plantes.backend.repositories.FavorisRepository"__id*`
 
-__unknown_file (*
-(
-user ma.plantes.backend.entities.User2getAuthorities()q
-o
-;& ;(@
-
-%1long"%java.lang.System#currentTimeMillis()J*0
-
-__unknown_file ("
-java.lang.System20
-;! ;(%
-%2java.util.Date"java.util.DateŒ
-‰
-; ;(A
-%3"java.util.Date#<init>(J)V*2
-
-__unknown_file (
-
-%2java.util.Date*(
-
-__unknown_file (
-
-
-%1longq
-o
-<( <(B
-
-%4long"%java.lang.System#currentTimeMillis()J*0
-
-__unknown_file ("
-java.lang.System[
-Y
-<E <(J	
-%5int"__calculate*
-<G <(H
-**
-<E <(G2*
-<H <(J2<b
-`
-<E <(M	
-%6int"__calculate*
-<J <(K
-**
-<E <(J
-	
-%5int*
-<K <(M2<c
-a
-<E <(R	
-%7int"__calculate*
-<M <(N
-**
-<E <(M
-	
-%6int*
-<N <(R2èk
-i
-<( <(R
-
-%8long"__calculate*
-<C <(D
-+*
-<( <(B
-
-
-%4long*
-<E <(R
-	
-%7int20
-<# <('
-%9java.util.Date"java.util.Date
-Š
-< <(S
-%10"java.util.Date#<init>(J)V*2
-
-__unknown_file (
-
-%9java.util.Date*(
-
-__unknown_file (
-
-
-%8longÓ
-Ð
-= =((
-%11javax.crypto.SecretKey"Uma.plantes.backend.service.security.JwtService#getSignInKey()Ljavax/crypto/SecretKey;*N
-
-__unknown_file (20
-.ma.plantes.backend.service.security.JwtService"
-7 >(
-"":4
-6  6()(
-user ma.plantes.backend.entities.UserB20
-.ma.plantes.backend.service.security.JwtServiceH
+__unknown_file (D*B+
+)ma.plantes.backend.service.FavorisService"
+favorisRepository"
+9 9(+
+""B-+
+)ma.plantes.backend.service.FavorisServiceH

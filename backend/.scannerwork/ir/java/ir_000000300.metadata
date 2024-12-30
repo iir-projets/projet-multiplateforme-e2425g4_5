@@ -1,3 +1,7 @@
-ma.plantes.backend.entities.Commentaire#instance-init#
+ma.plantes.backend.controllers.NotificationController#getNotificationsByUser(Ljava/lang/Long;)LResponseEntity;
 false
-5f83957eeae9e3fe2f40a60616824f29
+a7dc7f7780ea33c271f635e3d23f9dea
+java.lang.IllegalArgumentException#<init>(Ljava/lang/String;)V
+java.lang.IllegalArgumentException#instance-init#
+==
+!unknownMethod! !unknownMethod!

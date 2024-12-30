@@ -1,3 +1,6 @@
-ma.plantes.backend.entities.Maladie#instance-init#
+ma.plantes.backend.service.ProprieteService#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)Lma/plantes/backend/entities/Propriete;
 false
-b8b5facc2dcd9dd3a61c2d9d41e5754e
+d4ecbb20fabc9b5b4836a7baedcb6f4d
+==
+!unknownMethod! !unknownMethod!
+existsByNom ma.plantes.backend.repositories.ProprieteRepository#existsByNom(Ljava/lang/String;)Z

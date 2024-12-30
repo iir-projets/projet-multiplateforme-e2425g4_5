@@ -11,6 +11,8 @@ import ma.plantes.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class FavorisService {
@@ -51,4 +53,7 @@ public class FavorisService {
         return false;
     }
 
+    public List<Favoris> getAllFavoris() {
+        return favorisRepository.findAll();
+    }
 }

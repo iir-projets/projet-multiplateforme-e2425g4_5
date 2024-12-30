@@ -1,5 +1,3 @@
-ma.plantes.backend.service.security.JwtService#extractExpiration(Ljava/lang/String;)Ljava/util/Date;
+ma.plantes.backend.controllers.MedicamentController#instance-init#
 false
-5234a367fedab5b2674371d0371b88c5
-==
-extractClaim ma.plantes.backend.service.security.JwtService#extractClaim(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/Object;
+b3f067e94f1060d4dbf87bb457e78f02

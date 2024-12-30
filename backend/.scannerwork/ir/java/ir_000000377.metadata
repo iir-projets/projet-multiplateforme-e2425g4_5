@@ -1,5 +1,10 @@
-ma.plantes.backend.service.MedicamentService#existsByNom(Ljava/lang/String;)Z
+ma.plantes.backend.controllers.ArticleControllerTest#testAfficherArticleParId()V
 false
-29fa26531d6bc9fdce4b49a5756df304
+a1ab45036c106aef7582d8b05d5e3a95
+java.util.Optional#of(Ljava/lang/Object;)Ljava/util/Optional;
+ma.plantes.backend.entities.Article#<init>()V
+ma.plantes.backend.entities.Article#instance-init#
 ==
-existsByNom ma.plantes.backend.repositories.MedicamentRepository#existsByNom(Ljava/lang/String;)Z
+!unknownMethod! !unknownMethod!
+afficherArticleParId ma.plantes.backend.controllers.ArticleController#afficherArticleParId(Ljava/lang/Long;)LResponseEntity;
+afficherArticleParId ma.plantes.backend.service.ArticleService#afficherArticleParId(Ljava/lang/Long;)Ljava/util/Optional;

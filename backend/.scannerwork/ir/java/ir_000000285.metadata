@@ -1,8 +1,5 @@
-ma.plantes.backend.controllers.PlanteController#ajouterPlante(Lma/plantes/backend/dto/PlanteDto;)LResponseEntity;
+ma.plantes.backend.service.MaladieService#existsById(Ljava/lang/Long;)Z
 false
-f9be5082283dfc5e03bdce9224261b8c
+081fa62f701cbc1de3bb029590671a6a
 ==
 !unknownMethod! !unknownMethod!
-ajouterPlante ma.plantes.backend.service.PlanteService#ajouterPlante(Lma/plantes/backend/dto/PlanteDto;)Lma/plantes/backend/entities/Plante;
-println java.io.PrintStream#println(Ljava/lang/String;)V
-toString ma.plantes.backend.dto.PlanteDto#toString()Ljava/lang/String;

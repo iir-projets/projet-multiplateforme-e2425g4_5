@@ -1,5 +1,5 @@
-ma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;
+ma.plantes.backend.config.SecurityConfig#securityFilterChain(LHttpSecurity;)LSecurityFilterChain;
 false
-4184a2bfe7677ee8f4a567fa7943cf6f
+67d6dfdc368a46654963977566a11523
 ==
 !unknownMethod! !unknownMethod!

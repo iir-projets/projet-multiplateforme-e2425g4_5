@@ -1,5 +1,8 @@
-ma.plantes.backend.service.MaladieService#supprimerMaladie(Ljava/lang/Long;)Z
+ma.plantes.backend.service.UserDetailsServiceImp#deleteAllergie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
 false
-c208f8ec1713bc599789d632093ce673
+12026ff26b60181950853a5229058401
+java.util.Optional#orElseThrow()Ljava/lang/Object;
 ==
 !unknownMethod! !unknownMethod!
+findClientAllergieByUserAndAllergie ma.plantes.backend.repositories.ClientAllergieRepository#findClientAllergieByUserAndAllergie(Lma/plantes/backend/entities/User;Lma/plantes/backend/entities/Allergie;)Ljava/util/Optional;
+findClientAllergiesByUser ma.plantes.backend.repositories.ClientAllergieRepository#findClientAllergiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;

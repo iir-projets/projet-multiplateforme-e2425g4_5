@@ -1,8 +1,6 @@
-ma.plantes.backend.service.UserDetailsServiceImp#deleteMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
+ma.plantes.backend.controllers.ProprieteController#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)LResponseEntity;
 false
-b39912ef324d7dfa856a30c283cb0d58
-java.util.Optional#orElseThrow()Ljava/lang/Object;
+41e6395d2b7cdc41d8055b1101d3099c
 ==
 !unknownMethod! !unknownMethod!
-findClientMedicamentByUserAndMedicament ma.plantes.backend.repositories.ClientMedicamentRepository#findClientMedicamentByUserAndMedicament(Lma/plantes/backend/entities/User;Lma/plantes/backend/entities/Medicament;)Ljava/util/Optional;
-findClientMedicamentsByUser ma.plantes.backend.repositories.ClientMedicamentRepository#findClientMedicamentsByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;
+ajouterPropriete ma.plantes.backend.service.ProprieteService#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)Lma/plantes/backend/entities/Propriete;

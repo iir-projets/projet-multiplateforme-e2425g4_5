@@ -1,3 +1,7 @@
-ma.plantes.backend.service.MaladieService#instance-init#
+ma.plantes.backend.service.UserDetailsServiceImp#addMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
 false
-7a9a1ef94d29f5f8843118c56cb064da
+5e11461919a88ef20c31982b86c946e8
+ma.plantes.backend.entities.ClientMedicament#instance-init#
+ma.plantes.backend.entities.ClientMedicamentId#instance-init#
+==
+!unknownMethod! !unknownMethod!

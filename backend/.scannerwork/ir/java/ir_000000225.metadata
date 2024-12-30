@@ -1,6 +1,6 @@
 ma.plantes.backend.controllers.ClientController#allClients()LResponseEntity;
 false
-4b416cc7004d4d8cbe38b17f8c0a13cf
+b61bf812bc252c1a141d86be69720f46
 ==
 !unknownMethod! !unknownMethod!
 allClients ma.plantes.backend.service.UserDetailsServiceImp#allClients()Ljava/util/List;

@@ -3,5 +3,5 @@ projectKey=guelbaoui_testsonarprojetplantesmedicinalesg4
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.58741
 dashboardUrl=https://sonarcloud.io/dashboard?id=guelbaoui_testsonarprojetplantesmedicinalesg4
-ceTaskId=AZQNCUb_odsZuHD32ore
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZQNCUb_odsZuHD32ore
+ceTaskId=AZQUnpWGodsZuHD32vKo
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZQUnpWGodsZuHD32vKo
