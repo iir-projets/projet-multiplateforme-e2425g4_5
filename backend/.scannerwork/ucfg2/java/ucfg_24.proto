@@ -1,15 +1,21 @@
 
-,ma.plantes.backend.entities.Plante#<init>()V
-__unknown_file ("startingBlock*à
-startingBlock“
-ŠC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/entities/Plante.java (Š
-‡
-“
-ŠC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/entities/Plante.java (
-%0"5ma.plantes.backend.entities.Plante#%field_initializer*2
- (&$
-"ma.plantes.backend.entities.Plante"«
-“
-ŠC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/entities/Plante.java (
-implicit returnB&$
-"ma.plantes.backend.entities.Plante
+Rma.plantes.backend.controllers.MaladieController#AfficherMaladie()Ljava/util/List;Æ
+»D:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/MaladieController.java. .(("1*¯
+1/ /(ª
+§
+/ /(/
+%0)ma.plantes.backend.service.MaladieService"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.controllers.MaladieController"
+maladieServiceÎË
+/ /(-
+%1java.util.List"Ima.plantes.backend.service.MaladieService#getAllMaladie()Ljava/util/List;*M
+
+__unknown_file (1
+/
+%0)ma.plantes.backend.service.MaladieService2getAllMaladie()""
+/ /(.
+
+%1java.util.ListB42
+0ma.plantes.backend.controllers.MaladieControllerH

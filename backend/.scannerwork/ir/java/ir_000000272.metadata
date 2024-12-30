@@ -1,3 +1,5 @@
-ma.plantes.backend.repositories.ClientMaladieRepository#<init>()V
+ma.plantes.backend.controllers.MaladieController#AfficherMaladie()Ljava/util/List;
 false
-7c3719cc8cc85de55dc312343c2de202
+85b3c0ad905f43a1d28c49bc84787387
+==
+getAllMaladie ma.plantes.backend.service.MaladieService#getAllMaladie()Ljava/util/List;

@@ -1,3 +1,6 @@
-ma.plantes.backend.service.security.JwtService#<init>()V
+ma.plantes.backend.service.ArticleServiceTest#testAfficherArticleParId()V
 false
-47118f0c9d9519f25b759c9fe70b5112
+1a40b86088fb488d081a045ba3c8848c
+==
+!unknownMethod! !unknownMethod!
+afficherArticleParId ma.plantes.backend.service.ArticleService#afficherArticleParId(Ljava/lang/Long;)Ljava/util/Optional;

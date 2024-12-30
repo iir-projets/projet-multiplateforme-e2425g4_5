@@ -1,5 +1,7 @@
-ma.plantes.backend.service.MedicamentService#ajouterMedicament(Lma/plantes/backend/entities/Medicament;)V
+ma.plantes.backend.controllers.ArticleControllerTest#testSupprimerArticle()V
 false
-f9bee1a795b69420653bb9c278016e51
+f49618ed8ef0b667f8fc28b2bc25173d
 ==
 !unknownMethod! !unknownMethod!
+supprimerArticle ma.plantes.backend.controllers.ArticleController#supprimerArticle(Ljava/lang/Long;)LResponseEntity;
+supprimerArticle ma.plantes.backend.service.ArticleService#supprimerArticle(Ljava/lang/Long;)Z

@@ -1,5 +1,7 @@
-ma.plantes.backend.controllers.ArticleController#ajouterArticle(Lma/plantes/backend/entities/Article;)LResponseEntity;
+ma.plantes.backend.service.CommentaireService#ajouterCommentaire(Lma/plantes/backend/dto/CommentaireDTO;)Lma/plantes/backend/entities/Commentaire;
 false
-9a50fe85707ff3a92fddfd11910524d0
+a3cf29064ad101df90c1eea7a52fb522
+ma.plantes.backend.entities.Commentaire#<init>()V
+ma.plantes.backend.entities.Commentaire#instance-init#
 ==
-ajouterArticle ma.plantes.backend.service.ArticleService#ajouterArticle(Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;
+!unknownMethod! !unknownMethod!

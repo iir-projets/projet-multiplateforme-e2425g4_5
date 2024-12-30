@@ -1,3 +1,6 @@
-ma.plantes.backend.entities.ClientAllergie#instance-init#
+ma.plantes.backend.controllers.FavorisControllerTest#testAjouterFavoris()V
 false
-2dd8532ef8fa5bebd247cde5125dbfa1
+f4bb5385893da6e106a04bb2697edf37
+==
+!unknownMethod! !unknownMethod!
+ajouterFavoris ma.plantes.backend.controllers.FavorisController#ajouterFavoris(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;

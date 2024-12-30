@@ -1,6 +1,8 @@
-ma.plantes.backend.controllers.NotificationController#getNotificationsByUserId(Ljava/lang/Long;)LResponseEntity;
+ma.plantes.backend.service.PlanteServiceTest#testGetAllPlante()V
 false
-0e2c9f663ce3b049c5c98f4466caae42
+340e470536a75ec1cbc7e0ce3d91c51c
+java.util.Collections#emptyList()Ljava/util/List;
 ==
 !unknownMethod! !unknownMethod!
-getNotificationByUserId ma.plantes.backend.service.NotificationService#getNotificationByUserId(Ljava/lang/Long;)Ljava/util/List;
+afficherToutesLesPlantes ma.plantes.backend.service.PlanteService#afficherToutesLesPlantes()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

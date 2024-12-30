@@ -1,3 +1,5 @@
-ma.plantes.backend.controllers.FavorisController#instance-init#
+ma.plantes.backend.service.security.JwtService#getSignInKey()Ljavax/crypto/SecretKey;
 false
-c9707f03213f262eb026edf9fe40b464
+8e7bbd78d07aec8485afe356bac78e48
+==
+!unknownMethod! !unknownMethod!

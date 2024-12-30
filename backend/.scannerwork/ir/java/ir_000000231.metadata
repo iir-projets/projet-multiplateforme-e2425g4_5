@@ -1,6 +1,6 @@
 ma.plantes.backend.controllers.ClientController#deleteAllergie(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
 false
-b38d4067c8f619741f4d18bb6ea7a7f2
+45b8d5c0670a44a9e98514872066375a
 ==
 !unknownMethod! !unknownMethod!
 deleteAllergie ma.plantes.backend.service.UserDetailsServiceImp#deleteAllergie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;

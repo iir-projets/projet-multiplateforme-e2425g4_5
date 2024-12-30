@@ -1,5 +1,5 @@
-ma.plantes.backend.service.UserDetailsServiceImp#allClients()Ljava/util/List;
+ma.plantes.backend.controllers.AllergieControllerTest#setUp()V
 false
-a25dbf5acd1879e1ed60baac4cbb3522
+32840278a0dac1575575d327fa180eaf
 ==
-findUsersByRole ma.plantes.backend.repositories.UserRepository#findUsersByRole(Lma/plantes/backend/entities/Role;)Ljava/util/List;
+!unknownMethod! !unknownMethod!

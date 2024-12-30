@@ -1,3 +1,8 @@
-ma.plantes.backend.entities.ArticleId#instance-init#
+ma.plantes.backend.service.MaladieServiceTest#testAjouterMaladie()V
 false
-dd605de8b8c2340291ba7091d639f91a
+7c3c0abec4909d21389b22e877fdbef1
+ma.plantes.backend.entities.Maladie#<init>()V
+ma.plantes.backend.entities.Maladie#instance-init#
+==
+!unknownMethod! !unknownMethod!
+ajouterMaladie ma.plantes.backend.service.MaladieService#ajouterMaladie(Lma/plantes/backend/entities/Maladie;)V

@@ -1,6 +1,9 @@
-ma.plantes.backend.service.ProprieteService#ajouterPropriete(Lma/plantes/backend/entities/Propriete;)Lma/plantes/backend/entities/Propriete;
+ma.plantes.backend.service.CommentaireServiceTest#testTrouverCommentairesParUtilisateur()V
 false
-e826288aec7101ffa78104e0651bc76f
+1aa5bbeae7c302c4a76d95e5ad2f9ab6
+java.util.Collections#emptyList()Ljava/util/List;
 ==
 !unknownMethod! !unknownMethod!
-existsByNom ma.plantes.backend.repositories.ProprieteRepository#existsByNom(Ljava/lang/String;)Z
+findByUtilisateurId ma.plantes.backend.repositories.CommentaireRepository#findByUtilisateurId(Ljava/lang/Long;)Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z
+trouverCommentairesParUtilisateur ma.plantes.backend.service.CommentaireService#trouverCommentairesParUtilisateur(Ljava/lang/Long;)Ljava/util/List;

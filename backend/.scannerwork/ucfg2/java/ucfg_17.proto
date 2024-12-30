@@ -1,32 +1,57 @@
 
-Jma.plantes.backend.service.MaladieService#existsByNom(Ljava/lang/String;)Zœ
-‘C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/MaladieService.java ("3*!
-2   ("
-   (
-""*è
-3 (®
-«
- (7
-%01ma.plantes.backend.repositories.MaladieRepository"__id*`
+pma.plantes.backend.service.UserDetailsServiceImp#addMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;Æ
+»D:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.java\ \(+"1*‹
+1^ ^(0»
+¸
+^ ^(0:
+%04ma.plantes.backend.repositories.MedicamentRepository"__id*j
 
-__unknown_file (D*B+
-)ma.plantes.backend.service.MaladieService"
-maladieRepositoryŸœ
- (.
-%1boolean"Rma.plantes.backend.repositories.MaladieRepository#existsByNom(Ljava/lang/String;)Z*U
+__unknown_file (N*L2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+medicamentRepositoryl
+j
+^ ^(V4
+
+medicament&ma.plantes.backend.entities.Medicament"__id*"
 
-__unknown_file (9
-7
-%01ma.plantes.backend.repositories.MaladieRepository*5
+__unknown_file (
+""¯
+¬
+_ _(4
+%1.ma.plantes.backend.repositories.UserRepository"__id*d
 
-__unknown_file (
-
-nomjava.lang.String2existsByNom(Ljava/lang/String;)*
-2
-1*!
-1" "("
-" "(
-"":#
- ()
-nomjava.lang.StringB-+
-)ma.plantes.backend.service.MaladieServiceHX
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository`
+^
+_ _(>(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""|
+z
+a a(XD
+clientMedicamentId.ma.plantes.backend.entities.ClientMedicamentId"__id*"
+
+__unknown_file (
+""x
+v
+b b(a@
+clientMedicament,ma.plantes.backend.entities.ClientMedicament"__id*"
+
+__unknown_file (
+""¯
+¬
+h h(4
+%2.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository"
+k k(H
+"":$
+\, \(8
+userIdjava.lang.Long:*
+\9 \(J
+medicamentIdjava.lang.LongB42
+0ma.plantes.backend.service.UserDetailsServiceImpH

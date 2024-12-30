@@ -1,5 +1,9 @@
-ma.plantes.backend.service.CommentaireService#trouverCommentairesParUtilisateur(Ljava/lang/Long;)Ljava/util/List;
+ma.plantes.backend.service.ArticleServiceTest#testModifierArticle()V
 false
-c81a9cc4e6eaa857741737635901f0e7
+010ca51c5469b2981e1caac0131aaf4c
+java.util.Optional#of(Ljava/lang/Object;)Ljava/util/Optional;
+ma.plantes.backend.entities.Article#<init>()V
+ma.plantes.backend.entities.Article#instance-init#
 ==
-findByUtilisateurId ma.plantes.backend.repositories.CommentaireRepository#findByUtilisateurId(Ljava/lang/Long;)Ljava/util/List;
+!unknownMethod! !unknownMethod!
+modifierArticle ma.plantes.backend.service.ArticleService#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;

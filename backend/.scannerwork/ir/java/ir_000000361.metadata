@@ -1,3 +1,6 @@
-ma.plantes.backend.service.security.JwtService#instance-init#
+ma.plantes.backend.service.ArticleServiceTest#testAfficherTousLesArticles()V
 false
-7c9474c1f0888aa7165ec07d69f8ff3d
+4b125fa8ed9ad2152fb5411f7b0398f7
+==
+!unknownMethod! !unknownMethod!
+afficherTousLesArticles ma.plantes.backend.service.ArticleService#afficherTousLesArticles()Ljava/util/List;

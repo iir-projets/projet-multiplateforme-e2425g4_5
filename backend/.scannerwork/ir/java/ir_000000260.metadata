@@ -1,3 +1,5 @@
-ma.plantes.backend.service.MaladieService#<init>()V
+ma.plantes.backend.service.UserDetailsServiceImp#deleteMedicament(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;
 false
-1f632bc91999e89cb3a8ae42373c5042
+765b829dc0f70416cc110038b292af7e
+==
+!unknownMethod! !unknownMethod!

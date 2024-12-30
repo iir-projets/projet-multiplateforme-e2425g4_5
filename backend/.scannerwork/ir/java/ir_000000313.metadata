@@ -1,3 +1,6 @@
-ma.plantes.backend.dto.PlanteDto#instance-init#
+ma.plantes.backend.controllers.PlanteController#modifierPlante(Ljava/lang/Long;Lma/plantes/backend/entities/Plante;)LResponseEntity;
 false
-cc33bc614b8e4df57f59bcb62534f915
+9a3bec263ffbe8e786a79a90c2b5f307
+==
+!unknownMethod! !unknownMethod!
+modifierPlante ma.plantes.backend.service.PlanteService#modifierPlante(Ljava/lang/Long;Lma/plantes/backend/entities/Plante;)Lma/plantes/backend/entities/Plante;

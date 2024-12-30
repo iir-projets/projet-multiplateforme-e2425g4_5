@@ -1,3 +1,9 @@
-ma.plantes.backend.service.MedicamentService#<init>()V
+ma.plantes.backend.controllers.ArticleControllerTest#testModifierArticle()V
 false
-fe5c3fa9af203b7fee354613d6644b4b
+2bc2ca09e90a6e3898feaaed37493e95
+ma.plantes.backend.entities.Article#<init>()V
+ma.plantes.backend.entities.Article#instance-init#
+==
+!unknownMethod! !unknownMethod!
+modifierArticle ma.plantes.backend.controllers.ArticleController#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)LResponseEntity;
+modifierArticle ma.plantes.backend.service.ArticleService#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;

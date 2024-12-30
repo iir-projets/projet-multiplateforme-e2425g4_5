@@ -1,3 +1,8 @@
-ma.plantes.backend.repositories.UserRepository#instance-init#
+ma.plantes.backend.service.FavorisService#ajouterFavoris(Ljava/lang/Long;Ljava/lang/Long;)V
 false
-fe824b9f80a7535228cc5be6d9d7bec5
+1cae089f120e2153f498f7edc7370e03
+ma.plantes.backend.entities.Favoris#<init>()V
+ma.plantes.backend.entities.Favoris#instance-init#
+ma.plantes.backend.entities.FavorisId#instance-init#
+==
+!unknownMethod! !unknownMethod!

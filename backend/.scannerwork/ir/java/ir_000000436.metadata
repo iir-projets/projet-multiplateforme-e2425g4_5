@@ -1,3 +1,10 @@
-ma.plantes.backend.entities.Medicament#<init>()V
+ma.plantes.backend.service.security.JwtService#generateToken(Lma/plantes/backend/entities/User;)Ljava/lang/String;
 false
-0e88e96e53a7edc2c70a82446075ad9d
+6ca074d5d2c8039402a65782d6d56988
+java.lang.System#currentTimeMillis()J
+java.util.Date#<init>(J)V
+java.util.Date#instance-init#
+ma.plantes.backend.service.security.JwtService#getSignInKey()Ljavax/crypto/SecretKey;
+==
+!unknownMethod! !unknownMethod!
+getAuthorities ma.plantes.backend.entities.User#getAuthorities()Ljava/util/Collection;

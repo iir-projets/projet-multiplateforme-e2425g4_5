@@ -1,3 +1,6 @@
-ma.plantes.backend.entities.Medicament#instance-init#
+ma.plantes.backend.service.security.JwtService#extractAllClaims(Ljava/lang/String;)LClaims;
 false
-9490ac18cd382ecf4c5c5c86de1a2def
+ff2816088c9d415016d052fee2891fba
+ma.plantes.backend.service.security.JwtService#getSignInKey()Ljavax/crypto/SecretKey;
+==
+!unknownMethod! !unknownMethod!

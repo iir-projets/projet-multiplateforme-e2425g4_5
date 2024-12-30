@@ -1,96 +1,31 @@
 
-nma.plantes.backend.service.UserDetailsServiceImp#addAllergie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;•
-òC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.javaÄ  Ä(+"1*√
-1
-Ç Ç(.π
-∂
-
-Ç Ç(.8
-%02ma.plantes.backend.repositories.AllergieRepository"__id*h
-
-__unknown_file (L*J2
-0ma.plantes.backend.service.UserDetailsServiceImp"
-allergieRepositoryj
-h
-
-Ç Ç(R0
-allergie$ma.plantes.backend.entities.Allergie"__id*"
-
-__unknown_file (
-""±
-Æ
-
-É É("4
-%1.ma.plantes.backend.repositories.UserRepository"__id*d
+Mma.plantes.backend.service.UserDetailsServiceImp#allClients()Ljava/util/List;∆
+ªD:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.java% %( "1*¨
+1& &(Ø
+¨
+& &(4
+%0.ma.plantes.backend.repositories.UserRepository"__id*d
 
 __unknown_file (H*F2
 0ma.plantes.backend.service.UserDetailsServiceImp"
-userRepositoryb
-`
-
-É É(B(
-user ma.plantes.backend.entities.User"__id*"
+userRepository^
+\
+&. &(>&
+%1 ma.plantes.backend.entities.Role"__id*"
 
 __unknown_file (
-""z
-x
-
-Ö Ö(T@
-clientAllergieId,ma.plantes.backend.entities.ClientAllergieId"__id*"
+""Ê„
+& &(?
+%2java.util.List"rma.plantes.backend.repositories.UserRepository#findUsersByRole(Lma/plantes/backend/entities/Role;)Ljava/util/List;*R
 
-__unknown_file (
-""v
-t
-
-Ü Ü([<
-clientAllergie*ma.plantes.backend.entities.ClientAllergie"__id*"
+__unknown_file (6
+4
+%0.ma.plantes.backend.repositories.UserRepository*D
 
-__unknown_file (
-""≈
-¬
-
-ã ã( >
-%28ma.plantes.backend.repositories.ClientAllergieRepository"__id*n
-
-__unknown_file (R*P2
-0ma.plantes.backend.service.UserDetailsServiceImp"
-clientAllergieRepository±
-Æ
-
-å å(4
-%3.ma.plantes.backend.repositories.UserRepository"__id*d
-
-__unknown_file (H*F2
-0ma.plantes.backend.service.UserDetailsServiceImp"
-userRepository≈
-¬
-
-è è('>
-%48ma.plantes.backend.repositories.ClientAllergieRepository"__id*n
-
-__unknown_file (R*P2
-0ma.plantes.backend.service.UserDetailsServiceImp"
-clientAllergieRepositoryìê
-
-è è(G
-%5java.util.List"Üma.plantes.backend.repositories.ClientAllergieRepository#findClientAllergiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;*\
-
-__unknown_file (@
->
-%48ma.plantes.backend.repositories.ClientAllergieRepository*F
-
-__unknown_file (*
-(
-user ma.plantes.backend.entities.User2=findClientAllergiesByUser(Lma/plantes/backend/entities/User;)"$
-
-è è(H
+__unknown_file ((
+&
+%1 ma.plantes.backend.entities.Role23findUsersByRole(Lma/plantes/backend/entities/Role;)""
+& &(@
 
-%5java.util.List:&
-
-Ä, Ä(8
-userIdjava.lang.Long:*
-
-Ä9 Ä(H
-
-allergieIdjava.lang.LongB42
+%2java.util.ListB42
 0ma.plantes.backend.service.UserDetailsServiceImpH

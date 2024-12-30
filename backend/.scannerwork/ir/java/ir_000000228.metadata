@@ -1,6 +1,6 @@
 ma.plantes.backend.controllers.ClientController#addMaladie(Ljava/lang/Long;Ljava/lang/Long;)LResponseEntity;
 false
-059ee1674d9be440600227b809a15804
+f0c05b2e48eb5ed672a4935b9987066f
 ==
 !unknownMethod! !unknownMethod!
 addMaladie ma.plantes.backend.service.UserDetailsServiceImp#addMaladie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;

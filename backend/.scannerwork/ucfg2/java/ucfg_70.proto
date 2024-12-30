@@ -1,16 +1,29 @@
 
-bma.plantes.backend.service.PlanteService#afficherPlanteParId(Ljava/lang/Long;)Ljava/util/Optional;õ
-êC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/PlanteService.javaL L(/"1*œ
-1M M(´
-®
-M M(6
-%00ma.plantes.backend.repositories.PlanteRepository"__id*^
+Qma.plantes.backend.service.ProprieteService#supprimerPropriete(Ljava/lang/Long;)Z¡
+∂D:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/ProprieteService.java (%"3*ÿ
+2! !(¥
+±
+! !(9
+%13ma.plantes.backend.repositories.ProprieteRepository"__id*d
 
-__unknown_file (B*@*
-(ma.plantes.backend.service.PlanteService"
-planteRepository"
-M M(-
+__unknown_file (H*F-
++ma.plantes.backend.service.ProprieteService"
+proprieteRepository"
+" "(
+""*Ã
+3   (¥
+±
+   (9
+%03ma.plantes.backend.repositories.ProprieteRepository"__id*d
+
+__unknown_file (H*F-
++ma.plantes.backend.service.ProprieteService"
+proprieteRepository*
+2
+1*!
+1$ $("
+$ $(
 "": 
-L0 L(7
-idjava.lang.LongB,*
-(ma.plantes.backend.service.PlanteServiceH
+& (-
+idjava.lang.LongB/-
++ma.plantes.backend.service.ProprieteServiceHX

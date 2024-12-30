@@ -1,3 +1,9 @@
-ma.plantes.backend.entities.Role#instance-init#
+ma.plantes.backend.controllers.PlanteControllerTest#testAfficherToutesLesPlantes()V
 false
-3a41e25d945414f61de6f4cba5c16f09
+7f79b0ccfcd6cf7cfdfc2d1b1e1ad7ed
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+afficherToutesLesPlantes ma.plantes.backend.controllers.PlanteController#afficherToutesLesPlantes()Ljava/util/List;
+afficherToutesLesPlantes ma.plantes.backend.service.PlanteService#afficherToutesLesPlantes()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

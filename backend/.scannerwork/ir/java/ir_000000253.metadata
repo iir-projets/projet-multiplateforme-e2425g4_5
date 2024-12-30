@@ -1,3 +1,6 @@
-ma.plantes.backend.controllers.MaladieController#instance-init#
+ma.plantes.backend.service.UserDetailsServiceImp#loadUserByUsername(Ljava/lang/String;)LUserDetails;
 false
-8784b65fc508f6f87e0f954e2af78508
+5924444bcaf5e98be6e3833e3d626244
+java.util.Optional#orElseThrow(Ljava/util/function/Supplier;)Ljava/lang/Object;
+==
+findByUsername ma.plantes.backend.repositories.UserRepository#findByUsername(Ljava/lang/String;)Ljava/util/Optional;
