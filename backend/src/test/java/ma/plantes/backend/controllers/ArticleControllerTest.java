@@ -57,7 +57,7 @@ class ArticleControllerTest {
     void testAfficherTousLesArticles() {
         when(articleService.afficherTousLesArticles()).thenReturn(Collections.emptyList());
 
-        List<Article> response = articleController.afficherTousLesArticles();
+        List<Article> response = articleController.afficherTousLesArticles().getBody();
 
         assertNotNull(response);
         assertTrue(response.isEmpty());

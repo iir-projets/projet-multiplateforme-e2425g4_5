@@ -26,7 +26,7 @@ public class Commentaire {
     private Article article;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("articles")
+    @JsonIgnoreProperties({ "articles", "notifications" ,"maladies","medicaments","allergies"})
     private User utilisateur;
 
 

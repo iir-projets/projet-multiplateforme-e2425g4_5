@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private TOKEN_KEY = 'authToken';
   private ROLE_KEY = 'userRole';
+  private USER_KEY = 'user';
 
   constructor(private router: Router) {}
 
@@ -14,6 +15,7 @@ export class AuthService {
   saveToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);
     const role = this.extractRoleFromToken(token);
+    localStorage.setItem(this.USER_KEY, this.getUserIdFromToken() || '');
     if (role) {
       localStorage.setItem(this.ROLE_KEY, role);
     }
@@ -43,6 +45,11 @@ export class AuthService {
   // Get Role
   getRole(): string | null {
     return localStorage.getItem(this.ROLE_KEY);
+  }
+
+  // Get User
+  getUser(): string | null {
+    return localStorage.getItem(this.USER_KEY);
   }
 
   // Check if User is Logged In
