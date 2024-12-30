@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+export interface AllergyDTO {
+  nom: string;
+}
 
 export interface Allergy {
   id?: number;
-  nom: string;
-}
-export interface AllergyDTO {
   nom: string;
 }
 
@@ -30,13 +30,18 @@ export class AllergyService {
     return this.http.get<Allergy[]>(`${this.baseUrl}/allergies/getall`,this.getHttpOptions());
   }
 
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/admin/allergies/total`,this.getHttpOptions());
+  }
+
   /**
    * Add an allergy
-   * @param {AllergyDTO} allergy
+   * @param {Allergy} allergy
    * @returns String
    * @memberof AllergyService
    * @method add
    */
+
   add(allergy: AllergyDTO): Observable<Object> {
     return this.http.post(`${this.baseUrl}/sante/allergies/add`, allergy, {
       ...this.getHttpOptions(),

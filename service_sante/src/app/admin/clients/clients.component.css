@@ -1,0 +1,80 @@
+/* Conteneur principal */
+.scrollable-container {
+  max-width: 1500px;
+  height: 500px;
+  margin: 0.5rem 2rem 1rem 2rem ;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* En-têtes */
+.table-headers {
+  display: flex;
+  justify-content: space-between;
+  background-color: #6b8e23;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-headers div {
+  flex: 1;
+  padding: 0 0.5rem;
+}
+
+/* Conteneur scrollable */
+.cards-container {
+  height: 400px; /* Limiter la hauteur pour le défilement */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.name{
+  margin-left: 2.5rem;
+}
+.origin{
+  margin-left: -7.5rem;
+}
+.caract{
+  margin-right: 1rem;
+}
+/* Style des cards */
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  background-color: #e8f5e9; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card div {
+  flex: 1;
+  padding: 0 0.5rem;
+  word-wrap: break-word;
+}
+
+.more{
+  border: none;
+  background-color: #6a8e2300;
+  margin-left: -1.2rem;
+}
+.delete{
+border: none; 
+background-color: #e8f5e9;
+}

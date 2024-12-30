@@ -13,6 +13,13 @@ export interface User {
   username: string;
 }
 
+export interface CreateArticle {
+  titre: string;
+  contenu: string;
+  images: { id: number; imageUrl: string }[];
+}
+
+
 export interface Article {
   id: number;
   titre: string;
@@ -31,6 +38,17 @@ export class ArticleService {
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(`${this.apiUrl}/articles`, this.getHttpOptions());
+
+  }
+
+  addArticle(article: CreateArticle): Observable<Article> {
+    return this.http.post<Article>(`${this.apiUrl}/articles`, article, this.getHttpOptions());
+  }
+  
+
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/admin/articles/total`,this.getHttpOptions());
+
   }
 
   getArticleById(id: number): Observable<Article> {

@@ -25,6 +25,11 @@ export class MedicineService {
   getAll(): Observable<Medicine[]> {
     return this.http.get<Medicine[]>(`${this.baseUrl}/medicaments/getall`,this.getHttpOptions());
   }
+
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/admin/medicaments/total`,this.getHttpOptions());
+  }
+
   
   /**
    * Add a medicine

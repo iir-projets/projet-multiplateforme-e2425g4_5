@@ -1,6 +1,18 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+
+export interface Client {
+  id?: number;
+  username: string;
+  password: string;
+  role: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  
+}
 
 interface User {
   id: number;
@@ -15,17 +27,35 @@ interface User {
 })
 export class ClientService {
 
-  private apiUrl = 'http://localhost:8080/admin/clients';  // Hardcoder l'URL de l'API
 
-  constructor(private http: HttpClient) {}
+  private baseUrl = 'http://localhost:8080';
+  constructor(private http: HttpClient) { }
+
+  /**
+   * Get all allergies
+   * @returns Allergy[]
+   * @memberof ClientService
+   * @method getAll
+   */
+
+  getAll(): Observable<Client[]> {
+    return this.http.get<Client[]>(`${this.baseUrl}/admin/clients`,this.getHttpOptions());
+  }
+
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/admin/clients/total`,this.getHttpOptions());
+  }
+
+  /**
+   * Get http options, including headers
+   * @returns HTTP options with headers
+   */
 
   // Récupérer un utilisateur par son ID
   getClientById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${id}`,this.getHttpOptions());
+    return this.http.get<User>(`${this.baseUrl}/admin/clients/${id}`,this.getHttpOptions());
   }
 
-
-  
 
   private getHttpOptions() {
     return {
@@ -35,4 +65,5 @@ export class ClientService {
         }
     };
   }
+
 }
