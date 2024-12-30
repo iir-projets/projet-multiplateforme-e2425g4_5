@@ -1,5 +1,9 @@
-ma.plantes.backend.service.UserDetailsServiceImp#getUserById(Ljava/lang/Long;)Ljava/util/Optional;
+ma.plantes.backend.controllers.AllergieControllerTest#testAjouterAllergie()V
 false
-fd343a488cb4648827c3282e6c46c863
+25ca0f8d535a5564d85dc3a7d057bd16
+ma.plantes.backend.entities.Allergie#<init>()V
+ma.plantes.backend.entities.Allergie#instance-init#
 ==
 !unknownMethod! !unknownMethod!
+AjouterAllergie ma.plantes.backend.controllers.AllergieController#AjouterAllergie(Lma/plantes/backend/entities/Allergie;)LResponseEntity;
+existsByName ma.plantes.backend.service.AllergieService#existsByName(Ljava/lang/String;)Z

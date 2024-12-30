@@ -1,3 +1,5 @@
-ma.plantes.backend.controllers.MaladieController#<init>()V
+ma.plantes.backend.service.UserDetailsServiceImp#allClients()Ljava/util/List;
 false
-8fe78f3dcb293c5529906a555adc55c0
+25ff626d9e065398c199d9f9261102bd
+==
+findUsersByRole ma.plantes.backend.repositories.UserRepository#findUsersByRole(Lma/plantes/backend/entities/Role;)Ljava/util/List;

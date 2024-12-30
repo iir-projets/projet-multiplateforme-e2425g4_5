@@ -1,7 +1,3 @@
-ma.plantes.backend.service.CommentaireService#ajouterCommentaire(Lma/plantes/backend/dto/CommentaireDTO;)Lma/plantes/backend/entities/Commentaire;
+ma.plantes.backend.service.ArticleServiceTest#instance-init#
 false
-bb5cb4f8bfec72d795e94b73f37622bf
-ma.plantes.backend.entities.Commentaire#<init>()V
-ma.plantes.backend.entities.Commentaire#instance-init#
-==
-!unknownMethod! !unknownMethod!
+866a8a879d7f88cf42c69cc369d3c5bc

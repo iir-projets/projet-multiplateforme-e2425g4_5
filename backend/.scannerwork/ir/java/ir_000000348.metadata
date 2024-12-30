@@ -1,5 +1,5 @@
-ma.plantes.backend.entities.User#getAuthorities()Ljava/util/Collection;
+ma.plantes.backend.config.SecurityConfig#corsConfigurationSource()LUrlBasedCorsConfigurationSource;
 false
-fc54e19af6f6faebebdf2ac655c3f59c
-java.lang.Enum#name()Ljava/lang/String;
-java.util.List#of(Ljava/lang/Object;)Ljava/util/List;
+ea0c573a42b06aaa7150af77f4f790ce
+==
+!unknownMethod! !unknownMethod!

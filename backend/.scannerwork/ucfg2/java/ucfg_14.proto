@@ -1,21 +1,70 @@
 
-Tma.plantes.backend.controllers.AllergieController#AfficherAllergie()Ljava/util/List;§
-ôC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/AllergieController.java1 1(*"1*∂
-12 2(≠
-™
-2 2(0
-%0*ma.plantes.backend.service.AllergieService"__id*f
+êma.plantes.backend.service.UserDetailsServiceImp#editProfile(Lma/plantes/backend/dto/UserDto;Ljava/lang/Long;)Lma/plantes/backend/entities/User;∆
+ªD:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.java, ,("7*m
+33 3(Y
+W
+3 3(,
+%4"	__compare*
+3% 3('
+!=*
+3 3($
+""*
+3( 3(,
+""*
+1*m
+52 2(Y
+W
+2 2()
+%3"	__compare*
+2" 2($
+!=*
+2 2(!
+""*
+2% 2()
+""*
+3*ç
+7- -("Ø
+¨
+- -("4
+%0.ma.plantes.backend.repositories.UserRepository"__id*d
 
-__unknown_file (J*H3
-1ma.plantes.backend.controllers.AllergieController"
-allergieService“œ
-2 2(/
-%1java.util.List"Kma.plantes.backend.service.AllergieService#getAllAllergie()Ljava/util/List;*N
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepositoryâ
+Ü
+. .(f
+%1"__declareFunction*a
 
-__unknown_file (2
-0
-%0*ma.plantes.backend.service.AllergieService2getAllAllergie()""
-2 2(0
-
-%1java.util.ListB53
-1ma.plantes.backend.controllers.AllergieControllerH
+__unknown_file (EC
+A__sonar_lambda_0$ma.plantes.backend.service.UserDetailsServiceImp`
+^
+- .(h(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""Y
+W
+1 1(*
+%2"	__compare*
+1# 1(%
+!=*
+1 1("
+""*
+1& 1(*
+""*
+5*”
+15 5(Ø
+¨
+5 5(4
+%5.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository"
+5 5()
+"":5
+, ,(,)
+userDtoma.plantes.backend.dto.UserDto: 
+,- ,(4
+idjava.lang.LongB42
+0ma.plantes.backend.service.UserDetailsServiceImpH

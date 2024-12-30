@@ -1,5 +1,3 @@
-ma.plantes.backend.service.ArticleService#ajouterArticle(Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;
+ma.plantes.backend.entities.Commentaire#<init>()V
 false
-395a28b9410af700042a92221aad1e63
-==
-!unknownMethod! !unknownMethod!
+44d386797d03634a95ad82946599202e

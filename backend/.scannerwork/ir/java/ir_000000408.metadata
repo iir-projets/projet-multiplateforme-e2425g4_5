@@ -1,3 +1,5 @@
-ma.plantes.backend.service.PlanteService#instance-init#
+ma.plantes.backend.service.ArticleService#afficherArticleParId(Ljava/lang/Long;)Ljava/util/Optional;
 false
-b9e847eaa25381dbd6341df54bf1be7a
+8d4ef4eae882f11fa6624c7f8b302b54
+==
+!unknownMethod! !unknownMethod!

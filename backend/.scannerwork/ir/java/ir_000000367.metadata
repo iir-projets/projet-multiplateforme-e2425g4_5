@@ -1,6 +1,3 @@
-ma.plantes.backend.service.security.JwtService#extractClaim(Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/Object;
+ma.plantes.backend.controllers.MedicamentController#<init>()V
 false
-b01b99f8db10dbfb729474bdf4c7fa53
-ma.plantes.backend.service.security.JwtService#extractAllClaims(Ljava/lang/String;)LClaims;
-==
-!unknownMethod! !unknownMethod!
+ad150f8b1dfb77e3fbe911f33504a74a

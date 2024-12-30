@@ -1,6 +1,7 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
 import ma.plantes.backend.entities.Plante;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,12 @@ public class FavorisController {
         } else {
             return ResponseEntity.status(500).body("Favori introuvable !");
         }
+    }
+
+    // Afficher tous les favoris
+    @GetMapping("/afficher")
+    public List<Favoris> afficherTousLesFavoris() {
+        return favorisService.getAllFavoris();
     }
 
 

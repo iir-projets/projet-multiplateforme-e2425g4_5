@@ -1,29 +1,103 @@
 
-Mma.plantes.backend.service.MaladieService#supprimerMaladie(Ljava/lang/Long;)Zú
-ëC:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/MaladieService.java (#"3*“
-2 (Æ
-´
- (7
-%11ma.plantes.backend.repositories.MaladieRepository"__id*`
+pma.plantes.backend.service.UserDetailsServiceImp#deleteMaladie(Ljava/lang/Long;Ljava/lang/Long;)Ljava/util/List;∆
+ªD:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/UserDetailsServiceImp.javaJ J(,"1*í
+1L L(+µ
+≤
+L L(+7
+%01ma.plantes.backend.repositories.MaladieRepository"__id*g
 
-__unknown_file (D*B+
-)ma.plantes.backend.service.MaladieService"
-maladieRepository"
- (
-""*∆
-3 (Æ
-´
- (7
-%01ma.plantes.backend.repositories.MaladieRepository"__id*`
+__unknown_file (K*I2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+maladieRepositoryf
+d
+L L(N.
+maladie#ma.plantes.backend.entities.Maladie"__id*"
 
-__unknown_file (D*B+
-)ma.plantes.backend.service.MaladieService"
-maladieRepository*
-2
-1*!
-1 ("
- (
-"": 
-$ (+
-idjava.lang.LongB-+
-)ma.plantes.backend.service.MaladieServiceHX
+__unknown_file (
+""Ø
+¨
+M M("4
+%1.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository`
+^
+M M(B(
+user ma.plantes.backend.entities.User"__id*"
+
+__unknown_file (
+""¡
+æ
+P& P(==
+%27ma.plantes.backend.repositories.ClientMaladieRepository"__id*m
+
+__unknown_file (Q*O2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMaladieRepositoryøº
+P& P(m
+%3java.util.Optional"∂ma.plantes.backend.repositories.ClientMaladieRepository#findClientMaladieByUserAndMaladie(Lma/plantes/backend/entities/User;Lma/plantes/backend/entities/Maladie;)Ljava/util/Optional;*[
+
+__unknown_file (?
+=
+%27ma.plantes.backend.repositories.ClientMaladieRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User*L
+
+__unknown_file (0
+.
+maladie#ma.plantes.backend.entities.Maladie2jfindClientMaladieByUserAndMaladie(Lma/plantes/backend/entities/User;Lma/plantes/backend/entities/Maladie;)π∂
+P& P({/
+%4)ma.plantes.backend.entities.ClientMaladie"2java.util.Optional#orElseThrow()Ljava/lang/Object;*6
+
+__unknown_file (
+
+%3java.util.Optional2orElseThrow()û
+õ
+P P(|:
+clientMaladie)ma.plantes.backend.entities.ClientMaladie"__id*M
+
+__unknown_file (1
+/
+%4)ma.plantes.backend.entities.ClientMaladie¡
+æ
+U U(=
+%57ma.plantes.backend.repositories.ClientMaladieRepository"__id*m
+
+__unknown_file (Q*O2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMaladieRepositoryØ
+¨
+V V(4
+%6.ma.plantes.backend.repositories.UserRepository"__id*d
+
+__unknown_file (H*F2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+userRepository¡
+æ
+Y Y(&=
+%77ma.plantes.backend.repositories.ClientMaladieRepository"__id*m
+
+__unknown_file (Q*O2
+0ma.plantes.backend.service.UserDetailsServiceImp"
+clientMaladieRepositoryçä
+Y Y(E
+%8java.util.List"Ñma.plantes.backend.repositories.ClientMaladieRepository#findClientMaladiesByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;*[
+
+__unknown_file (?
+=
+%77ma.plantes.backend.repositories.ClientMaladieRepository*F
+
+__unknown_file (*
+(
+user ma.plantes.backend.entities.User2<findClientMaladiesByUser(Lma/plantes/backend/entities/User;)""
+Y Y(F
+
+%8java.util.List:$
+J- J(9
+userIdjava.lang.Long:'
+J: J(H
+	maladieIdjava.lang.LongB42
+0ma.plantes.backend.service.UserDetailsServiceImpH

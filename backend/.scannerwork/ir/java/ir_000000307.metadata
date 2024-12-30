@@ -1,5 +1,9 @@
-ma.plantes.backend.config.SecurityConfig#corsFilter()LCorsFilter;
+ma.plantes.backend.controllers.MaladieControllerTest#testAjouterMaladie()V
 false
-664d5e70e911d4b8a3eebc0d437f3bf9
+d2174ec3a09beaa9087cb4a41fc11e45
+ma.plantes.backend.entities.Maladie#<init>()V
+ma.plantes.backend.entities.Maladie#instance-init#
 ==
 !unknownMethod! !unknownMethod!
+AjouterMaladie ma.plantes.backend.controllers.MaladieController#AjouterMaladie(Lma/plantes/backend/entities/Maladie;)LResponseEntity;
+existsByNom ma.plantes.backend.service.MaladieService#existsByNom(Ljava/lang/String;)Z

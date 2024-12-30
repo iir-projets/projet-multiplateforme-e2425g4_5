@@ -1,5 +1,3 @@
-ma.plantes.backend.service.security.AuthenticationService#changePassword(Ljava/lang/Long;Ljava/lang/String;)Lma/plantes/backend/entities/User;
+ma.plantes.backend.repositories.UserRepository#instance-init#
 false
-f9e829837e68f8e452dbd282a09c30ba
-==
-!unknownMethod! !unknownMethod!
+20fb88b2a30467915ca7af28af97dff9

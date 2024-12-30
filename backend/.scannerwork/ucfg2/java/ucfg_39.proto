@@ -1,53 +1,21 @@
 
-Mma.plantes.backend.service.ArticleService#supprimerArticle(Ljava/lang/Long;)Zœ
-‘C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/ArticleService.java0 0(#"3*
-23 3(¨¥
-3 3()
-%2#ma.plantes.backend.entities.Article"*java.util.Optional#get()Ljava/lang/Object;*;
+Zma.plantes.backend.controllers.PlanteController#afficherToutesLesPlantes()Ljava/util/List;Å
+ºD:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/controllers/PlanteController.java6 6(0"1*À
+17 7(§
+¤
+7 7(.
+%0(ma.plantes.backend.service.PlanteService"__id*b
 
-__unknown_file (
-
-articlejava.util.Optional2get()
-
-4 4([
-%3"__declareFunction*Z
+__unknown_file (F*D1
+/ma.plantes.backend.controllers.PlanteController"
+planteServiceâß
+7 7(7
+%1java.util.List"Sma.plantes.backend.service.PlanteService#afficherToutesLesPlantes()Ljava/util/List;*L
 
-__unknown_file (><
-:__sonar_lambda_4$ma.plantes.backend.service.ArticleService®
-«
-5 5(7
-%41ma.plantes.backend.repositories.ArticleRepository"__id*`
-
-__unknown_file (D*B+
-)ma.plantes.backend.service.ArticleService"
-articleRepository"
-6 6(
-""*§
-31$ 1(5®
-«
-1$ 1(57
-%01ma.plantes.backend.repositories.ArticleRepository"__id*`
-
-__unknown_file (D*B+
-)ma.plantes.backend.service.ArticleService"
-articleRepositoryU
-S
-1 1(C
-articlejava.util.Optional"__id*"
-
-__unknown_file (
-""‡„
-2 2(
-%1boolean"java.util.Optional#isPresent()Z*;
-
-__unknown_file (
-
-articlejava.util.Optional2isPresent()*
-2
-1*!
-18 8("
-8 8(
-"": 
-0$ 0(+
-idjava.lang.LongB-+
-)ma.plantes.backend.service.ArticleServiceHX
+__unknown_file (0
+.
+%0(ma.plantes.backend.service.PlanteService2afficherToutesLesPlantes()""
+7 7(8
+
+%1java.util.ListB31
+/ma.plantes.backend.controllers.PlanteControllerH

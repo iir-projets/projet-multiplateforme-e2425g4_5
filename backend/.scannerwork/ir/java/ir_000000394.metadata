@@ -1,3 +1,6 @@
-ma.plantes.backend.repositories.MaladieRepository#instance-init#
+ma.plantes.backend.controllers.CommentaireController#supprimerCommentaire(Ljava/lang/Long;)LResponseEntity;
 false
-99bd5c1f181e089e4b5b3a6c3a2068a3
+e3d01e26f3620a520e274124a100aaab
+==
+!unknownMethod! !unknownMethod!
+supprimerCommentaire ma.plantes.backend.service.CommentaireService#supprimerCommentaire(Ljava/lang/Long;)Z

@@ -1,6 +1,6 @@
-ma.plantes.backend.controllers.ProprieteController#allProrietes()LResponseEntity;
+ma.plantes.backend.service.MedicamentServiceTest#testSupprimerMedicament()V
 false
-2a83f16a4563a93214d00ecdf94675c5
+14200df3e7eafabb4bc1623e43f706d1
 ==
 !unknownMethod! !unknownMethod!
-allPropriete ma.plantes.backend.service.ProprieteService#allPropriete()Ljava/util/List;
+supprimerMedicament ma.plantes.backend.service.MedicamentService#supprimerMedicament(Ljava/lang/Long;)Z

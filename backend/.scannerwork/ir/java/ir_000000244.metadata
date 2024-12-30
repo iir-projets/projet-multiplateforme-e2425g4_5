@@ -1,5 +1,7 @@
-ma.plantes.backend.service.UserDetailsServiceImp#editProfile(Lma/plantes/backend/dto/UserDto;Ljava/lang/Long;)Lma/plantes/backend/entities/User;
+ma.plantes.backend.controllers.AllergieControllerTest#testSupprimerAllergie()V
 false
-5e530e58303f7fd8fb53b26ecbe0e62e
+4673bb011a1e33d9e6f45b8f4285a3fc
 ==
 !unknownMethod! !unknownMethod!
+SupprimerAllergie ma.plantes.backend.controllers.AllergieController#SupprimerAllergie(Ljava/lang/Long;)LResponseEntity;
+exsistById ma.plantes.backend.service.AllergieService#exsistById(Ljava/lang/Long;)Z

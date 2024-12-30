@@ -1,10 +1,3 @@
-ma.plantes.backend.service.security.JwtService#generateToken(Lma/plantes/backend/entities/User;)Ljava/lang/String;
+ma.plantes.backend.entities.Article#instance-init#
 false
-bd2bc62796fb6459b3454894c8f0362a
-java.lang.System#currentTimeMillis()J
-java.util.Date#<init>(J)V
-java.util.Date#instance-init#
-ma.plantes.backend.service.security.JwtService#getSignInKey()Ljavax/crypto/SecretKey;
-==
-!unknownMethod! !unknownMethod!
-getAuthorities ma.plantes.backend.entities.User#getAuthorities()Ljava/util/Collection;
+2c2533fe4890b61ee619acec2544dca5

@@ -1,3 +1,6 @@
-ma.plantes.backend.filter.JwtAuthenticationFilter#instance-init#
+ma.plantes.backend.service.ArticleService#modifierArticle(Ljava/lang/Long;Lma/plantes/backend/entities/Article;)Lma/plantes/backend/entities/Article;
 false
-26c5e8869040aa83dc71bb42881e6a2b
+49fc5c66271c2171e4c9c3bb28749873
+java.util.Optional#isPresent()Z
+==
+!unknownMethod! !unknownMethod!

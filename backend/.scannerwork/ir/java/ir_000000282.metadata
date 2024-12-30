@@ -1,3 +1,5 @@
-ma.plantes.backend.entities.Propriete#<init>()V
+ma.plantes.backend.service.MaladieService#ajouterMaladie(Lma/plantes/backend/entities/Maladie;)V
 false
-f9effeada8494c462028b04ab9106f3b
+d96c7c634573245affe4fffa466b93b8
+==
+!unknownMethod! !unknownMethod!

@@ -1,3 +1,9 @@
-ma.plantes.backend.service.CommentaireService#<init>(Lma/plantes/backend/repositories/CommentaireRepository;Lma/plantes/backend/repositories/ArticleRepository;Lma/plantes/backend/repositories/UserRepository;)V
+ma.plantes.backend.controllers.ClientControllerTest#testAfficherTousLesClients()V
 false
-57ed55d28246ea8d97589fe77adb57ce
+74bc953091cc9aea2ff1137d20667748
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+allClients ma.plantes.backend.controllers.ClientController#allClients()LResponseEntity;
+allClients ma.plantes.backend.service.UserDetailsServiceImp#allClients()Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z

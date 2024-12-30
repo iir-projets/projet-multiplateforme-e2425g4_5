@@ -1,29 +1,10 @@
 
-{ma.plantes.backend.service.NotificationService#readNotification(Ljava/lang/Long;)Lma/plantes/backend/entities/Notification;¡
-–C:/Users/LENOVO/IdeaProjects/project_javaee/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/NotificationService.java (("1*“
-1$ (:½
-º
-$ (:<
-%06ma.plantes.backend.repositories.NotificationRepository"__id*j
-
-__unknown_file (N*L0
-.ma.plantes.backend.service.NotificationService"
-notificationRepositoryp
-n
- (V8
-notification(ma.plantes.backend.entities.Notification"__id*"
-
-__unknown_file (
-""½
-º
- (%<
-%16ma.plantes.backend.repositories.NotificationRepository"__id*j
-
-__unknown_file (N*L0
-.ma.plantes.backend.service.NotificationService"
-notificationRepository"
- (9
+:__sonar_lambda_4$ma.plantes.backend.service.ArticleService¿
+´D:/ZAHA Fatima Zahra/Documents/SpringBoot/eclipse-workspace/PlantesMedicinales/projet-multiplateforme-e2425g4_5/backend/src/main/java/ma/plantes/backend/service/ArticleService.java4 4(["1*!
+14$ 4(:"
+4$ 4([
 "": 
-) (0
-idjava.lang.LongB20
-.ma.plantes.backend.service.NotificationServiceH
+
+__unknown_file (
+""B
+	!Unknown!

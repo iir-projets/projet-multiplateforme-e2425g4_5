@@ -1,8 +1,3 @@
-ma.plantes.backend.service.security.JwtService#isValid(Ljava/lang/String;LUserDetails;)Z
+ma.plantes.backend.dto.PlanteDto#<init>()V
 false
-e455e35458adc27cd86c932c0ea75055
-java.lang.String#equals(Ljava/lang/Object;)Z
-ma.plantes.backend.service.security.JwtService#isTokenExpired(Ljava/lang/String;)Z
-==
-!unknownMethod! !unknownMethod!
-extractUsername ma.plantes.backend.service.security.JwtService#extractUsername(Ljava/lang/String;)Ljava/lang/String;
+1935317b27ab7e56470cdb7edc849d74

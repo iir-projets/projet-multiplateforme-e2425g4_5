@@ -1,6 +1,3 @@
-ma.plantes.backend.service.NotificationService#getNotificationByUserId(Ljava/lang/Long;)Ljava/util/List;
+ma.plantes.backend.service.security.AuthenticationService#instance-init#
 false
-5e4194ab4dd1665f6198459491fe5582
-==
-!unknownMethod! !unknownMethod!
-findNotificationsByUser ma.plantes.backend.repositories.NotificationRepository#findNotificationsByUser(Lma/plantes/backend/entities/User;)Ljava/util/List;
+92a1742e80210622c0fe10c6bb56585b

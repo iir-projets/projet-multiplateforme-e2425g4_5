@@ -1,8 +1,3 @@
-ma.plantes.backend.service.FavorisService#ajouterFavoris(Ljava/lang/Long;Ljava/lang/Long;)V
+ma.plantes.backend.controllers.NotificationController#instance-init#
 false
-aeca0e0c282e916f847c59e605f1a925
-ma.plantes.backend.entities.Favoris#<init>()V
-ma.plantes.backend.entities.Favoris#instance-init#
-ma.plantes.backend.entities.FavorisId#instance-init#
-==
-!unknownMethod! !unknownMethod!
+53097ed6fe19124c230a00bc2072801a

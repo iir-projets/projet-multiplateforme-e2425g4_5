@@ -1,3 +1,9 @@
-ma.plantes.backend.service.ProprieteService#<init>(Lma/plantes/backend/repositories/ProprieteRepository;)V
+ma.plantes.backend.service.CommentaireServiceTest#testTrouverCommentairesParArticle()V
 false
-9d502d66f5b232703a87cad74c61d9bb
+89a029b38edaac3726d8deabfd851854
+java.util.Collections#emptyList()Ljava/util/List;
+==
+!unknownMethod! !unknownMethod!
+findByArticleId ma.plantes.backend.repositories.CommentaireRepository#findByArticleId(Ljava/lang/Long;)Ljava/util/List;
+isEmpty java.util.List#isEmpty()Z
+trouverCommentairesParArticle ma.plantes.backend.service.CommentaireService#trouverCommentairesParArticle(Ljava/lang/Long;)Ljava/util/List;

@@ -1,3 +1,5 @@
-ma.plantes.backend.controllers.AllergieController#instance-init#
+ma.plantes.backend.service.UserDetailsServiceImp#editProfile(Lma/plantes/backend/dto/UserDto;Ljava/lang/Long;)Lma/plantes/backend/entities/User;
 false
-00a77de5dbebc4e346bc5a3091796889
+b09966bf8f9bbdf8fc281e3398d83880
+==
+!unknownMethod! !unknownMethod!
