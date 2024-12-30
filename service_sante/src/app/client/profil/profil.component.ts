@@ -19,8 +19,8 @@ import { ClientService } from '../../../services/client/client.service';  // Ass
 })
 export class ProfileComponent implements OnInit {
   profileFields = [
-    { label: 'phoneNumber', value: '', isEditing: false },
-    { label: 'lastName', value: '', isEditing: false },
+    { label: 'phoneNumber', value: '0606663322', isEditing: false },
+    { label: 'lastName', value: 'alaoui', isEditing: false },
     { label: 'password', value: '****', isEditing: false }  // Ne jamais exposer le mot de passe en clair
   ];
 
