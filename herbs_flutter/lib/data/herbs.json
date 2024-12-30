@@ -1,0 +1,175 @@
+{
+"herbs":[
+    {
+    "herb_001": {
+      "name": "Chamomile",
+      "imageUrl": "https://images.pexels.com/photos/1171815/pexels-photo-1171815.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Chamomile is known for its calming properties and has been used as a natural remedy for centuries.",
+      "properties": ["Calming", "Anti-inflammatory", "Digestive aid"],
+      "healthBenefits": [
+        "Reduces anxiety and promotes sleep",
+        "Aids digestion",
+        "Boosts immune health"
+      ],
+      "origins": "Chamomile originates from the daisy family and has an apple-like scent. Ancient Egyptians valued it for its healing properties.",
+      "usage": [
+        "Chamomile tea for relaxation",
+        "Essential oil for skin inflammation"
+      ],
+      "precautions": [
+        "May cause allergic reactions in people sensitive to daisies, ragweed, or marigolds.",
+        "Avoid during pregnancy as it may stimulate uterine contractions.",
+        "May interact with blood-thinning medications."
+      ]
+    },
+    "herb_002": {
+      "name": "Peppermint",
+      "imageUrl": "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Peppermint is a hybrid mint known for its refreshing scent and cooling effect.",
+      "properties": ["Cooling", "Antispasmodic", "Digestive aid"],
+      "healthBenefits": [
+        "Relieves headaches",
+        "Eases digestive discomfort",
+        "Improves focus and energy levels"
+      ],
+      "origins": "Peppermint is a cross between watermint and spearmint, commonly used in traditional medicine.",
+      "usage": [
+        "Peppermint tea for digestive relief",
+        "Essential oil for headaches"
+      ],
+      "precautions": [
+        "May worsen acid reflux or GERD symptoms.",
+        "High doses of peppermint oil may cause heartburn or nausea.",
+        "Avoid applying essential oil directly to the skin without diluting."
+      ]
+    },
+    "herb_003": {
+      "name": "Lavender",
+      "imageUrl": "https://images.pexels.com/photos/459799/pexels-photo-459799.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Lavender is well-known for its soothing aroma and ability to reduce stress and promote relaxation.",
+      "properties": ["Calming", "Antibacterial", "Anti-inflammatory"],
+      "healthBenefits": [
+        "Reduces stress and anxiety",
+        "Improves sleep quality",
+        "Soothes skin irritations"
+      ],
+      "origins": "Native to the Mediterranean, lavender has been used in perfumes, oils, and medicines for centuries.",
+      "usage": [
+        "Lavender oil for stress relief",
+        "Dried lavender for home fragrances"
+      ],
+      "precautions": [
+        "May cause allergic reactions in sensitive individuals.",
+        "Should be used with caution during pregnancy and breastfeeding.",
+        "Essential oil should not be ingested."
+      ]
+    },
+    "herb_004": {
+      "name": "Ginger",
+      "imageUrl": "https://images.pexels.com/photos/3047751/pexels-photo-3047751.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Ginger is a powerful root with numerous medicinal properties, widely used in cooking and herbal medicine.",
+      "properties": ["Antioxidant", "Anti-inflammatory", "Digestive aid"],
+      "healthBenefits": [
+        "Eases nausea and vomiting",
+        "Reduces muscle pain",
+        "Supports immune health"
+      ],
+      "origins": "Ginger originates from Southeast Asia and has been used in traditional medicine for over 5,000 years.",
+      "usage": [
+        "Ginger tea for nausea relief",
+        "Fresh ginger in meals for immune support"
+      ],
+      "precautions": [
+        "Excessive consumption may cause heartburn or diarrhea.",
+        "May interact with blood-thinning medications.",
+        "Should be used cautiously during pregnancy."
+      ]
+    },
+    "herb_005": {
+      "name": "Turmeric",
+      "imageUrl": "https://images.pexels.com/photos/6053193/pexels-photo-6053193.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Turmeric is a golden spice known for its potent anti-inflammatory and antioxidant properties.",
+      "properties": ["Anti-inflammatory", "Antioxidant", "Immune booster"],
+      "healthBenefits": [
+        "Reduces joint pain",
+        "Improves skin health",
+        "Supports brain function"
+      ],
+      "origins": "Turmeric is native to South Asia and has been a key ingredient in Ayurvedic medicine for centuries.",
+      "usage": [
+        "Turmeric lattes for anti-inflammatory benefits",
+        "Turmeric paste for skin conditions"
+      ],
+      "precautions": [
+        "May cause stomach upset in high doses.",
+        "Can interfere with medications for blood clotting or diabetes.",
+        "Avoid if you have gallbladder issues."
+      ]
+    },
+    "herb_006": {
+      "name": "Echinacea",
+      "imageUrl": "https://images.pexels.com/photos/5114353/pexels-photo-5114353.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Echinacea is a flowering plant often used to boost the immune system and fight off colds.",
+      "properties": ["Immune booster", "Anti-inflammatory", "Antioxidant"],
+      "healthBenefits": [
+        "Reduces symptoms of colds and flu",
+        "Fights infections",
+        "Promotes wound healing"
+      ],
+      "origins": "Echinacea is native to North America and was traditionally used by Native American tribes for medicinal purposes.",
+      "usage": [
+        "Echinacea tea during cold seasons",
+        "Echinacea supplements for immune support"
+      ],
+      "precautions": [
+        "May cause allergic reactions in people with ragweed allergies.",
+        "Long-term use may weaken immune response.",
+        "Should not be used by people with autoimmune diseases."
+      ]
+    },
+    "herb_007": {
+      "name": "Rosemary",
+      "imageUrl": "https://images.pexels.com/photos/256318/pexels-photo-256318.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Rosemary is a fragrant herb with antioxidant and memory-boosting properties.",
+      "properties": ["Antioxidant", "Cognitive enhancer", "Digestive aid"],
+      "healthBenefits": [
+        "Improves memory and concentration",
+        "Supports digestive health",
+        "Reduces inflammation"
+      ],
+      "origins": "Rosemary is native to the Mediterranean region and has been used in both cooking and medicine for centuries.",
+      "usage": [
+        "Rosemary essential oil for focus",
+        "Fresh rosemary in meals for added flavor"
+      ],
+      "precautions": [
+        "Excessive consumption may cause stomach upset.",
+        "Essential oil should not be ingested.",
+        "May interact with blood-thinning medications."
+      ]
+    },
+    "herb_008": {
+      "name": "Basil",
+      "imageUrl": "https://images.pexels.com/photos/1414652/pexels-photo-1414652.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "description": "Basil is a fragrant herb often used in cooking and known for its anti-inflammatory and antimicrobial properties.",
+      "properties": ["Antimicrobial", "Anti-inflammatory", "Digestive aid"],
+      "healthBenefits": [
+        "Reduces stress",
+        "Supports heart health",
+        "Improves digestion"
+      ],
+      "origins": "Basil is native to tropical regions of Asia and Africa and has been used in traditional medicine and cuisine.",
+      "usage": [
+        "Fresh basil in salads and pasta",
+        "Basil tea for stress relief"
+      ],
+      "precautions": [
+        "May lower blood sugar levels, so use with caution if taking diabetes medication.",
+        "Avoid during pregnancy in high doses.",
+        "Excessive consumption may lead to blood thinning."
+      ]
+    }
+  }
+]
+}
+  
