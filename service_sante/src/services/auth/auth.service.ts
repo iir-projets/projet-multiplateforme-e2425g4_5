@@ -69,7 +69,7 @@ export class AuthService {
     const token = localStorage.getItem(this.TOKEN_KEY);
     if (token) {
       const decoded = this.decodeToken(token);
-      return decoded?.id || null;  // Assurez-vous que l'ID est dans le token
+      return decoded?.userId || null;  // Assurez-vous que l'ID est dans le token
     }
     return null;
   }
