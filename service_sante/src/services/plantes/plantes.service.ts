@@ -23,7 +23,7 @@ export interface Plante{
   providedIn: 'root'
 })
 export class PlantesService {
-  private apiUrl = 'http://localhost:8080/plantes/'; // Replace with your backend API URL
+  private apiUrl = 'http://localhost:8080'; 
 
   constructor(private http: HttpClient) {}
 
@@ -32,10 +32,32 @@ export class PlantesService {
   }
  
 
-  getPlanteDetails(id: string): Observable<Plante> {
-    return this.http.get<Plante>(`${this.apiUrl}${id}`,this.getHttpOptions());
+  getPlanteDetails(id: number): Observable<Plante> {
+    return this.http.get<Plante>(`${this.apiUrl}/plantes/${id}`,this.getHttpOptions());
   }
 
+  /**
+   * Get all herbs
+   * @returns Plante[]
+   * @memberof Plante
+   * @method getAll
+   */
+
+  getAll(): Observable<Plante[]> {
+    return this.http.get<Plante[]>(`${this.apiUrl}/plantes/`,this.getHttpOptions());
+  }
+
+  getTotal(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/admin/plantes/total`,this.getHttpOptions());
+  }
+
+  addHerb(plante : Plante): Observable<Plante> {
+    return this.http.post<Plante>(`${this.apiUrl}/admin/plantes`,plante,this.getHttpOptions());
+  }
+
+  deleteHerb(id: number): Observable<void> {  // Changez ici pour passer un ID
+      return this.http.delete<void>(`${this.apiUrl}/admin/plantes/${id}`,this.getHttpOptions());
+  }
 
   /**
    * Get http options, including headers

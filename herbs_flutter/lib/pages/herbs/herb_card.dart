@@ -35,6 +35,7 @@ class _HerbCardState extends State<HerbCard> {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          
           children: [
             // Stack for Herb Image and Bookmark Icon
             Stack(
@@ -45,10 +46,10 @@ class _HerbCardState extends State<HerbCard> {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.asset(
+                  child: Image.network(
                     widget.imageUrl,
                     width: double.infinity, // Make the image take full width
-                    height: 210,
+                    height: 180,
                     fit: BoxFit.cover,
                   ),
                 ),

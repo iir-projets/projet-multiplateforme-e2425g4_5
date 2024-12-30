@@ -21,7 +21,7 @@ class _HerbsPageState extends State<HerbsPage> {
     {
       'id': 1,
       'title': 'Chamomile: Nature\'s Calming Herb',
-      'imageUrl': 'assets/camomille.jpg',
+      'imageUrl': 'https://images.pexels.com/photos/699964/pexels-photo-699964.jpeg?auto=compress&cs=tinysrgb&w=400',
       'content': [
         {
           'title': 'The Origins of Chamomile',
@@ -105,7 +105,7 @@ class _HerbsPageState extends State<HerbsPage> {
     {
       'id': 5,
       'title': 'Chamomile: Nature\'s Calming Herb',
-      'imageUrl': 'assets/camomille.jpg',
+      'imageUrl': 'https://images.pexels.com/photos/1171815/pexels-photo-1171815.jpeg?auto=compress&cs=tinysrgb&w=400',
       'content': [
         {
           'title': 'The Origins of Chamomile',

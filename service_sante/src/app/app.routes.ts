@@ -9,7 +9,6 @@ import { MedicamentsComponent } from './service_sante/medicaments/medicaments.co
 import { DashboardadminComponent } from './admin/dashboardadmin/dashboardadmin.component';
 import { StatsComponent } from './admin/stats/stats.component';
 import { HerbsComponent } from './admin/herbs/herbs.component';
-import { ArticlesComponent } from './admin/articles/articles.component';
 import { ClientsComponent } from './admin/clients/clients.component';
 
 import { ArticleComponent } from './client/articles/articles.component';
@@ -29,6 +28,10 @@ import { NotificationsComponent } from './client/notifications/notifications.com
 import { FavorisComponent } from './client/favoris/favoris.component';
 import { ArticleDetailsComponent } from './client/details-articles/details-articles.component';
 import { SavedArticlesComponent } from './client/saved-articles/saved-articles.component';
+import { MedicamentsAdminComponent } from './admin/medicaments-admin/medicaments-admin.component';
+import { AllergiesAdminComponent } from './admin/allergies-admin/allergies-admin.component';
+import { MaladiesAdminComponent } from './admin/maladies-admin/maladies-admin.component';
+import { ArticlesAdminComponent } from './admin/articles-admin/articles-admin.component';
 
 export const routes: Routes = [
 
@@ -58,11 +61,11 @@ export const routes: Routes = [
         children:[
             { path: 'statistiques', component: StatsComponent },
             { path: 'herbs', component: HerbsComponent },
-            { path: 'articles', component: ArticlesComponent },
+            { path: 'articles', component: ArticlesAdminComponent },
             { path: 'clients', component: ClientsComponent },
-            { path: 'allergies', component: StatsComponent },
-            { path: 'medicines', component: StatsComponent },
-            { path: 'diseases', component: StatsComponent },
+            { path: 'allergies', component: AllergiesAdminComponent },
+            { path: 'medicines', component: MedicamentsAdminComponent },
+            { path: 'diseases', component: MaladiesAdminComponent },
             
         ]
     },
