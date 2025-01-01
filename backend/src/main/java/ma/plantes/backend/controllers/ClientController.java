@@ -79,7 +79,4 @@ public class ClientController {
                                                                  @Param("medicament_id") Long medicament_id){
         return ResponseEntity.ok(userDetailsServiceImp.deleteMedicament(id,medicament_id));
     }
-
-
-
 }

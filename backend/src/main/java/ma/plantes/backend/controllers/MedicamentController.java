@@ -51,4 +51,10 @@ public class MedicamentController {
     public List<Medicament> AfficherMedicament(){
         return medicamentService.getAllMedicament();
     }
+
+
+    @GetMapping("/admin/medicaments/total")
+    public ResponseEntity<Long> getTotalCount() {
+        return ResponseEntity.ok(medicamentService.getTotalCount());
+    }
 }

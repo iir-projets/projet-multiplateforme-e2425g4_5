@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AllergieRepository extends JpaRepository<Allergie,Long> {
     boolean existsByNom(String nom);
-
-
 }

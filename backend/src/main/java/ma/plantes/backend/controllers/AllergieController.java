@@ -50,5 +50,9 @@ public class AllergieController {
         return allergieService.getAllAllergie();
     }
 
+   @GetMapping("/admin/allergies/total")
+    public ResponseEntity<Long> getTotalCount() {
+        return ResponseEntity.ok(allergieService.getTotalCount());
+    }
 
 }

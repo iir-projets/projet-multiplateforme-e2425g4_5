@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MedicamentRepository extends JpaRepository<Medicament,Long> {
     boolean existsByNom(String nom);
-
-
 }

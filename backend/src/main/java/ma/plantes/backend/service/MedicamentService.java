@@ -44,4 +44,10 @@ public class MedicamentService {
     public List<Medicament> getAllMedicament(){
         return medicamentRepository.findAll();
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return medicamentRepository.count();
+    }
+
 }
