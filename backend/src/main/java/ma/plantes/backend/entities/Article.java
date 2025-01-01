@@ -36,9 +36,7 @@ public class Article {
     @JsonIgnoreProperties("article")
     private List<Commentaire> commentaires;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "article", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({ "articles", "notifications" ,"maladies","medicaments","allergies"})
-    private Set<ArticleEnregistre> users;
+
 
 
 
