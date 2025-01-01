@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HerbCard extends StatefulWidget {
-  final String title;
-  final String description;
+  final String name;
   final String imageUrl;
   final bool saved; // Add saved status
   final VoidCallback onTap;
@@ -10,8 +9,7 @@ class HerbCard extends StatefulWidget {
 
   const HerbCard({
     super.key,
-    required this.title,
-    required this.description,
+    required this.name,
     required this.imageUrl,
     required this.saved,
     required this.onTap,
@@ -49,7 +47,7 @@ class _HerbCardState extends State<HerbCard> {
                   child: Image.network(
                     widget.imageUrl,
                     width: double.infinity, // Make the image take full width
-                    height: 180,
+                    height: 210,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -73,7 +71,7 @@ class _HerbCardState extends State<HerbCard> {
               padding: const EdgeInsets.all(8.0),
               
               child: Text(
-                widget.title,
+                widget.name ?? '',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
