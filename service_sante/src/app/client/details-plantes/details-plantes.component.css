@@ -9,7 +9,7 @@
 .plant-name {
     font-size: 32px;
     font-weight: bold;
-    color: #333;
+    color: #000000;
     margin-bottom: 15px;
     text-align: left;
     padding-left: 10px;
@@ -22,7 +22,7 @@
 /* Region de la plante */
 .plant-region {
     font-size: 18px;
-    color: #888;
+    color: #e397ae;
     text-align: left; /* Alignement du texte */
     padding-left: 10px;
     margin-bottom: 15px; /* Espacement sous la région */
@@ -31,13 +31,14 @@
 /* Liste des propriétés de la plante */
 .property-list {
     list-style-type: none;
-    padding-left: 0;
+    padding-left: 10;
     margin-top: 20px;
+    margin-right: 20px;
 }
 
 .property-list li {
     font-size: 16px;
-    color: #555;
+    color: #666;
     padding: 5px 0;
     display: flex;
     align-items: center;
@@ -46,8 +47,8 @@
 
 .property-list li::before {
     content: "•";
-    color: #f56c42; /* Bullet point orange */
-    font-size: 20px;
+    color: #666; /* Bullet point orange */
+    font-size: 18px;
     margin-right: 10px; /* Espacement entre le point et le texte */
 }
 
@@ -61,10 +62,10 @@
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
     align-items: center;
-    color: #333;
+    color: #000000;
     margin-bottom: 15px;
 }
 
@@ -72,7 +73,7 @@
     width: 24px;
     height: 24px;
     margin-right: 10px;
-    color: #f56c42;
+    color: #666;
 }
 
 .detail-section p {
@@ -85,11 +86,11 @@
 /* Style général */
 .plant-details-container {
     font-family: 'Roboto', sans-serif;
-    max-width: 1500px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    margin-top: 8%;
+    padding: 15px;
+    background-color: #efe8e8;
+    margin-top: 4%;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;

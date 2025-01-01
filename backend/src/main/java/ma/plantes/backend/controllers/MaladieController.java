@@ -46,4 +46,12 @@ public class MaladieController {
     public List<Maladie> AfficherMaladie(){
         return maladieService.getAllMaladie();
     }
+
+    @GetMapping("/admin/maladies/total")
+    public ResponseEntity<Long> getTotalCount() {
+        return ResponseEntity.ok(maladieService.getTotalCount());
+    }
+
 }
+
+

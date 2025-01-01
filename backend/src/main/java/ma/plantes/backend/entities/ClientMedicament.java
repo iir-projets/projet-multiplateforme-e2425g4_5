@@ -1,6 +1,5 @@
 package ma.plantes.backend.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,8 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 public class ClientMedicament {
@@ -29,4 +28,7 @@ public class ClientMedicament {
     @JoinColumn(name="medicament_id")
     @JsonIgnoreProperties("user")
     private Medicament medicament;
+
+
+
 }

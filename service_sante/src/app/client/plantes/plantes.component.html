@@ -25,7 +25,7 @@
   <div class="cards-container">
     <div class="cards-row">
       <!-- Première ligne (4 cartes) -->
-      <div class="card" *ngFor="let plant of filteredPlantes.slice(0, 5)">
+      <div class="card" *ngFor="let plant of filteredPlantes">
        
         <div class="card-image">
           <img [src]="plant.image" alt="{{ plant.nom }}" />

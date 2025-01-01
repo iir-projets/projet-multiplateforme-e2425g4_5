@@ -44,4 +44,10 @@ public class MaladieService {
     public List<Maladie> getAllMaladie(){
         return maladieRepository.findAll();
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return maladieRepository.count();
+    }
+
 }

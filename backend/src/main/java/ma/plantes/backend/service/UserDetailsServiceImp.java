@@ -161,5 +161,11 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
         return clientAllergieRepository.findClientAllergiesByUser(user);
     }
 
+    public long getTotalClientsCount() {
+        return userRepository.countByRole(Role.ROLE_CLIENT);
+    }
+
     // Modifier client profil :
+
+
 }
