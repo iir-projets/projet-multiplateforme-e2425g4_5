@@ -17,5 +17,7 @@ public interface PlanteRepository extends JpaRepository<Plante, Long> {
     // Rechercher des plantes par région
     List<Plante> findByRegion(String region);
 
-
+    // Total par région
+    @Query("SELECT p.region, COUNT(p) FROM Plante p GROUP BY p.region")
+    List<Object[]> countPlantesByRegion();
 }

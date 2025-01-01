@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -76,4 +78,23 @@ public class PlanteService {
     public Optional<Plante> afficherPlanteParId(Long id) {
         return planteRepository.findById(id);
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return planteRepository.count();
+    }
+
+    public Map<String, Long> getPlantesCountByRegion() {
+        List<Object[]> results = planteRepository.countPlantesByRegion();
+        Map<String, Long> plantesParRegion = new HashMap<>();
+
+        for (Object[] result : results) {
+            String region = (String) result[0];
+            Long count = (Long) result[1];
+            plantesParRegion.put(region, count);
+        }
+
+        return plantesParRegion;
+    }
+
 }

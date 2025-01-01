@@ -81,5 +81,12 @@ public class ClientController {
     }
 
 
+    @GetMapping("/admin/clients/total")
+    public ResponseEntity<Long> getTotalClientsCount() {
+        return ResponseEntity.ok(userDetailsServiceImp.getTotalClientsCount());
+    }
+
+
+
 
 }
