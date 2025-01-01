@@ -1,6 +1,5 @@
 package ma.plantes.backend.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,4 +30,7 @@ public class ClientAllergie {
     @JoinColumn( name = "allergie_id")
     @JsonIgnoreProperties("user")
     private Allergie allergie;
+
+
+
 }

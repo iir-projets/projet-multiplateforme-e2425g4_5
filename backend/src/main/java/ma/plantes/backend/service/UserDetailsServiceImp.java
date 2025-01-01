@@ -162,4 +162,6 @@ public List<ClientMedicament> addMedicament(Long userId, Long medicamentId){
     }
 
     // Modifier client profil :
+
+
 }
