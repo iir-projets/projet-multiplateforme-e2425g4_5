@@ -41,7 +41,7 @@
     display: flex;
     align-items: center;
     gap: 15px; /* Space between navigation buttons */
-    margin-left: 60%;
+    margin-left: 70%;
     padding: 0;
     flex-grow: 0; /* Allow the links to take available space and center them */
     justify-content: center; /* Center the links */
