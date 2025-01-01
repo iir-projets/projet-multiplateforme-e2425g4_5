@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -44,5 +45,10 @@ public class FavorisController {
         return favorisService.getAllFavoris();
     }
 
+    // Afficher les top 5 plantes
+    @GetMapping("/top5")
+    public Map<Long, Long> getTop5Plantes() {
+        return favorisService.getTop5Plantes();
+    }
 
 }

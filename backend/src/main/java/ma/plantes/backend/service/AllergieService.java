@@ -44,4 +44,12 @@ public class AllergieService {
     public List<Allergie> getAllAllergie(){
        return allergieRepository.findAll();
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return allergieRepository.count();
+    }
+
+
+
 }

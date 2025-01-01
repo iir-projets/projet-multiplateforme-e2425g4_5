@@ -2,9 +2,7 @@ package ma.plantes.backend.service;
 
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Article;
-import ma.plantes.backend.repositories.ArticleImageRepository;
 import ma.plantes.backend.repositories.ArticleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,19 +15,12 @@ import java.util.Optional;
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
-    private final ArticleImageRepository articleImageRepository;
+
 
     // Ajouter un nouvel article
     public Article ajouterArticle(Article article) {
 
         Article a=articleRepository.save(article);
-        a.getImages().forEach(articleImage -> {
-            articleImage.setArticle(a);
-        });
-        articleImageRepository.saveAll(a.getImages());
-
-
-
         return articleRepository.save(a);
     }
 
@@ -48,8 +39,6 @@ public class ArticleService {
     public boolean supprimerArticle(Long id) {
         Optional<Article> article = articleRepository.findById(id);
         if (article.isPresent()) {
-            article.get().getImages().forEach(
-                    articleImage -> articleImageRepository.deleteById(articleImage.getId()));
             articleRepository.deleteById(id);
             return true; // Article supprimé avec succès
         }
@@ -65,4 +54,10 @@ public class ArticleService {
     public Optional<Article> afficherArticleParId(Long id) {
         return articleRepository.findById(id);
     }
+
+    // Retourner le total des éléments
+    public long getTotalCount() {
+        return articleRepository.count();
+    }
+
 }
