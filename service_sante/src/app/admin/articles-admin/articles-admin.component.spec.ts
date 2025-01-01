@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CaractmodalComponent } from './caractmodal.component';
+import { ArticlesAdminComponent } from './articles-admin.component';
 
-describe('CaractmodalComponent', () => {
-  let component: CaractmodalComponent;
-  let fixture: ComponentFixture<CaractmodalComponent>;
+describe('ArticlesAdminComponent', () => {
+  let component: ArticlesAdminComponent;
+  let fixture: ComponentFixture<ArticlesAdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CaractmodalComponent]
+      imports: [ArticlesAdminComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CaractmodalComponent);
+    fixture = TestBed.createComponent(ArticlesAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

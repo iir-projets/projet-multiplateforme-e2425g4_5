@@ -11,7 +11,9 @@ import ma.plantes.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -55,5 +57,19 @@ public class FavorisService {
 
     public List<Favoris> getAllFavoris() {
         return favorisRepository.findAll();
+    }
+
+
+    public Map<Long, Long> getTop5Plantes() {
+        List<Object[]> results = favorisRepository.findTop5PlantesByFavoris();
+        Map<Long, Long> topPlantes = new LinkedHashMap<>();
+
+        for (Object[] result : results) {
+            Long planteId = ((Number) result[0]).longValue();
+            Long count = ((Number) result[1]).longValue();
+            topPlantes.put(planteId, count);
+        }
+
+        return topPlantes;
     }
 }

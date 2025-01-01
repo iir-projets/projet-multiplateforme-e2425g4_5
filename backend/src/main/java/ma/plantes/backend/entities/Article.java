@@ -26,10 +26,8 @@ public class Article {
     @Lob
     private String contenu;
 
-
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
-    @JsonIgnoreProperties("article")
-    private List<ArticleImage> images;
+    @Column(nullable = false)
+    private String image;
 
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, orphanRemoval = true)

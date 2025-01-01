@@ -37,13 +37,13 @@
     padding: 1rem;
   }
   .name{
-    margin-left: 2rem;
+    margin-left: 2.5rem;
   }
   .origin{
-    margin-left: -4rem;
+    margin-left: -7.5rem;
   }
   .caract{
-    margin-right: 5rem;
+    margin-right: 1rem;
   }
   /* Style des cards */
   .card {
@@ -74,3 +74,7 @@
     background-color: #6a8e2300;
     margin-left: -1.2rem;
   }
+ .delete{
+  border: none; 
+  background-color: #e8f5e9;
+ }

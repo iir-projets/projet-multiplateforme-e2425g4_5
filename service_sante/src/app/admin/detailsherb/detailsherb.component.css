@@ -1,0 +1,104 @@
+/* Taille et style général du modal */
+body {
+  width: 100%; /* Largeur fixe élégante */
+  height: auto; /* Hauteur adaptée au contenu */
+  max-height: 90vh; /* Limite la hauteur pour éviter les débordements */
+  overflow-y: auto; /* Ajoute un défilement vertical si le contenu est trop grand */
+  padding: 25px; /* Plus de padding pour un design plus aéré */
+  border-radius: 20px; /* Bordure arrondie pour un effet moderne */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Ombre élégante */
+  background: linear-gradient(145deg, #f5f5f5, #dcdcdc); /* Dégradé doux */
+  border: 1px solid #ccc; /* Légère bordure */
+}
+
+/* Titre centré */
+.modal-title {
+  font-size: 28px; /* Plus grand pour plus d'impact */
+  font-weight: 700; /* Gras pour mettre en valeur */
+  color: #2c3e50; /* Couleur professionnelle */
+  margin-bottom: 20px;
+  margin-top: 2rem;
+  text-align: center;
+  text-transform: uppercase; /* Texte en majuscules */
+  letter-spacing: 1.2px; /* Espacement pour un style plus raffiné */
+}
+
+/* Ajustements responsive */
+@media (max-width: 768px) {
+  mat-dialog-container {
+    width: 90%; /* Largeur réduite sur petits écrans */
+    max-height: 70vh; /* Réduit la hauteur maximale */
+    padding: 20px; /* Ajustement pour économiser l'espace */
+  }
+
+  .modal-title {
+    font-size: 20px; /* Taille réduite pour mobile */
+  }
+}
+
+/* Contenu principal du modal */
+.modal-content {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le contenu horizontalement */
+  text-align: left;
+  font-family: 'Poppins', sans-serif; /* Police moderne */
+  color: #4b4b4b; /* Couleur de texte élégante */
+}
+
+/* Conteneur de l'image */
+.image-container {
+  display: flex;
+  justify-content: center; /* Centrer l'image horizontalement */
+  margin-bottom: 20px; /* Espace entre l'image et le texte */
+}
+
+/* Image (ajustement de la taille) */
+.plant-image {
+  max-width: 50%; /* Empêche l'image de déborder */
+  height: auto; /* Maintient les proportions de l'image */
+  border-radius: 12px; /* Bordure arrondie */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  border: 2px solid #ececec; /* Légère bordure */
+}
+
+/* Détails de la plante */
+.plant-details {
+  font-size: 18px; /* Texte légèrement plus grand */
+  line-height: 1.8; /* Espacement agréable */
+  margin-bottom: 20px;
+  color: #333; /* Couleur de texte sombre et lisible */
+}
+
+/* Actions du modal (boutons) */
+.modal-actions {
+  display: flex;
+  justify-content: space-between; /* Boutons espacés uniformément */
+  gap: 15px;
+  padding-top: 15px;
+}
+
+/* Style des boutons */
+button[mat-button] {
+  margin-top: -2rem;
+  margin-right: -2rem;
+  font-size: 16px; /* Texte plus lisible */
+  padding: 10px 20px; /* Boutons plus grands */
+  color: #ffffff; /* Texte blanc */
+  background-color: #4caf50; /* Vert élégant */
+  border: none;
+  border-radius: 8px; /* Boutons arrondis */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button[mat-button]:hover {
+  
+  background-color: #45a049; /* Couleur légèrement plus sombre au survol */
+  transform: translateY(-2px); /* Effet de levée */
+}
+
+button[mat-button]:active {
+  transform: translateY(1px); /* Effet de clic */
+}

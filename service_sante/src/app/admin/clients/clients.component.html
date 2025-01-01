@@ -1,1 +1,20 @@
-<p>clients works!</p>
+<div class="scrollable-container">
+    <!-- En-têtes -->
+    <div class="table-headers">
+      <div style="margin-left: -2.5rem !important">First Name</div>
+      <div style="margin-left: -5rem !important">Last Name</div>
+      <div style="margin-left: 5.7rem !important">Phone Number</div>
+      <div style="margin-right: 5rem !important">Username</div>
+    </div>
+    
+    <!-- Conteneur scrollable -->
+    <div class="cards-container">
+      <div class="card" *ngFor="let client of clients">
+        <div class="name">{{client.firstName}} </div>
+        <div class="phone">{{client.lastName}}</div>
+        <div class="phone">{{client.phoneNumber}}</div>
+        <div class="phone">{{client.username}}</div>
+      </div>
+    </div>
+  </div>
+  

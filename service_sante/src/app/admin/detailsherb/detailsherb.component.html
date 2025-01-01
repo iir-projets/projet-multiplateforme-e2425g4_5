@@ -1,0 +1,22 @@
+<div *ngIf="plante">
+  <h2 mat-dialog-title >{{ plante.nom }}</h2>
+  <div class="modal-content">
+    <div class="image-container">
+      <img [src]="plante.image" alt="{{ plante.nom }}" class="plant-image" />
+    </div>
+    <div class="plant-details">
+      <p><strong>Origin :</strong> {{ plante.region }}</p>
+      <p><strong>Precautions :</strong> {{ plante.precaution }}</p>
+      <p><strong>Interactions :</strong> {{ plante.interaction }}</p>
+      <p><strong>Properties :</strong>
+        <span *ngFor="let prop of plante.proprietes">
+          {{ prop.nom }},
+        </span>
+      </p>
+      <p><strong>Description :</strong> {{ plante.description }}</p>
+    </div>
+  </div>
+  <div class="modal-actions">
+    <button mat-button (click)="close()">Close</button>
+  </div>
+</div>
