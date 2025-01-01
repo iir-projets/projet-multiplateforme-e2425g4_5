@@ -1,10 +1,14 @@
 /// herbs page
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:herbs_flutter/data/herbs.dart';
+import 'package:herbs_flutter/data/users.dart';
 import 'package:herbs_flutter/pages/base_layout.dart';
 import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
 import 'package:herbs_flutter/pages/herbs/herb_card.dart';
 import 'package:herbs_flutter/pages/herbs/herb_detail.dart';
+import 'package:herbs_flutter/services/user_service.dart';
 
 class HerbsPage extends StatefulWidget {
   const HerbsPage({super.key});
@@ -15,159 +19,97 @@ class HerbsPage extends StatefulWidget {
 
 class _HerbsPageState extends State<HerbsPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<Map<String, dynamic>> filteredHerbs = _HerbsPageState.herbs;
+  List<Herbs> filteredHerbs = [];
+  late Users user;
+  bool _isUserInitialized = false;
+  FirebaseFirestore db = FirebaseFirestore.instance;
+  late List<Herbs> herbsDB;
 
-  static List<Map<String, dynamic>> herbs = [
-    {
-      'id': 1,
-      'title': 'Chamomile: Nature\'s Calming Herb',
-      'imageUrl': 'https://images.pexels.com/photos/699964/pexels-photo-699964.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'content': [
-        {
-          'title': 'The Origins of Chamomile',
-          'text': 'Chamomile has been used for centuries as a natural remedy. It originates from the daisy family and is known for its apple-like scent. Ancient Egyptians dedicated chamomile to their sun god and valued it above all other herbs for its healing qualities.'
-        },
-        {
-          'title': 'Health Benefits',
-          'text': 'Chamomile is renowned for its calming effects and ability to reduce anxiety and promote sleep. It\'s also known to aid digestion, reduce inflammation, and boost immune health. Some studies suggest it may even have anti-cancer properties.'
-        }
-      ],
-      'comments': [
-        {'user': 'HerbLover', 'text': 'I love chamomile tea before bed. It really helps me relax!'},
-        {'user': 'SleepyHead', 'text': 'Great article! I didn\'t know chamomile had so many benefits.'},
-        {'user': 'NaturalHealer', 'text': 'Chamomile is my go-to herb for stress relief. Highly recommend!'},
-      ],
-      'saved': true
-    },
-    {
-      'id': 2,
-      'title': 'Rosemary: The Herb of Remembrance',
-      'imageUrl': 'assets/rosemary.jpg',
-      'content': [
-        {
-          'title': 'A Brief History',
-          'text': 'Rosemary has been used since ancient times for its medicinal properties. It was often used in wedding ceremonies to symbolize love and loyalty. The herb was also believed to improve memory, leading to its nickname "the herb of remembrance".'
-        },
-        {
-          'title': 'Culinary and Medicinal Uses',
-          'text': 'In cooking, rosemary adds a delightful flavor to many dishes, especially roasted meats and vegetables. Medicinally, it\'s believed to improve digestion, enhance memory and concentration, and relieve muscle pain and spasms.'
-        }
-      ],
-      'comments': [
-        {'user': 'ChefJohn', 'text': 'Rosemary is a staple in my kitchen. It adds such a wonderful flavor to roasted potatoes!'},
-        {'user': 'GardenGuru', 'text': 'I grow rosemary in my herb garden. It\'s so easy to maintain and smells amazing.'},
-        {'user': 'MemoryMaster', 'text': 'Interesting to learn about rosemary\'s connection to memory. I\'ll have to try it out!'},
-      ],
-      'saved': false
-    },
-    {
-      'id': 3,
-      'title': 'Chamomile: Nature\'s Calming Herb',
-      'imageUrl': 'assets/camomille.jpg',
-      'content': [
-        {
-          'title': 'The Origins of Chamomile',
-          'text': 'Chamomile has been used for centuries as a natural remedy. It originates from the daisy family and is known for its apple-like scent. Ancient Egyptians dedicated chamomile to their sun god and valued it above all other herbs for its healing qualities.'
-        },
-        {
-          'title': 'Health Benefits',
-          'text': 'Chamomile is renowned for its calming effects and ability to reduce anxiety and promote sleep. It\'s also known to aid digestion, reduce inflammation, and boost immune health. Some studies suggest it may even have anti-cancer properties.'
-        }
-      ],
-      'comments': [
-        {'user': 'HerbLover', 'text': 'I love chamomile tea before bed. It really helps me relax!'},
-        {'user': 'SleepyHead', 'text': 'Great article! I didn\'t know chamomile had so many benefits.'},
-        {'user': 'NaturalHealer', 'text': 'Chamomile is my go-to herb for stress relief. Highly recommend!'},
-      ],
-      'saved': true
-    },
-    {
-      'id': 4,
-      'title': 'Rosemary: The Herb of Remembrance',
-      'imageUrl': 'assets/rosemary.jpg',
-      'content': [
-        {
-          'title': 'A Brief History',
-          'text': 'Rosemary has been used since ancient times for its medicinal properties. It was often used in wedding ceremonies to symbolize love and loyalty. The herb was also believed to improve memory, leading to its nickname "the herb of remembrance".'
-        },
-        {
-          'title': 'Culinary and Medicinal Uses',
-          'text': 'In cooking, rosemary adds a delightful flavor to many dishes, especially roasted meats and vegetables. Medicinally, it\'s believed to improve digestion, enhance memory and concentration, and relieve muscle pain and spasms.'
-        }
-      ],
-      'comments': [
-        {'user': 'ChefJohn', 'text': 'Rosemary is a staple in my kitchen. It adds such a wonderful flavor to roasted potatoes!'},
-        {'user': 'GardenGuru', 'text': 'I grow rosemary in my herb garden. It\'s so easy to maintain and smells amazing.'},
-        {'user': 'MemoryMaster', 'text': 'Interesting to learn about rosemary\'s connection to memory. I\'ll have to try it out!'},
-      ],
-      'saved': false
-    },
-    {
-      'id': 5,
-      'title': 'Chamomile: Nature\'s Calming Herb',
-      'imageUrl': 'https://images.pexels.com/photos/1171815/pexels-photo-1171815.jpeg?auto=compress&cs=tinysrgb&w=400',
-      'content': [
-        {
-          'title': 'The Origins of Chamomile',
-          'text': 'Chamomile has been used for centuries as a natural remedy. It originates from the daisy family and is known for its apple-like scent. Ancient Egyptians dedicated chamomile to their sun god and valued it above all other herbs for its healing qualities.'
-        },
-        {
-          'title': 'Health Benefits',
-          'text': 'Chamomile is renowned for its calming effects and ability to reduce anxiety and promote sleep. It\'s also known to aid digestion, reduce inflammation, and boost immune health. Some studies suggest it may even have anti-cancer properties.'
-        }
-      ],
-      'comments': [
-        {'user': 'HerbLover', 'text': 'I love chamomile tea before bed. It really helps me relax!'},
-        {'user': 'SleepyHead', 'text': 'Great article! I didn\'t know chamomile had so many benefits.'},
-        {'user': 'NaturalHealer', 'text': 'Chamomile is my go-to herb for stress relief. Highly recommend!'},
-      ],
-      'saved': true
-    },
-    {
-      'id': 6,
-      'title': 'Rosemary: The Herb of Remembrance',
-      'imageUrl': 'assets/rosemary.jpg',
-      'content': [
-        {
-          'title': 'A Brief History',
-          'text': 'Rosemary has been used since ancient times for its medicinal properties. It was often used in wedding ceremonies to symbolize love and loyalty. The herb was also believed to improve memory, leading to its nickname "the herb of remembrance".'
-        },
-        {
-          'title': 'Culinary and Medicinal Uses',
-          'text': 'In cooking, rosemary adds a delightful flavor to many dishes, especially roasted meats and vegetables. Medicinally, it\'s believed to improve digestion, enhance memory and concentration, and relieve muscle pain and spasms.'
-        }
-      ],
-      'comments': [
-        {'user': 'ChefJohn', 'text': 'Rosemary is a staple in my kitchen. It adds such a wonderful flavor to roasted potatoes!'},
-        {'user': 'GardenGuru', 'text': 'I grow rosemary in my herb garden. It\'s so easy to maintain and smells amazing.'},
-        {'user': 'MemoryMaster', 'text': 'Interesting to learn about rosemary\'s connection to memory. I\'ll have to try it out!'},
-      ],
-      'saved': false
-    },
-  ];
-
-
+  
   @override
   void initState() {
     super.initState();
-    // Initialize with all articles
-    filteredHerbs = _HerbsPageState.herbs;
+    _initializeUser();
+    // Initialize with all herbs
+    _initializeHerbs();
+    
+    
   }
 
   void _filterHerbs(String query) {
     setState(() {
-      filteredHerbs = _HerbsPageState.herbs.where((herb) {
-        final title = herb['title'].toLowerCase();
-        final description = herb['content'][0]['text'].toLowerCase();
-        return title.contains(query.toLowerCase()) ||
+      filteredHerbs = herbsDB.where((herb) {
+        final name = herb.name.toLowerCase();
+        final description = herb.description.toLowerCase();
+        return name.contains(query.toLowerCase()) ||
             description.contains(query.toLowerCase());
       }).toList();
     });
   }
+
+  void _initializeUser() async{
+    final UserService user_service = UserService();
+
+    final userData = await user_service.fetchUserData();
+    try{
+
+    
+      setState(() {
+        user = Users(
+          email: userData.data()['email']??'',
+          firstName: userData.data()['firstName']??'',
+          lastName: userData.data()['lastName']??'',
+          mobile: userData.data()['mobile']??'',
+          address: userData.data()['address']??'',
+          password: userData.data()['password']??'',
+          savedArticles: userData.data()['savedArticles']??'',
+          favoredHerbs: userData.data()['favoredHerbs']??'',
+          deseases: userData.data()['deseases']??'',
+          allergies: userData.data()['allergies']??'',
+          medicines: userData.data()['medicines']??'',
+        );
+        _isUserInitialized = true;
+      });// Initialize user data
+    }catch(e){
+      print('Error fetching user: $e');
+    }
+  }
   
+
+  void _initializeHerbs() async{
+    final querySnapshot = await db.collection('herbs').get();
+
+    setState(() {
+      herbsDB = querySnapshot.docs.map((doc) {
+        final data = doc.data();
+        return Herbs(
+          id: doc.id,
+          name: data['name'],
+          imageUrl: data['imageUrl'],
+          properties: data['properties'],
+          precautions: data['precautions'],
+          description: data['description'],
+          usage: data['usage'],
+          healthBenefits: data['healthBenefits'],
+          origins: data['origins'],
+
+        );
+      }).toList();
+    });
+    filteredHerbs = herbsDB;// Initialize filtered list
+    if(herbsDB.isEmpty) {
+      print('No herbs found');
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
+    if (!_isUserInitialized) {
+      return const Center(
+        child: CircularProgressIndicator(), // Show loading spinner
+      );
+    }
     return BaseLayout(
       currentIndex: 2,
       child: Stack(
@@ -241,29 +183,32 @@ class _HerbsPageState extends State<HerbsPage> {
                 itemBuilder: (context, index) {
                   final herb = filteredHerbs[index];
                   return HerbCard(
-                    title: herb['title'],
-                    description: herb['content'][0]['text'],
-                    imageUrl: herb['imageUrl'],
-                    saved: herb['saved'],
+                    name: herb.name,
+                    imageUrl: herb.imageUrl,
+                    saved: user.favoredHerbs.isEmpty?false:user.favoredHerbs.contains(herb.id),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => HerbDetailPage(
-                            title: herb['title'],
-                            imageUrl: herb['imageUrl'],
-                            content: herb['content'],
-                            comments: herb['comments'],
-                            saved: herb['saved'],
+                            name: herb.name,
+                            imageUrl: herb.imageUrl,
+                            properties: herb.properties,
+                            precautions: herb.precautions,
+                            description: herb.description,
+                            usage: herb.usage,
+                            healthBenefits: herb.healthBenefits,
+                            origins: herb.origins,
+                            saved: user.favoredHerbs.isEmpty?false:user.favoredHerbs.contains(herb.id),
                             onSaveToggle: () {
                               setState(() {
                                 // Toggle saved status
                                 if (index != -1) {
-                                  herbs[index]['saved'] = !herbs[index]['saved'];
-                                  // Also update the filteredherbs if necessary
-                                  final filteredIndex = filteredHerbs.indexWhere((herb) => herb['id'] == herbs[index]['id']);
-                                  if (filteredIndex != -1) {
-                                    filteredHerbs[filteredIndex]['saved'] = herbs[index]['saved'];
+                                  
+                                  if (user.favoredHerbs.contains(herb.id)) {
+                                    user.favoredHerbs.remove(herb.id);
+                                  } else {
+                                    user.favoredHerbs.add(herb.id);
                                   }
                                 }
                               });
@@ -276,11 +221,10 @@ class _HerbsPageState extends State<HerbsPage> {
                       setState(() {
                         // Toggle saved status
                         if (index != -1) {
-                          herbs[index]['saved'] = !herbs[index]['saved'];
-                          // Also update the filteredherbs if necessary
-                          final filteredIndex = filteredHerbs.indexWhere((herb) => herb['id'] == herbs[index]['id']);
-                          if (filteredIndex != -1) {
-                            filteredHerbs[filteredIndex]['saved'] = herbs[index]['saved'];
+                          if (user.favoredHerbs.contains(herb.id)) {
+                            user.favoredHerbs.remove(herb.id);
+                          } else {
+                            user.favoredHerbs.add(herb.id);
                           }
                         }
 

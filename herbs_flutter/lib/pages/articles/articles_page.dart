@@ -1,11 +1,15 @@
 /// articles page
-
+/// 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:herbs_flutter/data/articles.dart';
+import 'package:herbs_flutter/data/users.dart';
 import 'package:herbs_flutter/pages/articles/article_card.dart';
 import 'package:herbs_flutter/pages/articles/article_details.dart';
 import 'package:herbs_flutter/pages/articles/article_saved.dart';
 import 'package:herbs_flutter/pages/base_layout.dart';
 import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
+import 'package:herbs_flutter/services/user_service.dart';
 
 class ArticlesPage extends StatefulWidget {
   const ArticlesPage({super.key});
@@ -16,9 +20,13 @@ class ArticlesPage extends StatefulWidget {
 
 class _ArticlesPageState extends State<ArticlesPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<Map<String, dynamic>> filteredArticles = _ArticlesPageState.articles;
-
-  static List<Map<String, dynamic>> articles = [
+  
+  List<Articles> filteredArticles = [];
+  FirebaseFirestore db = FirebaseFirestore.instance;
+  late List<Articles> articlesDB;
+  late Users user;
+  bool _isUserInitialized = false;
+  /*static List<Map<String, dynamic>> articles = [
     {
       'id': 1,
       'title': 'Chamomile: Nature\'s Calming Herb',
@@ -145,21 +153,76 @@ class _ArticlesPageState extends State<ArticlesPage> {
       ],
       'saved': false
     },
-  ];
-
+  ];*/
 
   @override
   void initState() {
     super.initState();
-    // Initialize with all articles
-    filteredArticles = _ArticlesPageState.articles;
+    _initializeArticles();
+    _initializeUser();
   }
+
+  void _initializeArticles() async{
+    final querySnapshot = await db.collection('articles').get();
+
+  setState(() {
+    articlesDB = querySnapshot.docs.map((doc) {
+      final data = doc.data();
+      return Articles(
+        id: doc.id,
+        title: data['title'],
+        imageUrl: data['imageUrl'],
+        content: (data['content'] as List<dynamic>)
+            .map((e) => Content(title: e['title'], text: e['text']))
+            .toList(),
+        comments: (data['comments'] as List<dynamic>)
+            .map((e) => Comments(user: e['user'], text: e['text']))
+            .toList(),
+      );
+    }).toList();
+  });
+  filteredArticles = articlesDB;// Initialize filtered list
+  if(articlesDB.isEmpty) {
+    print('No articles found');
+  }
+}
+
+void _initializeUser() async{
+    final UserService user_service = UserService();
+
+  final userData = await user_service.fetchUserData();
+  try{
+
+  
+    setState(() {
+      user = Users(
+        email: userData.data()['email']??'',
+        firstName: userData.data()['firstName']??'',
+        lastName: userData.data()['lastName']??'',
+        mobile: userData.data()['mobile']??'',
+        address: userData.data()['address']??'',
+        password: userData.data()['password']??'',
+        savedArticles: userData.data()['savedArticles']??'',
+        favoredHerbs: userData.data()['favoredHerbs']??'',
+        deseases: userData.data()['deseases']??'',
+        allergies: userData.data()['allergies']??'',
+        medicines: userData.data()['medicines']??'',
+      );
+      _isUserInitialized = true;
+    });// Initialize user data
+  }catch(e){
+    print('Error fetching user: $e');
+  }
+}
+
+
+
 
   void _filterArticles(String query) {
     setState(() {
-      filteredArticles = _ArticlesPageState.articles.where((article) {
-        final title = article['title'].toLowerCase();
-        final description = article['content'][0]['text'].toLowerCase();
+      filteredArticles = articlesDB.where((article) {
+        final title = article.title.toLowerCase();
+        final description = article.content[0].text.toLowerCase();
         return title.contains(query.toLowerCase()) ||
             description.contains(query.toLowerCase());
       }).toList();
@@ -169,6 +232,11 @@ class _ArticlesPageState extends State<ArticlesPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_isUserInitialized) {
+      return const Center(
+        child: CircularProgressIndicator(), // Show loading spinner
+      );
+    }
     return BaseLayout(
       currentIndex: 1,
       child: Stack(
@@ -227,8 +295,8 @@ class _ArticlesPageState extends State<ArticlesPage> {
                             color: Color(0xFF90A955),
                             iconSize: 40,
                             onPressed: () {
-                              final savedArticles = _ArticlesPageState.articles
-                                  .where((article) => article['saved'] == true)
+                              final savedArticles = articlesDB
+                                  .where((article) => user.savedArticles.contains(article.id))
                                   .toList();
                               Navigator.push(
                                 context,
@@ -238,14 +306,10 @@ class _ArticlesPageState extends State<ArticlesPage> {
                                     onSaveToggle: (articleId) {
                                     setState(() {
                                       // Toggle saved status
-                                      final articleIndex = articles.indexWhere((article) => article['id'] == articleId);
+                                      final articleIndex = articlesDB.indexWhere((article) => article.id == articleId);
                                       if (articleIndex != -1) {
-                                        articles[articleIndex]['saved'] = !articles[articleIndex]['saved'];
-                                        // Also update the filteredArticles if necessary
-                                        final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articleId);
-                                        if (filteredIndex != -1) {
-                                          filteredArticles[filteredIndex]['saved'] = articles[articleIndex]['saved'];
-                                        }
+                                        user.savedArticles.removeAt(articleIndex);
+                                        
                                       }
                                     });
                                   },
@@ -268,29 +332,34 @@ class _ArticlesPageState extends State<ArticlesPage> {
                   itemBuilder: (context, index) {
                     final article = filteredArticles[index];
                     return ArticleCard(
-                      title: article['title'],
-                      description: article['content'][0]['text'],
-                      imageUrl: article['imageUrl'],
-                      saved: article['saved'],
+                      title: article.title,
+                      description: article.content[0].text,
+                      imageUrl: article.imageUrl,
+                      saved: user.savedArticles.contains(article.id),
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ArticleDetailPage(
-                              title: article['title'],
-                              imageUrl: article['imageUrl'],
-                              content: article['content'],
-                              comments: article['comments'],
-                              saved: article['saved'],
+                              title: article.title,
+                              imageUrl: article.imageUrl,
+                              content: article.content.map((content) => {
+                                'title': content.title,
+                                'text': content.text,
+                              }).toList(),
+                              comments: article.comments.map((comment) => {
+                                'user': comment.user,
+                                'text': comment.text,
+                              }).toList(),
+                              saved: user.savedArticles.contains(article.id),
                               onSaveToggle: () {
                                 setState(() {
                                   // Toggle saved status
                                   if (index != -1) {
-                                    articles[index]['saved'] = !articles[index]['saved'];
-                                    // Also update the filteredArticles if necessary
-                                    final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articles[index]['id']);
-                                    if (filteredIndex != -1) {
-                                      filteredArticles[filteredIndex]['saved'] = articles[index]['saved'];
+                                    if (user.savedArticles.contains(article.id)) {
+                                      user.savedArticles.remove(article.id);
+                                    } else {
+                                      user.savedArticles.add(article.id);
                                     }
                                   }
                                 });
@@ -303,11 +372,10 @@ class _ArticlesPageState extends State<ArticlesPage> {
                         setState(() {
                           // Toggle saved status
                           if (index != -1) {
-                            articles[index]['saved'] = !articles[index]['saved'];
-                            // Also update the filteredArticles if necessary
-                            final filteredIndex = filteredArticles.indexWhere((article) => article['id'] == articles[index]['id']);
-                            if (filteredIndex != -1) {
-                              filteredArticles[filteredIndex]['saved'] = articles[index]['saved'];
+                            if (user.savedArticles.contains(article.id)) {
+                              user.savedArticles.remove(article.id);
+                            } else {
+                              user.savedArticles.add(article.id);
                             }
                           }
 
