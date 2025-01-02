@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AddarticleComponent } from '../addarticle/addarticle.component';
 import { MatDialog } from '@angular/material/dialog';  // Import MatDialog
+import { DetailsArticlesComponent } from '../details-articles/details-articles.component';
+import { EditArticleComponent } from '../edit-article/edit-article.component';
 
 
 @Component({
@@ -49,11 +51,37 @@ export class ArticlesAdminComponent implements OnInit {
 
   // Méthode pour afficher l'article complet lorsqu'on clique sur une carte
   selectArticle(article: Article): void {
-    this.selectedArticle = article;
+    this.dialog.open(DetailsArticlesComponent, {
+      data: article,
+      width: '600px',
+    });
   }
 
-  // Méthode pour réinitialiser la sélection de l'article
-  closeArticle(): void {
-    this.selectedArticle = null;
+  updateArticle(article: Article): void {
+      const dialogRef = this.dialog.open(EditArticleComponent, {
+        data: { article },
+        width: '600px',
+      });
+    
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          console.log('Plante mise à jour:', result);
+          this.loadArticles(); // Rechargez la liste des plantes après mise à jour
+        }
+      });
+    }
+
+
+  deleteArticle(id: number): void {
+    this.articleService.deleteArticle(id).subscribe({
+      next: () => {
+        console.log('Article supprimé avec succès');
+        this.loadArticles(); // Rechargez la liste
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression :', err);
+      },
+    });
   }
+ 
 }

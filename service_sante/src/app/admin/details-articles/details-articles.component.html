@@ -1,0 +1,16 @@
+<div *ngIf="article" class="container">
+    <h2 mat-dialog-title>  <strong>{{ article.titre }}</strong> </h2>
+    <div class="modal-content">
+        <div class="image-container">
+          <img [src]="article.image" alt="{{ article.image }}" class="article-image" />
+        </div>
+        <div class="article-details">
+            <p> {{ article.contenu }}</p>
+
+        </div>
+    <div class="modal-actions">
+    <button mat-button class="button" (click)="close()">Close</button>
+    </div>
+</div>
+
+
