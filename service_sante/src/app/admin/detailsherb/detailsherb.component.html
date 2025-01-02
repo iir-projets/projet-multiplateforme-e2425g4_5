@@ -1,4 +1,4 @@
-<div *ngIf="plante">
+<div *ngIf="plante" class="container">
   <h2 mat-dialog-title >{{ plante.nom }}</h2>
   <div class="modal-content">
     <div class="image-container">
@@ -17,6 +17,6 @@
     </div>
   </div>
   <div class="modal-actions">
-    <button mat-button (click)="close()">Close</button>
+    <button mat-button class="button" (click)="close()">Close</button>
   </div>
 </div>

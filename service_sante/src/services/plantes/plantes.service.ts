@@ -55,6 +55,11 @@ export class PlantesService {
     return this.http.post<Plante>(`${this.apiUrl}/admin/plantes`,plante,this.getHttpOptions());
   }
 
+  
+  updateHerb(plante: Plante): Observable<Plante> {
+    return this.http.put<Plante>(`${this.apiUrl}/admin/plantes/${plante.id}`, plante, this.getHttpOptions());
+  }
+  
   deleteHerb(id: number): Observable<void> {  // Changez ici pour passer un ID
       return this.http.delete<void>(`${this.apiUrl}/admin/plantes/${id}`,this.getHttpOptions());
   }

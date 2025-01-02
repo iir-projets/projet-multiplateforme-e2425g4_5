@@ -7,7 +7,7 @@
     <div *ngFor="let article of articles" class="article-card" (click)="selectArticle(article)">
       <!-- Section de l'image -->
       <div class="article-image-wrapper">
-        <img *ngIf="article.images.length > 0" [src]="article.images[0].imageUrl" alt="Image de l'article" class="article-image" />
+        <img *ngIf="article.image.length > 0" [src]="article.image" alt="Image de l'article" class="article-image" />
       </div>
       <!-- Section du contenu -->
       <div class="article-content">
@@ -24,7 +24,7 @@
     <h2>{{ selectedArticle.titre }}</h2>
     <div style="display: flex; gap: 2rem;">
       <section class="image" style="width: 30%;" >
-        <img *ngIf="selectedArticle.images.length > 0" [src]="selectedArticle.images[0].imageUrl" alt="Image de l'article" class="article-image" />
+        <img *ngIf="selectedArticle.image.length > 0" [src]="selectedArticle.image" alt="Image de l'article" class="article-image" />
       </section>
     <section style="width: 70%;">
       <p>{{ selectedArticle.contenu }}</p> <!-- Contenu complet -->

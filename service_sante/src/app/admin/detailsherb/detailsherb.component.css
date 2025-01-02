@@ -11,13 +11,16 @@ body {
   border: 1px solid #ccc; /* Légère bordure */
 }
 
+
+
+
 /* Titre centré */
-.modal-title {
+h2 {
   font-size: 28px; /* Plus grand pour plus d'impact */
   font-weight: 700; /* Gras pour mettre en valeur */
-  color: #2c3e50; /* Couleur professionnelle */
+  color: #5f801f; /* Couleur professionnelle */
   margin-bottom: 20px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
   text-transform: uppercase; /* Texte en majuscules */
   letter-spacing: 1.2px; /* Espacement pour un style plus raffiné */
@@ -50,14 +53,15 @@ body {
 /* Conteneur de l'image */
 .image-container {
   display: flex;
+  height: 28rem;
+  width: 30rem;
   justify-content: center; /* Centrer l'image horizontalement */
-  margin-bottom: 20px; /* Espace entre l'image et le texte */
 }
 
 /* Image (ajustement de la taille) */
 .plant-image {
   max-width: 50%; /* Empêche l'image de déborder */
-  height: auto; /* Maintient les proportions de l'image */
+  height: 50%; /* Maintient les proportions de l'image */
   border-radius: 12px; /* Bordure arrondie */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
   border: 2px solid #ececec; /* Légère bordure */
@@ -65,40 +69,33 @@ body {
 
 /* Détails de la plante */
 .plant-details {
+  margin-top: -13.5rem;
+  margin-right: 0.5rem;
   font-size: 18px; /* Texte légèrement plus grand */
   line-height: 1.8; /* Espacement agréable */
-  margin-bottom: 20px;
+  margin-bottom: 9px;
   color: #333; /* Couleur de texte sombre et lisible */
 }
 
-/* Actions du modal (boutons) */
-.modal-actions {
-  display: flex;
-  justify-content: space-between; /* Boutons espacés uniformément */
-  gap: 15px;
-  padding-top: 15px;
-}
+
+
 
 /* Style des boutons */
 button[mat-button] {
-  margin-top: -2rem;
-  margin-right: -2rem;
+  margin-top: -0.5rem;
+  margin-left: 25rem;
   font-size: 16px; /* Texte plus lisible */
   padding: 10px 20px; /* Boutons plus grands */
-  color: #ffffff; /* Texte blanc */
-  background-color: #4caf50; /* Vert élégant */
+  color: black; /* Texte blanc */
+  background-color: #e7cccc; /* Vert élégant */
   border: none;
   border-radius: 8px; /* Boutons arrondis */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-button[mat-button]:hover {
-  
-  background-color: #45a049; /* Couleur légèrement plus sombre au survol */
-  transform: translateY(-2px); /* Effet de levée */
+/* Hover effect */
+.button:hover {
+  background-color: #d2a1a1; /* Change la couleur de fond au survol */
 }
 
-button[mat-button]:active {
-  transform: translateY(1px); /* Effet de clic */
-}
+
