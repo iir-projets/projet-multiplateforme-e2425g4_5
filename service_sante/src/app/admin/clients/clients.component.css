@@ -36,14 +36,17 @@
   flex-direction: column;
   padding: 1rem;
 }
-.name{
-  margin-left: 2.5rem;
+.firstname{
+  margin-left: 3rem;
 }
-.origin{
-  margin-left: -7.5rem;
+.lastname{
+  margin-left: -6rem;
 }
-.caract{
-  margin-right: 1rem;
+.phone{
+  margin-left: -5rem;
+}
+.email{
+  margin-left: rem;
 }
 /* Style des cards */
 .card {

@@ -13,19 +13,20 @@ export interface User {
   username: string;
 }
 
-export interface CreateArticle {
-  titre: string;
-  contenu: string;
-  images: { id: number; imageUrl: string }[];
-}
-
-
 export interface Article {
   id: number;
   titre: string;
   contenu: string;
-  images: { id: number; imageUrl: string }[];
+  image: string;
   commentaires: Commentaire[];
+}
+
+export interface CreateArticle {
+  id?: number;
+  titre: string;
+  contenu: string;
+  image: string;
+
 }
 
 @Injectable({

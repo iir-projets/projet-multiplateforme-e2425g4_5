@@ -1,19 +1,19 @@
 <div class="scrollable-container">
     <!-- En-têtes -->
     <div class="table-headers">
-      <div style="margin-left: -2.5rem !important">First Name</div>
+      <div style="margin-left: -2.4rem !important">First Name</div>
       <div style="margin-left: -5rem !important">Last Name</div>
-      <div style="margin-left: 5.7rem !important">Phone Number</div>
-      <div style="margin-right: 5rem !important">Username</div>
+      <div style="margin-left: -2rem !important">Phone Number</div>
+      <div style="margin-right: 8rem !important">Username</div>
     </div>
     
     <!-- Conteneur scrollable -->
     <div class="cards-container">
       <div class="card" *ngFor="let client of clients">
-        <div class="name">{{client.firstName}} </div>
-        <div class="phone">{{client.lastName}}</div>
+        <div class="firstname">{{client.firstName}} </div>
+        <div class="lastname">{{client.lastName}}</div>
         <div class="phone">{{client.phoneNumber}}</div>
-        <div class="phone">{{client.username}}</div>
+        <div class="email">{{client.username}}</div>
       </div>
     </div>
   </div>

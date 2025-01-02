@@ -3,13 +3,15 @@ import { DetailsherbComponent } from '../detailsherb/detailsherb.component';
 import { MatDialog } from '@angular/material/dialog'; 
 import { Plante, PlantesService } from '../../../services/plantes/plantes.service';
 import { CommonModule } from '@angular/common';
+import { EditHerbComponent } from '../edit-herb/edit-herb.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-cardherb',
   standalone: true, 
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './cardherb.component.html',
   styleUrl: './cardherb.component.css'
 })
@@ -27,7 +29,7 @@ export class CardherbComponent {
   loadPlantes(): void {
     this.planteService.getAll().subscribe(
       data => {
-        console.log('Ambulances reçues:', data); // Vérifier la structure des données
+        console.log('Plantes reçues:', data); // Vérifier la structure des données
         this.herbs = data;
         this.isLoading = false;
       },
@@ -38,7 +40,23 @@ export class CardherbComponent {
     );
   }
 
-  // Suppression d'une ambulance
+  // Modification d'une plante
+
+  editPlante(plante: Plante): void {
+    const dialogRef = this.dialog.open(EditHerbComponent, {
+      data: { plante },
+      width: '600px',
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('Plante mise à jour:', result);
+        this.loadPlantes(); // Rechargez la liste des plantes après mise à jour
+      }
+    });
+  }
+
+  // Suppression d'une plante
   deletePlantes(id: number): void {
     this.planteService.deleteHerb(id).subscribe({
       next: () => {
