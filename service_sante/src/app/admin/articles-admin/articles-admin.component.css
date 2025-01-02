@@ -88,3 +88,19 @@
 .loading {
   text-align: center;
 }
+
+.card-actions {
+  position: absolute; /* Positionnement absolu par rapport à la carte */
+  top: 10px; /* Espace en haut */
+  right: 10px; /* Espace à droite */
+  display: flex; /* Affichage des boutons en ligne */
+  gap: 8px; /* Espacement entre les boutons */
+  z-index: 10; /* Assure que les boutons sont au-dessus des autres éléments */
+}
+
+.card-actions button.mat-icon-button {
+  background-color: transparent !important; /* Supprime la couleur de fond */
+  border: none !important; /* Supprime la bordure */
+  box-shadow: none !important; /* Supprime les ombres */
+  padding: 0; /* Réduit l'espacement */
+}
