@@ -28,7 +28,7 @@ export class PlantesService {
   constructor(private http: HttpClient) {}
 
   getPlantes(): Observable<Plante[]> {
-    return this.http.get<Plante[]>(this.apiUrl,this.getHttpOptions());
+    return this.http.get<Plante[]>(`${this.apiUrl}/plantes/`,this.getHttpOptions());
   }
  
 

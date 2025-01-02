@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 
 class HerbDetailPage extends StatefulWidget {
-  final String title;
+  final String name;
   final String imageUrl;
+  final String description;
+  final List<dynamic> precautions;
   final bool saved;
-  final List<Map<String, String>> content;
-  final List<Map<String, String>> comments;
+  final List<dynamic> properties;
+  final List<dynamic> usage;
+  final List<dynamic> healthBenefits;
+  final String origins;
   final VoidCallback onSaveToggle;
 
   const HerbDetailPage({
     super.key,
-    required this.title,
+    required this.name,
+    required this.description,
     required this.imageUrl,
-    required this.content,
-    required this.comments,
+    required this.precautions,
     required this.saved,
+    required this.properties,
+    required this.usage,
+    required this.healthBenefits,
+    required this.origins,
     required this.onSaveToggle,
   });
 
@@ -24,7 +32,6 @@ class HerbDetailPage extends StatefulWidget {
 
 class _HerbDetailPageState extends State<HerbDetailPage>{
 
-  final TextEditingController _commentController = TextEditingController();
   late bool isSaved;
   @override
   void initState() {
@@ -33,18 +40,7 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
   }
   
 
-  void _addComment() {
-    if (_commentController.text.isNotEmpty) {
-      setState(() {
-        
-        widget.comments.add({
-          'user': 'You', // You can replace this with the actual user name
-          'text': _commentController.text,
-        });
-        _commentController.clear(); // Clear the input field
-      });
-    }
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +54,13 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                widget.title,
+                widget.name,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                 ),
               ),
-              background: Image.asset(
+              background: Image.network(
                 widget.imageUrl,
                 fit: BoxFit.cover,
               ),
@@ -98,25 +94,92 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var section in widget.content)
+                  const SizedBox(height: 16),
+                  Text(
+                    widget.description,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                      fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Origins',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    widget.origins,
+                    style: const TextStyle(fontSize: 16),
+                    ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Properties',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  for (var section in widget.properties)
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        
                         Text(
-                          section['title'] ?? '',
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          section['text'] ?? '',
+                          '- ${section}',
                           style: const TextStyle(fontSize: 16),
                         ),
-                        const SizedBox(height: 16),
+                        
                       ],
                     ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Usages',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  for (var section in widget.usage)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        
+                        Text(
+                          '- ${section}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        
+                      ],
+                    ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Health Benefits',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  for (var section in widget.healthBenefits)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        
+                        Text(
+                          '- ${section}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        
+                      ],
+                    ),
+
+                  
                 ],
               ),
             ),
@@ -144,7 +207,7 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
                     const Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Text(
-                        'Comments',
+                        'Precautions',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -152,14 +215,12 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
                       ),
                     ),
                     SizedBox(
-                      height: 300, // Fixed height for the comments box
-                      child: ListView.builder(
-                        padding: const EdgeInsets.all(16),
-                        itemCount: widget.comments.length, // Use actual comments count
-                        itemBuilder: (context, index) {
-                          final comment = widget.comments[index];
-                          return Container(
-                            margin: const EdgeInsets.only(bottom: 16),
+                      height: 200, // Fixed height for the comments box
+                      child:
+                       
+                       Container(
+                            margin: const EdgeInsets.only(bottom: 16,left: 20),
+                            width: 380,
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
                               color: const Color(0xFFF5F5F5),
@@ -171,60 +232,30 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
                                   blurRadius: 3,
                                   offset: const Offset(0, 1),
                                 ),
+                                
                               ],
+
                             ),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  comment['user'] ?? '',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                for (var section in widget.precautions)
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    
+                                    Text(
+                                      '-  ${section}',
+                                      style: const TextStyle(fontSize: 16),
+                                    ),
+                                    const SizedBox(height: 12),
+                                  ],
                                 ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  comment['text'] ?? '',
-                                  style: const TextStyle(fontSize: 14),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    // Add Comment Input
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: _commentController,
-                              decoration: InputDecoration(
-                                hintText: 'Add a comment...',
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  borderSide: BorderSide.none,
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 8,
-                                ),
-                              ),
+                              ]
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          IconButton(
-                            icon: const Icon(Icons.send),
-                            onPressed: _addComment,
-                            color: const Color(0xFF90A955),
-                          ),
-                        ],
-                      ),
+                        
                     ),
+                    
                   ],
                 ),
               ),

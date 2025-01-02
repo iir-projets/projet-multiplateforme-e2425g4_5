@@ -1,9 +1,35 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/authentication/register.dart';
-import 'package:herbs_flutter/pages/home_page.dart';
+//import 'package:herbs_flutter/pages/home_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+
+class _LoginPageState extends State<LoginPage> {
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  String _errorMessage = '';
+
+  Future<void> _signIn() async {
+    try {
+      await _auth.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+    } catch (e) {
+      setState(() {
+        _errorMessage = e.toString();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +83,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       TextField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           hintText: 'insert your email',
                           hintStyle: TextStyle(
@@ -90,6 +117,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       TextField(
+                        controller: _passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'insert your password',
@@ -115,11 +143,11 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: _signIn/*() {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => HomePage()),
                           );
-                      },
+                      }*/,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF90A955), // Green color
                         padding: const EdgeInsets.symmetric(vertical: 12),
@@ -135,7 +163,16 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    
                   ),
+                  if (_errorMessage.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Text(
+                        _errorMessage,
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    ),
                   const SizedBox(height: 24),
                   // Bottom Links
                   Row(

@@ -1,0 +1,124 @@
+{
+    "articles":[
+    {
+      "id": 1,
+      "title": "DIY Chamomile Face Mask for Glowing Skin",
+      "imageUrl": "assets/chamomile_mask.jpg",
+      "content": [
+        {
+          "title": "Chamomile for Skin Care",
+          "text": "Chamomile is widely known for its soothing and anti-inflammatory properties. It’s a popular ingredient in natural skincare remedies to reduce redness, calm irritation, and enhance your skin's glow."
+        },
+        {
+          "title": "The Remedy Formula: Chamomile Face Mask",
+          "text": "Ingredients:\n- 2 tbsp chamomile tea (cooled)\n- 1 tbsp honey\n- 1 tbsp plain yogurt\n\nInstructions:\n1. Brew chamomile tea and let it cool.\n2. Mix the tea with honey and yogurt.\n3. Apply the mixture to your face and leave it on for 15 minutes.\n4. Rinse with warm water and pat dry."
+        },
+        {
+          "title": "Variants with Other Herbs",
+          "text": "For added benefits, mix chamomile with:\n- **Aloe Vera Gel**: To hydrate and heal dry skin.\n- **Rosewater**: For enhanced skin brightness.\n- **Lavender Oil**: To reduce acne and promote relaxation."
+        }
+      ],
+      "comments": [
+        { "user": "GlowQueen", "text": "I tried this mask and my skin feels amazing! Highly recommend." },
+        { "user": "HerbFanatic", "text": "I added lavender oil, and it made the mask even better!" },
+        { "user": "DIYBeauty", "text": "This was so easy to make and worked wonders on my sensitive skin." }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Rosemary Hair Growth Serum: A Natural Solution",
+      "imageUrl": "assets/rosemary_hair_serum.jpg",
+      "content": [
+        {
+          "title": "The Science Behind Rosemary for Hair Growth",
+          "text": "Rosemary oil is clinically proven to improve hair thickness and growth by stimulating blood circulation to the scalp. It also fights dandruff and strengthens hair follicles."
+        },
+        {
+          "title": "The Remedy Formula: Rosemary Hair Serum",
+          "text": "Ingredients:\n- 5 drops rosemary essential oil\n- 2 tbsp coconut oil\n- 1 tsp castor oil\n\nInstructions:\n1. Mix the ingredients in a small bowl.\n2. Warm the mixture slightly for better absorption.\n3. Massage it into your scalp for 5-10 minutes.\n4. Leave it on for 1-2 hours or overnight before washing."
+        },
+        {
+          "title": "Variants with Other Herbs",
+          "text": "Enhance the serum by adding:\n- **Peppermint Oil**: To boost scalp circulation.\n- **Amla Powder**: For added nourishment and shine.\n- **Tea Tree Oil**: To combat dandruff and reduce itching."
+        }
+      ],
+      "comments": [
+        { "user": "HairGoals", "text": "This serum really worked! My hair feels thicker already." },
+        { "user": "NaturalLocks", "text": "Adding peppermint oil gave a cooling sensation—love it!" },
+        { "user": "HealthyHair", "text": "Finally found a remedy for my itchy scalp. Thank you!" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Latest Trends: Peppermint Oil in Lip Care",
+      "imageUrl": "assets/peppermint_lip_care.jpg",
+      "content": [
+        {
+          "title": "Peppermint Oil for Lip Plumping",
+          "text": "Peppermint oil has become a trending ingredient in natural beauty care for its cooling sensation and ability to enhance blood flow, creating a subtle plumping effect for lips."
+        },
+        {
+          "title": "The Remedy Formula: DIY Lip Balm",
+          "text": "Ingredients:\n- 1 tbsp beeswax pellets\n- 1 tbsp coconut oil\n- 2 drops peppermint oil\n\nInstructions:\n1. Melt the beeswax and coconut oil in a double boiler.\n2. Stir in the peppermint oil.\n3. Pour the mixture into a small container and let it cool.\n4. Apply as needed for soft, plump lips."
+        },
+        {
+          "title": "Trending News in Natural Beauty",
+          "text": "Brands are now incorporating peppermint oil into their lip care lines for its natural plumping and soothing effects. Look for products with minimal additives to avoid irritation."
+        }
+      ],
+      "comments": [
+        { "user": "PlumpLover", "text": "The DIY lip balm worked wonders for me. Thank you for sharing!" },
+        { "user": "TrendSpotter", "text": "Great to see natural beauty making waves in the industry." },
+        { "user": "HerbalistInTraining", "text": "I added a bit of shea butter for extra hydration. Perfect!" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Turmeric & Honey Scrub: A Golden Glow",
+      "imageUrl": "assets/turmeric_scrub.jpg",
+      "content": [
+        {
+          "title": "Why Turmeric for Skincare?",
+          "text": "Turmeric is packed with antioxidants and anti-inflammatory properties that can reduce dark spots, even skin tone, and give a radiant glow."
+        },
+        {
+          "title": "The Remedy Formula: Turmeric & Honey Scrub",
+          "text": "Ingredients:\n- 1 tsp turmeric powder\n- 1 tbsp honey\n- 1 tsp sugar (optional, for exfoliation)\n\nInstructions:\n1. Mix the turmeric powder and honey in a small bowl.\n2. Add sugar if you want exfoliation.\n3. Apply the mixture to your face in gentle circular motions.\n4. Leave it on for 10 minutes and rinse with lukewarm water."
+        },
+        {
+          "title": "Variants with Other Ingredients",
+          "text": "Customize your scrub:\n- **Milk**: To brighten and moisturize the skin.\n- **Lemon Juice**: For an extra boost of vitamin C.\n- **Aloe Vera Gel**: To soothe irritated or sensitive skin."
+        }
+      ],
+      "comments": [
+        { "user": "GoldenGlow", "text": "This scrub is magic! My skin feels so smooth and bright." },
+        { "user": "DIYQueen", "text": "I love adding a bit of lemon juice to the mix for extra brightness." },
+        { "user": "SensitiveSkin", "text": "Used aloe vera with turmeric, and it was super gentle on my skin." }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Echinacea Tea: Boost Your Immunity Naturally",
+      "imageUrl": "assets/echinacea_tea.jpg",
+      "content": [
+        {
+          "title": "The Power of Echinacea",
+          "text": "Echinacea is widely celebrated for its ability to strengthen the immune system, especially during cold and flu season. It reduces the severity of symptoms and speeds up recovery."
+        },
+        {
+          "title": "The Remedy Formula: Echinacea Tea",
+          "text": "Ingredients:\n- 1 tsp dried echinacea leaves\n- 1 cup boiling water\n- 1 tsp honey (optional)\n\nInstructions:\n1. Add the dried echinacea leaves to a teapot.\n2. Pour boiling water over the leaves and steep for 5-7 minutes.\n3. Strain, add honey if desired, and enjoy."
+        },
+        {
+          "title": "Trending News: Echinacea in Wellness Drinks",
+          "text": "Wellness brands are now incorporating echinacea into teas, kombuchas, and immunity shots, making it more accessible than ever for health-conscious consumers."
+        }
+      ],
+      "comments": [
+        { "user": "TeaLover", "text": "I've started drinking echinacea tea daily. I feel great!" },
+        { "user": "ImmunityBoost", "text": "Perfect timing for flu season. Thank you for the recipe!" },
+        { "user": "NaturalHealing", "text": "Echinacea has always been my go-to herb for colds." }
+      ]
+    }
+  ]
+}

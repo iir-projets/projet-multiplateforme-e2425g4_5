@@ -64,7 +64,7 @@ class _AtricleDetailPageState extends State<ArticleDetailPage>{
                   fontSize: 16,
                 ),
               ),
-              background: Image.asset(
+              background: Image.network(
                 widget.imageUrl,
                 fit: BoxFit.cover,
               ),
@@ -111,7 +111,7 @@ class _AtricleDetailPageState extends State<ArticleDetailPage>{
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          section['text'] ?? '',
+                          (section['text'] ?? '').replaceAll('\\n', '\n'),
                           style: const TextStyle(fontSize: 16),
                         ),
                         const SizedBox(height: 16),

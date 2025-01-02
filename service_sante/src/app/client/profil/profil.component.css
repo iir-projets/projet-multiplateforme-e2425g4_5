@@ -216,29 +216,3 @@ input[type="password"]:focus {
         padding: 40px;
     }
 }
-
-.medical-item {
-  display: inline-block;
-  background-color: #e0e0e0;
-  padding: 5px 10px;
-  margin: 2px;
-  border-radius: 15px;
-  font-size: 14px;
-}
-
-.options-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-
-.options-list label {
-  margin-bottom: 5px;
-}
-
-.edit-mode .options-list {
-  border: 1px solid #C1CFA1;
-  padding: 10px;
-  border-radius: 5px;
-}
-

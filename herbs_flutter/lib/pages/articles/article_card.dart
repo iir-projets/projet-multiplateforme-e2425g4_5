@@ -42,10 +42,10 @@ class _ArticleCardState extends State<ArticleCard> {
                 topLeft: Radius.circular(15),
                 bottomLeft: Radius.circular(15),
               ),
-              child: Image.asset(
+              child: Image.network(
                 widget.imageUrl,
                 width: 100,
-                height: 100,
+                height: 120,
                 fit: BoxFit.cover,
               ),
             ),
@@ -65,7 +65,7 @@ class _ArticleCardState extends State<ArticleCard> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      widget.description,
+                      (widget.description).replaceAll('\\n', '\n'),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
