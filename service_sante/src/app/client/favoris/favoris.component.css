@@ -2,10 +2,10 @@
 .favorites-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrer le contenu verticalement */
+    justify-content: center;
     padding: 50px;
     background-color: #fdf9f3;
-    min-height: 100vh; /* Remplir toute la hauteur de la fenêtre */
+    min-height: 100vh; /* Fill the entire height of the viewport */
     font-family: "Poppins", sans-serif;
     color: #120f0f;
     margin-top: 0%;
@@ -20,21 +20,20 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-shadow: 1px 1px 2px #ffbec8;
-    margin-top: -15%;
+    margin-top: -2%;
     margin-left: 30%;
 }
 
-/* Liste des plantes avec un grid fixe */
+/* Liste des plantes avec un grid flexible */
 .plants-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Auto-fill with a minimum size of 300px for each card */
     gap: 25px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-bottom: 1%;
-    grid-template-rows: repeat(auto-fill, 320px); /* Hauteur fixe pour chaque carte */
-    justify-items: center; /* Centrer les cartes horizontalement dans chaque colonne */
-    grid-auto-rows: 320px; /* Fixer la hauteur des lignes de façon explicite */
+    grid-template-rows: auto; /* Allow rows to adapt based on content */
+    justify-items: center; /* Center the cards horizontally in each column */
 }
 
 /* Carte de plante */
@@ -46,15 +45,17 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    height: 320px; /* Hauteur fixe pour chaque carte */
+    height: auto; /* Auto height to accommodate content */
     display: flex;
     flex-direction: column;
-    position: relative; /* Pour que le cœur soit placé par rapport à la carte */
-    width: 100%; /* Laisser les cartes occuper toute la largeur de la colonne */
-    max-width: 360px; /* Limiter la largeur à une taille fixe */
+    position: relative;
+    width: 100%; /* Allow the card to take full width */
+    max-width: 360px; /* Limit card width */
+    margin-bottom: 20px; /* Spacing between the cards */
+    margin-top: 30px;
 }
 
-/* Hover sur carte */
+/* Hover effect for the card */
 .plant-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(255, 192, 160, 0.5);
@@ -72,6 +73,9 @@
 .plant-info {
     padding: 15px;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the button stays at the bottom */
 }
 
 /* Titre de la plante */
@@ -106,8 +110,37 @@
     color: #A5B68D;
     margin-top: 50px;
     font-weight: bold;
-    position: absolute; /* Positionner au centre de la page */
-    top: 50%; /* 50% de la hauteur de la page */
-    left: 50%; /* 50% de la largeur de la page */
-    transform: translate(-50%, -50%); /* Centrer précisément */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Bouton de suppression */
+.remove-btn {
+    background-color: #ff92a5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    box-shadow: 0px 4px 8px rgba(255, 146, 165, 0.2);
+}
+
+/* Hover sur le bouton */
+.remove-btn:hover {
+    background-color: #e87080;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(255, 146, 165, 0.3);
+}
+
+/* Bouton en état actif */
+.remove-btn:active {
+    background-color: #d45864;
+    transform: scale(0.95);
+    box-shadow: 0px 2px 6px rgba(255, 146, 165, 0.2);
 }

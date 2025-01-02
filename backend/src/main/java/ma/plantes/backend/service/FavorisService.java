@@ -1,5 +1,6 @@
 package ma.plantes.backend.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.entities.FavorisId;
@@ -26,6 +27,13 @@ public class FavorisService {
 
     private final PlanteRepository planteRepository;
 
+
+    // Récupérer les favoris d'un client spécifique
+    public List<Favoris> getFavorisByClientId(Long clientId) {
+        return favorisRepository.findByUser_Id(clientId);
+    }
+
+
     public void ajouterFavoris(Long clientId,Long planteId){
 
         // recuperation de l'id client
@@ -46,14 +54,17 @@ public class FavorisService {
 
     }
 
-    public boolean supprimerFavoris(Long clientId,Long planteId){
-        FavorisId favorisId = new FavorisId(clientId,planteId);
-        if(favorisRepository.existsById(favorisId)){
+    @Transactional
+    public boolean supprimerFavoris(Long clientId, Long planteId) {
+        FavorisId favorisId = new FavorisId(clientId, planteId);
+
+        if (favorisRepository.existsById(favorisId)) {
             favorisRepository.deleteById(favorisId);
-            return true;
+            return true; // Return true if deletion was successful
         }
-        return false;
+        return false; // Return false if the record does not exist
     }
+
 
     public List<Favoris> getAllFavoris() {
         return favorisRepository.findAll();

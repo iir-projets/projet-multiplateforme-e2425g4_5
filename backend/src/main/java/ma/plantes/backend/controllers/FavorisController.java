@@ -1,5 +1,6 @@
 package ma.plantes.backend.controllers;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,6 +18,26 @@ import java.util.Map;
 public class FavorisController {
 
     private final FavorisService favorisService;
+
+
+
+    @GetMapping("/client/{clientId}")
+    public ResponseEntity<List<Map<String, Object>>> getFavorisByClient(@PathVariable Long clientId) {
+        List<Favoris> favoris = favorisService.getFavorisByClientId(clientId);
+
+        // Transformer la réponse pour inclure les détails des plantes
+        List<Map<String, Object>> response = favoris.stream().map(favori -> {
+            Map<String, Object> plantDetails = Map.of(
+                    "id", favori.getPlante().getId(),
+                    "name", favori.getPlante().getName(),
+                    "description", favori.getPlante().getDescription(),
+                    "image", favori.getPlante().getImage()
+            );
+            return plantDetails;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(response);
+    }
 
     // Ajouter un favori
     @PostMapping("/ajouter/{clientId}/{planteId}")
@@ -38,6 +60,7 @@ public class FavorisController {
             return ResponseEntity.status(500).body("Favori introuvable !");
         }
     }
+
 
     // Afficher tous les favoris
     @GetMapping("/afficher")

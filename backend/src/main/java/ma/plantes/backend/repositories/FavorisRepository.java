@@ -12,9 +12,12 @@ import java.util.Optional;
 
 @Repository
 public interface FavorisRepository extends JpaRepository<Favoris,Long> {
+    List<Favoris> findByUser_Id(Long clientId);
 
-    boolean existsById(FavorisId favorisId);
-    boolean deleteById(FavorisId favorisId);
+
+    boolean existsById(FavorisId favorisId); // Check if the favorite exists
+    void deleteById(FavorisId favorisId);
+
     List<Plante> findAllByUserId(Long clientId);
 
     Optional<Favoris> findById(FavorisId favorisId);

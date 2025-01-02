@@ -64,6 +64,20 @@ export class PlantesService {
       return this.http.delete<void>(`${this.apiUrl}/admin/plantes/${id}`,this.getHttpOptions());
   }
 
+
+  
+  
+    // Ajouter une plante aux favoris
+    addToFavorites(clientId: number, planteId: number): Observable<any> {
+      return this.http.post(`${this.apiUrl}/favoris/ajouter/${clientId}/${planteId}`, {},this.getHttpOptions());
+    }
+  
+    // Retirer une plante des favoris
+    removeFromFavorites(clientId: number, planteId: number): Observable<any> {
+      return this.http.delete(`${this.apiUrl}/favoris/supprimer/${clientId}/${planteId}`,this.getHttpOptions());
+    }
+  
+
   /**
    * Get http options, including headers
    * @returns HTTP options with headers
