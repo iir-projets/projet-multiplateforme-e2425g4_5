@@ -2,35 +2,47 @@
   <!-- Bouton Ajouter -->
   <button mat-raised-button color="primary" (click)="openAddArticle()" class="btn">Add</button>
 
-  <!-- Affichage des articles sous forme de cartes : (click)="openAddArticleModal()" -->
-  <div *ngIf="articles.length > 0" class="articles-grid">
-    <div *ngFor="let article of articles" class="article-card" (click)="selectArticle(article)">
-      <!-- Section de l'image -->
-      <div class="article-image-wrapper">
-        <img *ngIf="article.image.length > 0" [src]="article.image" alt="Image de l'article" class="article-image" />
-      </div>
-      <!-- Section du contenu -->
-      <div class="article-content">
-        <h3>{{ article.titre }}</h3>
-        <p>{{ article.contenu | slice: 0:100 }}...</p> <!-- Extrait de contenu -->
+  <!-- Conteneur défilable pour les articles -->
+  <div class="scrollable-container">
+    <!-- Affichage des articles sous forme de cartes -->
+    <div *ngIf="articles.length > 0" class="articles-grid">
+      <div *ngFor="let article of articles" class="article-card" (click)="selectArticle(article)">
+        
+        <!-- Boutons pour éditer et supprimer -->
+        <div class="card-actions">
+          <button mat-icon-button color="primary" >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button mat-icon-button color="warn" >
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+          <!-- Section de l'image -->
+        <div class="article-image-wrapper">
+          <img *ngIf="article.image.length > 0" [src]="article.image" alt="Image de l'article" class="article-image" />
+        </div>
+        <!-- Section du contenu -->
+        <div class="article-content">
+          <h3>{{ article.titre }}</h3>
+          <p>{{ article.contenu | slice: 0:100 }}...</p> <!-- Extrait de contenu -->
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Affichage de l'article complet lorsqu'on clique sur une carte -->
   <div *ngIf="selectedArticle" class="article-detail">
-    <button mat-button (click)="closeArticle()" style="background-color: #e7cccc;border: none; border-radius: 5px; ">Close</button>
+    <button mat-button (click)="closeArticle()" style="background-color: #e7cccc; border: none; border-radius: 5px;">Close</button>
     
     <h2>{{ selectedArticle.titre }}</h2>
     <div style="display: flex; gap: 2rem;">
-      <section class="image" style="width: 30%;" >
+      <section class="image" style="width: 30%;">
         <img *ngIf="selectedArticle.image.length > 0" [src]="selectedArticle.image" alt="Image de l'article" class="article-image" />
       </section>
-    <section style="width: 70%;">
-      <p>{{ selectedArticle.contenu }}</p> <!-- Contenu complet -->
-    </section>
+      <section style="width: 70%;">
+        <p>{{ selectedArticle.contenu }}</p> <!-- Contenu complet -->
+      </section>
     </div>
-    
   </div>
 </div>
 
