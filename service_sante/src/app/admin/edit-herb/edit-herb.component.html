@@ -1,0 +1,54 @@
+
+
+<div class="addmodal">
+    <h3 style="color: #6b8e23; margin-left: 1rem; margin-top: 1rem;">Edit a Herb</h3>
+  
+    <form>
+      <!-- Name -->
+      <div class="form">
+        <mat-label>Name :</mat-label>
+        <input matInput  [(ngModel)]="plante.nom" name="nom">
+      </div>
+  
+      <!-- Description -->
+      <div class="form">
+        <mat-label>Description :</mat-label>
+        <textarea matInput  [(ngModel)]="plante.description" name="description"></textarea>
+      </div>
+  
+      <!-- Precautions -->
+      <div class="form">
+        <mat-label>Precautions :</mat-label>
+        <input matInput  [(ngModel)]="plante.precaution" name="precaution">
+      </div>
+  
+      <!-- Interactions -->
+      <div class="form">
+        <mat-label>Interactions :</mat-label>
+        <input matInput  [(ngModel)]="plante.interaction" name="interaction">
+      </div>
+  
+      <!-- Region -->
+      <div class="form">
+        <mat-label>Region :</mat-label>
+        <input matInput  [(ngModel)]="plante.region" name="region">
+      </div>
+  
+      <!-- Property -->
+      <div class="form">
+        <mat-label>Properties :</mat-label>
+        <input matInput  [(ngModel)]="plante.proprietes" name="propriete">
+      </div>
+  
+      <!-- Image -->
+      <div class="form">
+        <mat-label>Image :</mat-label>
+        <input matInput  [(ngModel)]="plante.image" name="image">
+      </div>
+    </form>
+  </div>
+  
+   <mat-dialog-actions>
+      <button mat-button (click)="close()">CANCEL</button>
+      <button mat-raised-button color="primary" (click)="submit()">Edit</button>
+    </mat-dialog-actions>

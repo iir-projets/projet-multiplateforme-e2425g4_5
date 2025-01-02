@@ -14,8 +14,8 @@
   <div class="articles-grid">
     <article *ngFor="let article of filteredArticles" class="article-card">
       <div class="article-image">
-        <img *ngIf="article.images && article.images.length > 0" [src]="article.images[0].imageUrl" [alt]="article.titre" />
-        <p *ngIf="!article.images || article.images.length === 0">No image available</p>
+        <img *ngIf="article.image && article.image.length > 0" [src]="article.image" [alt]="article.titre" />
+        <p *ngIf="!article.image || article.image.length === 0">No image available</p>
       </div>
       <div class="article-content">
         <h2>{{ article.titre }}</h2>

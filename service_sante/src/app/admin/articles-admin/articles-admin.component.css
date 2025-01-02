@@ -1,3 +1,14 @@
+.articles-container {
+  padding: 1rem;
+}
+
+.scrollable-container {
+  max-height: 60vh; /* Limite la hauteur à 60% de la hauteur de la fenêtre */
+  overflow-y: auto; /* Active le défilement vertical */
+  padding-right: 1rem; /* Ajoute de l'espace pour la barre de défilement */
+  margin-top: 1rem;
+}
+
 /* Style de la grille des articles */
 .articles-grid {
   display: grid;
