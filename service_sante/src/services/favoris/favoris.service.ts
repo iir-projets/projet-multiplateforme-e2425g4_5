@@ -15,51 +15,18 @@ export class FavorisService {
 
   constructor(private http: HttpClient) {}
 
-  getFavorisByClientId(clientId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/client/${clientId}`,this.getHttpOptions());
-  }
-  
-
   // Récupérer les plantes favorites de l'utilisateur
   getFavoritePlantes(clientId: number): Observable<any[]> {
-<<<<<<< HEAD
-    return this.http.get<any[]>(`${this.apiUrl}/plantes/${clientId}`,this.getHttpOptions());
-=======
     return this.http.get<any[]>(`${this.apiUrl}/favoris/plantes/${clientId}`);
->>>>>>> 9ab45c121691d77b28658e02b9b4df9e54587c77
   }
 
   // Ajouter une plante aux favoris
   addToFavorites(clientId: number, planteId: number): Observable<any> {
-<<<<<<< HEAD
-    return this.http.post(`${this.apiUrl}/ajouter/${clientId}/${planteId}`, {},this.getHttpOptions());
-=======
     return this.http.post(`${this.apiUrl}/favoris/ajouter/${clientId}/${planteId}`, {});
->>>>>>> 9ab45c121691d77b28658e02b9b4df9e54587c77
   }
 
   // Retirer une plante des favoris
   removeFromFavorites(clientId: number, planteId: number): Observable<any> {
-<<<<<<< HEAD
-    return this.http.delete(`${this.apiUrl}/supprimer/${clientId}/${planteId}`,this.getHttpOptions());
-  }
-
- 
-  /**
-   * Get http options, including headers
-   * @returns HTTP options with headers
-   */
-  private getHttpOptions() {
-    return {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('authToken')
-        }
-    };
-  }
-
-
-=======
     return this.http.delete(`${this.apiUrl}/favoris/supprimer/${clientId}/${planteId}`);
   }
 
@@ -85,7 +52,6 @@ private getHttpOptions() {
     }
   };
 }
->>>>>>> 9ab45c121691d77b28658e02b9b4df9e54587c77
 
 }
 
