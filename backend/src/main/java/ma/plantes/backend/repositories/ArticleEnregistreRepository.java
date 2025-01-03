@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ArticleEnregistreRepository extends JpaRepository<Article, Long> {
 
@@ -18,5 +19,7 @@ public interface ArticleEnregistreRepository extends JpaRepository<Article, Long
 
     @Query("SELECT ae.article FROM ArticleEnregistre ae WHERE ae.user.id = :clientId")
     List<Article> findByClientId(@Param("clientId") Long clientId);
+
+    Optional<Article> findById(Long id);
 
 }

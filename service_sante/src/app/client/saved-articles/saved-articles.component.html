@@ -1,41 +1,42 @@
 <app-navbar></app-navbar>
 <div class="saved-articles-container">
-    <header class="saved-articles-header">
-      <h1>Saved Articles</h1>
-      <p class="saved-count">{{ savedArticles.length }} articles saved</p>
-    </header>
-  
-    <div class="articles-grid">
-      <article *ngFor="let article of savedArticles" class="article-card">
-        <div class="article-image">
-          <img [src]="article.image" [alt]="article.title">
+  <header class="saved-articles-header">
+    <h1>Articles</h1>
+    <p class="saved-count">{{ savedArticles.length }} articles</p>
+  </header>
+
+  <div class="articles-grid">
+    <article *ngFor="let article of savedArticles" class="article-card">
+      <div class="article-image">
+        <img [src]="article.image" [alt]="article.titre">
+      </div>
+      <div class="article-content">
+        <div class="article-text">
+          <h2>{{ article.titre }}</h2>
+          <p>{{ article.contenu }}</p>
         </div>
-        <div class="article-content">
-          <div class="article-text">
-            <h2>{{ article.title }}</h2>
-            <p>{{ article.description }}</p>
-          </div>
-          <button 
-            class="bookmark-btn" 
-            (click)="removeFromSaved(article)"
-            [attr.aria-label]="'Remove ' + article.title + ' from saved articles'"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-            </svg>
-          </button>
-        </div>
-      </article>
-    </div>
-  
-    <div *ngIf="savedArticles.length === 0" class="empty-state">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-      </svg>
-      <p>No saved articles yet</p>
-    </div>
+        <button 
+          class="bookmark-btn" 
+          (click)="toggleSaveState(article)"
+          [attr.aria-label]="'Toggle save state for ' + article.titre">
+          <!-- Icône de sauvegarde si l'article est sauvegardé -->
+          <svg *ngIf="article.isSaved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <!-- Icône de suppression si l'article n'est pas sauvegardé -->
+          <svg *ngIf="!article.isSaved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19l-7-5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9l-7 5z"></path>
+          </svg>
+        </button>
+      </div>
+    </article>
   </div>
-  <app-footer></app-footer>
-  
-  
-  
+
+  <div *ngIf="savedArticles.length === 0" class="empty-state">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <p>No articles yet</p>
+  </div>
+</div>
+<app-footer></app-footer>

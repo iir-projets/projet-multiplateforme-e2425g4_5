@@ -30,7 +30,10 @@ public class FavorisService {
 
     // Récupérer les favoris d'un client spécifique
     public List<Favoris> getFavorisByClientId(Long clientId) {
-        return favorisRepository.findByUser_Id(clientId);
+        return favorisRepository.findAllByUserId(clientId);
+    }
+    public List<Plante> getAllPlantesFavorisByClient(Long clientId) {
+        return favorisRepository.findPlantesByClientId(clientId);
     }
 
 
@@ -58,12 +61,14 @@ public class FavorisService {
     public boolean supprimerFavoris(Long clientId, Long planteId) {
         FavorisId favorisId = new FavorisId(clientId, planteId);
 
-        if (favorisRepository.existsById(favorisId)) {
-            favorisRepository.deleteById(favorisId);
-            return true; // Return true if deletion was successful
+        // Vérifier si le favori existe avant de supprimer
+        if (favorisRepository.existsById(favorisId)) {  // Vérification si le favori existe
+            favorisRepository.deleteById(favorisId);  // Suppression sans retourner de valeur
+            return true;  // Suppression réussie
         }
-        return false; // Return false if the record does not exist
+        return false;  // Le favori n'existe pas
     }
+
 
 
     public List<Favoris> getAllFavoris() {

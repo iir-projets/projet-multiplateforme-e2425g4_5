@@ -19,6 +19,7 @@ export interface Article {
   contenu: string;
   image: string;
   commentaires: Commentaire[];
+  isSaved?: boolean;
 }
 
 export interface CreateArticle {
@@ -26,6 +27,7 @@ export interface CreateArticle {
   titre: string;
   contenu: string;
   image: string;
+ 
 
 }
 
@@ -60,6 +62,15 @@ export class ArticleService {
 
   getArticleByClientId(clientId : number) : Observable<Article[]>{
     return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/byclient/${clientId}`, this.getHttpOptions());
+  }
+
+
+  saveArticle(article: Article): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/save-article`, article);
+  }
+
+  unsaveArticle(article: Article): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/unsave-article`, article);
   }
 
   getTop5Articles(): Observable<Map<number, number>> {

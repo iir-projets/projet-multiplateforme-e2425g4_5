@@ -1,6 +1,7 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.PlanteDto;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
 import ma.plantes.backend.entities.Plante;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -38,16 +40,27 @@ public class FavorisController {
         }
     }
 
-    // Afficher tous les favoris du client
+    // Afficher tous les favoris
     @GetMapping("/favoris/afficher")
     public List<Favoris> afficherTousLesFavoris() {
         return favorisService.getAllFavoris();
     }
 
-    // Afficher tous les favoris
-    @GetMapping("/admin/favoris/clientfavoris/{clientId}")
-    public List<Favoris> afficherFavorisByClient(@PathVariable Long clientId) {
-        return favorisService.getAllFavorisByClient(clientId);
+    // Afficher tous les favoris du client
+    @GetMapping("/favoris/clientfavoris/{clientId}")
+    public List<PlanteDto> afficherFavorisByClient(@PathVariable Long clientId) {
+        // Récupérer les plantes favorites d'un client
+        List<Plante> plantes = favorisService.getAllPlantesFavorisByClient(clientId);
+
+        // Convertir les entités Plante en DTO
+        return plantes.stream()
+                .map(plante -> new PlanteDto(
+                        plante.getId(),
+                        plante.getNom(),
+                        plante.getDescription(),
+                        plante.getImage()
+                ))
+                .collect(Collectors.toList());
     }
 
 

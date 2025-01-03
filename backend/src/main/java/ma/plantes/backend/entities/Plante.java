@@ -17,6 +17,7 @@ import java.util.Set;
 @Setter
 public class Plante {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,6 +54,5 @@ public class Plante {
     public String getName() {
         return nom;
     }
-
 
 }

@@ -55,6 +55,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 0;
+  height: 50px;
 }
 
 .view-details-btn:hover {
@@ -234,3 +235,31 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+.article-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bookmark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #f0c2c2;
+}
+
+.bookmark-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bookmark-btn:hover {
+  color: #C1CFA1; /* Changer la couleur au survol pour l'effet */
+}
+
+
