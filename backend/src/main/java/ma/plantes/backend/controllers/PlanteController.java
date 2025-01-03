@@ -70,7 +70,7 @@ public class PlanteController {
     }
 
 
-    @GetMapping("admin/plantes/totals-by-region")
+    @GetMapping("/admin/plantes/totals-by-region")
     public Map<String, Long> getPlantesCountByRegion() {
         return planteService.getPlantesCountByRegion();
     }
