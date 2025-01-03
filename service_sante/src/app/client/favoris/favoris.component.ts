@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FavorisService } from '../../../services/favoris/favoris.service';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { trigger, style, animate, transition } from '@angular/animations';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../footer/footer.component";
+import { FormsModule } from '@angular/forms';
 
 interface Plant {
   id: number;
@@ -14,36 +15,35 @@ interface Plant {
 
 @Component({
   selector: 'app-favoris',
-  standalone: true,
-  imports: [CommonModule, NavbarComponent,FooterComponent],
   templateUrl: './favoris.component.html',
   styleUrls: ['./favoris.component.css'],
-  animations: [
-    trigger('cardAnimation', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'scale(0.9)' }),
-        animate('300ms ease-out', style({ opacity: 1, transform: 'scale(1)' })),
-      ]),
-      transition(':leave', [
-        animate('300ms ease-in', style({ opacity: 0, transform: 'scale(0.8)' })),
-      ]),
-    ]),
-  ],
+  imports: [NavbarComponent,FooterComponent,CommonModule,FormsModule],
 })
-export class FavorisComponent {
-  favoritePlants: Plant[] = [
-    {
-      id: 1,
-      name: "Aloe Vera",
-      description: "Plante tropicale aux grandes feuilles perforées.",
-      image: "assets/images/plante8.jpg",
-      isFavorite: true,
-    },
-  
-   
-  ];
+export class FavorisComponent implements OnInit {
+  favoritePlants: Plant[] = [];
+  clientId = 2; // Remplacez par l'ID du client connecté
 
-  toggleFavorite(plant: Plant) {
+  constructor(private favorisService: FavorisService) {}
+
+  ngOnInit(): void {
+    this.loadFavorites();
+  }
+
+  loadFavorites(): void {
+    this.favorisService.getFavorisByClientId(this.clientId).subscribe({
+      next: (plants) => {
+        this.favoritePlants = plants.map((plant) => ({
+          ...plant,
+          isFavorite: true,
+        }));
+      },
+      error: (err) => {
+        console.error('Erreur lors du chargement des favoris :', err);
+      },
+    });
+  }
+
+  toggleFavorite(plant: Plant): void {
     plant.isFavorite = !plant.isFavorite;
 
     if (!plant.isFavorite) {
@@ -51,14 +51,19 @@ export class FavorisComponent {
     }
   }
 
-  removeFromFavorites(plant: Plant) {
-    const index = this.favoritePlants.findIndex(p => p.id === plant.id);
-    if (index !== -1) {
-      this.favoritePlants.splice(index, 1);
-    }
+  removeFromFavorites(plant: Plant): void {
+    this.favorisService
+      .removeFromFavorites(this.clientId, plant.id)
+      .subscribe(() => {
+        this.favoritePlants = this.favoritePlants.filter(
+          (p) => p.id !== plant.id
+        );
+      });
   }
 
+
   trackById(index: number, plant: Plant): number {
-    return plant.id; // Utiliser l'ID comme identifiant unique
+    return plant.id; // Utilisez l'ID de la plante comme clé unique
   }
+  
 }

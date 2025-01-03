@@ -50,5 +50,9 @@ public class Plante {
     )
     private List<Propriete> proprietes = new ArrayList<>();
 
+    public String getName() {
+        return nom;
+    }
+
 
 }

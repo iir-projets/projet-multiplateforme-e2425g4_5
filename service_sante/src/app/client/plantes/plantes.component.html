@@ -26,7 +26,16 @@
     <div class="cards-row">
       <!-- Première ligne (4 cartes) -->
       <div class="card" *ngFor="let plant of filteredPlantes">
-       
+        <!-- Icône de favori -->
+        <div class="favorite-icon" (click)="toggleFavorite(plant)">
+          <img 
+            class="favorite-icon-img" 
+            [src]="plant.isFavorite ? 'assets/icons/favori.png' : 'assets/icons/favori.png'" 
+            alt="Favorite Icon"
+          />
+        </div>
+      
+        <!-- Contenu de la carte -->
         <div class="card-image">
           <img [src]="plant.image" alt="{{ plant.nom }}" />
         </div>
@@ -37,6 +46,7 @@
           </button>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
