@@ -1,6 +1,7 @@
 package ma.plantes.backend.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.entities.Article;
 import ma.plantes.backend.repositories.ArticleEnregistreRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ public class ArticleEnregistreService {
 
     private final ArticleEnregistreRepository articleEnregistreRepository;
 
+
     public Map<Long, Long> getTop5Articles() {
         List<Object[]> results = articleEnregistreRepository.findTop5ArticlesSaved();
         Map<Long, Long> topPlantes = new LinkedHashMap<>();
@@ -27,5 +29,9 @@ public class ArticleEnregistreService {
         }
 
         return topPlantes;
+    }
+
+    public List<Article> getSavedArticlesByClientId(Long clientId) {
+        return articleEnregistreRepository.findByClientId(clientId);
     }
 }

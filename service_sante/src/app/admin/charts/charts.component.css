@@ -1,2 +1,42 @@
 
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1.5rem;
+
+  }
+  .scrollable-container {
+    max-height: 60vh; /* Limite la hauteur à 60% de la hauteur de la fenêtre */
+    overflow-y: auto; /* Active le défilement vertical */
+    padding-right: 1rem; /* Ajoute de l'espace pour la barre de défilement */
+    margin-top: 1rem;
+  }
+  
+  .chart {
+    width: 80%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .chart1 {
+    width: 50%;
+    padding: 0.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .chart2 {
+    width: 50%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
   

@@ -70,6 +70,7 @@ public class FavorisService {
         return favorisRepository.findAll();
     }
 
+    public List<Favoris> getAllFavorisByClient(Long clientId){ return favorisRepository.findAllByUserId(clientId);}
 
     public Map<Long, Long> getTop5Plantes() {
         List<Object[]> results = favorisRepository.findTop5PlantesByFavoris();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientService, Client } from '../../../services/client/client.service';
 import { CommonModule } from '@angular/common';
+import { DetailsClientComponent } from '../details-client/details-client.component';
 
 @Component({
   selector: 'app-clients',
@@ -33,4 +34,11 @@ export class ClientsComponent{
       }
     );
   }
+
+  details(id : number): void {
+      this.dialog.open(DetailsClientComponent, {
+        data: { id },
+        width: '500px',
+      });
+    }
 }
