@@ -12,13 +12,12 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/favoris")
 public class FavorisController {
 
     private final FavorisService favorisService;
 
     // Ajouter un favori
-    @PostMapping("/ajouter/{clientId}/{planteId}")
+    @PostMapping("/favoris/ajouter/{clientId}/{planteId}")
     public ResponseEntity<String> ajouterFavoris(@PathVariable Long clientId, @PathVariable Long planteId) {
         try {
             favorisService.ajouterFavoris(clientId, planteId);
@@ -29,7 +28,7 @@ public class FavorisController {
     }
 
     // Supprimer un favori
-    @DeleteMapping("/supprimer/{clientId}/{planteId}")
+    @DeleteMapping("/favoris/supprimer/{clientId}/{planteId}")
     public ResponseEntity<String> retirerFavoris(@PathVariable Long clientId, @PathVariable Long planteId) {
         boolean supprime = favorisService.supprimerFavoris(clientId, planteId);
         if (supprime) {
@@ -39,14 +38,21 @@ public class FavorisController {
         }
     }
 
-    // Afficher tous les favoris
-    @GetMapping("/afficher")
+    // Afficher tous les favoris du client
+    @GetMapping("/favoris/afficher")
     public List<Favoris> afficherTousLesFavoris() {
         return favorisService.getAllFavoris();
     }
 
+    // Afficher tous les favoris
+    @GetMapping("/admin/favoris/clientfavoris/{clientId}")
+    public List<Favoris> afficherFavorisByClient(@PathVariable Long clientId) {
+        return favorisService.getAllFavorisByClient(clientId);
+    }
+
+
     // Afficher les top 5 plantes
-    @GetMapping("/top5")
+    @GetMapping("/admin/favoris/top5")
     public Map<Long, Long> getTop5Plantes() {
         return favorisService.getTop5Plantes();
     }
