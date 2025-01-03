@@ -1,0 +1,27 @@
+<div class="client-details">
+    <h2>Détails du Client</h2>
+    <p><strong>Nom :</strong> {{ client.firstName }} {{ client.lastName }}</p>
+    <p><strong>Numéro de Téléphone :</strong> {{ client.phoneNumber }}</p>
+  
+    <h3>Favoris</h3>
+    <ul *ngIf="favoris.length > 0; else noFavoris">
+      <li *ngFor="let favori of favoris">{{ favori }}</li>
+    </ul>
+    <ng-template #noFavoris>
+      <p>Aucun favori trouvé.</p>
+    </ng-template>
+  
+    <h3>Articles Enregistrés</h3>
+    <ul *ngIf="articles.length > 0; else noArticles">
+      <li *ngFor="let article of articles">
+        <h4>{{ article }}</h4>
+        
+      </li>
+    </ul>
+    <ng-template #noArticles>
+      <p>Aucun article enregistré trouvé.</p>
+    </ng-template>
+  
+    <button mat-button (click)="close()">Fermer</button>
+  </div>
+  

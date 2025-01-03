@@ -35,7 +35,7 @@ public class ArticleController {
     }
 
     // Supprimer un article
-    @DeleteMapping("/articles/{id}")
+    @DeleteMapping("/admin/articles/{id}")
     public ResponseEntity<String> supprimerArticle(@PathVariable Long id) {
         boolean isDeleted = articleService.supprimerArticle(id);
 

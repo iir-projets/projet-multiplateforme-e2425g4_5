@@ -18,7 +18,13 @@ public interface FavorisRepository extends JpaRepository<Favoris,Long> {
     boolean existsById(FavorisId favorisId); // Check if the favorite exists
     void deleteById(FavorisId favorisId);
 
+
+    boolean existsById(FavorisId favorisId);
+    boolean deleteById(FavorisId favorisId);
+    List<Favoris> findAllByUserId(Long clientId);
+
     List<Plante> findAllByUserId(Long clientId);
+
 
     Optional<Favoris> findById(FavorisId favorisId);
 

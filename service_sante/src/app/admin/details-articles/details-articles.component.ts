@@ -27,6 +27,10 @@ export class DetailsArticlesComponent {
     @Inject(MAT_DIALOG_DATA) public article: Article
   ) {}
 
+
+
+  
+
   close(): void {
     this.dialogRef.close();  // Ferme la boîte de dialogue
   }

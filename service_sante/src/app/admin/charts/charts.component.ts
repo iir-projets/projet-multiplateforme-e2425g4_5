@@ -1,5 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Chart } from 'chart.js/auto';
+import { ArticleService } from '../../../services/article/article.service';
+import { PlantesService } from '../../../services/plantes/plantes.service';
+import { JoinstatsService } from '../../../services/joinstats/joinstats.service';
+import { FavorisService } from '../../../services/favoris/favoris.service';
+
 
 @Component({
   selector: 'app-charts',
@@ -7,63 +12,110 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements AfterViewInit {
-  public chart1: any; // Référence pour le premier graphique
-  public chart2: any; // Référence pour le deuxième graphique
+  public top5Herbs: any;
+  public top5Articles: any;
+  public plantRegionChart: any;
+  public totalCountsChart: any;
+
+  constructor(
+    private articleService: ArticleService,
+    private favorisService: FavorisService,
+    private plantesService: PlantesService,
+    private joinstatsService: JoinstatsService
+  ) {}
 
   ngAfterViewInit(): void {
-    this.createChart1();
-    this.createChart2();
+    this.fetchTop5Articles();
+    this.fetchTop5Herbs();
+    this.fetchPlantCountsByRegion();
+    this.fetchTotalCounts();
   }
 
-  createChart1(): void {
-    this.chart1 = new Chart('myChart1', {
-      type: 'bar',
-      data: {
-        labels: ['Article 1', 'Article 2', 'Article 3', 'Article 4', 'Article 5'],
-        datasets: [
-          {
-            label: 'Nombre de vues',
-            data: [120, 95, 80, 65, 50],
-            backgroundColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
-            borderColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top'
-          }
-        }
-      }
+  private fetchTop5Articles(): void {
+    this.articleService.getTop5Articles().subscribe((data) => {
+      const labels = Object.keys(data).map((key) => `Article ${key}`);
+      const values = Object.values(data);
+
+      this.top5Articles = new Chart('topArticlesChart', {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Views',
+              data: values,
+              backgroundColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
+            },
+          ],
+        },
+        options: { responsive: true, plugins: { legend: { position: 'top' } } },
+      });
     });
   }
 
-  createChart2(): void {
-    this.chart2 = new Chart('myChart2', {
-      type: 'pie',
-      data: {
-        labels: ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'],
-        datasets: [
-          {
-            label: 'Proportions',
-            data: [30, 25, 20, 15, 10],
-            backgroundColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
-            borderColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top'
-          }
-        }
-      }
+  private fetchTop5Herbs(): void {
+    this.favorisService.getTop5Plantes().subscribe((data) => {
+      const labels = Object.keys(data).map((key) => `Herbs ${key}`);
+      const values = Object.values(data);
+
+      this.top5Herbs = new Chart('topHerbsChart', {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Views',
+              data: values,
+              backgroundColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
+            },
+          ],
+        },
+        options: { responsive: true, plugins: { legend: { position: 'top' } } },
+      });
+    });
+  }
+
+  private fetchPlantCountsByRegion(): void {
+    this.plantesService.getPlantesCountByRegion().subscribe((data) => {
+      const labels = Object.keys(data);
+      const values = Object.values(data);
+
+      this.plantRegionChart = new Chart('plantRegionChart', {
+        type: 'pie',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Region Count',
+              data: values,
+              backgroundColor: ['#e7cccc', '#c1cfa1', '#eaaaaa', '#515c37', '#ede8dc'],
+            },
+          ],
+        },
+        options: { responsive: true, plugins: { legend: { position: 'top' } } },
+      });
+    });
+  }
+
+  private fetchTotalCounts(): void {
+    this.joinstatsService.getCounts().subscribe((data) => {
+      const labels = ['Maladies', 'Medicaments', 'Allergies'];
+      const values = [data.maladies, data.medicaments, data.allergies];
+
+      this.totalCountsChart = new Chart('totalCountsChart', {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Counts',
+              data: values,
+              backgroundColor: ['#e7cccc', '#c1cfa1', '#eaaaaa'],
+            },
+          ],
+        },
+        options: { responsive: true, plugins: { legend: { position: 'top' } } },
+      });
     });
   }
 }

@@ -1,8 +1,35 @@
-<div class="charts-container" style="display: flex; margin-top: 1.5rem; margin-bottom: 1.5rem;">
-  <section class="chart" style="width: 60%;">
-    <canvas id="myChart1"></canvas>
-  </section>
-  <section class="chart" style="width: 35%;">
-    <canvas id="myChart2"></canvas>
-  </section>
+<div class="charts-container" style="display: flex; flex-direction: column; gap: 2rem;">
+  <div class="scrollable-container">
+    
+    <div style="display: flex; gap: 1rem;">
+        <!-- Bar Chart for Top 5 Articles -->
+      <section class="chart" style="width: 50%;">
+        <h3>Top 5 Articles</h3>
+        <canvas id="topArticlesChart"></canvas>
+      </section>
+
+      <!-- Bar Chart for Top 5 Articles -->
+      <section class="chart" style="width: 50%;">
+        <h3>Top 5 Herbs</h3>
+        <canvas id="topHerbsChart"></canvas>
+      </section>
+    </div>
+
+    <hr>
+
+    <div style="display: flex; gap: 1rem;align-items: center;">
+        <!-- Pie Chart for Plant Counts by Region -->
+      <section class="chart1" style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+        <h3>Plant Counts by Region</h3>
+        <canvas id="plantRegionChart" style="max-height: 300px; max-width: 100%;"></canvas>
+      </section>
+
+      <!-- Grouped Bar Chart for Totals -->
+      <section class="chart2" style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+        <h3>Total Counts</h3>
+        <canvas id="totalCountsChart" style="max-height: 300px; max-width: 100%;"></canvas>
+      </section>
+    </div>
+    
+  </div>
 </div>
