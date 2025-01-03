@@ -51,6 +51,12 @@ export class PlantesService {
     return this.http.get<number>(`${this.apiUrl}/admin/plantes/total`,this.getHttpOptions());
   }
 
+  
+
+  getPlantesCountByRegion(): Observable<Map<string, number>> {
+    return this.http.get<Map<string, number>>(`${this.apiUrl}/admin/plantes/totals-by-region`,this.getHttpOptions());
+  }
+  
   addHerb(plante : Plante): Observable<Plante> {
     return this.http.post<Plante>(`${this.apiUrl}/admin/plantes`,plante,this.getHttpOptions());
   }

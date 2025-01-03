@@ -39,7 +39,10 @@ export class ArticleService {
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(`${this.apiUrl}/articles`, this.getHttpOptions());
+  }
 
+  getSavedArticles(id: number): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/${id}`, this.getHttpOptions());
   }
 
   addArticle(article: CreateArticle): Observable<Article> {
@@ -49,20 +52,27 @@ export class ArticleService {
 
   getTotal(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/admin/articles/total`,this.getHttpOptions());
-
   }
 
   getArticleById(id: number): Observable<Article> {
     return this.http.get<Article>(`${this.apiUrl}/articles/${id}`, this.getHttpOptions());
   }
 
+  getArticleByClientId(clientId : number) : Observable<Article[]>{
+    return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/byclient/${clientId}`, this.getHttpOptions());
+  }
+
+  getTop5Articles(): Observable<Map<number, number>> {
+    return this.http.get<Map<number, number>>(`${this.apiUrl}/admin/savedarticle/top5`, this.getHttpOptions());
+  }
+
   updateArticle(article: Article): Observable<Article> {
-      return this.http.put<Article>(`${this.apiUrl}/articles/${article.id}`, article, this.getHttpOptions());
-    }
+    return this.http.put<Article>(`${this.apiUrl}/articles/${article.id}`, article, this.getHttpOptions());
+  }
 
   deleteArticle(id: number): Observable<void> {  // Changez ici pour passer un ID
-    return this.http.delete<void>(`${this.apiUrl}/articles/${id}`,this.getHttpOptions());
-}
+    return this.http.delete<void>(`${this.apiUrl}/admin/articles/${id}`,this.getHttpOptions());
+  }
 
   ajouterCommentaire(articleId: number, userId: number, contenu: string): Observable<Commentaire> {
     const body = {
