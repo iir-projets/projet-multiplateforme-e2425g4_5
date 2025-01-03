@@ -59,6 +59,10 @@ export class ClientService {
     return this.http.get<number>(`${this.baseUrl}/admin/clients/total`, this.getHttpOptions());
   }
 
+  getClientDetails(id: number): Observable<Client> {
+      return this.http.get<Client>(`${this.baseUrl}/admin/clients/${id}`,this.getHttpOptions());
+    }
+
   /**
    * Get a client by their ID
    * @param id Client ID
