@@ -1,65 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../../../services/article/article.service';  // Importer le service
+import { Article } from '../../../services/article/article.service';// Importer le modèle Article
+import { FooterComponent } from '../footer/footer.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../footer/footer.component";
-
-interface SavedArticle {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  isSaved: boolean;
-}
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-saved-articles',
-  standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './saved-articles.component.html',
-  styleUrls: ['./saved-articles.component.css']
+  styleUrls: ['./saved-articles.component.css'],
+  imports: [FooterComponent,NavbarComponent,CommonModule,FormsModule]
 })
-export class SavedArticlesComponent {
-  savedArticles: SavedArticle[] = [
-    {
-      id: 1,
-      title: 'Chamomile',
-      description: 'This is an article about chamomile, a gentle herb known for its calming properties.',
-      image: 'assets/images/plante4.jpg',
-      isSaved: true
-    },
-    {
-      id: 2,
-      title: 'Rosemary',
-      description: 'Discover the aromatic wonders of rosemary, a versatile herb used in cooking and aromatherapy.',
-      image: 'assets/images/plante5.jpg',
-      isSaved: true
-    },
-    {
-      id: 3,
-      title: 'Lavender',
-      description: 'Explore the soothing world of lavender, known for its relaxing scent and beautiful purple flowers.',
-      image: 'assets/images/plante6.jpg',
-      isSaved: true
-    },
-    {
-      id: 4,
-      title: 'Mint',
-      description: 'Learn about the refreshing qualities of mint, a popular herb used in teas, desserts, and more.',
-      image: 'assets/images/plante7.jpg',
-      isSaved: true
-    },
-    {
-      id: 5,
-      title: 'Basil',
-      description: 'Dive into the world of basil, a fragrant herb essential in many cuisines around the globe.',
-      image: 'assets/images/plante8.jpg',
-      isSaved: true
-    }
-  ];
+export class SavedArticlesComponent implements OnInit {
+  savedArticles: Article[] = [];
+  clientId: number = 2; // Client id fixe (ou récupéré d'une session/authentification)
 
-  removeFromSaved(article: SavedArticle) {
-    article.isSaved = false;
-    this.savedArticles = this.savedArticles.filter(a => a.isSaved);
+  constructor(private articleService: ArticleService) {}
+
+  ngOnInit(): void {
+    this.loadSavedArticles();
   }
-}
 
+  loadSavedArticles(): void {
+    this.articleService.getArticleByClientId(this.clientId).subscribe({
+      next: (articles) => {
+        this.savedArticles = articles;  // Stocker les articles récupérés dans la variable
+      },
+      error: (err) => {
+        console.error('Erreur lors du chargement des articles enregistrés :', err);
+      }
+    });
+  }
+
+  removeFromSaved(article: Article): void {
+    article.isSaved = false;
+    this.savedArticles = this.savedArticles.filter(a => a.isSaved);  // Met à jour la liste d'articles
+  }
+
+
+
+  toggleSaveState(article: Article): void {
+    article.isSaved = !article.isSaved; // Inverse l'état de sauvegarde
+    
+    // Appelez un service pour enregistrer ou supprimer l'article sur le backend
+    if (article.isSaved) {
+      this.articleService.saveArticle(article).subscribe({
+        next: () => console.log(`Article ${article.titre} sauvegardé`),
+        error: (err) => console.error(`Erreur lors de la sauvegarde de l'article ${article.titre} :`, err)
+      });
+    } else {
+      this.articleService.unsaveArticle(article).subscribe({
+        next: () => console.log(`Article ${article.titre} supprimé des sauvegardes`),
+        error: (err) => console.error(`Erreur lors de la suppression de l'article ${article.titre} :`, err)
+      });
+    }
+  }
+  
+}

@@ -1,7 +1,7 @@
 package ma.plantes.backend.controllers;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.PlanteDto;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
 import ma.plantes.backend.entities.Plante;
@@ -17,26 +17,6 @@ import java.util.stream.Collectors;
 public class FavorisController {
 
     private final FavorisService favorisService;
-
-
-
-    @GetMapping("/client/{clientId}")
-    public ResponseEntity<List<Map<String, Object>>> getFavorisByClient(@PathVariable Long clientId) {
-        List<Favoris> favoris = favorisService.getFavorisByClientId(clientId);
-
-        // Transformer la réponse pour inclure les détails des plantes
-        List<Map<String, Object>> response = favoris.stream().map(favori -> {
-            Map<String, Object> plantDetails = Map.of(
-                    "id", favori.getPlante().getId(),
-                    "name", favori.getPlante().getName(),
-                    "description", favori.getPlante().getDescription(),
-                    "image", favori.getPlante().getImage()
-            );
-            return plantDetails;
-        }).collect(Collectors.toList());
-
-        return ResponseEntity.ok(response);
-    }
 
     // Ajouter un favori
     @PostMapping("/favoris/ajouter/{clientId}/{planteId}")
@@ -60,17 +40,27 @@ public class FavorisController {
         }
     }
 
-
-    // Afficher tous les favoris du client
+    // Afficher tous les favoris
     @GetMapping("/favoris/afficher")
     public List<Favoris> afficherTousLesFavoris() {
         return favorisService.getAllFavoris();
     }
 
-    // Afficher tous les favoris
-    @GetMapping("/admin/favoris/clientfavoris/{clientId}")
-    public List<Favoris> afficherFavorisByClient(@PathVariable Long clientId) {
-        return favorisService.getAllFavorisByClient(clientId);
+    // Afficher tous les favoris du client
+    @GetMapping("/favoris/clientfavoris/{clientId}")
+    public List<PlanteDto> afficherFavorisByClient(@PathVariable Long clientId) {
+        // Récupérer les plantes favorites d'un client
+        List<Plante> plantes = favorisService.getAllPlantesFavorisByClient(clientId);
+
+        // Convertir les entités Plante en DTO
+        return plantes.stream()
+                .map(plante -> new PlanteDto(
+                        plante.getId(),
+                        plante.getNom(),
+                        plante.getDescription(),
+                        plante.getImage()
+                ))
+                .collect(Collectors.toList());
     }
 
 

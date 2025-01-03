@@ -4,8 +4,13 @@ import { Observable } from 'rxjs';
 
 export interface Favoris{
   clientId?: number;
-  hebrId?: number;
+  planteId?: number;
+ 
 }
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,39 +20,34 @@ export class FavorisService {
 
   constructor(private http: HttpClient) {}
 
-  getFavorisByClientId(clientId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/client/${clientId}`,this.getHttpOptions());
-  }
-  
-
   // Récupérer les plantes favorites de l'utilisateur
   getFavoritePlantes(clientId: number): Observable<any[]> {
-
     return this.http.get<any[]>(`${this.apiUrl}/favoris/plantes/${clientId}`);
-
-
   }
 
   // Ajouter une plante aux favoris
   addToFavorites(clientId: number, planteId: number): Observable<any> {
-
     return this.http.post(`${this.apiUrl}/favoris/ajouter/${clientId}/${planteId}`, {});
-
   }
 
   // Retirer une plante des favoris
-  removeFromFavorites(clientId: number, planteId: number): Observable<any> {
-
-    return this.http.delete(`${this.apiUrl}/favoris/supprimer/${clientId}/${planteId}`);
+  removeFromFavorites(clientId: number, plantId: number): Observable<any> {
+    console.log("clientId:", clientId); // Vérifier clientId
+    console.log("planteId:", plantId); // Vérifier planteId
+    const url = `${this.apiUrl}/favoris/supprimer/${clientId}/${plantId}`;
+    console.log("URL de la requête:", url); // Affichez l'URL construite
+    return this.http.delete(url, this.getHttpOptions());
   }
+  
+  
 
 
   getFavorisByClientId(clientId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/admin/favoris/clientfavoris/${clientId}`);
+    return this.http.get<any[]>(`${this.apiUrl}/favoris/clientfavoris/${clientId}`);
   }
 
   getTop5Plantes(): Observable<Map<number, number>> {
-    return this.http.get<Map<number, number>>(`${this.apiUrl}/admin/favoris/top5`,this.getHttpOptions()); 
+    return this.http.get<Map<number, number>>(`${this.apiUrl}/admin/favoris/top5`,this.getHttpOptions());
   }
 
 

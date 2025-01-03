@@ -20,6 +20,15 @@ public class ArticleEnregistre {
     @EmbeddedId //cle composite
     private ArticleId id;
 
+    @Setter
+    private boolean isSaved; // Champ isSaved
+
+    // Si vous utilisez Lombok, @Getter et @Setter suffisent, sinon ajoutez manuellement les méthodes :
+
+    public boolean getIsSaved() {
+        return isSaved;
+    }
+
 
     @ManyToOne
     @MapsId("clientId")
