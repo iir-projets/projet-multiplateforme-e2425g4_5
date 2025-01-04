@@ -4,12 +4,13 @@ import { FooterComponent } from "../footer/footer.component";
 import { NavbarComponent } from "../navbar/navbar.component";  
 import { RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-accueil',
   standalone: true,
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'],
-  imports: [CommonModule, RouterModule,NavbarComponent,FooterComponent] 
+  imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent] 
 
 })
 export class AccueilComponent {
