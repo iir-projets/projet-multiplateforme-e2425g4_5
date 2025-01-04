@@ -205,6 +205,11 @@
   color: #a4b584;
 }
 
+.bookmark-btn.saved {
+  color: #ff6347; /* Change la couleur si l'article est sauvegardé */
+}
+
+
 .bookmark-btn svg {
   width: 24px;
   height: 24px;

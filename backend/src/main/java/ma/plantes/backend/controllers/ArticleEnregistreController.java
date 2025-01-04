@@ -21,13 +21,17 @@ public class ArticleEnregistreController {
 
 
 
-    @PostMapping("/save-article")
+
+
+    @PostMapping("/save_article")
     public ResponseEntity<String> saveArticle(@RequestBody ArticleDTO articleDTO) {
         try {
+            // Appel à la méthode saveArticle du service pour enregistrer l'article
             articleEnregistreService.saveArticle(articleDTO);
             return ResponseEntity.ok("Article saved successfully");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving article: " + e.getMessage());
+            // En cas d'erreur, on retourne un message d'erreur avec un code 500
+            return ResponseEntity.status(500).body("Error saving article: " + e.getMessage());
         }
     }
 

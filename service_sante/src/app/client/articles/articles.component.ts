@@ -43,5 +43,24 @@ export class ArticleComponent implements OnInit {
   onSearchChange(): void {
     this.filterArticles();
   }
+
+  saveArticle(article: Article): void {
+    const clientId = 2; // ID du client (peut être récupéré dynamiquement via une session ou auth)
+    this.articleService.saveArticle(article.id, clientId).subscribe(
+      (response) => {
+        console.log('Article saved:', response);
+        article.isSaved = true; // Met à jour l'état local
+        this.savedArticles.push(article); // Ajoute l'article à la liste des articles enregistrés
+      },
+      (error) => {
+        console.error('Erreur lors de l\'enregistrement de l\'article:', error);
+      }
+    );
+  }
+  
+
+
 }
+
+
 

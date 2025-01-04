@@ -47,6 +47,13 @@ export class ArticleService {
     return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/${id}`, this.getHttpOptions());
   }
 
+
+  saveArticle(articleId: number, clientId: number): Observable<string> {
+    const body = { articleId, clientId };
+    return this.http.post<string>(`${this.apiUrl}/save_article`, body, this.getHttpOptions());
+  }
+  
+
   addArticle(article: CreateArticle): Observable<Article> {
     return this.http.post<Article>(`${this.apiUrl}/articles`, article, this.getHttpOptions());
   }
@@ -65,13 +72,7 @@ export class ArticleService {
   }
 
 
-  saveArticle(article: Article): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/save-article`, article);
-  }
-
-  unsaveArticle(article: Article): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/unsave-article`, article);
-  }
+ 
 
   getTop5Articles(): Observable<Map<number, number>> {
     return this.http.get<Map<number, number>>(`${this.apiUrl}/admin/savedarticle/top5`, this.getHttpOptions());

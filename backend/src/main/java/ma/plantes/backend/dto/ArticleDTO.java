@@ -1,10 +1,10 @@
 package ma.plantes.backend.dto;
 
-
-
 public class ArticleDTO {
 
-    private Long id;
+    private Long id; // ID de l'article enregistré (optionnel)
+    private Long clientId; // ID du client
+    private Long articleId; // ID de l'article
     private String titre;
     private String contenu;
     private String image;
@@ -14,8 +14,10 @@ public class ArticleDTO {
     }
 
     // Constructeur avec paramètres
-    public ArticleDTO(Long id, String titre, String contenu, String image) {
+    public ArticleDTO(Long id, Long clientId, Long articleId, String titre, String contenu, String image) {
         this.id = id;
+        this.clientId = clientId;
+        this.articleId = articleId;
         this.titre = titre;
         this.contenu = contenu;
         this.image = image;
@@ -28,6 +30,22 @@ public class ArticleDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
+    public Long getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Long articleId) {
+        this.articleId = articleId;
     }
 
     public String getTitre() {
@@ -59,11 +77,11 @@ public class ArticleDTO {
     public String toString() {
         return "ArticleDTO{" +
                 "id=" + id +
+                ", clientId=" + clientId +
+                ", articleId=" + articleId +
                 ", titre='" + titre + '\'' +
                 ", contenu='" + contenu + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }
 }
-
-

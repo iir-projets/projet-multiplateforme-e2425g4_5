@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SharedArticleService } from '../../../services/SharedArticleService/shared-article-service.service';
 
 @Component({
   selector: 'app-saved-articles',
@@ -16,11 +17,19 @@ export class SavedArticlesComponent implements OnInit {
   savedArticles: Article[] = [];
   clientId: number = 2; // Client id fixe (ou récupéré d'une session/authentification)
 
-  constructor(private articleService: ArticleService) {}
-
+  constructor(
+    private articleService: ArticleService,
+    private sharedArticleService: SharedArticleService
+  ) {}
+  
   ngOnInit(): void {
     this.loadSavedArticles();
+  
+    this.sharedArticleService.savedArticles$.subscribe((articles) => {
+      this.savedArticles = articles;
+    });
   }
+  
 
   loadSavedArticles(): void {
     this.articleService.getArticleByClientId(this.clientId).subscribe({
@@ -40,21 +49,5 @@ export class SavedArticlesComponent implements OnInit {
 
 
 
-  toggleSaveState(article: Article): void {
-    article.isSaved = !article.isSaved; // Inverse l'état de sauvegarde
-    
-    // Appelez un service pour enregistrer ou supprimer l'article sur le backend
-    if (article.isSaved) {
-      this.articleService.saveArticle(article).subscribe({
-        next: () => console.log(`Article ${article.titre} sauvegardé`),
-        error: (err) => console.error(`Erreur lors de la sauvegarde de l'article ${article.titre} :`, err)
-      });
-    } else {
-      this.articleService.unsaveArticle(article).subscribe({
-        next: () => console.log(`Article ${article.titre} supprimé des sauvegardes`),
-        error: (err) => console.error(`Erreur lors de la suppression de l'article ${article.titre} :`, err)
-      });
-    }
-  }
   
 }
