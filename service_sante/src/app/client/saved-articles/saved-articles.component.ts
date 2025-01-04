@@ -11,7 +11,7 @@ import { SharedArticleService } from '../../../services/SharedArticleService/sha
   selector: 'app-saved-articles',
   templateUrl: './saved-articles.component.html',
   styleUrls: ['./saved-articles.component.css'],
-  imports: [FooterComponent,NavbarComponent,CommonModule,FormsModule]
+  imports: [NavbarComponent,CommonModule,FormsModule]
 })
 export class SavedArticlesComponent implements OnInit {
   savedArticles: Article[] = [];
