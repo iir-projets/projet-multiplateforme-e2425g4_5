@@ -29,6 +29,8 @@ public class ArticleEnregistre {
         return isSaved;
     }
 
+    public void setIsSaved(boolean isSaved) {}
+
 
     @ManyToOne
     @MapsId("clientId")
