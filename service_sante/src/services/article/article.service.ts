@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Commentaire {
   id: number;
@@ -48,9 +49,31 @@ export class ArticleService {
   }
 
 
-  saveArticle(articleId: number, clientId: number): Observable<string> {
+  saveArticle(articleId: number, clientId: number): Observable<any> {
     const body = { articleId, clientId };
-    return this.http.post<string>(`${this.apiUrl}/save_article`, body, this.getHttpOptions());
+    return this.http.post(`${this.apiUrl}/save_article`, body, { ...this.getHttpOptions(), responseType: 'text' })
+      .pipe(
+        map(response => {
+          try {
+            return JSON.parse(response);
+          } catch (error) {
+            return { message: response };
+          }
+        })
+      );
+  }
+
+  deleteSavedArticle(clientId: number, articleId: number): Observable<any> {
+    const url = `${this.apiUrl}/delete_article/byclient/${clientId}/article/${articleId}`;
+    return this.http.delete(url, { responseType: 'text' }).pipe(
+      map((response: any) => {
+        try {
+          return JSON.parse(response);
+        } catch (error) {
+          return { message: response };
+        }
+      })
+    );
   }
   
 

@@ -4,6 +4,7 @@ import ma.plantes.backend.entities.Article;
 import ma.plantes.backend.entities.ArticleEnregistre;
 import ma.plantes.backend.entities.ArticleId;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -24,6 +25,12 @@ public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregi
 
   //  Optional<Article> findById(Long id);
 
+    // Méthode pour trouver un article par clientId et articleId
+    Optional<ArticleEnregistre> findByUserIdAndArticleId(Long clientId, Long articleId);
+
+    @Modifying
+    @Query("DELETE FROM ArticleEnregistre ae WHERE ae.id.clientId = :clientId AND ae.id.articleId = :articleId")
+    void deleteByUserIdAndArticleId(@Param("clientId") Long clientId, @Param("articleId") Long articleId);
 
 
     Optional<ArticleEnregistre> findById(ArticleId id);

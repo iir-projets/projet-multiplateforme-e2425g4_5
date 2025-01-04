@@ -20,9 +20,6 @@ public class ArticleEnregistreController {
     private final ArticleEnregistreService articleEnregistreService;
 
 
-
-
-
     @PostMapping("/save_article")
     public ResponseEntity<String> saveArticle(@RequestBody ArticleDTO articleDTO) {
         try {
@@ -34,6 +31,19 @@ public class ArticleEnregistreController {
             return ResponseEntity.status(500).body("Error saving article: " + e.getMessage());
         }
     }
+
+    @DeleteMapping("/delete_article/byclient/{clientId}/article/{articleId}")
+    public ResponseEntity<String> deleteArticleByClientIdAndArticleId(@PathVariable Long clientId, @PathVariable Long articleId) {
+        try {
+            // Appel à la méthode de suppression du service
+            articleEnregistreService.supprimerArticleParClientIdEtArticleId(clientId, articleId);
+            return ResponseEntity.ok("Article deleted successfully");
+        } catch (Exception e) {
+            // Si une erreur se produit, on retourne un message d'erreur
+            return ResponseEntity.status(500).body("Error deleting article: " + e.getMessage());
+        }
+    }
+
 
     @GetMapping("/savedarticle/byclient/{clientId}")
     public ResponseEntity<List<Article>> getSavedArticles(@PathVariable Long clientId) {

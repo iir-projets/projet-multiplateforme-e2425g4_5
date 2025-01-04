@@ -20,18 +20,6 @@ public class ArticleEnregistre {
     @EmbeddedId //cle composite
     private ArticleId id;
 
-    @Setter
-    private boolean isSaved; // Champ isSaved
-
-    // Si vous utilisez Lombok, @Getter et @Setter suffisent, sinon ajoutez manuellement les méthodes :
-
-    public boolean getIsSaved() {
-        return isSaved;
-    }
-
-    public void setIsSaved(boolean isSaved) {}
-
-
     @ManyToOne
     @MapsId("clientId")
     @JoinColumn( name = "client_id")
@@ -42,6 +30,8 @@ public class ArticleEnregistre {
     @JoinColumn( name = "article_id")
     private Article article;
 
+    @Column(name = "is_saved", nullable = false)
+    private Boolean isSaved = false; // Définir une valeur par défaut
 
 
 
