@@ -57,6 +57,20 @@ public class ArticleEnregistreService {
             articleEnregistreRepository.save(articleEnregistre);
         }
     }
+    @Transactional
+    public void supprimerArticleParClientIdEtArticleId(Long clientId, Long articleId) {
+        ArticleId articleIdComposite = new ArticleId(clientId, articleId);
+        Optional<ArticleEnregistre> articleEnregistre = articleEnregistreRepository.findById(articleIdComposite);
+
+        if (articleEnregistre.isPresent()) {
+            articleEnregistreRepository.deleteByUserIdAndArticleId(clientId, articleId);
+        } else {
+            throw new RuntimeException("Article not found for clientId: " + clientId + " and articleId: " + articleId);
+        }
+    }
+
+
+
     public Map<Long, Long> getTop5Articles() {
         List<Object[]> results = articleEnregistreRepository.findTop5ArticlesSaved();
         Map<Long, Long> topPlantes = new LinkedHashMap<>();

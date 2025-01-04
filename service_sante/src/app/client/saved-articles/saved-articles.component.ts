@@ -34,7 +34,8 @@ export class SavedArticlesComponent implements OnInit {
   loadSavedArticles(): void {
     this.articleService.getArticleByClientId(this.clientId).subscribe({
       next: (articles) => {
-        this.savedArticles = articles;  // Stocker les articles récupérés dans la variable
+        this.savedArticles = articles;
+        this.sharedArticleService.updateSavedArticles(articles);
       },
       error: (err) => {
         console.error('Erreur lors du chargement des articles enregistrés :', err);
@@ -42,9 +43,18 @@ export class SavedArticlesComponent implements OnInit {
     });
   }
 
-  removeFromSaved(article: Article): void {
-    article.isSaved = false;
-    this.savedArticles = this.savedArticles.filter(a => a.isSaved);  // Met à jour la liste d'articles
+ 
+  removeSavedArticle(articleId: number): void {
+    this.articleService.deleteSavedArticle(this.clientId, articleId).subscribe({
+      next: (response) => {
+        console.log('Article removed successfully:', response);
+        this.savedArticles = this.savedArticles.filter(article => article.id !== articleId);
+        this.sharedArticleService.updateSavedArticles(this.savedArticles);
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression de l\'article :', err);
+      },
+    });
   }
 
 
