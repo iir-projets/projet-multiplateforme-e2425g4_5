@@ -51,13 +51,38 @@ export class PlantesService {
     return this.http.get<number>(`${this.apiUrl}/admin/plantes/total`,this.getHttpOptions());
   }
 
+  
+
+  getPlantesCountByRegion(): Observable<Map<string, number>> {
+    return this.http.get<Map<string, number>>(`${this.apiUrl}/admin/plantes/totals-by-region`,this.getHttpOptions());
+  }
+  
   addHerb(plante : Plante): Observable<Plante> {
     return this.http.post<Plante>(`${this.apiUrl}/admin/plantes`,plante,this.getHttpOptions());
   }
 
+  
+  updateHerb(plante: Plante): Observable<Plante> {
+    return this.http.put<Plante>(`${this.apiUrl}/admin/plantes/${plante.id}`, plante, this.getHttpOptions());
+  }
+  
   deleteHerb(id: number): Observable<void> {  // Changez ici pour passer un ID
       return this.http.delete<void>(`${this.apiUrl}/admin/plantes/${id}`,this.getHttpOptions());
   }
+
+
+  
+  
+    // Ajouter une plante aux favoris
+    addToFavorites(clientId: number, planteId: number): Observable<any> {
+      return this.http.post(`${this.apiUrl}/favoris/ajouter/${clientId}/${planteId}`, {},this.getHttpOptions());
+    }
+  
+    // Retirer une plante des favoris
+    removeFromFavorites(clientId: number, planteId: number): Observable<any> {
+      return this.http.delete(`${this.apiUrl}/favoris/supprimer/${clientId}/${planteId}`,this.getHttpOptions());
+    }
+  
 
   /**
    * Get http options, including headers

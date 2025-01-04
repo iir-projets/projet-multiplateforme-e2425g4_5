@@ -17,6 +17,7 @@ import java.util.Set;
 @Setter
 public class Plante {
 
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -50,5 +51,8 @@ public class Plante {
     )
     private List<Propriete> proprietes = new ArrayList<>();
 
+    public String getName() {
+        return nom;
+    }
 
 }

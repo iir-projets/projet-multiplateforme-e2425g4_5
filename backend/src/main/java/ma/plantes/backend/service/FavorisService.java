@@ -1,5 +1,6 @@
 package ma.plantes.backend.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.entities.FavorisId;
@@ -26,6 +27,16 @@ public class FavorisService {
 
     private final PlanteRepository planteRepository;
 
+
+    // Récupérer les favoris d'un client spécifique
+    public List<Favoris> getFavorisByClientId(Long clientId) {
+        return favorisRepository.findAllByUserId(clientId);
+    }
+    public List<Plante> getAllPlantesFavorisByClient(Long clientId) {
+        return favorisRepository.findPlantesByClientId(clientId);
+    }
+
+
     public void ajouterFavoris(Long clientId,Long planteId){
 
         // recuperation de l'id client
@@ -46,19 +57,25 @@ public class FavorisService {
 
     }
 
-    public boolean supprimerFavoris(Long clientId,Long planteId){
-        FavorisId favorisId = new FavorisId(clientId,planteId);
-        if(favorisRepository.existsById(favorisId)){
-            favorisRepository.deleteById(favorisId);
-            return true;
+    @Transactional
+    public boolean supprimerFavoris(Long clientId, Long planteId) {
+        FavorisId favorisId = new FavorisId(clientId, planteId);
+
+        // Vérifier si le favori existe avant de supprimer
+        if (favorisRepository.existsById(favorisId)) {  // Vérification si le favori existe
+            favorisRepository.deleteById(favorisId);  // Suppression sans retourner de valeur
+            return true;  // Suppression réussie
         }
-        return false;
+        return false;  // Le favori n'existe pas
     }
+
+
 
     public List<Favoris> getAllFavoris() {
         return favorisRepository.findAll();
     }
 
+    public List<Favoris> getAllFavorisByClient(Long clientId){ return favorisRepository.findAllByUserId(clientId);}
 
     public Map<Long, Long> getTop5Plantes() {
         List<Object[]> results = favorisRepository.findTop5PlantesByFavoris();

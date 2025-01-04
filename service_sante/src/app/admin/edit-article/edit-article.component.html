@@ -1,0 +1,31 @@
+
+
+<div class="addmodal">
+    <h3 style="color: #6b8e23; margin-left: 1rem; margin-top: 1rem;">Edit Article</h3>
+  
+    <form>
+      <!-- Title -->
+      <div class="form">
+        <mat-label>Title :</mat-label>
+        <input matInput  [(ngModel)]="article.titre" name="titre">
+      </div>
+  
+      <!-- Content -->
+      <div class="form">
+        <mat-label>Content :</mat-label>
+        <textarea matInput  [(ngModel)]="article.contenu" name="contenu"></textarea>
+      </div>
+  
+      <!-- Image -->
+      <div class="form">
+        <mat-label>Image :</mat-label>
+        <input matInput  [(ngModel)]="article.image" name="image">
+      </div>
+  
+    </form>
+  </div>
+  
+   <mat-dialog-actions>
+      <button mat-button (click)="close()">CANCEL</button>
+      <button mat-raised-button color="primary" (click)="submit()">Edit</button>
+    </mat-dialog-actions>

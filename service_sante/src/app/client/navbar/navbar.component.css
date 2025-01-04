@@ -40,8 +40,8 @@
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between navigation buttons */
-    margin-left: 70%;
+    gap: 20px; /* Space between navigation buttons */
+    margin-left: 40%;
     padding: 0;
     flex-grow: 0; /* Allow the links to take available space and center them */
     justify-content: center; /* Center the links */
@@ -71,14 +71,13 @@
 
 /* Style for Log Out Button */
 .navbar-links li.log-out {
-    margin-left: 30%;
+    margin-left: 10%;
   /* Pushes the Log Out button to the far right */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar-container {
-        flex-direction: column; /* Stack items vertically */
         align-items: flex-start; /* Align the items to the start */
     }
 

@@ -13,19 +13,22 @@ export interface User {
   username: string;
 }
 
-export interface CreateArticle {
-  titre: string;
-  contenu: string;
-  images: { id: number; imageUrl: string }[];
-}
-
-
 export interface Article {
   id: number;
   titre: string;
   contenu: string;
-  images: { id: number; imageUrl: string }[];
+  image: string;
   commentaires: Commentaire[];
+  isSaved?: boolean;
+}
+
+export interface CreateArticle {
+  id?: number;
+  titre: string;
+  contenu: string;
+  image: string;
+ 
+
 }
 
 @Injectable({
@@ -38,8 +41,18 @@ export class ArticleService {
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(`${this.apiUrl}/articles`, this.getHttpOptions());
-
   }
+
+  getSavedArticles(id: number): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/${id}`, this.getHttpOptions());
+  }
+
+
+  saveArticle(articleId: number, clientId: number): Observable<string> {
+    const body = { articleId, clientId };
+    return this.http.post<string>(`${this.apiUrl}/save_article`, body, this.getHttpOptions());
+  }
+  
 
   addArticle(article: CreateArticle): Observable<Article> {
     return this.http.post<Article>(`${this.apiUrl}/articles`, article, this.getHttpOptions());
@@ -48,11 +61,29 @@ export class ArticleService {
 
   getTotal(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/admin/articles/total`,this.getHttpOptions());
-
   }
 
   getArticleById(id: number): Observable<Article> {
     return this.http.get<Article>(`${this.apiUrl}/articles/${id}`, this.getHttpOptions());
+  }
+
+  getArticleByClientId(clientId : number) : Observable<Article[]>{
+    return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/byclient/${clientId}`, this.getHttpOptions());
+  }
+
+
+ 
+
+  getTop5Articles(): Observable<Map<number, number>> {
+    return this.http.get<Map<number, number>>(`${this.apiUrl}/admin/savedarticle/top5`, this.getHttpOptions());
+  }
+
+  updateArticle(article: Article): Observable<Article> {
+    return this.http.put<Article>(`${this.apiUrl}/articles/${article.id}`, article, this.getHttpOptions());
+  }
+
+  deleteArticle(id: number): Observable<void> {  // Changez ici pour passer un ID
+    return this.http.delete<void>(`${this.apiUrl}/admin/articles/${id}`,this.getHttpOptions());
   }
 
   ajouterCommentaire(articleId: number, userId: number, contenu: string): Observable<Commentaire> {

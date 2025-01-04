@@ -9,7 +9,7 @@
     <div *ngIf="article" class="cute-article-layout">
       <article class="cute-article-content">
         <div class="cute-article-header">
-          <img [src]="article.images[0].imageUrl" [alt]="article.titre" class="cute-article-image">
+          <img [src]="article.image" [alt]="article.titre" class="cute-article-image">
           <h1 class="cute-article-title">{{ article.titre }}</h1>
         </div>
         <p class="cute-article-text">{{ article.contenu }}</p>

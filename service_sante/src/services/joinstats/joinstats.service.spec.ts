@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProfilService } from './profil.service';
+import { JoinstatsService } from './joinstats.service';
 
-describe('ProfilService', () => {
-  let service: ProfilService;
+describe('JoinstatsService', () => {
+  let service: JoinstatsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ProfilService);
+    service = TestBed.inject(JoinstatsService);
   });
 
   it('should be created', () => {

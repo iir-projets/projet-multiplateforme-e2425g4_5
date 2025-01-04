@@ -26,7 +26,7 @@ export class AddarticleComponent {
 // Propriétés pour les champs du formulaire
    article = {
     titre: '',
-    images: [],
+    image: '',
     contenu: '',
     
   };
