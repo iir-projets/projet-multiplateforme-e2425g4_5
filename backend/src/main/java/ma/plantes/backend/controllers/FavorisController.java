@@ -57,8 +57,9 @@ public class FavorisController {
 
     // Afficher les top 5 plantes
     @GetMapping("/admin/favoris/top5")
-    public Map<Long, Long> getTop5Plantes() {
+    public Map<String, Long> getTop5Plantes() {
         return favorisService.getTop5Plantes();
     }
+
 
 }

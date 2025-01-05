@@ -21,10 +21,12 @@ public interface FavorisRepository extends JpaRepository<Favoris,Long> {
 
 
 
-    @Query(value = "SELECT f.plante_id, COUNT(f.plante_id) AS total " +
+    @Query(value = "SELECT p.id AS plante_id, p.nom_plante, COUNT(p.id) AS total " +
             "FROM favoris f " +
-            "GROUP BY f.plante_id " +
+            "JOIN plante p ON f.plante_id = p.id " +
+            "GROUP BY f.plante_id, p.nom_plante " +
             "ORDER BY total DESC " +
             "LIMIT 5", nativeQuery = true)
     List<Object[]> findTop5PlantesByFavoris();
+
 }

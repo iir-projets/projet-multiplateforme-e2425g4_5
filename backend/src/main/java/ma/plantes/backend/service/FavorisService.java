@@ -81,16 +81,17 @@ public class FavorisService {
         return response;
     }
 
-    public Map<Long, Long> getTop5Plantes() {
+    public Map<String, Long> getTop5Plantes() {
         List<Object[]> results = favorisRepository.findTop5PlantesByFavoris();
-        Map<Long, Long> topPlantes = new LinkedHashMap<>();
+        Map<String, Long> topPlantes = new LinkedHashMap<>();
 
         for (Object[] result : results) {
-            Long planteId = ((Number) result[0]).longValue();
-            Long count = ((Number) result[1]).longValue();
-            topPlantes.put(planteId, count);
+            String planteName = (String) result[1]; // nom_plante
+            Long count = ((Number) result[2]).longValue(); // total
+            topPlantes.put(planteName, count);
         }
 
         return topPlantes;
     }
+
 }

@@ -10,13 +10,14 @@ import java.util.List;
 
 public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregistre, Long> {
 
-    @Query(value = "SELECT a.article_id, a.titre, COUNT(a.article_id) AS total " +
+    @Query(value = "SELECT a.id AS article_id, a.titre, COUNT(a.id) AS total " +
             "FROM article_enregistre ae " +
-            "JOIN article a ON ae.article_id = a.id " + // Jointure avec la table `article` pour récupérer le nom
+            "JOIN article a ON ae.article_id = a.id " +  // jointure sur l'ID de l'article
             "GROUP BY a.id, a.titre " +
             "ORDER BY total DESC " +
             "LIMIT 5", nativeQuery = true)
     List<Object[]> findTop5ArticlesSaved();
+
 
 
 
