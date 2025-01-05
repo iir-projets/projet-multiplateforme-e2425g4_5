@@ -20,7 +20,6 @@ public interface FavorisRepository extends JpaRepository<Favoris,Long> {
     List<Favoris> findAllByUserId(Long clientId);
 
 
-
     @Query(value = "SELECT p.id AS plante_id, p.nom_plante, COUNT(p.id) AS total " +
             "FROM favoris f " +
             "JOIN plante p ON f.plante_id = p.id " +

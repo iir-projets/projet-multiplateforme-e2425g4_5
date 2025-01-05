@@ -9,11 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface MaladieRepository extends JpaRepository<Maladie,Long> {
     boolean existsByNom(String nom);
 
-
     @Query("SELECT COUNT(m) FROM Maladie m")
         long countMaladies();
-
-
 
 
 }

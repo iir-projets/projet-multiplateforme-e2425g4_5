@@ -3,7 +3,10 @@
 <div class="favorites-container">
   <h1>🌸 My Favorite Plants</h1>
   <div class="plants-list">
-    <div class="plant-card" *ngFor="let plant of favoritePlants">
+    <div
+      class="plant-card"
+      *ngFor="let plant of favoritePlants; trackBy: trackById"
+    >
       <div class="favorite-icon" (click)="toggleFavorite(plant)">
         {{ plant.isFavorite ? '❤️' : '🤍' }}
       </div>
@@ -11,7 +14,9 @@
       <div class="plant-info">
         <h3>{{ plant.name }}</h3>
         <p>{{ plant.description }}</p>
-        <button (click)="removeFromFavorites(plant)">Remove from Favorites</button>
+        <button class="remove-btn" (click)="removeFromFavorites(plant)">
+          Remove from Favorites
+        </button>
       </div>
     </div>
 

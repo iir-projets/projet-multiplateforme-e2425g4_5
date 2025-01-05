@@ -27,10 +27,33 @@ export class PlantesComponent implements OnInit {
       this.filteredPlantes = data;
     });
   }
-
-  toggleFavorite(plant: { nom: string; image: string; isFavorite: boolean }): void {
-    plant.isFavorite = !plant.isFavorite;
+  toggleFavorite(plant: { id: number; nom: string; image: string; isFavorite: boolean }): void {
+    const clientId = 2; // ID du client connecté (peut être remplacé par une valeur dynamique)
+    
+    if (plant.isFavorite) {
+      // Si la plante est déjà en favoris, on la supprime
+      this.plantesService.removeFromFavorites(clientId, plant.id).subscribe({
+        next: () => {
+          plant.isFavorite = false;
+        },
+        error: (err) => {
+          console.error('Erreur lors de la suppression des favoris :', err);
+        },
+      });
+    } else {
+      // Si la plante n'est pas encore en favoris, on l'ajoute
+      this.plantesService.addToFavorites(clientId, plant.id).subscribe({
+        next: () => {
+          plant.isFavorite = true;
+        },
+        error: (err) => {
+          console.error('Erreur lors de l’ajout aux favoris :', err);
+        },
+      });
+    }
   }
+  
+  
 
   viewDetails(plant: { id: string }): void {
     this.router.navigate(['/details_plantes', plant.id]);

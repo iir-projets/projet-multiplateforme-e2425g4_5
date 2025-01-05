@@ -1,10 +1,51 @@
- .articles-container { max-width: 1700px; margin: 40px auto; padding: 0px 50px; font-family: 'Arial', sans-serif; background-color: #fefefe; border-radius: 12px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); text-align: center;  }
+.articles-container {
+  max-width: 1700px;
+  margin: 40px auto;
+  padding: 0px 50px;
+  font-family: 'Arial', sans-serif;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
- .articles-header { margin-bottom: 40px; }
+/* Style du titre */
+.articles-header {
+  font-size: 36px;
+  color: #C1CFA1; /* Couleur vert frais pour une touche moderne */
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif; /* Police moderne et claire */
+  font-weight: 700; /* Poids de police audacieux */
+  letter-spacing: 2px; /* Espacement des lettres pour une touche d'élégance */
+  text-transform: uppercase; /* Texte en majuscule pour plus d'impact */
+  position: relative;
+}
 
-.articles-header h1 { font-size: 36px; color: #C1CFA1;  text-align: center; margin-bottom: 40px; font-family: 'Roboto', sans-serif; font-weight: 700;  letter-spacing: 2px;  text-transform: uppercase;  position: relative; }
+.articles-header h1::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background-color: #C1CFA1; /* Même couleur que le texte */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px; /* Position sous le titre */
+}
 
-.articles-header p { font-size: 16px; color: #777; text-align: center;  }
+.articles-header h1:hover {
+  color: #ffffff; /* Change la couleur du texte au survol */
+  background-color: #C1CFA1; /* Change le fond du titre au survol */
+  padding: 8px 20px; /* Ajoute un peu de padding pour l'effet de survol */
+  border-radius: 30px; /* Arrondit les bords */
+  cursor: pointer; /* Ajoute un curseur pointer pour l'interaction */
+}
+
+.articles-header p {
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+}
 
 .view-details-btn {
   background-color: #e7cccc;
@@ -14,42 +55,115 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 0;
+  height: 50px;
 }
 
 .view-details-btn:hover {
   background-color: #d2a1a1;
 }
 
-.search-container 
-{ display: flex; justify-content: center;  align-items: center;  gap: 20px; margin-bottom: 30px; }
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
 
-.search-box { position: relative; max-width: 600px; flex: 1; }
+.search-box {
+  position: relative;
+  max-width: 600px;
+  flex: 1;
+}
 
-.search-input { width: 100%; padding: 12px 40px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; background-color: #fff; transition: border-color 0.3s ease; }
+.search-input {
+  width: 100%;
+  padding: 12px 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
 
-.search-input:focus { outline: none; border-color: #C1CFA1; }
+.search-input:focus {
+  outline: none;
+  border-color: #C1CFA1;
+}
 
-.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: #666; }
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #666;
+}
 
-.saved-articles { margin-top: 40px; background-color: #f8f8f5; padding: 20px; border-radius: 12px; }
+.saved-articles {
+  margin-top: 40px;
+  background-color: #f8f8f5;
+  padding: 20px;
+  border-radius: 12px;
+}
 
-.saved-article-card { background-color: #fff; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+.saved-article-card {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-.saved-article-card h3 { font-size: 20px; color: #333; }
+.saved-article-card h3 {
+  font-size: 20px;
+  color: #333;
+}
 
-.saved-article-card p { color: #666; font-size: 14px; }
+.saved-article-card p {
+  color: #666;
+  font-size: 14px;
+}
 
-.saved-articles h2 { color: #333; font-size: 24px; margin-bottom: 20px; }
+.saved-articles h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
- .articles-grid { display: flex; flex-direction: column; gap: 50px; justify-items: center;  }
+.articles-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-items: center;
+}
 
-.article-card { background-color: #f8f8f5; border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; height: 160px; }
+.article-card {
+  background-color: #f8f8f5;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  height: 160px;
+}
 
-.article-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-.article-image { width: 160px; height: 160px; flex-shrink: 0; }
+.article-image {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
 
-.article-image img { width: 100%; height: 100%; object-fit: cover; }
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .article-content {
   flex: 1;
@@ -66,27 +180,91 @@
   text-align: left; /* Assurez-vous que le texte est aligné à gauche */
 }
 
-
-.article-text h2 { font-size: 20px; color: #333; margin-bottom: 8px; }
-
-.article-text p { font-size: 14px; color: #666; line-height: 1.5; }
-
-.bookmark-btn { background: none; border: none; cursor: pointer; padding: 4px; color: #C1CFA1; transition: color 0.3s ease; }
-
-.bookmark-btn:hover { color: #a4b584; }
-
-.bookmark-btn svg { width: 24px; height: 24px; }
-
-.bookmark-btn.bookmarked { color: #C1CFA1; }
-
- @media (max-width: 900px) { .articles-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); } }
-
-@media (max-width: 480px) { .article-card { height: auto; flex-direction: column; }
-.article-image {
-  width: 100%;
-  height: 200px;
+.article-text h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 8px;
 }
 
-.articles-grid {
-  grid-template-columns: 1fr;
-}}
+.article-text p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.bookmark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #C1CFA1;
+  transition: color 0.3s ease;
+}
+
+.bookmark-btn:hover {
+  color: #a4b584;
+}
+
+.bookmark-btn.saved {
+  color: #ff6347; /* Change la couleur si l'article est sauvegardé */
+}
+
+
+.bookmark-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bookmark-btn.bookmarked {
+  color: #C1CFA1;
+}
+
+@media (max-width: 900px) {
+  .articles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .article-card {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .article-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+.article-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bookmark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #f0c2c2;
+}
+
+.bookmark-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bookmark-btn:hover {
+  color: #C1CFA1; /* Changer la couleur au survol pour l'effet */
+}
+
+

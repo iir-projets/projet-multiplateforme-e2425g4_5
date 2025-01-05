@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Commentaire {
   id: number;
@@ -19,6 +20,7 @@ export interface Article {
   contenu: string;
   image: string;
   commentaires: Commentaire[];
+  isSaved?: boolean;
 }
 
 export interface CreateArticle {
@@ -26,6 +28,7 @@ export interface CreateArticle {
   titre: string;
   contenu: string;
   image: string;
+ 
 
 }
 
@@ -45,6 +48,35 @@ export class ArticleService {
     return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/${id}`, this.getHttpOptions());
   }
 
+
+  saveArticle(articleId: number, clientId: number): Observable<any> {
+    const body = { articleId, clientId };
+    return this.http.post(`${this.apiUrl}/save_article`, body, { ...this.getHttpOptions(), responseType: 'text' })
+      .pipe(
+        map(response => {
+          try {
+            return JSON.parse(response);
+          } catch (error) {
+            return { message: response };
+          }
+        })
+      );
+  }
+
+  deleteSavedArticle(clientId: number, articleId: number): Observable<any> {
+    const url = `${this.apiUrl}/delete_article/byclient/${clientId}/article/${articleId}`;
+    return this.http.delete(url, { responseType: 'text' }).pipe(
+      map((response: any) => {
+        try {
+          return JSON.parse(response);
+        } catch (error) {
+          return { message: response };
+        }
+      })
+    );
+  }
+  
+
   addArticle(article: CreateArticle): Observable<Article> {
     return this.http.post<Article>(`${this.apiUrl}/admin/articles`, article, this.getHttpOptions());
   }
@@ -62,9 +94,11 @@ export class ArticleService {
     return this.http.get<Article[]>(`${this.apiUrl}/savedarticle/byclient/${clientId}`, this.getHttpOptions());
   }
 
+
   getSavedArticlesByClientId(clientId : number) : Observable<Article[]>{
     return this.http.get<Article[]>(`${this.apiUrl}/admin/savedarticle/byclient/${clientId}`, this.getHttpOptions());
   }
+
   getTop5Articles(): Observable<Map<number, number>> {
     return this.http.get<Map<number, number>>(`${this.apiUrl}/admin/savedarticle/top5`, this.getHttpOptions());
   }
