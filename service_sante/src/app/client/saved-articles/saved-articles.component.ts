@@ -1,65 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../../../services/article/article.service';  // Importer le service
+import { Article } from '../../../services/article/article.service';// Importer le modèle Article
+import { FooterComponent } from '../footer/footer.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../footer/footer.component";
-
-interface SavedArticle {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  isSaved: boolean;
-}
+import { FormsModule } from '@angular/forms';
+import { SharedArticleService } from '../../../services/SharedArticleService/shared-article-service.service';
 
 @Component({
   selector: 'app-saved-articles',
-  standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './saved-articles.component.html',
-  styleUrls: ['./saved-articles.component.css']
+  styleUrls: ['./saved-articles.component.css'],
+  imports: [NavbarComponent,CommonModule,FormsModule]
 })
-export class SavedArticlesComponent {
-  savedArticles: SavedArticle[] = [
-    {
-      id: 1,
-      title: 'Chamomile',
-      description: 'This is an article about chamomile, a gentle herb known for its calming properties.',
-      image: 'assets/images/plante4.jpg',
-      isSaved: true
-    },
-    {
-      id: 2,
-      title: 'Rosemary',
-      description: 'Discover the aromatic wonders of rosemary, a versatile herb used in cooking and aromatherapy.',
-      image: 'assets/images/plante5.jpg',
-      isSaved: true
-    },
-    {
-      id: 3,
-      title: 'Lavender',
-      description: 'Explore the soothing world of lavender, known for its relaxing scent and beautiful purple flowers.',
-      image: 'assets/images/plante6.jpg',
-      isSaved: true
-    },
-    {
-      id: 4,
-      title: 'Mint',
-      description: 'Learn about the refreshing qualities of mint, a popular herb used in teas, desserts, and more.',
-      image: 'assets/images/plante7.jpg',
-      isSaved: true
-    },
-    {
-      id: 5,
-      title: 'Basil',
-      description: 'Dive into the world of basil, a fragrant herb essential in many cuisines around the globe.',
-      image: 'assets/images/plante8.jpg',
-      isSaved: true
-    }
-  ];
+export class SavedArticlesComponent implements OnInit {
+  savedArticles: Article[] = [];
+  clientId: number = 2; // Client id fixe (ou récupéré d'une session/authentification)
 
-  removeFromSaved(article: SavedArticle) {
-    article.isSaved = false;
-    this.savedArticles = this.savedArticles.filter(a => a.isSaved);
+  constructor(
+    private articleService: ArticleService,
+    private sharedArticleService: SharedArticleService
+  ) {}
+  
+  ngOnInit(): void {
+    this.loadSavedArticles();
+  
+    this.sharedArticleService.savedArticles$.subscribe((articles) => {
+      this.savedArticles = articles;
+    });
   }
-}
+  
 
+  loadSavedArticles(): void {
+    this.articleService.getArticleByClientId(this.clientId).subscribe({
+      next: (articles) => {
+        this.savedArticles = articles;
+        this.sharedArticleService.updateSavedArticles(articles);
+      },
+      error: (err) => {
+        console.error('Erreur lors du chargement des articles enregistrés :', err);
+      }
+    });
+  }
+
+ 
+  removeSavedArticle(articleId: number): void {
+    this.articleService.deleteSavedArticle(this.clientId, articleId).subscribe({
+      next: (response) => {
+        console.log('Article removed successfully:', response);
+        this.savedArticles = this.savedArticles.filter(article => article.id !== articleId);
+        this.sharedArticleService.updateSavedArticles(this.savedArticles);
+      },
+      error: (err) => {
+        console.error('Erreur lors de la suppression de l\'article :', err);
+      },
+    });
+  }
+
+
+
+  
+}

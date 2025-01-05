@@ -80,13 +80,9 @@ public class ClientController {
         return ResponseEntity.ok(userDetailsServiceImp.deleteMedicament(id,medicament_id));
     }
 
-
     @GetMapping("/admin/clients/total")
     public ResponseEntity<Long> getTotalClientsCount() {
         return ResponseEntity.ok(userDetailsServiceImp.getTotalClientsCount());
     }
-
-
-
 
 }

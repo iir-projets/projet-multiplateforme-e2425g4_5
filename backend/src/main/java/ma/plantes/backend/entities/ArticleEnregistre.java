@@ -20,7 +20,6 @@ public class ArticleEnregistre {
     @EmbeddedId //cle composite
     private ArticleId id;
 
-
     @ManyToOne
     @MapsId("clientId")
     @JoinColumn( name = "client_id")
@@ -31,6 +30,8 @@ public class ArticleEnregistre {
     @JoinColumn( name = "article_id")
     private Article article;
 
+    @Column(name = "is_saved", nullable = false)
+    private Boolean isSaved = false; // Définir une valeur par défaut
 
 
 

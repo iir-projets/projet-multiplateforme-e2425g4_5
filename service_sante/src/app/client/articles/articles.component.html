@@ -21,7 +21,23 @@
         <h2>{{ article.titre }}</h2>
         <p>{{ article.contenu | slice:0:300 }}...</p>
       </div>
-      <button [routerLink]="['/details_articles', article.id]" class="view-details-btn">View Details</button>
+
+      <div class="article-actions">
+        <!-- Icône Saved  -->
+        <button 
+  class="bookmark-btn" 
+  (click)="saveArticle(article)"
+  [attr.aria-label]="'Save ' + article.titre + ' to saved articles'"
+  [class.saved]="article.isSaved">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+  </svg>
+</button>
+
+
+        <!-- Bouton voir les détails -->
+        <button [routerLink]="['/details_articles', article.id]" class="view-details-btn">View Details</button>
+      </div>
     </article>
   </div>
 
@@ -36,4 +52,3 @@
 </div>
 
 <app-footer></app-footer>
-

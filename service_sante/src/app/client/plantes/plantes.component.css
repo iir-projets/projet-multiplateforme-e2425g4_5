@@ -144,35 +144,48 @@
 }
 
 /* Icône de favori */
+/* Icône de favori */
 .favorite-icon {
   position: absolute;
-  top: 10px;  /* Positionnée en haut */
-  right: 10px;  /* Positionnée à droite */
-  background-color: rgba(255, 255, 255, 0.8);  /* Fond semi-transparent */
-  border-radius: 50%;  /* Cercle autour de l'icône */
-  padding: 8px;  /* Taille du cercle */
+  top: 12px;  /* Position légèrement décalée vers le bas */
+  right: 12px;  /* Alignée à droite */
+  background-color: rgba(255, 255, 255, 0.8); /* Cercle avec fond blanc légèrement transparent */
+  border: 2px solid rgba(0, 0, 0, 0.1);  /* Bord subtil */
+  border-radius: 50%;  /* Forme circulaire */
+  padding: 10px;  /* Taille du cercle */
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Ombre subtile */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Ombre plus visible */
 }
 
-/* Changer l'apparence au survol */
 .favorite-icon:hover {
-  transform: scale(1.1);  /* Agrandir légèrement au survol */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);  /* Ombre plus forte */
+  transform: scale(1.2);  /* Agrandissement notable au survol */
+  background-color: rgba(255, 0, 0, 0.2);  /* Effet rouge doux en arrière-plan */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  /* Ombre renforcée */
 }
 
-/* Image de l'icône */
-.favorite-icon-img {
-  width: 20px;  /* Taille de l'icône */
-  height: 20px;
-  object-fit: contain;  /* Ajuster sans déformation */
+.favorite-icon:active {
+  transform: scale(1.1);  /* Effet légèrement réduit au clic */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* Ombre atténuée */
 }
+
+.favorite-icon-img {
+  width: 24px;  /* Taille légèrement plus grande pour une meilleure visibilité */
+  height: 24px;
+  object-fit: contain;  /* Maintien de la proportion de l'icône */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));  /* Ombre portée élégante */
+  transition: filter 0.3s ease;
+}
+
+.favorite-icon:hover .favorite-icon-img {
+  filter: drop-shadow(0 4px 8px rgba(255, 0, 0, 0.4));  /* Ombre rouge subtile sur l'icône au survol */
+}
+
 
 /* Assurez-vous que la carte est bien positionnée */
 .card {
   position: relative;  /* Nécessaire pour positionner l'icône à l'intérieur de la carte */
-  background: #fff;
+  background: #c4d4ae;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

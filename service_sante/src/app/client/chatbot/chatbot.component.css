@@ -1,0 +1,21 @@
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  button {
+    background-color: #C1CFA1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inter;
+  }
+  
+  button:hover {
+    background-color: #a7b893;
+  }
+  

@@ -38,5 +38,11 @@ public class Article {
 
 
 
+    // Si vous utilisez Lombok, @Getter et @Setter suffisent, sinon ajoutez manuellement les méthodes :
+
+
+
+
+
 
 }
