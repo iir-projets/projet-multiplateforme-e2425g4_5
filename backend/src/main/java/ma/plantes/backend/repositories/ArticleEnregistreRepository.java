@@ -5,6 +5,7 @@ import ma.plantes.backend.entities.ArticleEnregistre;
 
 import ma.plantes.backend.entities.ArticleId;
 
+import ma.plantes.backend.entities.ArticleId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,14 +15,11 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregistre, Long> {
-
 public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregistre, ArticleId> {
 
-
-    @Query(value = "SELECT a.article_id, a.titre, COUNT(a.article_id) AS total " +
+    @Query(value = "SELECT a.id AS article_id, a.titre, COUNT(a.id) AS total " +
             "FROM article_enregistre ae " +
-            "JOIN article a ON ae.article_id = a.id " + // Jointure avec la table `article` pour récupérer le nom
+            "JOIN article a ON ae.article_id = a.id " +  // jointure sur l'ID de l'article
             "GROUP BY a.id, a.titre " +
             "ORDER BY total DESC " +
             "LIMIT 5", nativeQuery = true)

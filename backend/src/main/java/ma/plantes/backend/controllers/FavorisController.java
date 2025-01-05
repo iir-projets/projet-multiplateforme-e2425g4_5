@@ -58,9 +58,10 @@ public class FavorisController {
 
         // Convertir les favoris en DTO
         return favorisService.convertToFavorisDTO(favorisList);
+    }
 
     // Afficher tous les favoris du client
-    @GetMapping("/favoris/clientfavoris/{clientId}")
+    /*@GetMapping("/favoris/clientfavoris/{clientId}")
     public List<PlanteDto> afficherFavorisByClient(@PathVariable Long clientId) {
         // Récupérer les plantes favorites d'un client
         List<Plante> plantes = favorisService.getAllPlantesFavorisByClient(clientId);
@@ -75,13 +76,14 @@ public class FavorisController {
                 ))
                 .collect(Collectors.toList());
 
-    }
+    }*/
 
 
     // Afficher les top 5 plantes
     @GetMapping("/admin/favoris/top5")
-    public Map<Long, Long> getTop5Plantes() {
+    public Map<String, Long> getTop5Plantes() {
         return favorisService.getTop5Plantes();
     }
+
 
 }

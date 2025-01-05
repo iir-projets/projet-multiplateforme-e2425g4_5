@@ -3,21 +3,16 @@ package ma.plantes.backend.service;
 import lombok.RequiredArgsConstructor;
 
 import ma.plantes.backend.dto.ArticleEnregistreDTO;
-import ma.plantes.backend.dto.FavorisDTO;
+
 import ma.plantes.backend.entities.Article;
 import ma.plantes.backend.entities.ArticleEnregistre;
-import ma.plantes.backend.entities.Favoris;
+
 
 import ma.plantes.backend.dto.ArticleDTO;
-import ma.plantes.backend.entities.Article;
-import ma.plantes.backend.entities.ArticleEnregistre;
 import ma.plantes.backend.entities.ArticleId;
 import ma.plantes.backend.entities.User;
 
 import ma.plantes.backend.repositories.ArticleEnregistreRepository;
-import ma.plantes.backend.repositories.ArticleRepository;
-import ma.plantes.backend.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +29,9 @@ public class ArticleEnregistreService {
 
     private final ArticleEnregistreRepository articleEnregistreRepository;
 
+
     public List<ArticleEnregistre> getAllArticleEnregistreByClient(Long clientId) {
+        // Appel au repository pour récupérer les données
         return articleEnregistreRepository.findAllByUserId(clientId);
     }
 
@@ -54,8 +51,6 @@ public class ArticleEnregistreService {
     }
 
 
-
-    public Map<String, Long> getTop5Articles() {
 
     public void saveArticle(ArticleDTO articleDTO) {
         // Créez l'ID composite à partir des valeurs clientId et articleId
@@ -88,6 +83,7 @@ public class ArticleEnregistreService {
             articleEnregistreRepository.save(articleEnregistre);
         }
     }
+
     @Transactional
     public void supprimerArticleParClientIdEtArticleId(Long clientId, Long articleId) {
         ArticleId articleIdComposite = new ArticleId(clientId, articleId);
@@ -102,7 +98,7 @@ public class ArticleEnregistreService {
 
 
 
-    public Map<Long, Long> getTop5Articles() {
+    public Map<String, Long> getTop5Articles() {
 
         List<Object[]> results = articleEnregistreRepository.findTop5ArticlesSaved();
         Map<String, Long> topArticles = new LinkedHashMap<>();
