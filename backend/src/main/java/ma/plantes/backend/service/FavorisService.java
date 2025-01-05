@@ -2,6 +2,7 @@ package ma.plantes.backend.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import ma.plantes.backend.dto.FavorisDTO;
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.entities.FavorisId;
 import ma.plantes.backend.entities.Plante;
@@ -12,6 +13,7 @@ import ma.plantes.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +77,25 @@ public class FavorisService {
         return favorisRepository.findAll();
     }
 
-    public List<Favoris> getAllFavorisByClient(Long clientId){ return favorisRepository.findAllByUserId(clientId);}
+    // Method to get all favoris for a client
+    public List<Favoris> getAllFavorisByClient(Long clientId) {
+        return favorisRepository.findAllByUserId(clientId);
+    }
+
+    // Method to convert Favoris entities to DTOs
+    public List<FavorisDTO> convertToFavorisDTO(List<Favoris> favorisList) {
+        List<FavorisDTO> response = new ArrayList<>();
+        for (Favoris favoris : favorisList) {
+            FavorisDTO dto = new FavorisDTO(
+                    favoris.getUser().getId(),
+                    favoris.getUser().getUsername(),
+                    favoris.getPlante().getId(),
+                    favoris.getPlante().getNom()
+            );
+            response.add(dto);
+        }
+        return response;
+    }
 
     public Map<Long, Long> getTop5Plantes() {
         List<Object[]> results = favorisRepository.findTop5PlantesByFavoris();

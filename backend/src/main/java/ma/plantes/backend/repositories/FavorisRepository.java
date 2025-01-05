@@ -13,11 +13,13 @@ import java.util.Optional;
 @Repository
 public interface FavorisRepository extends JpaRepository<Favoris,Long> {
 
+
     boolean existsById(FavorisId favorisId);  // Renvoie un booléen
     void deleteById(FavorisId favorisId);
+
     List<Favoris> findAllByUserId(Long clientId);
 
-    Optional<Favoris> findById(FavorisId favorisId);
+
 
 
     @Query("SELECT f.plante FROM Favoris f WHERE f.user.id = :clientId")

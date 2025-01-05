@@ -2,7 +2,9 @@ package ma.plantes.backend.repositories;
 
 import ma.plantes.backend.entities.Article;
 import ma.plantes.backend.entities.ArticleEnregistre;
+
 import ma.plantes.backend.entities.ArticleId;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,19 +13,25 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
+
+public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregistre, Long> {
+
 public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregistre, ArticleId> {
 
-    @Query(value = "SELECT a.article_id, COUNT(a.article_id) AS total " +
-            "FROM article_enregistre a " +
-            "GROUP BY a.article_id " +
+
+    @Query(value = "SELECT a.article_id, a.titre, COUNT(a.article_id) AS total " +
+            "FROM article_enregistre ae " +
+            "JOIN article a ON ae.article_id = a.id " + // Jointure avec la table `article` pour récupérer le nom
+            "GROUP BY a.id, a.titre " +
             "ORDER BY total DESC " +
             "LIMIT 5", nativeQuery = true)
     List<Object[]> findTop5ArticlesSaved();
 
-    @Query("SELECT ae.article FROM ArticleEnregistre ae WHERE ae.user.id = :clientId")
-    List<Article> findByClientId(@Param("clientId") Long clientId);
 
-  //  Optional<Article> findById(Long id);
+
+
+    List<ArticleEnregistre> findAllByUserId(Long clientId);
+
 
     // Méthode pour trouver un article par clientId et articleId
     Optional<ArticleEnregistre> findByUserIdAndArticleId(Long clientId, Long articleId);
@@ -34,5 +42,6 @@ public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregi
 
 
     Optional<ArticleEnregistre> findById(ArticleId id);
+
 
 }

@@ -1,7 +1,11 @@
 package ma.plantes.backend.controllers;
 
 import lombok.RequiredArgsConstructor;
+
+import ma.plantes.backend.dto.FavorisDTO;
+
 import ma.plantes.backend.dto.PlanteDto;
+
 import ma.plantes.backend.entities.Favoris;
 import ma.plantes.backend.service.FavorisService;
 import ma.plantes.backend.entities.Plante;
@@ -46,6 +50,15 @@ public class FavorisController {
         return favorisService.getAllFavoris();
     }
 
+
+    @GetMapping("/admin/favoris/clientfavoris/{clientId}")
+    public List<FavorisDTO> afficherFavorisByClient(@PathVariable Long clientId) {
+        // Récupérer tous les favoris du client
+        List<Favoris> favorisList = favorisService.getAllFavorisByClient(clientId);
+
+        // Convertir les favoris en DTO
+        return favorisService.convertToFavorisDTO(favorisList);
+
     // Afficher tous les favoris du client
     @GetMapping("/favoris/clientfavoris/{clientId}")
     public List<PlanteDto> afficherFavorisByClient(@PathVariable Long clientId) {
@@ -61,6 +74,7 @@ public class FavorisController {
                         plante.getImage()
                 ))
                 .collect(Collectors.toList());
+
     }
 
 
