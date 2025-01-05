@@ -15,9 +15,11 @@ public interface FavorisRepository extends JpaRepository<Favoris,Long> {
 
     boolean existsById(FavorisId favorisId);
     boolean deleteById(FavorisId favorisId);
+
+    // Custom query to fetch favoris by clientId
     List<Favoris> findAllByUserId(Long clientId);
 
-    Optional<Favoris> findById(FavorisId favorisId);
+
 
     @Query(value = "SELECT f.plante_id, COUNT(f.plante_id) AS total " +
             "FROM favoris f " +

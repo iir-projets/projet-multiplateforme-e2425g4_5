@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class DetailsClientComponent implements OnInit {
   client!: Client;
   favoris: any[] = [];
-  articles: Article[] = [];
+  articles: any[] = [];
 
   constructor(
     private clientService: ClientService,
@@ -27,7 +27,8 @@ export class DetailsClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadClientDetails();
-    this.loadClientData();
+    this.loadFavorisClient();
+    this.loadSAvedArticlesByClient();
   }
 
   // Charger les détails du client
@@ -39,20 +40,25 @@ export class DetailsClientComponent implements OnInit {
     });
   }
 
-  // Charger les favoris et les articles
-  loadClientData(): void {
-    forkJoin({
-      favoris: this.favorisService.getFavorisByClientId(this.data.id),
-      articles: this.articleService.getArticleByClientId(this.data.id),
-    }).subscribe({
-      next: (results) => {
-        console.log('Favoris:', results.favoris); // Log favoris
-        console.log('Articles:', results.articles); // Log articles
-        this.favoris = results.favoris;
-        this.articles = results.articles;
+  // Charger les favoris 
+  loadFavorisClient(): void {
+    this.favorisService.getFavorisByClientId(this.data.id).subscribe({
+      next: (favoris: any[]) => {
+        this.favoris = favoris;
       },
-      error: (err) =>
-        console.error('Erreur lors de la récupération des données du client :', err),
+      error: (err: any) =>
+        console.error('Erreur lors de la récupération des favoris du client :', err),
+    });
+  }
+
+   // Charger les articles enregitres par le client
+   loadSAvedArticlesByClient(): void {
+    this.articleService.getSavedArticlesByClientId(this.data.id).subscribe({
+      next: (articles: any[]) => {
+        this.articles = articles;
+      },
+      error: (err: any) =>
+        console.error('Erreur lors de la récupération des favoris du client :', err),
     });
   }
 

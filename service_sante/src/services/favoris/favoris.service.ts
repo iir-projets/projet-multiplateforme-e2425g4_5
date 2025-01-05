@@ -31,8 +31,8 @@ export class FavorisService {
   }
 
 
-  getFavorisByClientId(clientId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/admin/favoris/clientfavoris/${clientId}`);
+  getFavorisByClientId(clientId: number): Observable<Favoris[]> {
+    return this.http.get<Favoris[]>(`${this.apiUrl}/admin/favoris/clientfavoris/${clientId}`,this.getHttpOptions());
   }
 
   getTop5Plantes(): Observable<Map<number, number>> {
