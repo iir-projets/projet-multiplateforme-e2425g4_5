@@ -39,12 +39,9 @@ public class ArticleEnregistreController {
     }
 
     @GetMapping("/savedarticle/byclient/{clientId}")
-    public List<ArticleEnregistreDTO> afficherArticleEnregistreByClient(@PathVariable Long clientId) {
-        // Récupérer tous les favoris du client
-        List<ArticleEnregistre> savedArticleList = articleEnregistreService.getAllArticleEnregistreByClient(clientId);
-
-        // Convertir les favoris en DTO
-        return articleEnregistreService.convertToArticleEnregistreDTO(savedArticleList);
+    public ResponseEntity<List<Article>> getSavedArticles(@PathVariable Long clientId) {
+        List<Article> articles = articleEnregistreService.getSavedArticlesByClientId(clientId);
+        return ResponseEntity.ok(articles);
     }
 
     @PostMapping("/save_article")

@@ -63,13 +63,14 @@ public class FavorisService {
     public boolean supprimerFavoris(Long clientId, Long planteId) {
         FavorisId favorisId = new FavorisId(clientId, planteId);
 
-        // Vérifier si le favori existe avant de supprimer
-        if (favorisRepository.existsById(favorisId)) {  // Vérification si le favori existe
-            favorisRepository.deleteById(favorisId);  // Suppression sans retourner de valeur
-            return true;  // Suppression réussie
+        if (favorisRepository.existsById(favorisId)) { // Check if the favoris exists
+            favorisRepository.deleteById(favorisId);  // Delete it
+            return true;  // Successfully deleted
         }
-        return false;  // Le favori n'existe pas
+        return false;  // Favoris does not exist
     }
+
+
 
 
 

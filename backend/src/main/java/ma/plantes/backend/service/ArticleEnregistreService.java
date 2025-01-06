@@ -35,6 +35,10 @@ public class ArticleEnregistreService {
         return articleEnregistreRepository.findAllByUserId(clientId);
     }
 
+    public List<Article> getSavedArticlesByClientId(Long clientId) {
+        return articleEnregistreRepository.findByClientId(clientId);
+    }
+
     // Method to convert Favoris entities to DTOs
     public List<ArticleEnregistreDTO> convertToArticleEnregistreDTO(List<ArticleEnregistre> savedArticleList) {
         List<ArticleEnregistreDTO> response = new ArrayList<>();
