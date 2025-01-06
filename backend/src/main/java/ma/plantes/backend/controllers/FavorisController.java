@@ -52,7 +52,7 @@ public class FavorisController {
 
 
     @GetMapping("/admin/favoris/clientfavoris/{clientId}")
-    public List<FavorisDTO> afficherFavorisByClient(@PathVariable Long clientId) {
+    public List<FavorisDTO> afficherFavorisByClientForAdmin(@PathVariable Long clientId) {
         // Récupérer tous les favoris du client
         List<Favoris> favorisList = favorisService.getAllFavorisByClient(clientId);
 
@@ -61,7 +61,7 @@ public class FavorisController {
     }
 
     // Afficher tous les favoris du client
-    /*@GetMapping("/favoris/clientfavoris/{clientId}")
+    @GetMapping("/favoris/clientfavoris/{clientId}")
     public List<PlanteDto> afficherFavorisByClient(@PathVariable Long clientId) {
         // Récupérer les plantes favorites d'un client
         List<Plante> plantes = favorisService.getAllPlantesFavorisByClient(clientId);
@@ -76,7 +76,7 @@ public class FavorisController {
                 ))
                 .collect(Collectors.toList());
 
-    }*/
+    }
 
 
     // Afficher les top 5 plantes
