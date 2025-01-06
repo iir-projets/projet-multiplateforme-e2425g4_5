@@ -33,7 +33,7 @@ export class ChartsComponent implements AfterViewInit {
 
   private fetchTop5Articles(): void {
     this.articleService.getTop5Articles().subscribe((data) => {
-      const labels = Object.keys(data).map((key) => `Article ${key}`);
+      const labels = Object.keys(data).map((key) => `${key}`);
       const values = Object.values(data);
 
       this.top5Articles = new Chart('topArticlesChart', {
@@ -55,7 +55,7 @@ export class ChartsComponent implements AfterViewInit {
 
   private fetchTop5Herbs(): void {
     this.favorisService.getTop5Plantes().subscribe((data) => {
-      const labels = Object.keys(data).map((key) => `Herbs ${key}`);
+      const labels = Object.keys(data).map((key) => `${key}`);
       const values = Object.values(data);
 
       this.top5Herbs = new Chart('topHerbsChart', {

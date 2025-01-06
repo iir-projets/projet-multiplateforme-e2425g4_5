@@ -1,18 +1,22 @@
 package ma.plantes.backend.service;
 
 import lombok.RequiredArgsConstructor;
-import ma.plantes.backend.dto.ArticleDTO;
+
+import ma.plantes.backend.dto.ArticleEnregistreDTO;
+
 import ma.plantes.backend.entities.Article;
 import ma.plantes.backend.entities.ArticleEnregistre;
+
+
+import ma.plantes.backend.dto.ArticleDTO;
 import ma.plantes.backend.entities.ArticleId;
 import ma.plantes.backend.entities.User;
+
 import ma.plantes.backend.repositories.ArticleEnregistreRepository;
-import ma.plantes.backend.repositories.ArticleRepository;
-import ma.plantes.backend.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +28,28 @@ import java.util.Optional;
 public class ArticleEnregistreService {
 
     private final ArticleEnregistreRepository articleEnregistreRepository;
+
+
+    public List<ArticleEnregistre> getAllArticleEnregistreByClient(Long clientId) {
+        // Appel au repository pour récupérer les données
+        return articleEnregistreRepository.findAllByUserId(clientId);
+    }
+
+    // Method to convert Favoris entities to DTOs
+    public List<ArticleEnregistreDTO> convertToArticleEnregistreDTO(List<ArticleEnregistre> savedArticleList) {
+        List<ArticleEnregistreDTO> response = new ArrayList<>();
+        for (ArticleEnregistre saved : savedArticleList) {
+            ArticleEnregistreDTO dto = new ArticleEnregistreDTO(
+                    saved.getUser().getId(),
+                    saved.getUser().getUsername(),
+                    saved.getArticle().getId(),
+                    saved.getArticle().getTitre()
+            );
+            response.add(dto);
+        }
+        return response;
+    }
+
 
 
     public void saveArticle(ArticleDTO articleDTO) {
@@ -57,6 +83,7 @@ public class ArticleEnregistreService {
             articleEnregistreRepository.save(articleEnregistre);
         }
     }
+
     @Transactional
     public void supprimerArticleParClientIdEtArticleId(Long clientId, Long articleId) {
         ArticleId articleIdComposite = new ArticleId(clientId, articleId);
@@ -71,20 +98,19 @@ public class ArticleEnregistreService {
 
 
 
-    public Map<Long, Long> getTop5Articles() {
+    public Map<String, Long> getTop5Articles() {
+
         List<Object[]> results = articleEnregistreRepository.findTop5ArticlesSaved();
-        Map<Long, Long> topPlantes = new LinkedHashMap<>();
+        Map<String, Long> topArticles = new LinkedHashMap<>();
 
         for (Object[] result : results) {
-            Long articleId = ((Number) result[0]).longValue();
-            Long count = ((Number) result[1]).longValue();
-            topPlantes.put(articleId, count);
+            String articleName = (String) result[1]; // Récupère le nom de l'article
+            Long count = ((Number) result[2]).longValue(); // Récupère le nombre total
+            topArticles.put(articleName, count); // Ajoute le nom de l'article et le count dans la map
         }
 
-        return topPlantes;
+        return topArticles;
     }
 
-    public List<Article> getSavedArticlesByClientId(Long clientId) {
-        return articleEnregistreRepository.findByClientId(clientId);
-    }
+
 }

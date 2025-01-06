@@ -1,27 +1,26 @@
 <div class="client-details">
-    <h2>Détails du Client</h2>
-    <p><strong>Nom :</strong> {{ client.firstName }} {{ client.lastName }}</p>
-    <p><strong>Numéro de Téléphone :</strong> {{ client.phoneNumber }}</p>
-  
-    <h3>Favoris</h3>
+      
+    <h3 class="titles">Favourites : </h3>
     <ul *ngIf="favoris.length > 0; else noFavoris">
-      <li *ngFor="let favori of favoris">{{ favori }}</li>
+      <li *ngFor="let favori of favoris">
+        <strong>{{ favori.planteName }}</strong>
+      </li>
     </ul>
     <ng-template #noFavoris>
-      <p>Aucun favori trouvé.</p>
+      <p>No favorites found.</p>
     </ng-template>
   
-    <h3>Articles Enregistrés</h3>
+    <h3 class="titles">Saved Articles :</h3>
     <ul *ngIf="articles.length > 0; else noArticles">
       <li *ngFor="let article of articles">
-        <h4>{{ article }}</h4>
+        <strong>{{ article.titreArticle }} </strong>
         
       </li>
     </ul>
     <ng-template #noArticles>
-      <p>Aucun article enregistré trouvé.</p>
+      <p>No saved articles found.</p>
     </ng-template>
   
-    <button mat-button (click)="close()">Fermer</button>
+    <button mat-button (click)="close()">Close</button>
   </div>
   
