@@ -18,14 +18,14 @@ public class ArticleController {
 
 
     // Ajouter un article
-    @PostMapping("/articles")
+    @PostMapping("/admin/articles")
     public ResponseEntity<Article> ajouterArticle(@RequestBody Article article) {
         Article newArticle = articleService.ajouterArticle(article);
         return new ResponseEntity<>(newArticle, HttpStatus.CREATED);
     }
 
     // Modifier un article
-    @PutMapping("articles/{id}")
+    @PutMapping("/admin/articles/{id}")
     public ResponseEntity<Article> modifierArticle(@PathVariable Long id, @RequestBody Article article) {
         Article updatedArticle = articleService.modifierArticle(id, article);
         if (updatedArticle == null) {

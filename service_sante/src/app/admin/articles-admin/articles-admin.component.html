@@ -5,11 +5,11 @@
     <div *ngIf="articles.length > 0" class="articles-grid">
       <div *ngFor="let article of articles" class="article-card" (click)="selectArticle(article)">
         <div class="card-actions">
-          <button mat-icon-button color="primary">
+          <button mat-icon-button class="btnaction">
             <i class="fa-solid fa-pen-to-square" (click)="updateArticle(article); $event.stopPropagation()"></i>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteArticle(article.id!); $event.stopPropagation()">
-            <i class="fa-solid fa-trash"></i>
+          <button mat-icon-button class="btnaction">
+            <i class="fa-solid fa-trash" (click)="deleteArticle(article.id!); $event.stopPropagation()"></i>
           </button>
           
         </div>

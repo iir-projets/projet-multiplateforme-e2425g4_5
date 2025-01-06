@@ -23,7 +23,7 @@
   }
 
   .chart1 {
-    width: 50%;
+    width: 75%;
     padding: 0.1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -31,7 +31,7 @@
   }
   
   .chart2 {
-    width: 50%;
+    width: 25%;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;

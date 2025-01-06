@@ -17,6 +17,7 @@ public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Long id;
 
     @Column(nullable = false)
@@ -35,17 +36,13 @@ public class Article {
     private List<Commentaire> commentaires;
 
 
-    private boolean isSaved; // Champ isSaved
+
 
     // Si vous utilisez Lombok, @Getter et @Setter suffisent, sinon ajoutez manuellement les méthodes :
 
-    public boolean getIsSaved() {
-        return isSaved;
-    }
 
-    public void setIsSaved(boolean isSaved) {
-        this.isSaved = isSaved;
-    }
+
+
 
 
 }

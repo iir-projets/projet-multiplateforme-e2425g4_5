@@ -5,28 +5,36 @@
     <p class="saved-count">{{ savedArticles.length }} articles saved</p>
   </header>
 
+  <!-- Affichage des articles enregistrés -->
   <div class="articles-grid">
     <article *ngFor="let article of savedArticles" class="article-card">
+      <!-- Image de l'article -->
       <div class="article-image">
         <img [src]="article.image" [alt]="article.titre">
       </div>
+      
+      <!-- Contenu de l'article -->
       <div class="article-content">
         <div class="article-text">
           <h2>{{ article.titre }}</h2>
           <p>{{ article.contenu }}</p>
         </div>
+
+        <!-- Bouton de suppression de l'article -->
         <button 
           class="bookmark-btn" 
-          (click)="removeFromSaved(article)"
+          (click)="removeSavedArticle(article.id)" 
           [attr.aria-label]="'Remove ' + article.titre + ' from saved articles'">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
           </svg>
+          <span>Remove</span> <!-- Texte supplémentaire pour clarification -->
         </button>
       </div>
     </article>
   </div>
 
+  <!-- Si aucun article n'est enregistré -->
   <div *ngIf="savedArticles.length === 0" class="empty-state">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -34,4 +42,4 @@
     <p>No saved articles yet</p>
   </div>
 </div>
-<app-footer></app-footer>
+
