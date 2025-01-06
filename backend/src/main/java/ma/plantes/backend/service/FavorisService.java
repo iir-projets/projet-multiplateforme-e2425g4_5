@@ -34,9 +34,9 @@ public class FavorisService {
         return favorisRepository.findAllByUserId(clientId);
     }
 
-    /*public List<Plante> getAllPlantesFavorisByClient(Long clientId) {
+    public List<Plante> getAllPlantesFavorisByClient(Long clientId) {
         return favorisRepository.findPlantesByClientId(clientId);
-    }*/
+    }
 
 
     public void ajouterFavoris(Long clientId,Long planteId){

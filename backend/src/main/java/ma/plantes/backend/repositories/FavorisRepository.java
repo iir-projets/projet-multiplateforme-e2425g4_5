@@ -28,4 +28,6 @@ public interface FavorisRepository extends JpaRepository<Favoris,Long> {
             "LIMIT 5", nativeQuery = true)
     List<Object[]> findTop5PlantesByFavoris();
 
+    @Query("SELECT f.plante FROM Favoris f WHERE f.user.id = :clientId")
+    List<Plante> findPlantesByClientId(Long clientId);
 }
