@@ -30,6 +30,15 @@ public class ArticleEnregistreController {
 
 
     @GetMapping("/admin/savedarticle/byclient/{clientId}")
+    public List<ArticleEnregistreDTO> afficherArticleEnregistreByClientForAdmin(@PathVariable Long clientId) {
+        // Récupérer tous les favoris du client
+        List<ArticleEnregistre> savedArticleList = articleEnregistreService.getAllArticleEnregistreByClient(clientId);
+
+        // Convertir les favoris en DTO
+        return articleEnregistreService.convertToArticleEnregistreDTO(savedArticleList);
+    }
+
+    @GetMapping("/savedarticle/byclient/{clientId}")
     public List<ArticleEnregistreDTO> afficherArticleEnregistreByClient(@PathVariable Long clientId) {
         // Récupérer tous les favoris du client
         List<ArticleEnregistre> savedArticleList = articleEnregistreService.getAllArticleEnregistreByClient(clientId);
