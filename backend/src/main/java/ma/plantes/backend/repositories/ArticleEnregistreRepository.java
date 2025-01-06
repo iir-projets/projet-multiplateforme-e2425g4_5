@@ -30,6 +30,8 @@ public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregi
 
     List<ArticleEnregistre> findAllByUserId(Long clientId);
 
+    @Query("SELECT ae.article FROM ArticleEnregistre ae WHERE ae.user.id = :clientId")
+    List<Article> findByClientId(@Param("clientId") Long clientId);
 
     // Méthode pour trouver un article par clientId et articleId
     Optional<ArticleEnregistre> findByUserIdAndArticleId(Long clientId, Long articleId);
