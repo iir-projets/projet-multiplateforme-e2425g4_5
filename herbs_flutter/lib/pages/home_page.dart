@@ -1,10 +1,19 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/pages/base_layout.dart';
 import 'package:herbs_flutter/pages/fragments/banner.dart';
 import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
+import 'package:kommunicate_flutter/kommunicate_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +151,7 @@ class HomePage extends StatelessWidget {
                               child: ElevatedButton(
                                 onPressed: () {
                                   // Add navigation logic
+                                  Navigator.pushReplacementNamed(context, '/herbs');
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF90A955),
@@ -173,32 +183,38 @@ class HomePage extends StatelessWidget {
             ),
           ),
           // Chatbot Button
-          Positioned(
-            right: 16,
-            bottom: 20,
-            child: FloatingActionButton(
-              onPressed: () {
-                _showChatbot(context);
-              },
-              backgroundColor: const Color.fromARGB(133, 255, 255, 255),
-              child: const Icon(
-                Icons.smart_toy,
-                color: Color(0xFF90A955), // Green button with white icon for better contrast
-                size: 37.0,          // Increased icon size
+           // Only show if conversation isn't opened yet
+            Positioned(
+              right: 16,
+              bottom: 50,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // 2219e29d79808e51117c56567f1b67c3a
+                  dynamic conversationObject = {
+                    'appId': '2219e29d79808e51117c56567f1b67c3a',
+                    'popupWidget': false,
+                    'isDefaultBotEnabled': false,
+                  };
+
+                  KommunicateFlutterPlugin.buildConversation(conversationObject)
+                      .then((clientConversationId) {
+                    print("Conversation builder success: $clientConversationId");
+                  }).catchError((error) {
+                    print("Conversation builder error: $error");
+                  });
+                },
+
+                backgroundColor: const Color.fromARGB(133, 255, 255, 255),
+                child: const Icon(
+                  Icons.smart_toy,
+                  color: Color(0xFF90A955),
+                  size: 37.0,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
   }
 
-  void _showChatbot(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => const ChatbotOverlay(),
-    );
-  }
 }

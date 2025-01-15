@@ -29,7 +29,9 @@ public class ArticleEnregistreService {
 
     private final ArticleEnregistreRepository articleEnregistreRepository;
 
-
+    public List<Article> getSavedArticlesByClientId(Long clientId) {
+        return articleEnregistreRepository.findByClientId(clientId);
+    }
     public List<ArticleEnregistre> getAllArticleEnregistreByClient(Long clientId) {
         // Appel au repository pour récupérer les données
         return articleEnregistreRepository.findAllByUserId(clientId);

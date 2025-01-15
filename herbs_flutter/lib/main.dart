@@ -11,12 +11,15 @@ import 'package:herbs_flutter/pages/profile_page.dart';
 import 'package:herbs_flutter/pages/herbs/herbs_page.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart' as firebase_ui;
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  
   firebase_ui.FirebaseUIAuth.configureProviders([
     firebase_ui.EmailAuthProvider(),
   ]);
+
   runApp(const HerbGuideApp());
 }
 

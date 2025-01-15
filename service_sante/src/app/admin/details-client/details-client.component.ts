@@ -42,7 +42,7 @@ export class DetailsClientComponent implements OnInit {
 
   // Charger les favoris 
   loadFavorisClient(): void {
-    this.favorisService.getFavorisByClientId(this.data.id).subscribe({
+    this.favorisService.getFavorisByClientIdForAdmin(this.data.id).subscribe({
       next: (favoris: any[]) => {
         this.favoris = favoris;
       },

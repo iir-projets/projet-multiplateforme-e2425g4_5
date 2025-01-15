@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface FavorisRepository extends JpaRepository<Favoris,Long> {
+public interface FavorisRepository extends JpaRepository<Favoris,FavorisId> {
 
     boolean existsById(FavorisId favorisId);
-    boolean deleteById(FavorisId favorisId);
+    //boolean deleteById(FavorisId favorisId);
 
     // Custom query to fetch favoris by clientId
     List<Favoris> findAllByUserId(Long clientId);

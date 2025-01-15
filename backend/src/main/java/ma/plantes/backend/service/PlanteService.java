@@ -33,13 +33,16 @@ public class PlanteService {
     public Plante ajouterPlante(PlanteDto plante) {
 
         Plante newPlante = new Plante();
-        newPlante.setRegion(plante.getRegion());
-        newPlante.setNom(plante.getNom());
+        if (plante.getRegion() != null)newPlante.setRegion(plante.getRegion());
+        if (plante.getNom() != null)newPlante.setNom(plante.getNom());
         if (plante.getImage() != null) newPlante.setImage(plante.getImage());
         if (plante.getPrecaution() != null) newPlante.setPrecaution(plante.getPrecaution());
         if (plante.getInteraction() != null) newPlante.setInteraction(plante.getInteraction());
         if (plante.getDescription() != null) newPlante.setDescription(plante.getDescription());
 
+        if (plante.getProprietes() == null) {
+            return planteRepository.save(newPlante);
+        }
         plante.getProprietes().forEach(proprieteDto -> {
             Propriete propriete = proprieteRepository.findByNom(proprieteDto.getNom());
             newPlante.getProprietes().add(propriete);

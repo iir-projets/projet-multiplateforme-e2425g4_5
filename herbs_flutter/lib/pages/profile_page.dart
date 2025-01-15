@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:herbs_flutter/data/users.dart' as user_data;
 import 'package:herbs_flutter/pages/base_layout.dart';
+import 'package:herbs_flutter/services/health_service.dart';
+import 'package:herbs_flutter/services/user_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -12,23 +15,25 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+  // User data
+  final UserService user_service = UserService();
+  final HealthService health_service = HealthService();
+  late user_data.Users user;
+  bool _isUserInitialized = false;
   // Sample data for dropdowns
-  final List<String> allergies = ['Pollen', 'Dust', 'Peanuts', 'Lactose', 'Gluten'];
-  final List<String> medicines = ['Aspirin', 'Ibuprofen', 'Paracetamol', 'Antibiotics'];
-  final List<String> diseases = ['Asthma', 'Diabetes', 'Hypertension', 'Heart Disease'];
+  final List<dynamic> allergies = [];
+  final List<dynamic> medicines = [];
+  final List<dynamic> diseases = [];
 
   // Selected items
-  List<String> selectedAllergies = [];
-  List<String> selectedMedicines = [];
-  List<String> selectedDiseases = [];
-
-  // User information
-  String email = 'user@example.com';
-  String mobile = '+1234567890';
-  String address = '123 Main St, City, Country';
+  List<dynamic> selectedAllergies = [];
+  List<dynamic> selectedMedicines = [];
+  List<dynamic> selectedDiseases = [];
 
   // Controllers for editing fields
-  late TextEditingController emailController;
+  late TextEditingController firstNameController;
+  late TextEditingController lastNameController;
   late TextEditingController mobileController;
   late TextEditingController addressController;
   late TextEditingController newPasswordController;
@@ -38,19 +43,136 @@ class _ProfilePageState extends State<ProfilePage> {
   dynamic _image;
   final ImagePicker _picker = ImagePicker();
 
+  void _initializeUser() async{
+    
+
+    final userData = await user_service.fetchUserData();
+    try{
+      setState(() {
+        user = user_data.Users(
+          id: userData.id,
+          email: userData.data()['email']??'',
+          firstName: userData.data()['firstName']??'',
+          lastName: userData.data()['lastName']??'',
+          mobile: userData.data()['mobile']??'',
+          address: userData.data()['adress']??'',
+          password: userData.data()['password']??'',
+          savedArticles: userData.data()['savedArticles']??'',
+          favoredHerbs: userData.data()['favoredHerbs']??'',
+          deseases: userData.data()['deseases']??'',
+          allergies: userData.data()['allergies']??'',
+          medicines: userData.data()['medicines']??'',
+          notifications: (userData.data()['notifications'] as List<dynamic>)
+            .map((e) => user_data.Notification(
+              id: e['id'],
+              title: e['title'],
+              description: e['description'],
+              articleId: e['articleId'],
+              imageUrl: e['imageUrl'],
+              isRead: e['isRead'],
+            ))
+            .toList(),
+        );
+        _isUserInitialized = true;
+      });// Initialize user data
+
+      // Set the initial values for the controllers
+      firstNameController = TextEditingController(text: user.firstName);
+      lastNameController = TextEditingController(text: user.lastName);
+      mobileController = TextEditingController(text: user.mobile);
+      addressController = TextEditingController(text: user.address);
+      selectedAllergies.addAll(user.allergies);
+      selectedMedicines.addAll(user.medicines);
+      selectedDiseases.addAll(user.deseases);
+      newPasswordController = TextEditingController();
+      confirmPasswordController = TextEditingController();
+    }catch(e){
+      print('Error fetching user: $e');
+    }
+  }
+
+
+  void _initializeHealth() async{
+    final allergiesData = await health_service.fetchAllergies();
+    final medicinesData = await health_service.fetchMedicines();
+    final diseasesData = await health_service.fetchDeseases();
+
+    setState(() {
+      allergies.addAll(allergiesData);
+      medicines.addAll(medicinesData);
+      diseases.addAll(diseasesData);
+    });
+  }
+
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController(text: email);
-    mobileController = TextEditingController(text: mobile);
-    addressController = TextEditingController(text: address);
-    newPasswordController = TextEditingController();
-    confirmPasswordController = TextEditingController();
+    _initializeUser();
+    _initializeHealth();
+    
+  }
+
+  void _updateUserHealth(String label,dynamic item, bool selected) async{
+
+    if (label == 'allergy') {
+        if (selected) {
+          try{
+            await user_service.AddAllergy(item.toString(), user);
+          }catch(e){
+            print('Error adding allergy: $e');
+          }
+        //selectedAllergies.add(item);
+      } else {
+          try{
+            await user_service.RemoveAllergy(item.toString(), user);
+          }catch(e){
+            print('Error removing allergy: $e');
+          }
+        //selectedAllergies.remove(item);
+      }
+    }
+    if (label == 'medicine') {
+      if (selected) {
+        try{
+          await user_service.AddMedicine(item.toString(), user);
+        }catch(e){
+          print('Error adding medicine: $e');
+        }
+        //selectedMedicines.add(item);
+      } else {
+        try{
+          await user_service.RemoveMedicine(item.toString(), user);
+        }catch(e){
+          print('Error removing medicine: $e');
+        }
+        //selectedMedicines.remove(item);
+      }
+    }
+    if (label == 'disease')
+    {
+      if (selected) {
+        try{
+          await user_service.AddDesease(item.toString(), user);
+        }catch(e){
+          print('Error adding desease: $e');
+        }
+        //selectedDiseases.add(item);
+      } else {
+        try{
+          await user_service.RemoveDesease(item.toString(), user);
+        }catch(e){
+          print('Error removing desease: $e');
+        }
+        //selectedDiseases.remove(item);
+      }
+    }
+    _initializeUser();
   }
 
   @override
   void dispose() {
-    emailController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
     mobileController.dispose();
     addressController.dispose();
     newPasswordController.dispose();
@@ -84,6 +206,11 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_isUserInitialized) {
+      return const Center(
+        child: CircularProgressIndicator(), // Show loading spinner
+      );
+    }
     return BaseLayout(
       currentIndex: 4,
       child: Scaffold(
@@ -153,7 +280,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     child: Column(
                       children: [
-                        _buildEditableField('email', emailController),
+                        _buildEditableField('firstName', firstNameController),
+                        _buildEditableField('lastName', lastNameController),
                         _buildEditableField('mobile', mobileController),
                         _buildEditableField('address', addressController),
                         _buildPasswordChangeField(),
@@ -191,6 +319,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: InkWell(
                       onTap: () {
                         // Handle logout
+                        user_service.Logout();
                         Navigator.of(context).pushReplacementNamed('/login');
                       },
                       child: Row(
@@ -251,9 +380,47 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {
                     // Validate and save the changes
                     setState(() {
-                      if (label == 'email') email = controller.text;
-                      if (label == 'mobile') mobile = controller.text;
-                      if (label == 'address') address = controller.text;
+                      if (label == 'firstName') {
+                        try{
+                        user_service.UpdateFirstName(controller.text, user) ;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('First name updated successful!')),
+                        );
+                        }catch(e){
+                          print('Error updating first name: $e');
+                        }
+                      }
+                      if (label == 'lastName') {
+                        try{
+                        user_service.UpdateLastName(controller.text, user);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Last name updated successful!')),
+                        );
+                        }catch(e){
+                          print('Error updating last name: $e');
+                        }
+
+                      }
+                      if (label == 'mobile') {
+                        try{
+                          user_service.UpdateMobile(controller.text, user);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Mobile updated successful!')),
+                          );
+                        }catch(e){
+                          print('Error updating mobile: $e');
+                        }
+                      }
+                      if (label == 'address') {
+                        try{
+                          user_service.UpdateAdress(controller.text, user);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Address updated successful!')),
+                          );
+                        }catch(e){
+                          print('Error updating address: $e');
+                        }
+                      }
                     });
                     // Close the expansion tile
                     // You might need to use a GlobalKey to access the ExpansionTile state
@@ -312,9 +479,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     // Validate and change password
                     if (newPasswordController.text == confirmPasswordController.text) {
                       // Change password logic here
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Password changed successfully')),
-                      );
+                      try {
+                        user_service.UpdatePassword(newPasswordController.text.toString(), user);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Password changed successfully! Please log in.')),
+                        );
+                        user_service.Logout();
+                        Navigator.of(context).pushReplacementNamed('/login');
+                      } catch (e) {
+                        print('Error updating password: $e');
+                      }
+                      
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Passwords do not match')),
@@ -333,7 +508,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildMultiSelect(String label, List<String> items, List<String> selectedItems) {
+  Widget _buildMultiSelect(String label, List<dynamic> items, List<dynamic> selectedItems) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -355,7 +530,7 @@ class _ProfilePageState extends State<ProfilePage> {
               spacing: 8,
               runSpacing: 8,
               children: items.map((item) {
-                final isSelected = selectedItems.contains(item);
+                var isSelected = selectedItems.contains(item);
                 return FilterChip(
                   label: Text(item),
                   selected: isSelected,
@@ -363,10 +538,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     setState(() {
                       if (selected) {
                         selectedItems.add(item);
+                        selected = true;
                       } else {
                         selectedItems.remove(item);
+                        selected = false;
                       }
                     });
+                    try {
+                      _updateUserHealth(label, item, selected);
+                    } catch (e) {
+                      print('Error updating user health: $e');
+                    }
                   },
                   selectedColor: const Color(0xFF90A955).withOpacity(0.2),
                   checkmarkColor: const Color(0xFF90A955),

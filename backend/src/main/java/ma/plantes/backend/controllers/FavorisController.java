@@ -62,19 +62,12 @@ public class FavorisController {
 
     // Afficher tous les favoris du client
     @GetMapping("/favoris/clientfavoris/{clientId}")
-    public List<PlanteDto> afficherFavorisByClient(@PathVariable Long clientId) {
+    public List<Plante> afficherFavorisByClient(@PathVariable Long clientId) {
         // Récupérer les plantes favorites d'un client
         List<Plante> plantes = favorisService.getAllPlantesFavorisByClient(clientId);
 
         // Convertir les entités Plante en DTO
-        return plantes.stream()
-                .map(plante -> new PlanteDto(
-                        plante.getId(),
-                        plante.getNom(),
-                        plante.getDescription(),
-                        plante.getImage()
-                ))
-                .collect(Collectors.toList());
+        return plantes;
 
     }
 

@@ -12,8 +12,7 @@ import java.util.List;
 @Setter
 public class PlanteDto {
 
-    @JsonProperty("id")
-    private Long id;
+
     @JsonProperty("nom")
     private String nom;
 
@@ -36,17 +35,18 @@ public class PlanteDto {
     private List<ProprieteDto> proprietes;
 
     // Le constructeur personnalisé pour accepter les 3 paramètres
-    public PlanteDto(Long id, String nom, String description, String image) {
-        this.id = id;
+    public PlanteDto(String nom, String description, String image) {
         this.nom = nom;
         this.description = description;
         this.image = image;
     }
-
+    public PlanteDto() {
+        // Constructeur sans arguments
+    }
 
     // Constructeur avec tous les champs
-    public PlanteDto(Long id, String nom, String description, String image, String precaution, String interaction, String region, List<ProprieteDto> proprietes) {
-        this.id = id;
+    public PlanteDto(String nom, String description, String image, String precaution, String interaction, String region, List<ProprieteDto> proprietes) {
+
         this.nom = nom;
         this.description = description;
         this.image = image;
@@ -60,7 +60,7 @@ public class PlanteDto {
     @Override
     public String toString() {
         return "PlanteDto{" +
-                "id=" + id +
+
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
                 ", precaution='" + precaution + '\'' +

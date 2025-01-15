@@ -26,7 +26,8 @@ public interface ArticleEnregistreRepository extends JpaRepository<ArticleEnregi
     List<Object[]> findTop5ArticlesSaved();
 
 
-
+    @Query("SELECT ae.article FROM ArticleEnregistre ae WHERE ae.user.id = :clientId")
+    List<Article> findByClientId(@Param("clientId") Long clientId);
 
     List<ArticleEnregistre> findAllByUserId(Long clientId);
 

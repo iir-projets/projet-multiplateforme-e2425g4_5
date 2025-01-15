@@ -20,7 +20,10 @@ public class ArticleService {
     // Ajouter un nouvel article
     public Article ajouterArticle(Article article) {
 
-        Article a=articleRepository.save(article);
+        Article a=new Article();
+        if (article.getTitre() != null) a.setTitre(article.getTitre());
+        if (article.getContenu() != null) a.setContenu(article.getContenu());
+        if (article.getImage() != null) a.setImage(article.getImage());
         return articleRepository.save(a);
     }
 

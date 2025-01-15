@@ -55,9 +55,10 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 widget.name,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 28,
+                  //background: Paint()..color = Color(0xFF90A955).withOpacity(0.7),
                 ),
               ),
               background: Image.network(
@@ -72,15 +73,15 @@ class _HerbDetailPageState extends State<HerbDetailPage>{
             actions: [
               IconButton(
               icon: Icon(
-                widget.saved ? Icons.favorite_rounded : Icons.favorite_border_rounded, // Dynamic icon
-                color: widget.saved ? Color.fromARGB(255, 220, 53, 70) : Color.fromARGB(255, 220, 53, 70), // Change color as needed
+                isSaved ? Icons.favorite_rounded : Icons.favorite_border_rounded, // Dynamic icon
+                color: isSaved ? Color.fromARGB(255, 220, 53, 70) : Color.fromARGB(255, 220, 53, 70), // Change color as needed
               ),
               iconSize: 35,
               onPressed: (){
                 
                 setState(() {
                   widget.onSaveToggle();
-                  isSaved = !widget.saved; // Toggle saved state
+                  isSaved = !isSaved; // Toggle saved state
                 });
                 
                 }, // Toggle callback

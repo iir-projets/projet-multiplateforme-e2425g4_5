@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/data/herbs.dart';
-import 'package:herbs_flutter/data/users.dart';
+import 'package:herbs_flutter/data/users.dart' as user_data;
 import 'package:herbs_flutter/pages/base_layout.dart';
 import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
 import 'package:herbs_flutter/pages/herbs/herb_card.dart';
@@ -18,9 +18,10 @@ class HerbsPage extends StatefulWidget {
 }
 
 class _HerbsPageState extends State<HerbsPage> {
+  final UserService user_service = UserService();
   final TextEditingController _searchController = TextEditingController();
   List<Herbs> filteredHerbs = [];
-  late Users user;
+  late user_data.Users user;
   bool _isUserInitialized = false;
   FirebaseFirestore db = FirebaseFirestore.instance;
   late List<Herbs> herbsDB;
@@ -48,14 +49,15 @@ class _HerbsPageState extends State<HerbsPage> {
   }
 
   void _initializeUser() async{
-    final UserService user_service = UserService();
+    
 
     final userData = await user_service.fetchUserData();
     try{
 
     
       setState(() {
-        user = Users(
+        user = user_data.Users(
+          id: userData.id,
           email: userData.data()['email']??'',
           firstName: userData.data()['firstName']??'',
           lastName: userData.data()['lastName']??'',
@@ -67,6 +69,16 @@ class _HerbsPageState extends State<HerbsPage> {
           deseases: userData.data()['deseases']??'',
           allergies: userData.data()['allergies']??'',
           medicines: userData.data()['medicines']??'',
+          notifications: (userData.data()['notifications'] as List<dynamic>)
+            .map((e) => user_data.Notification(
+              id: e['id'],
+              title: e['title'],
+              description: e['description'],
+              articleId: e['articleId'],
+              imageUrl: e['imageUrl'],
+              isRead: e['isRead'],
+            ))
+            .toList(),
         );
         _isUserInitialized = true;
       });// Initialize user data
@@ -206,10 +218,14 @@ class _HerbsPageState extends State<HerbsPage> {
                                 if (index != -1) {
                                   
                                   if (user.favoredHerbs.contains(herb.id)) {
-                                    user.favoredHerbs.remove(herb.id);
+                                    user_service.RemoveFavoriteHerb(herb, user);
+                                    //user.favoredHerbs.remove(herb.id);
                                   } else {
-                                    user.favoredHerbs.add(herb.id);
+                                    user_service.AddFavoriteHerb(herb, user);
+                                    //user.favoredHerbs.add(herb.id);
                                   }
+                                  _initializeUser();
+                                  _initializeHerbs();
                                 }
                               });
                             },
@@ -221,11 +237,16 @@ class _HerbsPageState extends State<HerbsPage> {
                       setState(() {
                         // Toggle saved status
                         if (index != -1) {
+                                  
                           if (user.favoredHerbs.contains(herb.id)) {
-                            user.favoredHerbs.remove(herb.id);
+                            user_service.RemoveFavoriteHerb(herb, user);
+                            //user.favoredHerbs.remove(herb.id);
                           } else {
-                            user.favoredHerbs.add(herb.id);
+                            user_service.AddFavoriteHerb(herb, user);
+                            //user.favoredHerbs.add(herb.id);
                           }
+                          _initializeUser();
+                          _initializeHerbs();
                         }
 
                       });

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:herbs_flutter/data/users.dart' as user_data;
 
 class NotificationCard extends StatelessWidget {
-  final Map<String, dynamic> notification;
+  final user_data.Notification notification;
   final VoidCallback onTap;
 
   const NotificationCard({
@@ -17,7 +18,7 @@ class NotificationCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(
-          color: notification['isRead'] 
+          color: notification.isRead
               ? Colors.grey[300] 
               : Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -36,8 +37,8 @@ class NotificationCard extends StatelessWidget {
               // Notification Image
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
-                child: Image.asset(
-                  notification['imageUrl'],
+                child: Image.network(
+                  notification.imageUrl,
                   width: 50,
                   height: 50,
                   fit: BoxFit.cover,
@@ -50,7 +51,7 @@ class NotificationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      notification['title'],
+                      notification.title,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -58,7 +59,7 @@ class NotificationCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      notification['description'],
+                      notification.description,
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.grey[600],

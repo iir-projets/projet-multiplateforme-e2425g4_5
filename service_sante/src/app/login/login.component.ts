@@ -28,6 +28,7 @@ export class LoginComponent {
         const role = this.authService.getRole();
 
         if (role === 'ROLE_ADMIN') {
+          console.log('ROLE_ADMIN: ', role,'token:',token);
           this.router.navigate(['/dashboard']);
         } else if (role === 'ROLE_SERVICE_SANTE') {
           console.log('ROLE_SERVICE_SANTE: ', role,'token:',token);

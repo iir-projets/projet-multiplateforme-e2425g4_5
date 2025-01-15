@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/data/articles.dart';
-import 'package:herbs_flutter/data/users.dart';
+import 'package:herbs_flutter/data/users.dart' as user_data;
 import 'package:herbs_flutter/pages/articles/article_card.dart';
 import 'package:herbs_flutter/pages/articles/article_details.dart';
 import 'package:herbs_flutter/services/user_service.dart';
@@ -19,7 +19,7 @@ class SavedArticlesPage extends StatefulWidget {
 
 class _SavedArticlesPageState extends State<SavedArticlesPage> {
   late List<Articles> _savedArticles;
-  late Users user;
+  late user_data.Users user;
   bool _isUserInitialized = false;
   @override
   void initState() {
@@ -32,7 +32,8 @@ class _SavedArticlesPageState extends State<SavedArticlesPage> {
 
     final userData = await user_service.fetchUserData();
     setState(() {
-      user = Users(
+      user = user_data.Users(
+        id: userData.id,
         email: userData.data()['email']??'',
         firstName: userData.data()['firstName']??'',
         lastName: userData.data()['lastName']??'',
@@ -44,6 +45,16 @@ class _SavedArticlesPageState extends State<SavedArticlesPage> {
         deseases: userData.data()['deseases']??'',
         allergies: userData.data()['allergies']??'',
         medicines: userData.data()['medicines']??'',
+        notifications: (userData.data()['notifications'] as List<dynamic>)
+            .map((e) => user_data.Notification(
+              id: e['id'],
+              title: e['title'],
+              description: e['description'],
+              articleId: e['articleId'],
+              imageUrl: e['imageUrl'],
+              isRead: e['isRead'],
+            ))
+            .toList(),
       );
       _isUserInitialized = true;
     });// Initialize user data
@@ -93,6 +104,8 @@ class _SavedArticlesPageState extends State<SavedArticlesPage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ArticleDetailPage(
+                          user: user,
+                          articleId: article.id,
                           title: article.title,
                           imageUrl: article.imageUrl,
                           content: article.content.map((c) => {
@@ -113,7 +126,10 @@ class _SavedArticlesPageState extends State<SavedArticlesPage> {
                       ),
                     );
                   },
-                  onSaveToggle: () => _removeArticle(index), // Remove when unsaved
+                  onSaveToggle: () => {
+                    widget.onSaveToggle(article.id),
+                    _removeArticle(index),
+                    }, // Remove when unsaved
                 );
               },
             ),

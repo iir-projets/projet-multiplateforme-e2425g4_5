@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/data/articles.dart';
-import 'package:herbs_flutter/data/users.dart';
+import 'package:herbs_flutter/data/users.dart' as user_data;
 import 'package:herbs_flutter/pages/articles/article_card.dart';
 import 'package:herbs_flutter/pages/articles/article_details.dart';
 import 'package:herbs_flutter/pages/articles/article_saved.dart';
@@ -19,12 +19,14 @@ class ArticlesPage extends StatefulWidget {
 }
 
 class _ArticlesPageState extends State<ArticlesPage> {
+  final UserService user_service = UserService();
+
   final TextEditingController _searchController = TextEditingController();
   
   List<Articles> filteredArticles = [];
   FirebaseFirestore db = FirebaseFirestore.instance;
   late List<Articles> articlesDB;
-  late Users user;
+  late user_data.Users user;
   bool _isUserInitialized = false;
   /*static List<Map<String, dynamic>> articles = [
     {
@@ -188,14 +190,15 @@ class _ArticlesPageState extends State<ArticlesPage> {
 }
 
 void _initializeUser() async{
-    final UserService user_service = UserService();
+    
 
   final userData = await user_service.fetchUserData();
   try{
 
   
     setState(() {
-      user = Users(
+      user = user_data.Users(
+        id: userData.id,
         email: userData.data()['email']??'',
         firstName: userData.data()['firstName']??'',
         lastName: userData.data()['lastName']??'',
@@ -207,6 +210,16 @@ void _initializeUser() async{
         deseases: userData.data()['deseases']??'',
         allergies: userData.data()['allergies']??'',
         medicines: userData.data()['medicines']??'',
+        notifications: (userData.data()['notifications'] as List<dynamic>)
+            .map((e) => user_data.Notification(
+              id: e['id'],
+              title: e['title'],
+              description: e['description'],
+              articleId: e['articleId'],
+              imageUrl: e['imageUrl'],
+              isRead: e['isRead'],
+            ))
+            .toList(),
       );
       _isUserInitialized = true;
     });// Initialize user data
@@ -306,11 +319,16 @@ void _initializeUser() async{
                                     onSaveToggle: (articleId) {
                                     setState(() {
                                       // Toggle saved status
-                                      final articleIndex = articlesDB.indexWhere((article) => article.id == articleId);
+
+                                      user_service.RemoveSavedArticle(articleId, user);
+                                      _initializeUser();
+                                      _initializeArticles();
+
+                                      /*final articleIndex = articlesDB.indexWhere((article) => article.id == articleId);
                                       if (articleIndex != -1) {
                                         user.savedArticles.removeAt(articleIndex);
                                         
-                                      }
+                                      }*/
                                     });
                                   },
                                   ),
@@ -341,6 +359,8 @@ void _initializeUser() async{
                           context,
                           MaterialPageRoute(
                             builder: (context) => ArticleDetailPage(
+                              user: user,
+                              articleId: article.id,
                               title: article.title,
                               imageUrl: article.imageUrl,
                               content: article.content.map((content) => {
@@ -357,10 +377,14 @@ void _initializeUser() async{
                                   // Toggle saved status
                                   if (index != -1) {
                                     if (user.savedArticles.contains(article.id)) {
-                                      user.savedArticles.remove(article.id);
+                                      user_service.RemoveSavedArticle(article.id, user);
+                                      //user.savedArticles.remove(article.id);
                                     } else {
+                                      user_service.AddSavedArticle(article, user);
                                       user.savedArticles.add(article.id);
                                     }
+                                    _initializeUser();
+                                    _initializeArticles();
                                   }
                                 });
                               },
@@ -373,10 +397,14 @@ void _initializeUser() async{
                           // Toggle saved status
                           if (index != -1) {
                             if (user.savedArticles.contains(article.id)) {
-                              user.savedArticles.remove(article.id);
+                              user_service.RemoveSavedArticle(article.id, user);
+                              //user.savedArticles.remove(article.id);
                             } else {
+                              user_service.AddSavedArticle(article, user);
                               user.savedArticles.add(article.id);
                             }
+                            _initializeUser();
+                            _initializeArticles();
                           }
 
                         });

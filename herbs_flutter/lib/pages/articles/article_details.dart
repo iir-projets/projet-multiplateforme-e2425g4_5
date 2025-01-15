@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:herbs_flutter/data/users.dart';
+import 'package:herbs_flutter/services/user_service.dart';
 
 class ArticleDetailPage extends StatefulWidget {
+  final String articleId;
+  final Users user;
   final String title;
   final String imageUrl;
   final bool saved;
@@ -10,6 +14,8 @@ class ArticleDetailPage extends StatefulWidget {
 
   const ArticleDetailPage({
     super.key,
+    required this.articleId,
+    required this.user,
     required this.title,
     required this.imageUrl,
     required this.content,
@@ -23,7 +29,7 @@ class ArticleDetailPage extends StatefulWidget {
 }
 
 class _AtricleDetailPageState extends State<ArticleDetailPage>{
-
+  final UserService user_service = UserService();
   final TextEditingController _commentController = TextEditingController();
   late bool isSaved;
   @override
@@ -36,12 +42,16 @@ class _AtricleDetailPageState extends State<ArticleDetailPage>{
   void _addComment() {
     if (_commentController.text.isNotEmpty) {
       setState(() {
-        
-        widget.comments.add({
-          'user': 'You', // You can replace this with the actual user name
-          'text': _commentController.text,
-        });
-        _commentController.clear(); // Clear the input field
+        try{
+          user_service.AddComment(widget.articleId, _commentController.text, widget.user);
+          widget.comments.add({
+            'user': '${widget.user.firstName} ${widget.user.lastName}', // Use the user's first name
+            'text': _commentController.text,
+          });
+          _commentController.clear(); // Clear the input field
+        }catch(e){
+          print(e);
+        }
       });
     }
   }
@@ -59,9 +69,10 @@ class _AtricleDetailPageState extends State<ArticleDetailPage>{
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 widget.title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 18,
+                  //background: Paint()..color = Color(0xFF90A955).withOpacity(0.7),
                 ),
               ),
               background: Image.network(
@@ -77,14 +88,14 @@ class _AtricleDetailPageState extends State<ArticleDetailPage>{
               IconButton(
               icon: Icon(
                 isSaved ? Icons.bookmark : Icons.bookmark_border_outlined, // Dynamic icon
-                color: widget.saved ? Color(0xFF90A955) : Color(0xFF90A955), // Highlight if saved
+                color: isSaved ? Color.fromARGB(255, 0, 0, 0) : Color.fromARGB(255, 0, 0, 0), // Highlight if saved
               ),
               iconSize: 35,
               onPressed: (){
                 
                 setState(() {
                   widget.onSaveToggle();
-                  isSaved = !widget.saved; // Toggle saved state
+                  isSaved = !isSaved; // Toggle saved state
                 });
                 
                 }, // Toggle callback

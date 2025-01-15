@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:herbs_flutter/data/herbs.dart';
-import 'package:herbs_flutter/data/users.dart';
+import 'package:herbs_flutter/data/users.dart' as user_data;
 import 'package:herbs_flutter/pages/base_layout.dart';
 import 'package:herbs_flutter/pages/fragments/chatbot_popup.dart';
 import 'package:herbs_flutter/pages/herbs/herb_card.dart';
@@ -19,9 +19,10 @@ class FavorisPage extends StatefulWidget {
 }
 
 class _FavorisPageState extends State<FavorisPage> {
+  final UserService user_service = UserService();
   final TextEditingController _searchController = TextEditingController();
   List<Herbs> filteredHerbs = [];
-  late Users user;
+  late user_data.Users user;
   bool _isUserInitialized = false;
   FirebaseFirestore db = FirebaseFirestore.instance;
   late List<Herbs> herbsDB;
@@ -48,7 +49,7 @@ class _FavorisPageState extends State<FavorisPage> {
   }
 
     void _initializeUser() async{
-    final UserService user_service = UserService();
+    
 
     final userData = await user_service.fetchUserData();
     
@@ -56,7 +57,8 @@ class _FavorisPageState extends State<FavorisPage> {
 
     
       setState(() {
-        user = Users(
+        user = user_data.Users(
+          id: userData.id,
           email: userData.data()['email']??'',
           firstName: userData.data()['firstName']??'',
           lastName: userData.data()['lastName']??'',
@@ -68,6 +70,16 @@ class _FavorisPageState extends State<FavorisPage> {
           deseases: userData.data()['deseases']??'',
           allergies: userData.data()['allergies']??'',
           medicines: userData.data()['medicines']??'',
+          notifications: (userData.data()['notifications'] as List<dynamic>)
+            .map((e) => user_data.Notification(
+              id: e['id'],
+              title: e['title'],
+              description: e['description'],
+              articleId: e['articleId'],
+              imageUrl: e['imageUrl'],
+              isRead: e['isRead'],
+            ))
+            .toList(),
         );
         _isUserInitialized = true;
         
@@ -109,10 +121,13 @@ class _FavorisPageState extends State<FavorisPage> {
   }
 
 
-  void _removeArticle(int index) {
+  void _removeFavorisHerb(int index) {
     setState(() {
-      user.favoredHerbs.remove(favoris[index].id); // Update saved status
-      filteredHerbs.removeAt(index); // Remove the article from the list
+      user_service.RemoveFavoriteHerb(favoris[index], user);
+      _initializeUser();
+      _initializeHerbs();
+      //user.favoredHerbs.remove(favoris[index].id); // Update saved status
+      //filteredHerbs.removeAt(index); // Remove the article from the list
     });
   }
 
@@ -224,14 +239,14 @@ class _FavorisPageState extends State<FavorisPage> {
                                 onSaveToggle: () {
                                   setState(() {
                                     // Toggle saved status
-                                    _removeArticle(index);
+                                    _removeFavorisHerb(index);
                                   });
                                 },
                               ),
                             ),
                           );
                         },
-                        onSaveToggle: () => _removeArticle(index), // Remove when unsaved
+                        onSaveToggle: () => _removeFavorisHerb(index), // Remove when unsaved
                       );
                     },
                   ),
